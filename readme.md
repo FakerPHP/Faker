@@ -11,7 +11,7 @@ Faker is heavily inspired by Perl's [Data::Faker](http://search.cpan.org/~jasonk
 
 Available Faker versions:
 
-Version constraint | supported php versions
+version constraint | supported php versions
 -------------------|------------------------
 `^2.0` | `>=7.3`
 `^1.0` | `^5.3.3` or `^7.0`
