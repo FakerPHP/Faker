@@ -11,7 +11,7 @@ final class PaymentTest extends TestCase
 {
     private $faker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $faker = new Generator();
         $faker->addProvider(new Payment($faker));
@@ -21,7 +21,7 @@ final class PaymentTest extends TestCase
     public function testFormattedVat()
     {
         $vat = $this->faker->vat(true);
-        $this->assertRegExp("/^FR\s\w{2}\s\d{3}\s\d{3}\s\d{3}$/", $vat);
+        $this->assertMatchesRegularExpression("/^FR\s\w{2}\s\d{3}\s\d{3}\s\d{3}$/", $vat);
 
         $vat = str_replace(' ', '', $vat);
         $siren = substr($vat, 4, 12);
@@ -36,7 +36,7 @@ final class PaymentTest extends TestCase
     public function testUnformattedVat()
     {
         $vat = $this->faker->vat(false);
-        $this->assertRegExp("/^FR\w{2}\d{9}$/", $vat);
+        $this->assertMatchesRegularExpression("/^FR\w{2}\d{9}$/", $vat);
 
         $siren = substr($vat, 4, 12);
         $this->assertTrue(Luhn::isValid($siren));

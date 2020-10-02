@@ -37,12 +37,12 @@ final class TextTest extends TestCase
      */
     public function testTextMaxLength($length)
     {
-        $this->assertLessThan($length, $this->generator->realText($length));
+        $this->assertLessThan($length, strlen($this->generator->realText($length)));
     }
 
     public function testTextMaxIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(\InvalidArgumentException::class);
 
         $this->generator->realText(200, 11);
 
@@ -51,7 +51,7 @@ final class TextTest extends TestCase
 
     public function testTextMinIndex()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(\InvalidArgumentException::class);
 
         $this->generator->realText(200, 0);
 
@@ -60,7 +60,7 @@ final class TextTest extends TestCase
 
     public function testTextMinLength()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException(\InvalidArgumentException::class);
 
         $this->generator->realText(9);
 

@@ -14,7 +14,7 @@ final class PhoneNumberTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $faker = new Generator();
         $faker->addProvider(new PhoneNumber($faker));
@@ -24,6 +24,6 @@ final class PhoneNumberTest extends TestCase
     public function testPhoneNumberFormat()
     {
         $number = $this->faker->phoneNumber;
-        $this->assertRegExp('/^06\d{2} \d{7}|\+43 \d{4} \d{4}(-\d{2})?$/', $number);
+        $this->assertMatchesRegularExpression('/^06\d{2} \d{7}|\+43 \d{4} \d{4}(-\d{2})?$/', $number);
     }
 }

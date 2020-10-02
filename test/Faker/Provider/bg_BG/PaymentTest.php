@@ -14,7 +14,7 @@ final class PaymentTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $faker = new Generator();
         $faker->addProvider(new Payment($faker));
@@ -25,7 +25,7 @@ final class PaymentTest extends TestCase
     {
         $vat = $this->faker->vat();
         $unspacedVat = $this->faker->vat(false);
-        $this->assertRegExp('/^(BG \d{9,10})$/', $vat);
-        $this->assertRegExp('/^(BG\d{9,10})$/', $unspacedVat);
+        $this->assertMatchesRegularExpression('/^(BG \d{9,10})$/', $vat);
+        $this->assertMatchesRegularExpression('/^(BG\d{9,10})$/', $unspacedVat);
     }
 }

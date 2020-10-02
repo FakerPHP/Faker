@@ -13,7 +13,7 @@ final class PaymentTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $faker = new Generator();
         $faker->addProvider(new Payment($faker));
@@ -30,7 +30,7 @@ final class PaymentTest extends TestCase
     public function testBankRoutingNumber()
     {
         $routingNo = $this->faker->bankRoutingNumber;
-        $this->assertRegExp('/^\d{9}$/', $routingNo);
+        $this->assertMatchesRegularExpression('/^\d{9}$/', $routingNo);
         $this->assertEquals(Payment::calculateRoutingNumberChecksum($routingNo), $routingNo[8]);
     }
 

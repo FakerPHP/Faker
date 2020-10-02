@@ -7,11 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 final class LoremTest extends TestCase
 {
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testTextThrowsExceptionWhenAskedTextSizeLessThan5()
     {
+        $this->expectException(\InvalidArgumentException::class);
         Lorem::text(4);
     }
 

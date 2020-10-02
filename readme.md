@@ -9,8 +9,12 @@ Faker is a PHP library that generates fake data for you. Whether you need to boo
 
 Faker is heavily inspired by Perl's [Data::Faker](http://search.cpan.org/~jasonk/Data-Faker-0.07/), and by ruby's [Faker](https://rubygems.org/gems/faker).
 
-Faker requires PHP >= 5.3.3.
+Available Faker versions:
 
+Version constraint | supported php versions
+-------------------|------------------------
+`^2.0` | `>=7.3`
+`^1.0` | `^5.3.3` or `^7.0`
 
 # Table of Contents
 

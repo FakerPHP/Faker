@@ -14,7 +14,7 @@ final class PersonTest extends TestCase
         $faker->addProvider(new Person($faker));
         $faker->seed(1);
 
-        $this->assertRegExp('/^[А-Я]{1}\.[\w\W]+$/u', $faker->name);
+        $this->assertMatchesRegularExpression('/^[А-Я]{1}\.[\w\W]+$/u', $faker->name);
     }
 
     public function testIdNumber()
@@ -23,6 +23,6 @@ final class PersonTest extends TestCase
         $faker->addProvider(new Person($faker));
         $faker->seed(2);
 
-        $this->assertRegExp('/^[А-Я]{2}\d{8}$/u', $faker->idNumber);
+        $this->assertMatchesRegularExpression('/^[А-Я]{2}\d{8}$/u', $faker->idNumber);
     }
 }

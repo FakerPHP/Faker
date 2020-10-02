@@ -13,7 +13,7 @@ final class CompanyTest extends TestCase
      */
     private $faker;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $faker = new Generator();
         $faker->seed(1);
@@ -28,10 +28,10 @@ final class CompanyTest extends TestCase
     {
         $pattern = '/^[VJGECP]-?\d{8}-?\d$/';
         $rif = $this->faker->taxpayerIdentificationNumber;
-        $this->assertRegExp($pattern, $rif);
+        $this->assertMatchesRegularExpression($pattern, $rif);
 
         $rif = $this->faker->taxpayerIdentificationNumber('-');
-        $this->assertRegExp($pattern, $rif);
+        $this->assertMatchesRegularExpression($pattern, $rif);
     }
 
 
