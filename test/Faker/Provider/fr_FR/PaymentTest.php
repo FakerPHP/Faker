@@ -5,7 +5,7 @@ namespace Faker\Test\Provider\fr_FR;
 use Faker\Calculator\Luhn;
 use Faker\Generator;
 use Faker\Provider\fr_FR\Payment;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class PaymentTest extends TestCase
 {

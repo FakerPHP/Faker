@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Miscellaneous;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class MiscellaneousTest extends TestCase
 {

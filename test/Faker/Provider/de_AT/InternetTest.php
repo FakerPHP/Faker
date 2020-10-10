@@ -6,7 +6,7 @@ use Faker\Generator;
 use Faker\Provider\de_AT\Person;
 use Faker\Provider\de_AT\Internet;
 use Faker\Provider\de_AT\Company;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class InternetTest extends TestCase
 {

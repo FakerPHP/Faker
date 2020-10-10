@@ -3,7 +3,7 @@
 namespace Faker\Provider\en_GB;
 
 use Faker\Generator;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class AddressTest extends TestCase
 {

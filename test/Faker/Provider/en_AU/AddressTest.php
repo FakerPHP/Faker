@@ -4,7 +4,7 @@ namespace Faker\Provider\en_AU;
 
 use Faker\Generator;
 use Faker\Provider\en_AU\Address;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class AddressTest extends TestCase
 {

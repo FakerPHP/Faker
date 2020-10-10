@@ -14,11 +14,11 @@
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0"
+        "php": "^7.1 || ^8.0"
     },
     "require-dev": {
         "ext-intl": "*",
-        "phpunit/phpunit": "^9.4",
+        "phpunit/phpunit": "^7.5 || ^8.5 || ^9.4",
         "squizlabs/php_codesniffer": "^2.9.2"
     },
     "autoload": {

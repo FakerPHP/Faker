@@ -5,7 +5,7 @@ namespace Faker\Test\Calculator;
 
 
 use Faker\Calculator\Ean;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class EanTest extends TestCase
 {

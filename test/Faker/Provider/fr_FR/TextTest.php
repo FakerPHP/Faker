@@ -2,7 +2,7 @@
 
 namespace Faker\Test\Provider\fr_FR;
 
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class TextTest extends TestCase
 {

@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\UserAgent;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class UserAgentTest extends TestCase
 {

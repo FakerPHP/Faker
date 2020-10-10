@@ -3,7 +3,7 @@ namespace Faker\Test\Provider;
 
 use Faker\Provider\Biased;
 use Faker\Generator;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class BiasedTest extends TestCase
 {

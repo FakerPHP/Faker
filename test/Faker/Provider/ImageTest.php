@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Image;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class ImageTest extends TestCase
 {

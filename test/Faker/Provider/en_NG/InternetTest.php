@@ -5,7 +5,7 @@ namespace Faker\Test\Provider\ng_NG;
 use Faker\Generator;
 use Faker\Provider\en_NG\Person;
 use Faker\Provider\en_NG\Internet;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class InternetTest extends TestCase
 {

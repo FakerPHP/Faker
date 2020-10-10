@@ -3,7 +3,7 @@
 namespace Faker\Test\Calculator;
 
 use Faker\Calculator\Iban;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class IbanTest extends TestCase
 {

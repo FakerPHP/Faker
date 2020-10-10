@@ -3,7 +3,6 @@
 namespace Faker\Test;
 
 use Faker\Generator;
-use PHPUnit\Framework\TestCase;
 
 final class GeneratorTest extends TestCase
 {

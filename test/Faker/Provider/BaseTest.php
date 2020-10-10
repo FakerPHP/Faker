@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Base as BaseProvider;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 use Traversable;
 
 final class BaseTest extends TestCase

@@ -4,7 +4,7 @@ namespace Faker\Test\Provider\fa_IR;
 
 use Faker\Provider\fa_IR\Person;
 use Faker\Generator;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 
 final class PersonTest extends TestCase
 {

@@ -4,7 +4,7 @@ namespace Faker\Test\Provider\nl_BE;
 
 use Faker\Generator;
 use Faker\Provider\nl_BE\Person;
-use PHPUnit\Framework\TestCase;
+use Faker\Test\TestCase;
 use Datetime;
 
 /**
