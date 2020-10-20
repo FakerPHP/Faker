@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "ext-intl": "*",
-        "symfony/phpunit-bridge": "^5.0",
+        "symfony/phpunit-bridge": "*",
         "squizlabs/php_codesniffer": "^2.9.2"
     },
     "autoload": {
