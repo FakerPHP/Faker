@@ -5,7 +5,7 @@ namespace Faker\Test\Provider\it_CH;
 use Faker\Calculator\Ean;
 use Faker\Generator;
 use Faker\Provider\it_CH\Person;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PersonTest extends TestCase
 {

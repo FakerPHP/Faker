@@ -5,7 +5,7 @@ namespace Faker\Test\Provider\fr_FR;
 use Faker\Calculator\Luhn;
 use Faker\Generator;
 use Faker\Provider\fr_FR\Company;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class CompanyTest extends TestCase
 {

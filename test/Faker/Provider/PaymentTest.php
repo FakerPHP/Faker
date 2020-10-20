@@ -9,7 +9,7 @@ use Faker\Provider\Base as BaseProvider;
 use Faker\Provider\DateTime as DateTimeProvider;
 use Faker\Provider\Payment as PaymentProvider;
 use Faker\Provider\Person as PersonProvider;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PaymentTest extends TestCase
 {

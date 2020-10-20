@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\DateTime as DateTimeProvider;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class DateTimeTest extends TestCase
 {

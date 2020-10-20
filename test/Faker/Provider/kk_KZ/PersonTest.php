@@ -4,7 +4,7 @@ namespace Faker\Test\Provider\kk_KZ;
 use Faker\Generator;
 use Faker\Provider\DateTime;
 use Faker\Provider\kk_KZ\Person;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PersonTest extends TestCase
 {

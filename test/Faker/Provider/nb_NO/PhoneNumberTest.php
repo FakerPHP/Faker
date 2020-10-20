@@ -4,7 +4,7 @@ namespace Faker\Test\Provider\nb_NO;
 
 use Faker\Generator;
 use Faker\Provider\nb_NO\PhoneNumber;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PhoneNumberTest extends TestCase
 {

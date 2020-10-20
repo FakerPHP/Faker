@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ProviderOverrideTest

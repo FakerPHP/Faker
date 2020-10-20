@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Factory;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class LocalizationTest extends TestCase
 {

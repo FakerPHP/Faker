@@ -4,7 +4,7 @@
 namespace Faker\Provider\en_US;
 
 use Faker\Generator;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PaymentTest extends TestCase
 {

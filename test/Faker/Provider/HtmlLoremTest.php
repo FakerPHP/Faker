@@ -4,7 +4,7 @@ namespace Faker\Test\Provider;
 
 use Faker\Generator;
 use Faker\Provider\HtmlLorem;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class HtmlLoremTest extends TestCase
 {

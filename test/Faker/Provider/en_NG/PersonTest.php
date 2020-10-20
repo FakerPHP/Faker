@@ -4,7 +4,7 @@ namespace Faker\Test\Provider\ng_NG;
 
 use Faker\Generator;
 use Faker\Provider\en_NG\Person;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class PersonTest extends TestCase
 {

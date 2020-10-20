@@ -3,7 +3,7 @@
 namespace Faker\Test\Calculator;
 
 use Faker\Calculator\Luhn;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class LuhnTest extends TestCase
 {

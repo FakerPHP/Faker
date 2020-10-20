@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "ext-intl": "*",
-        "phpunit/phpunit": "^7.5 || ^8.5 || ^9.4",
+        "symfony/phpunit-bridge": "^5.0",
         "squizlabs/php_codesniffer": "^2.9.2"
     },
     "autoload": {

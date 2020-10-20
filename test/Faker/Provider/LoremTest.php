@@ -3,7 +3,7 @@
 namespace Faker\Test\Provider;
 
 use Faker\Provider\Lorem;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class LoremTest extends TestCase
 {

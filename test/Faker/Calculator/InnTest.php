@@ -3,7 +3,7 @@
 namespace Faker\Test\Calculator;
 
 use Faker\Calculator\Inn;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class InnTest extends TestCase
 {

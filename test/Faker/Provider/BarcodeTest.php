@@ -4,7 +4,7 @@ namespace Faker\Test\Provider;
 
 use Faker\Generator;
 use Faker\Provider\Barcode;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 
 final class BarcodeTest extends TestCase
 {
