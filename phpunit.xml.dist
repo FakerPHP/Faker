@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-        bootstrap="vendor/autoload.php"
-        colors="true"
-        columns="max"
-        verbose="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    columns="max"
+    verbose="true"
+	cacheResultFile=".build/.phpunit.result.cache"
 >
-  <testsuites>
-    <testsuite name="Faker Test Suite">
-      <directory>./test/Faker/</directory>
-    </testsuite>
-  </testsuites>
+    <testsuites>
+        <testsuite name="Faker Test Suite">
+            <directory>./test/Faker/</directory>
+        </testsuite>
+    </testsuites>
 
-  <filter>
-    <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">src/</directory>
-    </whitelist>
-  </filter>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/</directory>
+        </whitelist>
+    </filter>
 </phpunit>

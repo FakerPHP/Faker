@@ -89,7 +89,7 @@ jobs:
       - name: "Install dependencies with composer"
         run: "composer install --no-interaction --no-progress --no-suggest"
 
-      - name: "Run tests with phpunit"
+      - name: "Run tests with phpunit/phpunit"
         run: "vendor/bin/simple-phpunit"
 
   code-coverage:
@@ -131,8 +131,8 @@ jobs:
       - name: "Create build directory"
         run: "mkdir -p .build/logs"
 
-      - name: "Collect code coverage with Xdebug and phpunit"
-        run: "vendor/bin/simple-phpunit --coverage-clover=.build/logs/clover.xml"
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: "vendor/bin/phpunit --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:
