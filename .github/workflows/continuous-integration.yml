@@ -132,7 +132,7 @@ jobs:
         run: "mkdir -p .build/logs"
 
       - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: "vendor/bin/phpunit --coverage-clover=.build/logs/clover.xml"
+        run: "vendor/bin/simple-phpunit --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
         env:
