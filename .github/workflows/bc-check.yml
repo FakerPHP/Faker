@@ -1,9 +1,9 @@
-name: BC Check
 
 on:
+  pull_request:
   push:
-    branches:
-      - master
+
+name: BC Check
 
 jobs:
   roave-bc-check:
