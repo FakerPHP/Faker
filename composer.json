@@ -18,8 +18,7 @@
     },
     "require-dev": {
         "ext-intl": "*",
-        "phpunit/phpunit": "^4.8.35 || ^5.7",
-        "squizlabs/php_codesniffer": "^2.9.2"
+        "phpunit/phpunit": "^4.8.35 || ^5.7"
     },
     "autoload": {
         "psr-4": {
