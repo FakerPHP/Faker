@@ -11,6 +11,15 @@ class Image extends Base
     public const BASE_URL = 'https://via.placeholder.com';
 
     /**
+     * @var array
+     * @deprecated Categories are no longer used as a list in the placeholder API but referenced as string instead
+     */
+    protected static $categories = [
+        'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
+        'fashion', 'people', 'nature', 'sports', 'technics', 'transport'
+    ];
+
+    /**
      * Generate the URL that will return a random image
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
@@ -27,13 +36,13 @@ class Image extends Base
      * @return string
      */
     public static function imageUrl(
-        int $width = 640,
-        int $height = 480,
-        ?string $category = null,
-        bool $randomize = true,
-        ?string $word = null,
-        bool $gray = false
-    ): string {
+        $width = 640,
+        $height = 480,
+        $category = null,
+        $randomize = true,
+        $word = null,
+        $gray = false
+    ) {
         $size = sprintf('%dx%d.png', $width, $height);
 
         $imageParts = [];
@@ -66,15 +75,15 @@ class Image extends Base
      * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.png'
      */
     public static function image(
-        ?string $dir = null,
-        int $width = 640,
-        int $height = 480,
-        ?string $category = null,
-        bool $fullPath = true,
-        bool $randomize = true,
-        ?string $word = null,
-        bool $gray = false
-    ): string {
+        $dir = null,
+        $width = 640,
+        $height = 480,
+        $category = null,
+        $fullPath = true,
+        $randomize = true,
+        $word = null,
+        $gray = false
+    ) {
         $dir = is_null($dir) ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
         // Validate directory path
         if (!is_dir($dir) || !is_writable($dir)) {
