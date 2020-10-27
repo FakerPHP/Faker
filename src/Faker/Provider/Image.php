@@ -63,7 +63,7 @@ class Image extends Base
             self::BASE_URL,
             $size,
             $backgroundColor,
-            count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : null
+            count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : ''
         );
     }
 
