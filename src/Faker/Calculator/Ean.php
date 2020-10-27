@@ -20,7 +20,7 @@ class Ean
      * @param string $digits
      * @return int
      */
-    public static function checksum($digits)
+    public static function checksum(string $digits): int
     {
         $length = strlen($digits);
 
@@ -44,7 +44,7 @@ class Ean
      * @param string $ean An EAN number
      * @return boolean
      */
-    public static function isValid($ean)
+    public static function isValid(string $ean): bool
     {
         if (!preg_match(self::PATTERN, $ean)) {
             return false;

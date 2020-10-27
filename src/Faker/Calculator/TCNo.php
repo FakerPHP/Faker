@@ -15,7 +15,7 @@ class TCNo
      * @param string $identityPrefix
      * @return string Checksum (two digit)
      */
-    public static function checksum($identityPrefix)
+    public static function checksum(string $identityPrefix): string
     {
         if (strlen((string)$identityPrefix) !== 9) {
             throw new InvalidArgumentException('Argument should be an integer and should be 9 digits.');
@@ -45,7 +45,7 @@ class TCNo
      * @param string $tcNo
      * @return boolean
      */
-    public static function isValid($tcNo)
+    public static function isValid(string $tcNo): bool
     {
         return self::checksum(substr($tcNo, 0, -2)) === substr($tcNo, -2, 2);
     }

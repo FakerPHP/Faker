@@ -10,7 +10,7 @@ class Iban
      * @param string $iban
      * @return string Checksum (numeric string)
      */
-    public static function checksum($iban)
+    public static function checksum(string $iban): string
     {
         // Move first four digits to end and set checksum to '00'
         $checkString = substr($iban, 4) . substr($iban, 0, 2) . '00';
@@ -25,11 +25,10 @@ class Iban
     }
 
     /**
-     * @param string $match
-     *
+     * @param mixed $match
      * @return int
      */
-    private static function alphaToNumberCallback($match)
+    private static function alphaToNumberCallback($match): int
     {
         return self::alphaToNumber($match[0]);
     }
@@ -40,7 +39,7 @@ class Iban
      * @param string $char
      * @return int
      */
-    public static function alphaToNumber($char)
+    public static function alphaToNumber(string $char): int
     {
         return ord($char) - 55;
     }
@@ -51,7 +50,7 @@ class Iban
      * @param string $number Numeric string
      * @return int
      */
-    public static function mod97($number)
+    public static function mod97(string $number): int
     {
         $checksum = (int)$number[0];
         for ($i = 1, $size = strlen($number); $i < $size; $i++) {
@@ -66,7 +65,7 @@ class Iban
      * @param string $iban
      * @return boolean
      */
-    public static function isValid($iban)
+    public static function isValid(string $iban): bool
     {
         return self::checksum($iban) === substr($iban, 2, 2);
     }

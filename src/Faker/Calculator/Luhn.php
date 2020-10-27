@@ -18,7 +18,7 @@ class Luhn
      * @param string $number
      * @return int
      */
-    private static function checksum($number)
+    private static function checksum(string $number): int
     {
         $number = (string) $number;
         $length = strlen($number);
@@ -34,10 +34,10 @@ class Luhn
     }
 
     /**
-     * @param $partialNumber
+     * @param mixed $partialNumber
      * @return string
      */
-    public static function computeCheckDigit($partialNumber)
+    public static function computeCheckDigit($partialNumber): string
     {
         $checkDigit = self::checksum($partialNumber . '0');
         if ($checkDigit === 0) {
@@ -53,7 +53,7 @@ class Luhn
      * @param string $number
      * @return bool
      */
-    public static function isValid($number)
+    public static function isValid(string $number): bool
     {
         return self::checksum($number) === 0;
     }
