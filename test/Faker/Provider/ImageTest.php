@@ -84,8 +84,7 @@ final class ImageTest extends TestCase
 
     public function testDownloadWithDefaults()
     {
-        $url = "https://via.placeholder.com";
-        $curlPing = curl_init($url);
+        $curlPing = curl_init(Image::BASE_URL);
         curl_setopt($curlPing, CURLOPT_TIMEOUT, 5);
         curl_setopt($curlPing, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($curlPing, CURLOPT_RETURNTRANSFER, true);

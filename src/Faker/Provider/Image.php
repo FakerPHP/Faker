@@ -8,14 +8,14 @@ namespace Faker\Provider;
 class Image extends Base
 {
     /** @var string */
-    private const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://via.placeholder.com';
 
     /**
      * Generate the URL that will return a random image
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'http://via.placeholder.com/640x480.png?text=well+hi+there'
+     * @example 'http://via.placeholder.com/640x480.png/CCCCCC?text=well+hi+there'
      *
      * @param integer $width
      * @param integer $height
@@ -34,7 +34,7 @@ class Image extends Base
         ?string $word = null,
         bool $gray = false
     ): string {
-        $size = sprintf('%sx%s.png', $width, $height);
+        $size = sprintf('%dx%d.png', $width, $height);
 
         $imageParts = [];
         if ($category !== null) {
