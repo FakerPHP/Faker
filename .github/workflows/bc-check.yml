@@ -2,6 +2,9 @@
 on:
   pull_request:
   push:
+    branches:
+      - "main"
+      - "[0-9].*"
 
 name: BC Check
 
