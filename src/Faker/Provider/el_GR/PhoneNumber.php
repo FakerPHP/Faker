@@ -132,8 +132,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example Prefix the country calling code: '+30'
      *
      * @internal Used to generate phone numbers with or without prefixes.
+     *
+     * @return string
      */
-    public static function internationalCodePrefix(): string
+    public static function internationalCodePrefix()
     {
         return static::randomElement(static::$internationalCallPrefixes);
     }
@@ -150,8 +152,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      *
      * @example Thessaloniki has code '231', so '2310' and '2313' are valid.
      * @example Serres has code '232', but '2326', '2328' and '2329' are not valid.
+     *
+     * @return string
      */
-    public static function areaCode(): string
+    public static function areaCode()
     {
         return static::numerify(
             str_pad(static::randomElement(static::$areaCodes), 4, '#')
@@ -172,8 +176,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A number with spaces in Thessaloniki: '2310 123 456'
      * @example A number with international code prefix: '+302101234567'
      * @example A number with international code prefix and spaces: '+30 2310 123 456'
+     *
+     * @return string
      */
-    public function fixedLineNumber(): string
+    public function fixedLineNumber()
     {
         return static::numerify($this->generator->parse(
             static::randomElement(static::$fixedLineFormats)
@@ -184,8 +190,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * Generate a code for a mobile number.
      *
      * @internal Used to generate mobile numbers.
+     *
+     * @return string
      */
-    public static function mobileCode(): string
+    public static function mobileCode()
     {
         return static::randomElement(static::$mobileCodes);
     }
@@ -197,8 +205,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A mobile number with spaces: '690 123 4567'
      * @example A mobile number with international code prefix: '+306901234567'
      * @example A mobile number with international code prefix and spaces: '+30 690 123 4567'
+     *
+     * @return string
      */
-    public function mobileNumber(): string
+    public function mobileNumber()
     {
         return static::numerify($this->generator->parse(
             static::randomElement(static::$mobileFormats)
@@ -208,7 +218,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
     /**
      * @deprecated Use PhoneNumber::mobileNumber() instead.
      */
-    public function mobilePhoneNumber(): string
+    public function mobilePhoneNumber()
     {
         return $this->mobileNumber();
     }
@@ -220,8 +230,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A personal number with spaces: '70 1234 5678'
      * @example A personal number with international code prefix: '+307012345678'
      * @example A personal number with international code prefix and spaces: '+30 70 1234 5678'
+     *
+     * @return string
      */
-    public function personalNumber(): string
+    public function personalNumber()
     {
         return static::numerify($this->generator->parse(
             static::randomElement(static::$personalFormats)
@@ -235,8 +247,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A toll-free number with spaces: '800 123 4567'
      * @example A toll-free number with international code prefix: '+308001234567'
      * @example A toll-free number with international code prefix and spaces: '+30 800 123 4567'
+     *
+     * @return string
      */
-    public function tollFreeNumber(): string
+    public function tollFreeNumber()
     {
         return static::numerify($this->generator->parse(
             static::randomElement(static::$tollFreeFormats)
@@ -247,8 +261,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * Generate a code for a shared-cost number.
      *
      * @internal Used to generate shared-cost numbers.
+     *
+     * @return string
      */
-    public static function sharedCostCode(): string
+    public static function sharedCostCode()
     {
         return static::randomElement(static::$sharedCostCodes);
     }
@@ -260,6 +276,8 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A shared-cost number with spaces: '801 123 4567'
      * @example A shared-cost number with international code prefix: '+308011234567'
      * @example A shared-cost number with international code prefix and spaces: '+30 801 123 4567'
+     *
+     * @return string
      */
     public function sharedCostNumber()
     {
@@ -272,8 +290,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * Generate a code for a premium-rate number.
      *
      * @internal Used to generate premium-rate numbers.
+     *
+     * @return string
      */
-    public static function premiumRateCode(): string
+    public static function premiumRateCode()
     {
         return static::randomElement(static::$premiumRateCodes);
     }
@@ -285,8 +305,10 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @example A premium-rate number with spaces: '901 123 4567'
      * @example A premium-rate number with international code prefix: '+309011234567'
      * @example A premium-rate number with international code prefix and spaces: '+30 901 123 4567'
+     *
+     * @return string
      */
-    public function premiumRateNumber(): string
+    public function premiumRateNumber()
     {
         return static::numerify($this->generator->parse(
             static::randomElement(static::$premiumRateFormats)
