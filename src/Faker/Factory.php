@@ -14,7 +14,7 @@ class Factory
      * @param string $locale
      * @return Generator
      */
-    public static function crXeate($locale = self::DEFAULT_LOCALE)
+    public static function crXXeate($locale = self::DEFAULT_LOCALE)
     {
         $generator = new Generator();
         foreach (static::$defaultProviders as $provider) {
