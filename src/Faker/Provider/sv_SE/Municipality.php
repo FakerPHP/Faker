@@ -2,7 +2,9 @@
 
 namespace Faker\Provider\sv_SE;
 
-class Municipality
+use Faker\Provider\Base;
+
+class Municipality extends Base
 {
     /**
      * This provider uses wikipedia's ”List of municipalities of Sweden”
