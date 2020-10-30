@@ -1,4 +1,7 @@
-preset: psr12
+preset: symfony
+
+disabled:
+  - yoda_style
 
 finder:
   path:
