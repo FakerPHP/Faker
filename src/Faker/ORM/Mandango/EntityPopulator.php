@@ -11,7 +11,7 @@ use Faker\Provider\Base;
 class EntityPopulator
 {
     protected $class;
-    protected $columnFormatters = array();
+    protected $columnFormatters = [];
 
     /**
      * Class constructor.
@@ -50,13 +50,11 @@ class EntityPopulator
     }
 
     /**
-     * @param \Faker\Generator $generator
-     * @param Mandango $mandango
      * @return array
      */
     public function guessColumnFormatters(\Faker\Generator $generator, Mandango $mandango)
     {
-        $formatters = array();
+        $formatters = [];
         $nameGuesser = new \Faker\Guesser\Name($generator);
         $columnTypeGuesser = new \Faker\ORM\Mandango\ColumnTypeGuesser($generator);
 
@@ -95,7 +93,6 @@ class EntityPopulator
 
     /**
      * Insert one new record using the Entity class.
-     * @param Mandango $mandango
      */
     public function execute(Mandango $mandango, $insertedEntities)
     {
@@ -104,7 +101,7 @@ class EntityPopulator
         $obj = $mandango->create($this->class);
         foreach ($this->columnFormatters as $column => $format) {
             if (null !== $format) {
-                $value =  is_callable($format) ? $format($insertedEntities, $obj) : $format;
+                $value = is_callable($format) ? $format($insertedEntities, $obj) : $format;
 
                 if (isset($metadata['fields'][$column]) ||
                     isset($metadata['referencesOne'][$column])) {
@@ -112,7 +109,7 @@ class EntityPopulator
                 }
 
                 if (isset($metadata['referencesMany'][$column])) {
-                    $adder = 'add' . ucfirst($column);
+                    $adder = 'add'.ucfirst($column);
                     $obj->$adder($value);
                 }
             }

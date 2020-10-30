@@ -31,11 +31,11 @@ class EntityPopulator
     /**
      * @var array
      */
-    protected $columnFormatters = array();
+    protected $columnFormatters = [];
     /**
      * @var array
      */
-    protected $modifiers = array();
+    protected $modifiers = [];
 
     /**
      * @var bool
@@ -45,8 +45,6 @@ class EntityPopulator
     /**
      * Class constructor.
      *
-     * @param Mapper $mapper
-     * @param Locator $locator
      * @param $useExistingData
      */
     public function __construct(Mapper $mapper, Locator $locator, $useExistingData = false)
@@ -88,9 +86,6 @@ class EntityPopulator
         $this->columnFormatters = array_merge($this->columnFormatters, $columnFormatters);
     }
 
-    /**
-     * @param array $modifiers
-     */
     public function setModifiers(array $modifiers)
     {
         $this->modifiers = $modifiers;
@@ -104,21 +99,17 @@ class EntityPopulator
         return $this->modifiers;
     }
 
-    /**
-     * @param array $modifiers
-     */
     public function mergeModifiersWith(array $modifiers)
     {
         $this->modifiers = array_merge($this->modifiers, $modifiers);
     }
 
     /**
-     * @param Generator $generator
      * @return array
      */
     public function guessColumnFormatters(Generator $generator)
     {
-        $formatters = array();
+        $formatters = [];
         $nameGuesser = new Name($generator);
         $columnTypeGuesser = new ColumnTypeGuesser($generator);
         $fields = $this->mapper->fields();
@@ -177,6 +168,7 @@ class EntityPopulator
      * Insert one new record using the Entity class.
      *
      * @param $insertedEntities
+     *
      * @return string
      */
     public function execute($insertedEntities)
@@ -187,7 +179,6 @@ class EntityPopulator
         $this->callMethods($obj, $insertedEntities);
 
         $this->mapper->insert($obj);
-
 
         return $obj;
     }

@@ -3,14 +3,12 @@
 namespace Faker\Provider\at_AT;
 
 /**
- * Class Payment
- *
- * @package Faker\Provider\at_AT
+ * Class Payment.
  */
 class Payment extends \Faker\Provider\Payment
 {
     /**
-     * Value Added Tax (VAT)
+     * Value Added Tax (VAT).
      *
      * @example 'ATU12345678', ('spaced') 'AT U12345678'
      *
@@ -24,17 +22,20 @@ class Payment extends \Faker\Provider\Payment
      */
     public static function vat($spacedNationalPrefix = true)
     {
-        $prefix = $spacedNationalPrefix ? "AT U" : "ATU";
+        $prefix = $spacedNationalPrefix ? 'AT U' : 'ATU';
 
-        return sprintf("%s%d", $prefix, self::randomNumber(8, true));
+        return sprintf('%s%d', $prefix, self::randomNumber(8, true));
     }
 
     /**
-     * International Bank Account Number (IBAN)
-     * @link http://en.wikipedia.org/wiki/International_Bank_Account_Number
-     * @param  string  $prefix      for generating bank account number of a specific bank
-     * @param  string  $countryCode ISO 3166-1 alpha-2 country code
-     * @param  integer $length      total length without country code and 2 check digits
+     * International Bank Account Number (IBAN).
+     *
+     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
+     *
+     * @param string $prefix      for generating bank account number of a specific bank
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @param int    $length      total length without country code and 2 check digits
+     *
      * @return string
      */
     public static function bankAccountNumber($prefix = '', $countryCode = 'AT', $length = null)

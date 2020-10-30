@@ -7,53 +7,53 @@ use Faker\Calculator\Luhn;
 class Company extends \Faker\Provider\Company
 {
     /**
-     * @var array French company name formats.
+     * @var array french company name formats
      */
-    protected static $formats = array(
+    protected static $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{lastName}} {{companySuffix}}',
         '{{lastName}}',
         '{{lastName}}',
-    );
+    ];
 
     /**
-     * @var array French catch phrase formats.
+     * @var array french catch phrase formats
      */
-    protected static $catchPhraseFormats = array(
+    protected static $catchPhraseFormats = [
         '{{catchPhraseNoun}} {{catchPhraseVerb}} {{catchPhraseAttribute}}',
-    );
+    ];
 
     /**
-     * @var array French nouns (used by the catch phrase format).
+     * @var array french nouns (used by the catch phrase format)
      */
-    protected static $noun = array(
+    protected static $noun = [
         'la sécurité', 'le plaisir', 'le confort', 'la simplicité', "l'assurance", "l'art", 'le pouvoir', 'le droit',
-        'la possibilité', "l'avantage", 'la liberté'
-    );
+        'la possibilité', "l'avantage", 'la liberté',
+    ];
 
     /**
-     * @var array French verbs (used by the catch phrase format).
+     * @var array french verbs (used by the catch phrase format)
      */
-    protected static $verb = array(
+    protected static $verb = [
         'de rouler', "d'avancer", "d'évoluer", 'de changer', "d'innover", 'de louer', "d'atteindre vos buts",
-        'de concrétiser vos projets'
-    );
+        'de concrétiser vos projets',
+    ];
 
     /**
-     * @var array End of sentences (used by the catch phrase format).
+     * @var array end of sentences (used by the catch phrase format)
      */
-    protected static $attribute = array(
+    protected static $attribute = [
         'de manière efficace', 'plus rapidement', 'plus facilement', 'plus simplement', 'en toute tranquilité',
         'avant-tout', 'autrement', 'naturellement', 'à la pointe', 'sans soucis', "à l'état pur",
-        'à sa source', 'de manière sûre', 'en toute sécurité'
-    );
+        'à sa source', 'de manière sûre', 'en toute sécurité',
+    ];
 
     /**
-     * @var array Company suffixes.
+     * @var array company suffixes
      */
-    protected static $companySuffix = array('SA', 'S.A.', 'SARL', 'S.A.R.L.', 'SAS', 'S.A.S.', 'et Fils');
+    protected static $companySuffix = ['SA', 'S.A.', 'SARL', 'S.A.R.L.', 'SAS', 'S.A.S.', 'et Fils'];
 
-    protected static $siretNicFormats = array('####', '0###', '00#%');
+    protected static $siretNicFormats = ['####', '0###', '00#%'];
 
     /**
      * Returns a random catch phrase noun.
@@ -108,6 +108,7 @@ class Company extends \Faker\Provider\Company
      * Generates a siret number (14 digits) that passes the Luhn check.
      *
      * @see http://fr.wikipedia.org/wiki/Syst%C3%A8me_d'identification_du_r%C3%A9pertoire_des_%C3%A9tablissements
+     *
      * @return string
      */
     public function siret($formatted = true)
@@ -117,7 +118,7 @@ class Company extends \Faker\Provider\Company
         $siret .= $this->numerify($nicFormat);
         $siret .= Luhn::computeCheckDigit($siret);
         if ($formatted) {
-            $siret = substr($siret, 0, 3) . ' ' . substr($siret, 3, 3) . ' ' . substr($siret, 6, 3) . ' ' . substr($siret, 9, 5);
+            $siret = substr($siret, 0, 3).' '.substr($siret, 3, 3).' '.substr($siret, 6, 3).' '.substr($siret, 9, 5);
         }
 
         return $siret;
@@ -127,6 +128,7 @@ class Company extends \Faker\Provider\Company
      * Generates a siren number (9 digits) that passes the Luhn check.
      *
      * @see http://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_entreprises
+     *
      * @return string
      */
     public static function siren($formatted = true)
@@ -134,23 +136,23 @@ class Company extends \Faker\Provider\Company
         $siren = self::numerify('%#######');
         $siren .= Luhn::computeCheckDigit($siren);
         if ($formatted) {
-            $siren = substr($siren, 0, 3) . ' ' . substr($siren, 3, 3) . ' ' . substr($siren, 6, 3);
+            $siren = substr($siren, 0, 3).' '.substr($siren, 3, 3).' '.substr($siren, 6, 3);
         }
 
         return $siren;
     }
 
     /**
-     * @var array An array containing string which should not appear twice in a catch phrase.
+     * @var array an array containing string which should not appear twice in a catch phrase
      */
-    protected static $wordsWhichShouldNotAppearTwice = array('sécurité', 'simpl');
+    protected static $wordsWhichShouldNotAppearTwice = ['sécurité', 'simpl'];
 
     /**
      * Validates a french catch phrase.
      *
-     * @param string $catchPhrase The catch phrase to validate.
+     * @param string $catchPhrase the catch phrase to validate
      *
-     * @return boolean (true if valid, false otherwise)
+     * @return bool (true if valid, false otherwise)
      */
     protected static function isCatchPhraseValid($catchPhrase)
     {
@@ -168,10 +170,10 @@ class Company extends \Faker\Provider\Company
     }
 
     /**
-     * @link http://www.pole-emploi.fr/candidat/le-code-rome-et-les-fiches-metiers-@/article.jspz?id=60702
+     * @see http://www.pole-emploi.fr/candidat/le-code-rome-et-les-fiches-metiers-@/article.jspz?id=60702
      * @note Randomly took 300 from this list
      */
-    protected static $jobTitleFormat = array(
+    protected static $jobTitleFormat = [
         'Agent d\'accueil',
         'Agent d\'enquêtes',
         'Agent d\'entreposage',
@@ -472,5 +474,5 @@ class Company extends \Faker\Provider\Company
         'Verrier à main levée',
         'Vidéo-jockey',
         'Vitrier',
-    );
+    ];
 }

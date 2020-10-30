@@ -7,49 +7,49 @@ use Faker\Calculator\TCNo;
 class Person extends \Faker\Provider\Person
 {
     /**
-     * @var array Turkish person name formats.
+     * @var array turkish person name formats
      */
-    protected static $maleNameFormats = array(
+    protected static $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
         '{{titleMale}} {{firstNameMale}} {{lastName}}',
-    );
+    ];
 
-    protected static $femaleNameFormats = array(
+    protected static $femaleNameFormats = [
         '{{firstNameFemale}} {{lastName}}',
         '{{firstNameFemale}} {{lastName}}',
         '{{firstNameFemale}} {{lastName}}',
         '{{titleFemale}} {{firstNameFemale}} {{lastName}}',
-    );
+    ];
 
     /**
-     * @link http://www.guzelisimler.com/en_cok_aranan_erkek_isimleri.php
+     * @see http://www.guzelisimler.com/en_cok_aranan_erkek_isimleri.php
      *
-     * @var array Turkish first names.
+     * @var array turkish first names
      */
-    protected static $firstNameMale = array(
+    protected static $firstNameMale = [
         'Ahmet', 'Ali', 'Alp', 'Armağan', 'Atakan', 'Aşkın', 'Baran', 'Bartu', 'Berk', 'Berkay', 'Berke', 'Bora', 'Burak', 'Canberk',
         'Cem', 'Cihan', 'Deniz', 'Efe', 'Ege', 'Ege', 'Emir', 'Emirhan', 'Emre', 'Ferid', 'Göktürk', 'Görkem', 'Güney',
         'Kağan', 'Kerem', 'Koray', 'Kutay', 'Mert', 'Onur', 'Ogün', 'Polat', 'Rüzgar', 'Sarp', 'Serhan', 'Toprak', 'Tuna',
-        'Türker', 'Utku', 'Yağız', 'Yiğit', 'Çınar', 'Derin', 'Meriç', 'Barlas', 'Dağhan', 'Doruk', 'Çağan'
-    );
+        'Türker', 'Utku', 'Yağız', 'Yiğit', 'Çınar', 'Derin', 'Meriç', 'Barlas', 'Dağhan', 'Doruk', 'Çağan',
+    ];
 
     /**
-     * @link http://www.guzelisimler.com/en_cok_aranan_kiz_isimleri.php
+     * @see http://www.guzelisimler.com/en_cok_aranan_kiz_isimleri.php
      *
-     * @var array Turkish first names.
+     * @var array turkish first names
      */
-    protected static $firstNameFemale = array(
-        'Ada', 'Esma', 'Emel', 'Ebru', 'Şahnur', 'Ümran', 'Sinem', 'İrem', 'Rüya', 'Ece', 'Burcu'
-    );
+    protected static $firstNameFemale = [
+        'Ada', 'Esma', 'Emel', 'Ebru', 'Şahnur', 'Ümran', 'Sinem', 'İrem', 'Rüya', 'Ece', 'Burcu',
+    ];
 
     /**
-     * @link http://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk%C3%A7e_soyadlar%C4%B1
+     * @see http://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk%C3%A7e_soyadlar%C4%B1
      *
-     * @var array Turkish last names.
+     * @var array turkish last names
      */
-    protected static $lastName = array(
+    protected static $lastName = [
         'Abacı', 'Abadan', 'Aclan', 'Adal', 'Adan', 'Adıvar', 'Akal', 'Akan', 'Akar', 'Akay',
         'Akaydın', 'Akbulut', 'Akgül', 'Akışık', 'Akman', 'Akyürek', 'Akyüz', 'Akşit', 'Alnıaçık',
         'Alpuğan', 'Alyanak', 'Arıcan', 'Arslanoğlu', 'Atakol', 'Atan', 'Avan', 'Ayaydın', 'Aybar',
@@ -71,10 +71,10 @@ class Person extends \Faker\Provider\Person
         'Tütüncü', 'Tüzün', 'Uca', 'Uluhan', 'Velioğlu', 'Yalçın', 'Yazıcı', 'Yetkiner', 'Yeşilkaya', 'Yıldırım',
         'Yıldızoğlu', 'Yılmazer', 'Yorulmaz', 'Çamdalı', 'Çapanoğlu', 'Çatalbaş', 'Çağıran', 'Çetin', 'Çetiner',
         'Çevik', 'Çörekçi', 'Önür', 'Örge', 'Öymen', 'Özberk', 'Özbey', 'Özbir', 'Özdenak', 'Özdoğan', 'Özgörkey',
-        'Özkara', 'Özkök', 'Öztonga', 'Öztuna'
-    );
+        'Özkara', 'Özkök', 'Öztonga', 'Öztuna',
+    ];
 
-    protected static $title = array('Doç. Dr.', 'Dr.', 'Prof. Dr.');
+    protected static $title = ['Doç. Dr.', 'Dr.', 'Prof. Dr.'];
 
     public function title($gender = null)
     {
@@ -82,7 +82,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * replaced by specific unisex Turkish title
+     * replaced by specific unisex Turkish title.
      */
     public static function titleMale()
     {
@@ -90,7 +90,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * replaced by specific unisex Turkish title
+     * replaced by specific unisex Turkish title.
      */
     public static function titleFemale()
     {
@@ -98,8 +98,10 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * National Personal Identity number (tc kimlik no)
-     * @link https://en.wikipedia.org/wiki/Turkish_Identification_Number
+     * National Personal Identity number (tc kimlik no).
+     *
+     * @see https://en.wikipedia.org/wiki/Turkish_Identification_Number
+     *
      * @return string on format XXXXXXXXXXX
      */
     public function tcNo()
@@ -107,6 +109,6 @@ class Person extends \Faker\Provider\Person
         $randomDigits = static::numerify('#########');
         $checksum = TCNo::checksum($randomDigits);
 
-        return $randomDigits . $checksum;
+        return $randomDigits.$checksum;
     }
 }

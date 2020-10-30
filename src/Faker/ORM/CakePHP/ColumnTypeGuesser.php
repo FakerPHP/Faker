@@ -48,6 +48,7 @@ class ColumnTypeGuesser
                     $columnData = $schema->column($column);
                 }
                 $length = $columnData['length'];
+
                 return function () use ($generator, $length) {
                     return $generator->text($length);
                 };

@@ -7,7 +7,7 @@ class Payment extends \Faker\Provider\Payment
     /**
      * @see list of Ukraine banks (2017-11-08), source: https://uk.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%BA%D0%B8_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8
      */
-    protected static $banks = array(
+    protected static $banks = [
         'А-Банк', 'Авангард', 'Айбокс Банк', 'Акордбанк', 'Альпарі Банк', 'Альтбанк', 'Альфа-Банк', 'Альянс', 'Апекс-банк', 'Аркада', 'Асвіо Банк',
         'Банк 3/4', 'БМ Банк', 'Богуслав', 'БТА Банк', 'Вернум Банк', 'Восток', 'ВТБ',
         'VS Bank',
@@ -28,8 +28,8 @@ class Payment extends \Faker\Provider\Payment
         'Український Капітал', 'Український банк реконструкції та розвитку', 'Укрбудінвестбанк', 'Укргазбанк', 'Укрексімбанк', 'УкрСиббанк', 'Укрсоцбанк', 'Універсал Банк',
         'Фамільний', 'Фінансовий партнер', 'Forward Bank',
         'Центр',
-        'Unex'
-    );
+        'Unex',
+    ];
 
     /**
      * @example 'Сітібанк'

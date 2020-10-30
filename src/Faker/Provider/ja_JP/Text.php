@@ -8,18 +8,19 @@ class Text extends \Faker\Provider\Text
     protected static $separatorLen = 0;
 
     /**
-     * All punctuation in $baseText: 、 。 「 」 『 』 ！ ？ ー ， ： ；
+     * All punctuation in $baseText: 、 。 「 」 『 』 ！ ？ ー ， ： ；.
      */
-    protected static $notEndPunct = array('、', '「', '『', 'ー', '，', '：', '；');
-    protected static $endPunct = array('。', '」', '』', '！', '？');
-    protected static $notBeginPunct = array('、', '。', '」', '』', '！', '？', 'ー', '，', '：', '；');
+    protected static $notEndPunct = ['、', '「', '『', 'ー', '，', '：', '；'];
+    protected static $endPunct = ['。', '」', '』', '！', '？'];
+    protected static $notBeginPunct = ['、', '。', '」', '』', '！', '？', 'ー', '，', '：', '；'];
 
     /**
      * Title: 銀河鉄道の夜 Night On The Milky Way Train
      * Author: 宮沢賢治 Kenji Miyazawa
-     * Language: Japanese
+     * Language: Japanese.
      *
      * @see http://www.aozora.gr.jp/cards/000081/files/43737_19215.html
+     *
      * @var string
      */
     protected static $baseText = <<<'EOT'
@@ -597,12 +598,13 @@ EOT;
 
     protected static function explode($text)
     {
-        $chars = array();
+        $chars = [];
         foreach (preg_split('//u', preg_replace('/\s+/u', '', $text)) as $char) {
             if ($char !== '') {
                 $chars[] = $char;
             }
         }
+
         return $chars;
     }
 
@@ -630,6 +632,6 @@ EOT;
             $text = preg_replace('/.$/u', '', $text);
         }
         // if the last char is not a valid punctuation, append a default one.
-        return in_array($last, static::$endPunct) ? $text : $text . '。';
+        return in_array($last, static::$endPunct) ? $text : $text.'。';
     }
 }

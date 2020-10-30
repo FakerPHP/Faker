@@ -6,7 +6,7 @@ use Faker\Provider\DateTime;
 
 class Person extends \Faker\Provider\Person
 {
-    protected static $firstNameMale = array(
+    protected static $firstNameMale = [
         'Aaron', 'Adam', 'Adrien', 'Alessio', 'Alexander', 'Alexandre', 'Alexis',
         'Antoine', 'Arne', 'Arthur', 'Axel', 'Ayoub', 'Baptiste', 'Benjamin',
         'Clément', 'Daan', 'David', 'Diego', 'Dylan', 'Elias', 'Emiel', 'Emile',
@@ -19,10 +19,10 @@ class Person extends \Faker\Provider\Person
         'Noah', 'Noé', 'Nolan', 'Nore', 'Quinten', 'Raphaël', 'Rayan', 'Robbe',
         'Robin', 'Romain', 'Ruben', 'Rune', 'Sacha', 'Sam', 'Samuel', 'Sander',
         'Seppe', 'Simon', 'Stan', 'Théo', 'Thomas', 'Tibo', 'Tom', 'Tristan', 'Tuur',
-        'Vic', 'Victor', 'Vince', 'Warre', 'Xander', 'Yanis'
-    );
+        'Vic', 'Victor', 'Vince', 'Warre', 'Xander', 'Yanis',
+    ];
 
-    protected static $firstNameFemale = array(
+    protected static $firstNameFemale = [
         'Alexia', 'Alice', 'Alicia', 'Alyssa', 'Amber', 'Amélie', 'Amy', 'Anaïs',
         'Anna', 'Anouk', 'Axelle', 'Aya', 'Bo', 'Camille', 'Célia', 'Charlotte',
         'Chiara', 'Chloé', 'Clara', 'Clémence', 'Elena', 'Elias', 'Eline', 'Elisa',
@@ -34,10 +34,10 @@ class Person extends \Faker\Provider\Person
         'Malak', 'Manon', 'Margaux', 'Margot', 'Marie', 'Marion', 'Maya', 'Merel',
         'Mila', 'Nina', 'Noa', 'Noémie', 'Noor', 'Nora', 'Océane', 'Olivia', 'Pauline',
         'Rania', 'Robin', 'Romane', 'Roos', 'Salma', 'Sara', 'Sarah', 'Senne',
-        'Siebe', 'Sofia','Tess', 'Victoria', 'Wout', 'Yana', 'Yasmine', 'Zoé', 'Zoë'
-    );
+        'Siebe', 'Sofia', 'Tess', 'Victoria', 'Wout', 'Yana', 'Yasmine', 'Zoé', 'Zoë',
+    ];
 
-    protected static $lastName = array(
+    protected static $lastName = [
         'Adam', 'Aerts', 'Amrani', 'André', 'Antoine', 'Baert', 'Bah', 'Barry',
         'Bastin', 'Bauwens', 'Benali', 'Bernard', 'Bertrand', 'Bodart', 'Bogaert',
         'Bogaerts', 'Borremans', 'Bosmans', 'Boulanger', 'Bourgeois', 'Brasseur',
@@ -69,8 +69,8 @@ class Person extends \Faker\Provider\Person
         'Vandamme', 'Vandenberghe', 'Verbeeck', 'Verbeke', 'Verbruggen', 'Vercammen',
         'Verhaegen', 'Verhaeghe', 'Verhelst', 'Verheyen', 'Verhoeven', 'Verlinden',
         'Vermeersch', 'Vermeiren', 'Vermeulen', 'Verschueren', 'Verstraete', 'Verstraeten',
-        'Vervoort', 'Wauters', 'Willems', 'Wouters', 'Wuyts', 'Yildirim', 'Yilmaz'
-    );
+        'Vervoort', 'Wauters', 'Willems', 'Wouters', 'Wuyts', 'Yildirim', 'Yilmaz',
+    ];
 
     /**
      *  Belgian Rijksregister numbers are used to identify each citizen,
@@ -79,18 +79,19 @@ class Person extends \Faker\Provider\Person
      *  males, even for females. The last part is used to check if it's
      *  a valid number.
      *
-     *  @link https://nl.wikipedia.org/wiki/Rijksregisternummer
+     *  @see https://nl.wikipedia.org/wiki/Rijksregisternummer
      *
      *  @param string|null $gender 'male', 'female' or null for any
+     *
      *  @return string
      */
     public static function rrn($gender = null)
     {
         $middle = self::numberBetween(1, 997);
         if ($gender === static::GENDER_MALE) {
-            $middle = $middle %2 === 1 ? $middle : $middle+1;
+            $middle = $middle % 2 === 1 ? $middle : $middle + 1;
         } elseif ($gender === static::GENDER_FEMALE) {
-            $middle = $middle %2 === 0 ? $middle : $middle+1;
+            $middle = $middle % 2 === 0 ? $middle : $middle + 1;
         }
         $middle = sprintf('%03d', $middle);
 
@@ -98,9 +99,9 @@ class Person extends \Faker\Provider\Person
         $dob = sprintf('%06d', $date->format('ymd'));
         $help = $date->format('Y') >= 2000 ? 2 : null;
 
-        $check = intval($help . $dob . $middle);
+        $check = intval($help.$dob.$middle);
         $rest = sprintf('%02d', 97 - ($check % 97));
 
-        return $dob . $middle . $rest;
+        return $dob.$middle.$rest;
     }
 }

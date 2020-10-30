@@ -8,9 +8,9 @@ namespace Faker\Provider\da_DK;
 class Company extends \Faker\Provider\Company
 {
     /**
-     * @var array Danish company name formats.
+     * @var array danish company name formats
      */
-    protected static $formats = array(
+    protected static $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{companySuffix}}',
@@ -27,24 +27,24 @@ class Company extends \Faker\Provider\Company
         '{{middleName}} og {{middleName}} {{companySuffix}}',
         '{{middleName}} & {{lastName}}',
         '{{middleName}} og {{lastName}}',
-    );
+    ];
 
     /**
-     * @var array Company suffixes.
+     * @var array company suffixes
      */
-    protected static $companySuffix = array('ApS', 'A/S', 'I/S', 'K/S');
+    protected static $companySuffix = ['ApS', 'A/S', 'I/S', 'K/S'];
 
     /**
-     * @link http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
+     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
      *
-     * @var string CVR number format.
+     * @var string CVR number format
      */
     protected static $cvrFormat = '%#######';
 
     /**
-     * @link http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
+     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
      *
-     * @var string P number (production number) format.
+     * @var string p number (production number) format
      */
     protected static $pFormat = '%#########';
 

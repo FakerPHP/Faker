@@ -8,17 +8,19 @@ class Text extends \Faker\Provider\Text
     protected static $separatorLen = 0;
 
     /**
-     * All punctuation in $baseText: 、 。 「 」 『 』 ！ ？ ー ， ： ；
+     * All punctuation in $baseText: 、 。 「 」 『 』 ！ ？ ー ， ： ；.
      */
-    protected static $notEndPunct = array('、', '「', '『', 'ー', '，', '：', '；');
-    protected static $endPunct = array('。', '」', '』', '！', '？');
-    protected static $notBeginPunct = array('、', '。', '」', '』', '！', '？', 'ー', '，', '：', '；');
+    protected static $notEndPunct = ['、', '「', '『', 'ー', '，', '：', '；'];
+    protected static $endPunct = ['。', '」', '』', '！', '？'];
+    protected static $notBeginPunct = ['、', '。', '」', '』', '！', '？', 'ー', '，', '：', '；'];
 
     /**
      * Title: 吶喊 Call to Arms (1922)
      * Author: 魯迅 Lu Xun
-     * Language: Traditional Chinese
+     * Language: Traditional Chinese.
+     *
      * @see https://zh.wikisource.org/wiki/%E5%90%B6%E5%96%8A
+     *
      * @var string
      */
     protected static $baseText = <<<'EOT'
@@ -802,10 +804,10 @@ EOT;
 
     protected static function explode($text)
     {
-        $chars = array();
+        $chars = [];
 
         foreach (preg_split('//u', str_replace(PHP_EOL, '', $text)) as $char) {
-            if (! empty($char)) {
+            if (!empty($char)) {
                 $chars[] = $char;
             }
         }
@@ -822,7 +824,7 @@ EOT;
 
     protected static function validStart($word)
     {
-        return ! in_array($word, static::$notBeginPunct);
+        return !in_array($word, static::$notBeginPunct);
     }
 
     protected static function appendEnd($text)
@@ -850,18 +852,19 @@ EOT;
         }
 
         // if the last char is not a valid punctuation, append a default one.
-        return in_array($last, static::$endPunct) ? $text : $text . '。';
+        return in_array($last, static::$endPunct) ? $text : $text.'。';
     }
 
     /**
      * Convert original string to utf-8 encoding.
      *
      * @param string $text
+     *
      * @return array
      */
     protected static function utf8Encoding($text)
     {
-        $encoding = array();
+        $encoding = [];
 
         $chars = str_split($text);
 

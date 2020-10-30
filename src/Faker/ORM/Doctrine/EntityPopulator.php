@@ -17,16 +17,14 @@ class EntityPopulator
     /**
      * @var array
      */
-    protected $columnFormatters = array();
+    protected $columnFormatters = [];
     /**
      * @var array
      */
-    protected $modifiers = array();
+    protected $modifiers = [];
 
     /**
      * Class constructor.
-     *
-     * @param ClassMetadata $class
      */
     public function __construct(ClassMetadata $class)
     {
@@ -62,9 +60,6 @@ class EntityPopulator
         $this->columnFormatters = array_merge($this->columnFormatters, $columnFormatters);
     }
 
-    /**
-     * @param array $modifiers
-     */
     public function setModifiers(array $modifiers)
     {
         $this->modifiers = $modifiers;
@@ -78,21 +73,17 @@ class EntityPopulator
         return $this->modifiers;
     }
 
-    /**
-     * @param array $modifiers
-     */
     public function mergeModifiersWith(array $modifiers)
     {
         $this->modifiers = array_merge($this->modifiers, $modifiers);
     }
 
     /**
-     * @param \Faker\Generator $generator
      * @return array
      */
     public function guessColumnFormatters(\Faker\Generator $generator)
     {
-        $formatters = array();
+        $formatters = [];
         $nameGuesser = new \Faker\Guesser\Name($generator);
         $columnTypeGuesser = new ColumnTypeGuesser($generator);
         foreach ($this->class->getFieldNames() as $fieldName) {
@@ -152,7 +143,7 @@ class EntityPopulator
                             $related = $inserted[$relatedClass][$index];
                         }
 
-                        $index++;
+                        ++$index;
 
                         return $related;
                     }
@@ -169,8 +160,9 @@ class EntityPopulator
 
     /**
      * Insert one new record using the Entity class.
-     * @param ObjectManager $manager
+     *
      * @param bool $generateId
+     *
      * @return EntityPopulator
      */
     public function execute(ObjectManager $manager, $insertedEntities, $generateId = false)
@@ -201,16 +193,11 @@ class EntityPopulator
                 try {
                     $value = is_callable($format) ? $format($insertedEntities, $obj) : $format;
                 } catch (\InvalidArgumentException $ex) {
-                    throw new \InvalidArgumentException(sprintf(
-                        "Failed to generate a value for %s::%s: %s",
-                        get_class($obj),
-                        $field,
-                        $ex->getMessage()
-                    ));
+                    throw new \InvalidArgumentException(sprintf('Failed to generate a value for %s::%s: %s', get_class($obj), $field, $ex->getMessage()));
                 }
                 // Try a standard setter if it's available, otherwise fall back on reflection
-                $setter = sprintf("set%s", ucfirst($field));
-                if (is_callable(array($obj, $setter))) {
+                $setter = sprintf('set%s', ucfirst($field));
+                if (is_callable([$obj, $setter])) {
                     $obj->$setter($value);
                 } else {
                     $this->class->reflFields[$field]->setValue($obj, $value);
@@ -227,7 +214,6 @@ class EntityPopulator
     }
 
     /**
-     * @param ObjectManager $manager
      * @return int|null
      */
     private function generateId($obj, $column, ObjectManager $manager)

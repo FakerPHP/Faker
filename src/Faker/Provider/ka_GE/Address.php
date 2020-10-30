@@ -4,17 +4,17 @@ namespace Faker\Provider\ka_GE;
 
 class Address extends \Faker\Provider\Address
 {
-    protected static $cityPrefix = array('ქალაქი', 'ქ.');
+    protected static $cityPrefix = ['ქალაქი', 'ქ.'];
 
-    protected static $regionSuffix = array('რაიონი');
-    protected static $streetSuffix = array(
+    protected static $regionSuffix = ['რაიონი'];
+    protected static $streetSuffix = [
         'ჩიხი', 'ქ.', 'გამზირი', 'ქუჩა', 'გზატკეცილი', 'მოედანი', 'ბულვარი',
-        'აღმართი', 'ხეივანი'
-    );
+        'აღმართი', 'ხეივანი',
+    ];
 
-    protected static $buildingNumber = array('##');
-    protected static $postcode = array('####');
-    protected static $country = array(
+    protected static $buildingNumber = ['##'];
+    protected static $postcode = ['####'];
+    protected static $country = [
         'ავსტრალია', 'ავსტრია', 'ავღანეთი', 'აზერბაიჯანი', 'ალანდის კუნძულები', 'ალბანეთი',
         'ალჟირი', 'ამერიკის სამოა', 'ანგილია', 'ანგოლა', 'ანდორა', 'ანტარქტიდა', 'ანტიგუა და ბარბუდა',
         'არაბთა გაერთიანებული საამიროები', 'არგენტინა', 'არუბა', 'აღმოსავლეთი ტიმორი', 'აშშ',
@@ -54,54 +54,53 @@ class Address extends \Faker\Provider\Address
         'შვედეთი', 'შვეიცარია', 'შობის კუნძული', 'შრი-ლანკა', 'ჩადი', 'ჩერნოგორია', 'ჩეხეთი', 'ჩილე', 'ჩინეთი',
         'ჩრდილოეთი კორეა', 'ჩრდილოეთი მარიანას კუნძულები', 'ცენტრალური აფრიკის რესპუბლიკა', 'წმინდა ელენეს კუნძული',
         'წმინდა მარტინი (საფრანგეთის ნაწილი)', 'ხორვატია', 'ჯერზი', 'ჯიბუტი', 'ჰაიტი',
-        'ჰერდი და მაკდონალდის კუნძულები', 'ჰონგ-კონგი', 'ჰონდურასი'
-    );
+        'ჰერდი და მაკდონალდის კუნძულები', 'ჰონგ-კონგი', 'ჰონდურასი',
+    ];
 
-    protected static $region = array(
+    protected static $region = [
         'აფხაზეთი', 'აჭარა', 'იმერეთი', 'სამეგრელო-ზემო სვანეთი', 'მცხეთა-მთიანეთი', 'სამცხე-ჯავახეთი',
-        'შიდა ქართლი', 'კახეთი', 'რაჭა-ლეჩხუმი და ქვემო სვანეთი', 'გურია', 'ქვემო ქართლი'
-    );
+        'შიდა ქართლი', 'კახეთი', 'რაჭა-ლეჩხუმი და ქვემო სვანეთი', 'გურია', 'ქვემო ქართლი',
+    ];
 
-    protected static $regionGenitiveForm = array(
+    protected static $regionGenitiveForm = [
         'აფხაზეთის', 'აჭარის', 'იმერეთის', 'სამეგრელო-ზემო სვანეთის', 'მცხეთა-მთიანეთის', 'სამცხე-ჯავახეთის',
-        'შიდა ქართლის', 'კახეთის', 'რაჭა-ლეჩხუმი და ქვემო სვანეთის', 'გურიის', 'ქვემო ქართლის'
-    );
+        'შიდა ქართლის', 'კახეთის', 'რაჭა-ლეჩხუმი და ქვემო სვანეთის', 'გურიის', 'ქვემო ქართლის',
+    ];
 
-    protected static $city = array(
+    protected static $city = [
         'აბაშა', 'ამბროლაური', 'ახალი ათონი', 'ახალქალაქი', 'ახალციხე', 'ახმეტა', 'ბათუმი', 'ბაღდათი',
         'ბოლნისი', 'ბორჯომი', 'გაგრა', 'გალი', 'გარდაბანი', 'გორი', 'გუდაუთა', 'გურჯაანი', 'დედოფლისწყარო',
         'დმანისი', 'დუშეთი', 'ვალე', 'ვანი', 'ზესტაფონი', 'ზუგდიდი', 'თბილისი', 'თეთრიწყარო', 'თელავი',
         'თერჯოლა', 'კასპი', 'ლაგოდეხი', 'ლანჩხუთი', 'მარნეული', 'მარტვილი', 'მცხეთა', 'ნინოწმინდა', 'ოზურგეთი',
         'ონი', 'ოჩამჩირე', 'რუსთავი', 'საგარეჯო', 'სამტრედია', 'საჩხერე', 'სენაკი', 'სიღნაღი', 'სოხუმი',
         'ტყვარჩელი', 'ტყიბული', 'ფოთი', 'ქარელი', 'ქობულეთი', 'ქუთაისი', 'ყვარელი', 'ცაგერი', 'ცხინვალი',
-        'წალენჯიხა', 'წალკა', 'წნორი', 'წყალტუბო', 'ჭიათურა', 'ხაშური', 'ხობი', 'ხონი', 'ჯვარი'
-    );
+        'წალენჯიხა', 'წალკა', 'წნორი', 'წყალტუბო', 'ჭიათურა', 'ხაშური', 'ხობი', 'ხონი', 'ჯვარი',
+    ];
 
-    protected static $street = array(
+    protected static $street = [
         'რუსთაველის', 'ტაბიძის', 'აღმაშენებლის', 'ბარათაშვილის', 'თამარ მეფის', 'სააკაძის', 'ყაზბეგის', 'რობაქიძის',
         'ვაჟა-ფშაველას', 'ნუცუბიძის', 'შეშელიძის', 'სააკაძის', 'სანაპიროს', 'გორგასლის', 'ელიავას', 'ჭონქაძის',
-        'ფანასკერტელის'
-    );
+        'ფანასკერტელის',
+    ];
 
-    protected static $addressFormats = array(
-        "საქართველო, {{regionGenitiveForm}} {{regionSuffix}}, {{city}}, {{streetAddress}}, {{postcode}}",
-        "{{regionGenitiveForm}} {{regionSuffix}}, {{city}}, {{streetAddress}}, {{postcode}}",
-        "{{streetAddress}}, {{postcode}}, {{city}}, {{regionGenitiveForm}} {{regionSuffix}}",
-        "{{streetAddress}}, {{postcode}}, {{city}}, {{regionGenitiveForm}} {{regionSuffix}}, საქართველო",
-        "{{city}}, {{streetAddress}}, {{postcode}}",
-        "საქართველო, {{city}}, {{streetAddress}}, {{postcode}}",
-        "{{streetAddress}}, {{postcode}}, {{city}}",
-        "{{streetAddress}}, {{postcode}}, {{city}}, საქართველო",
-    );
+    protected static $addressFormats = [
+        'საქართველო, {{regionGenitiveForm}} {{regionSuffix}}, {{city}}, {{streetAddress}}, {{postcode}}',
+        '{{regionGenitiveForm}} {{regionSuffix}}, {{city}}, {{streetAddress}}, {{postcode}}',
+        '{{streetAddress}}, {{postcode}}, {{city}}, {{regionGenitiveForm}} {{regionSuffix}}',
+        '{{streetAddress}}, {{postcode}}, {{city}}, {{regionGenitiveForm}} {{regionSuffix}}, საქართველო',
+        '{{city}}, {{streetAddress}}, {{postcode}}',
+        'საქართველო, {{city}}, {{streetAddress}}, {{postcode}}',
+        '{{streetAddress}}, {{postcode}}, {{city}}',
+        '{{streetAddress}}, {{postcode}}, {{city}}, საქართველო',
+    ];
 
-    protected static $streetAddressFormats = array(
-        "{{street}} {{streetSuffix}} #{{buildingNumber}}"
-    );
+    protected static $streetAddressFormats = [
+        '{{street}} {{streetSuffix}} #{{buildingNumber}}',
+    ];
 
-    protected static $cityFormats = array(
-        "{{cityPrefix}} {{cityName}}"
-    );
-
+    protected static $cityFormats = [
+        '{{cityPrefix}} {{cityName}}',
+    ];
 
     public static function regionSuffix()
     {

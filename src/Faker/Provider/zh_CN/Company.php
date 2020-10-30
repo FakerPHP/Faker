@@ -4,11 +4,11 @@ namespace Faker\Provider\zh_CN;
 
 class Company extends \Faker\Provider\Company
 {
-    protected static $formats = array(
-        '{{companyPrefix}}{{companySuffix}}'
-    );
+    protected static $formats = [
+        '{{companyPrefix}}{{companySuffix}}',
+    ];
 
-    protected static $companyPrefix = array(
+    protected static $companyPrefix = [
         '超艺', '和泰', '九方', '鑫博腾飞', '戴硕电子',
         '济南亿次元', '海创', '创联世纪', '凌云', '泰麒麟',
         '彩虹', '兰金电子', '晖来计算机', '天益', '恒聪百汇',
@@ -25,16 +25,17 @@ class Company extends \Faker\Provider\Company
         '太极', '群英', '合联电子', '同兴万点', '襄樊地球村',
         '精芯', '艾提科信', '昊嘉', '鸿睿思博', '四通', '富罳',
         '商软冠联', '诺依曼软件', '东方峻景', '华成育卓', '趋势',
-        '维涛', '通际名联'
-    );
+        '维涛', '通际名联',
+    ];
 
-    protected static $companySuffix = array('科技', '网络', '信息', '传媒');
+    protected static $companySuffix = ['科技', '网络', '信息', '传媒'];
 
     /**
      * @see blog.renren.com/share/223844062/2387611567
+     *
      * @var array
      */
-    protected static $catchPhrase = array(
+    protected static $catchPhrase = [
         '燕舞，燕舞，一曲歌来一片情。',
         '康师傅方便面，好吃看得见。',
         '不要太潇洒！',
@@ -215,7 +216,7 @@ class Company extends \Faker\Provider\Company
         '自讨苦吃！',
         '成功与科技共辉映',
         '没有最',
-    );
+    ];
 
     public static function companyPrefix()
     {
@@ -224,7 +225,7 @@ class Company extends \Faker\Provider\Company
 
     public static function companySuffix()
     {
-        return parent::companySuffix() . '有限公司';
+        return parent::companySuffix().'有限公司';
     }
 
     public function catchPhrase()

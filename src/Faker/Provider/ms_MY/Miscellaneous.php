@@ -5,9 +5,9 @@ namespace Faker\Provider\ms_MY;
 class Miscellaneous extends \Faker\Provider\Miscellaneous
 {
     /**
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia
      */
-    protected static $jpjNumberPlateFormats = array(
+    protected static $jpjNumberPlateFormats = [
         '{{peninsularPrefix}}{{validAlphabet}}{{validAlphabet}} {{numberSequence}}',
         '{{peninsularPrefix}}{{validAlphabet}}{{validAlphabet}} {{numberSequence}}',
         '{{peninsularPrefix}}{{validAlphabet}}{{validAlphabet}} {{numberSequence}}',
@@ -17,72 +17,72 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
         '{{sarawakPrefix}} {{numberSequence}} {{validAlphabet}}',
         '{{sabahPrefix}} {{numberSequence}} {{validAlphabet}}',
         '{{specialPrefix}} {{numberSequence}}',
-    );
+    ];
 
     /**
      * Some alphabet has higher frequency that coincides with the current number
-     * of registrations. E.g. W = Wilayah Persekutuan
+     * of registrations. E.g. W = Wilayah Persekutuan.
      *
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format
      */
-    protected static $peninsularPrefix = array(
-        'A','A','B','C','D','F','J','J','K','M','N','P','P','R','T','V',
-        'W','W','W','W','W','W',
-    );
+    protected static $peninsularPrefix = [
+        'A', 'A', 'B', 'C', 'D', 'F', 'J', 'J', 'K', 'M', 'N', 'P', 'P', 'R', 'T', 'V',
+        'W', 'W', 'W', 'W', 'W', 'W',
+    ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_2
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_2
      */
-    protected static $sarawakPrefix = array(
-        'QA','QK','QB','QC','QL','QM','QP','QR','QS','QT'
-    );
+    protected static $sarawakPrefix = [
+        'QA', 'QK', 'QB', 'QC', 'QL', 'QM', 'QP', 'QR', 'QS', 'QT',
+    ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_3
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_3
      */
-    protected static $sabahPrefix = array(
-        'SA','SAA','SAB','SAC','SB','SD','SG',
-        'SK','SL','SS','SSA','ST','STA','SU'
-    );
+    protected static $sabahPrefix = [
+        'SA', 'SAA', 'SAB', 'SAC', 'SB', 'SD', 'SG',
+        'SK', 'SL', 'SS', 'SSA', 'ST', 'STA', 'SU',
+    ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Commemorative_plates
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Commemorative_plates
      */
-    protected static $specialPrefix = array(
+    protected static $specialPrefix = [
         '1M4U',
         'A1M',
         'BAMbee',
         'Chancellor',
-        'G','G1M','GP','GT',
+        'G', 'G1M', 'GP', 'GT',
         'Jaguh',
-        'K1M','KRISS',
+        'K1M', 'KRISS',
         'LOTUS',
-        'NAAM','NAZA','NBOS',
-        'PATRIOT','Perdana','PERFECT','Perodua','Persona','Proton','Putra','PUTRAJAYA',
+        'NAAM', 'NAZA', 'NBOS',
+        'PATRIOT', 'Perdana', 'PERFECT', 'Perodua', 'Persona', 'Proton', 'Putra', 'PUTRAJAYA',
         'RIMAU',
-        'SAM','SAS','Satria','SMS','SUKOM',
-        'T1M','Tiara','TTB',
-        'U','US',
+        'SAM', 'SAS', 'Satria', 'SMS', 'SUKOM',
+        'T1M', 'Tiara', 'TTB',
+        'U', 'US',
         'VIP',
         'WAJA',
-        'XIIINAM','XOIC','XXVIASEAN','XXXIDB',
-        'Y'
-    );
+        'XIIINAM', 'XOIC', 'XXVIASEAN', 'XXXIDB',
+        'Y',
+    ];
 
     /**
-     * Chances of having an empty alphabet will be 1/24
+     * Chances of having an empty alphabet will be 1/24.
      *
-     * @link https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format
+     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format
      */
-    protected static $validAlphabets = array(
-        'A','B','C','D','E','F',
-        'G','H','J','K','L','M',
-        'N','P','Q','R','S','T',
-        'U','V','W','X','Y',''
-    );
+    protected static $validAlphabets = [
+        'A', 'B', 'C', 'D', 'E', 'F',
+        'G', 'H', 'J', 'K', 'L', 'M',
+        'N', 'P', 'Q', 'R', 'S', 'T',
+        'U', 'V', 'W', 'X', 'Y', '',
+    ];
 
     /**
-     * Return a valid Malaysia JPJ(Road Transport Department) vehicle licence plate number
+     * Return a valid Malaysia JPJ(Road Transport Department) vehicle licence plate number.
      *
      * @example 'WKN 2368'
      *
@@ -96,7 +96,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return Peninsular prefix alphabet
+     * Return Peninsular prefix alphabet.
      *
      * @example 'W'
      *
@@ -108,7 +108,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return Sarawak state prefix alphabet
+     * Return Sarawak state prefix alphabet.
      *
      * @example 'QA'
      *
@@ -120,7 +120,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return Sabah state prefix alphabet
+     * Return Sabah state prefix alphabet.
      *
      * @example 'SA'
      *
@@ -132,7 +132,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return specialty licence plate prefix
+     * Return specialty licence plate prefix.
      *
      * @example 'G1M'
      *
@@ -144,7 +144,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return a valid license plate alphabet
+     * Return a valid license plate alphabet.
      *
      * @example 'A'
      *
@@ -156,7 +156,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
     }
 
     /**
-     * Return a valid number sequence between 1 and 9999
+     * Return a valid number sequence between 1 and 9999.
      *
      * @example '1234'
      *

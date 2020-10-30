@@ -2,11 +2,11 @@
 
 namespace Faker\Provider\pt_BR;
 
-require_once "check_digit.php";
+require_once 'check_digit.php';
 
 class Person extends \Faker\Provider\Person
 {
-    protected static $maleNameFormats = array(
+    protected static $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}} {{lastName}}',
@@ -19,9 +19,9 @@ class Person extends \Faker\Provider\Person
         '{{titleMale}} {{firstNameMale}} {{lastName}} {{suffix}}',
         '{{titleMale}} {{firstNameMale}} {{firstNameMale}} {{lastName}} {{suffix}}',
         '{{titleMale}} {{firstNameMale}} {{lastName}} {{lastName}} {{suffix}}',
-    );
+    ];
 
-    protected static $femaleNameFormats = array(
+    protected static $femaleNameFormats = [
         '{{firstNameFemale}} {{lastName}}',
         '{{firstNameFemale}} {{firstNameFemale}} {{lastName}}',
         '{{firstNameFemale}} {{lastName}} {{lastName}}',
@@ -34,9 +34,9 @@ class Person extends \Faker\Provider\Person
         '{{titleFemale}} {{firstNameFemale}} {{lastName}} {{suffix}}',
         '{{titleFemale}} {{firstNameFemale}} {{firstNameFemale}} {{lastName}} {{suffix}}',
         '{{titleFemale}} {{firstNameFemale}} {{lastName}} {{lastName}} {{suffix}}',
-    );
+    ];
 
-    protected static $firstNameMale = array(
+    protected static $firstNameMale = [
         'Aaron', 'Adriano', 'Adriel', 'Afonso', 'Agostinho', 'Alan', 'Alessandro', 'Alexandre', 'Allan', 'Alonso',
         'Anderson', 'Andres', 'André', 'Antônio', 'Arthur', 'Artur', 'Augusto', 'Benedito', 'Benjamin', 'Benício',
         'Bernardo', 'Breno', 'Bruno', 'Caio', 'Camilo', 'Carlos', 'Cauan', 'Cezar', 'Christian', 'Christopher',
@@ -55,10 +55,10 @@ class Person extends \Faker\Provider\Person
         'Samuel', 'Sandro', 'Santiago', 'Saulo', 'Sebastião', 'Sergio', 'Simon', 'Simão', 'Sérgio', 'Teobaldo',
         'Thales', 'Thiago', 'Thomas', 'Théo', 'Tiago', 'Tomás', 'Téo', 'Valentin', 'Vicente', 'Victor', 'Vinícius',
         'Vitor', 'Wagner', 'Walter', 'Wellington', 'Wesley', 'William', 'Willian', 'Wilson', 'Yuri', 'Ziraldo', 'Ícaro',
-        'Ítalo'
-    );
+        'Ítalo',
+    ];
 
-    protected static $firstNameFemale = array(
+    protected static $firstNameFemale = [
         'Abgail', 'Adriana', 'Adriele', 'Agatha', 'Agustina', 'Alana', 'Alessandra', 'Alexa', 'Alice', 'Aline',
         'Allison', 'Alma', 'Alícia', 'Amanda', 'Amélia', 'Ana', 'Analu', 'Andressa', 'Andréa', 'Andréia', 'Angélica',
         'Anita', 'Antonella', 'Antonieta', 'Aparecida', 'Ariana', 'Ariane', 'Aurora', 'Ayla', 'Beatriz', 'Bella',
@@ -84,10 +84,10 @@ class Person extends \Faker\Provider\Person
         'Sofia', 'Sophia', 'Sophie', 'Stefany', 'Stella', 'Stephanie', 'Stephany', 'Suelen', 'Sueli', 'Suellen',
         'Suzana', 'Sônia', 'Tainara', 'Talita', 'Tatiana', 'Tatiane', 'Taís', 'Tessália', 'Thalia', 'Thalissa',
         'Thalita', 'Thaís', 'Tábata', 'Tâmara', 'Valentina', 'Valéria', 'Vanessa', 'Verônica', 'Violeta', 'Vitória',
-        'Viviane', 'Yasmin', 'Yohanna'
-    );
+        'Viviane', 'Yasmin', 'Yohanna',
+    ];
 
-    protected static $lastName = array(
+    protected static $lastName = [
         'Abreu', 'Aguiar', 'Alcantara', 'Alves', 'Amaral', 'Aragão', 'Aranda', 'Arruda', 'Ávila', 'Assunção', 'Azevedo',
         'Balestero', 'Barreto', 'Barros', 'Batista', 'Beltrão', 'Benez', 'Benites', 'Bezerra', 'Bittencourt', 'Bonilha',
         'Branco', 'Brito', 'Burgos', 'Caldeira', 'Camacho', 'Campos', 'Carmona', 'Carrara', 'Carvalho', 'Casanova',
@@ -105,14 +105,14 @@ class Person extends \Faker\Provider\Person
         'Sepúlveda', 'Serna', 'Serra', 'Serrano', 'Soares', 'Solano', 'Soto', 'Souza', 'Tamoio', 'Teles', 'Toledo',
         'Torres', 'Uchoa', 'Urias', 'Valdez', 'Vale', 'Valente', 'Valentin', 'Valência', 'Vasques', 'Vega', 'Velasques',
         'Verdara', 'Verdugo', 'Vieira', 'Vila', 'Zamana', 'Zambrano', 'Zaragoça', 'da Cruz', 'da Rosa', 'da Silva',
-        'das Dores', 'das Neves', 'de Aguiar', 'de Arruda', 'de Freitas', 'de Oliveira', 'de Souza'
-    );
+        'das Dores', 'das Neves', 'de Aguiar', 'de Arruda', 'de Freitas', 'de Oliveira', 'de Souza',
+    ];
 
-    protected static $titleMale = array('Sr.', 'Dr.');
+    protected static $titleMale = ['Sr.', 'Dr.'];
 
-    protected static $titleFemale = array('Sra.', 'Srta.', 'Dr.');
+    protected static $titleFemale = ['Sra.', 'Srta.', 'Dr.'];
 
-    protected static $suffix = array('Filho', 'Neto', 'Sobrinho', 'Jr.');
+    protected static $suffix = ['Filho', 'Neto', 'Sobrinho', 'Jr.'];
 
     /**
      * @example 'Jr.'
@@ -124,8 +124,11 @@ class Person extends \Faker\Provider\Person
 
     /**
      * A random CPF number.
-     * @link http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
-     * @param bool $formatted If the number should have dots/dashes or not.
+     *
+     * @see http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
+     *
+     * @param bool $formatted if the number should have dots/dashes or not
+     *
      * @return string
      */
     public function cpf($formatted = true)
@@ -139,8 +142,11 @@ class Person extends \Faker\Provider\Person
 
     /**
      * A random RG number, following Sao Paulo state's rules.
-     * @link http://pt.wikipedia.org/wiki/C%C3%A9dula_de_identidade
-     * @param bool $formatted If the number should have dots/dashes or not.
+     *
+     * @see http://pt.wikipedia.org/wiki/C%C3%A9dula_de_identidade
+     *
+     * @param bool $formatted if the number should have dots/dashes or not
+     *
      * @return string
      */
     public function rg($formatted = true)

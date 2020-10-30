@@ -6,30 +6,31 @@ use Faker\Calculator\Luhn;
 
 class Company extends \Faker\Provider\Company
 {
-    protected static $formats = array(
+    protected static $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{companyPrefix}} {{lastName}} {{companySuffix}}',
         '{{companyPrefix}} {{lastName}}',
-    );
+    ];
 
-    protected static $bsWords = array(
-        array()
-    );
+    protected static $bsWords = [
+        [],
+    ];
 
-    protected static $catchPhraseWords = array(
-        array('الخدمات','الحلول','الانظمة'),
-        array(
-            'الذهبية','الذكية','المتطورة','المتقدمة', 'الدولية', 'المتخصصه', 'السريعة',
-            'المثلى', 'الابداعية', 'المتكاملة', 'المتغيرة', 'المثالية'
-            ),
-    );
+    protected static $catchPhraseWords = [
+        ['الخدمات', 'الحلول', 'الانظمة'],
+        [
+            'الذهبية', 'الذكية', 'المتطورة', 'المتقدمة', 'الدولية', 'المتخصصه', 'السريعة',
+            'المثلى', 'الابداعية', 'المتكاملة', 'المتغيرة', 'المثالية',
+            ],
+    ];
 
-    protected static $companyPrefix = array('شركة', 'مؤسسة', 'مجموعة', 'مكتب', 'أكاديمية', 'معرض');
+    protected static $companyPrefix = ['شركة', 'مؤسسة', 'مجموعة', 'مكتب', 'أكاديمية', 'معرض'];
 
-    protected static $companySuffix = array('وأولاده', 'للمساهمة المحدودة', ' ذ.م.م', 'مساهمة عامة', 'وشركائه');
+    protected static $companySuffix = ['وأولاده', 'للمساهمة المحدودة', ' ذ.م.م', 'مساهمة عامة', 'وشركائه'];
 
     /**
      * @example 'مؤسسة'
+     *
      * @return string
      */
     public function companyPrefix()
@@ -42,7 +43,7 @@ class Company extends \Faker\Provider\Company
      */
     public function catchPhrase()
     {
-        $result = array();
+        $result = [];
         foreach (static::$catchPhraseWords as &$word) {
             $result[] = static::randomElement($word);
         }
@@ -55,7 +56,7 @@ class Company extends \Faker\Provider\Company
      */
     public function bs()
     {
-        $result = array();
+        $result = [];
         foreach (static::$bsWords as &$word) {
             $result[] = static::randomElement($word);
         }
@@ -64,11 +65,12 @@ class Company extends \Faker\Provider\Company
     }
 
     /**
-     * example 7001010101
+     * example 7001010101.
      **/
     public static function companyIdNumber()
     {
-        $partialValue = static::numerify(700 . str_repeat('#', 6));
+        $partialValue = static::numerify(700 .str_repeat('#', 6));
+
         return Luhn::generateLuhnNumber($partialValue);
     }
 }

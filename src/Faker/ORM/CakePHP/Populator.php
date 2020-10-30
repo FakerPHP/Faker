@@ -9,9 +9,6 @@ class Populator
     protected $quantities = [];
     protected $guessers = [];
 
-    /**
-     * @param \Faker\Generator $generator
-     */
     public function __construct(\Faker\Generator $generator)
     {
         $this->generator = $generator;
@@ -41,11 +38,13 @@ class Populator
         if ($this->guessers[$name]) {
             unset($this->guessers[$name]);
         }
+
         return $this;
     }
 
     /**
      * @return $this
+     *
      * @throws \Exception
      */
     public function addGuesser($class)
@@ -55,16 +54,18 @@ class Populator
         }
 
         if (!method_exists($class, 'guessFormat')) {
-            throw new \Exception('Missing required custom guesser method: ' . get_class($class) . '::guessFormat()');
+            throw new \Exception('Missing required custom guesser method: '.get_class($class).'::guessFormat()');
         }
 
         $this->guessers[get_class($class)] = $class;
+
         return $this;
     }
 
     /**
      * @param array $customColumnFormatters
      * @param array $customModifiers
+     *
      * @return $this
      */
     public function addEntity($entity, $number, $customColumnFormatters = [], $customModifiers = [])
@@ -86,11 +87,13 @@ class Populator
         $class = $entity->class;
         $this->entities[$class] = $entity;
         $this->quantities[$class] = $number;
+
         return $this;
     }
 
     /**
      * @param array $options
+     *
      * @return array
      */
     public function execute($options = [])
@@ -98,7 +101,7 @@ class Populator
         $insertedEntities = [];
 
         foreach ($this->quantities as $class => $number) {
-            for ($i = 0; $i < $number; $i++) {
+            for ($i = 0; $i < $number; ++$i) {
                 $insertedEntities[$class][] = $this->entities[$class]->execute($class, $insertedEntities, $options);
             }
         }

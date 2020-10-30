@@ -8,17 +8,15 @@ class Name
 {
     protected $generator;
 
-    /**
-     * @param \Faker\Generator $generator
-     */
     public function __construct(\Faker\Generator $generator)
     {
         $this->generator = $generator;
     }
 
     /**
-     * @param string $name
+     * @param string   $name
      * @param int|null $size Length of field, if known
+     *
      * @return callable|null
      */
     public function guessFormat($name, $size = null)

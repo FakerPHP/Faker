@@ -4,22 +4,21 @@ namespace Faker\Provider\el_GR;
 
 class Company extends \Faker\Provider\Company
 {
-    protected static $companySuffix = array(
+    protected static $companySuffix = [
         'Ο.Ε',
         'Ε.Ε',
         'Α.Ε',
-        'Ε.Π.Ε'
-    );
+        'Ε.Π.Ε',
+    ];
 
-    protected static $companyFormats = array(
+    protected static $companyFormats = [
         '{{lastName}} {{firstName}} {{companySuffix}}',
-        '{{lastName}}-{{firstName}}'
-    );
+        '{{lastName}}-{{firstName}}',
+    ];
 
-    protected static $grafm = array('#########');
+    protected static $grafm = ['#########'];
 
-
-    protected static $doy = array(
+    protected static $doy = [
         'Α\' Αθήνας',
         'Β\' Αθήνας',
         'Γ\' Αθήνας',
@@ -40,11 +39,10 @@ class Company extends \Faker\Provider\Company
         'Αμοργού',
         'Πατρών',
         'ΔΟΥ ΠΛΟΙΩΝ',
-        'ΦΑΕΕ ΑΘΗΝΩΝ'
-    );
+        'ΦΑΕΕ ΑΘΗΝΩΝ',
+    ];
 
-
-    protected static $object = array(
+    protected static $object = [
         'Προγραμματιστής',
         'Δικηγόρος',
         'Γιατρός',
@@ -64,7 +62,7 @@ class Company extends \Faker\Provider\Company
         'Εισαγωγαί-εξαγωγαί',
         'Ωρολογοποιός',
         'Καθεκλοποιός',
-    );
+    ];
 
     /**
      * @example 'Αθήνας'
@@ -75,7 +73,7 @@ class Company extends \Faker\Provider\Company
     }
 
     /**
-     * Return The profession of a company
+     * Return The profession of a company.
      *
      * @example 'Δημοσιογράφος'
      */
