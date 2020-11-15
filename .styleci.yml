@@ -20,6 +20,7 @@ enabled:
   - no_unused_lambda_imports
   - non_printable_character
   - normalize_index_brace
+  - phpdoc_align
   - phpdoc_indent
   - phpdoc_inline_tag_normalizer
   - phpdoc_no_package
