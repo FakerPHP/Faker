@@ -20,7 +20,7 @@ class Barcode extends Base
      *
      * @param string $input
      *
-     * @return integer
+     * @return int
      */
     protected static function eanChecksum($input)
     {
@@ -39,7 +39,7 @@ class Barcode extends Base
      * @param  string           $input ISBN without check-digit
      * @throws \LengthException When wrong input length passed
      *
-     * @return integer Check digit
+     * @return int Check digit
      */
     protected static function isbnChecksum($input)
     {
