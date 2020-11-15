@@ -4,6 +4,7 @@
 
 - Added Provider for Swedish Municipalities
 - Updates to person names in pt_BR
+- Many code style changes
 
 ## 2020-10-28, v1.10.1
 
