@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2020-11-14, v1.11.0
+## 2020-11-15, v1.11.0
 
 - Added Provider for Swedish Municipalities
 - Updates to person names in pt_BR
