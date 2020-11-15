@@ -175,7 +175,7 @@ class Internet extends Base
         }
         $words = $this->generator->words($nbWords);
 
-        return join('-', $words);
+        return implode('-', $words);
     }
 
     /**
@@ -196,7 +196,7 @@ class Internet extends Base
             $res []= dechex(mt_rand(0, "65535"));
         }
 
-        return join(':', $res);
+        return implode(':', $res);
     }
 
     /**
@@ -218,12 +218,13 @@ class Internet extends Base
      */
     public static function macAddress()
     {
+        $mac = [];
+
         for ($i=0; $i < 6; $i++) {
             $mac[] = sprintf('%02X', static::numberBetween(0, 0xff));
         }
-        $mac = implode(':', $mac);
 
-        return $mac;
+        return implode(':', $mac);
     }
 
     protected static function transliterate($string)

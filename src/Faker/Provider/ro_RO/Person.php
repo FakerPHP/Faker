@@ -144,7 +144,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * @param $dateOfBirth
+     * @param null|string $dateOfBirth
      * @return \DateTime
      */
     protected function getDateOfBirth($dateOfBirth)
@@ -186,7 +186,6 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     *
      * https://ro.wikipedia.org/wiki/Cod_numeric_personal#S
      *
      * @param \DateTime $dateOfBirth

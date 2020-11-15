@@ -24,8 +24,6 @@ class EntityPopulator
     protected $modifiers = [];
 
     /**
-     * Class constructor.
-     *
      * @param ClassMetadata $class
      */
     public function __construct(ClassMetadata $class)
@@ -41,9 +39,6 @@ class EntityPopulator
         return $this->class->getName();
     }
 
-    /**
-     * @param $columnFormatters
-     */
     public function setColumnFormatters($columnFormatters)
     {
         $this->columnFormatters = $columnFormatters;
@@ -100,7 +95,7 @@ class EntityPopulator
                 continue;
             }
 
-            $size = isset($this->class->fieldMappings[$fieldName]['length']) ? $this->class->fieldMappings[$fieldName]['length'] : null;
+            $size = $this->class->fieldMappings[$fieldName]['length'] ?? null;
             if ($formatter = $nameGuesser->guessFormat($fieldName, $size)) {
                 $formatters[$fieldName] = $formatter;
                 continue;
@@ -125,7 +120,7 @@ class EntityPopulator
                     if ($mapping['targetEntity'] == $relatedClass) {
                         if ($mapping['type'] == \Doctrine\ORM\Mapping\ClassMetadata::ONE_TO_ONE) {
                             $unique = true;
-                            $optional = isset($mapping['joinColumns'][0]['nullable']) ? $mapping['joinColumns'][0]['nullable'] : false;
+                            $optional = $mapping['joinColumns'][0]['nullable'] ?? false;
                             break;
                         }
                     }
@@ -136,7 +131,7 @@ class EntityPopulator
                     if ($mapping['targetDocument'] == $relatedClass) {
                         if ($mapping['type'] == \Doctrine\ODM\MongoDB\Mapping\ClassMetadata::ONE && $mapping['association'] == \Doctrine\ODM\MongoDB\Mapping\ClassMetadata::REFERENCE_ONE) {
                             $unique = true;
-                            $optional = isset($mapping['nullable']) ? $mapping['nullable'] : false;
+                            $optional = $mapping['nullable'] ?? false;
                             break;
                         }
                     }

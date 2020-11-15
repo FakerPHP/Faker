@@ -43,11 +43,9 @@ class EntityPopulator
     protected $useExistingData = false;
 
     /**
-     * Class constructor.
-     *
      * @param Mapper $mapper
      * @param Locator $locator
-     * @param $useExistingData
+     * @param bool $useExistingData
      */
     public function __construct(Mapper $mapper, Locator $locator, $useExistingData = false)
     {
@@ -64,9 +62,6 @@ class EntityPopulator
         return $this->mapper;
     }
 
-    /**
-     * @param $columnFormatters
-     */
     public function setColumnFormatters($columnFormatters)
     {
         $this->columnFormatters = $columnFormatters;
@@ -80,9 +75,6 @@ class EntityPopulator
         return $this->columnFormatters;
     }
 
-    /**
-     * @param $columnFormatters
-     */
     public function mergeColumnFormattersWith($columnFormatters)
     {
         $this->columnFormatters = array_merge($this->columnFormatters, $columnFormatters);
@@ -176,7 +168,6 @@ class EntityPopulator
     /**
      * Insert one new record using the Entity class.
      *
-     * @param $insertedEntities
      * @return string
      */
     public function execute($insertedEntities)
@@ -192,10 +183,6 @@ class EntityPopulator
         return $obj;
     }
 
-    /**
-     * @param $obj
-     * @param $insertedEntities
-     */
     private function fillColumns($obj, $insertedEntities)
     {
         foreach ($this->columnFormatters as $field => $format) {
@@ -206,10 +193,6 @@ class EntityPopulator
         }
     }
 
-    /**
-     * @param $obj
-     * @param $insertedEntities
-     */
     private function callMethods($obj, $insertedEntities)
     {
         foreach ($this->getModifiers() as $modifier) {
