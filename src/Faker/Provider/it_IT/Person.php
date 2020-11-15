@@ -88,9 +88,7 @@ class Person extends \Faker\Provider\Person
 
     /**
      * TaxCode (CodiceFiscale)
-     *
      * @link https://it.wikipedia.org/wiki/Codice_fiscale
-     *
      * @return string
      */
     public static function taxId()

@@ -25,7 +25,6 @@ class Address extends \Faker\Provider\Address
 
     /**
      * @var array Norwegian city names
-     *
      * @link https://no.wikipedia.org/wiki/Liste_over_norske_byer
      */
     protected static $cityNames = [
@@ -49,7 +48,6 @@ class Address extends \Faker\Provider\Address
 
     /**
      * @var array Norwegian municipality names
-     *
      * @link https://no.wikipedia.org/wiki/Norges_kommuner
      */
     protected static $kommuneNames = [
@@ -101,7 +99,6 @@ class Address extends \Faker\Provider\Address
 
     /**
      * @var array Norwegian county names
-     *
      * @link https://no.wikipedia.org/wiki/Norges_fylker
      */
     protected static $countyNames = [

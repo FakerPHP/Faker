@@ -28,7 +28,6 @@ class Company extends \Faker\Provider\Company
 
     /**
      * @example 'مؤسسة'
-     *
      * @return string
      */
     public function companyPrefix()

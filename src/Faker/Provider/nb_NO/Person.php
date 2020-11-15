@@ -20,7 +20,6 @@ class Person extends \Faker\Provider\Person
 
     /**
      * @var array Norwegian female first names
-     *
      * @link http://spraakbanken.gu.se/statistik/lbfnamnalf.phtml
      */
     protected static $firstNameFemale = [
@@ -126,7 +125,6 @@ class Person extends \Faker\Provider\Person
 
     /**
      * @var array Norwegian male first names
-     *
      * @link http://www.mammanett.no/navn/leksikon/alle?field_name_sex_value=m&title=
      */
     protected static $firstNameMale = [
@@ -257,7 +255,6 @@ class Person extends \Faker\Provider\Person
 
     /**
      * @var array Norwegian common last names (200 first from the link)
-     *
      * @link http://www.ssb.no/befolkning/statistikker/navn/aar/2015-01-27?fane=tabell&sort=nummer&tabell=216066
      */
     protected static $lastName = [
@@ -285,12 +282,9 @@ class Person extends \Faker\Provider\Person
 
     /**
      * National Personal Identity number (personnummer)
-     *
      * @link https://no.wikipedia.org/wiki/Personnummer
-     *
      * @param \DateTime $birthdate
-     * @param string    $gender    Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
+     * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
      * @return string on format DDMMYY#####
      */
     public function personalIdentityNumber(\DateTime $birthdate = null, $gender = null)
@@ -302,7 +296,6 @@ class Person extends \Faker\Provider\Person
 
         /**
          * @todo These number should be random based on birth year
-         *
          * @link http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
          */
         $randomDigits = (string) static::numerify('##');
@@ -323,7 +316,6 @@ class Person extends \Faker\Provider\Person
 
         /**
          * @todo Calculate modulo 11 of $digits
-         *
          * @link http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
          */
         $checksum = (string) static::numerify('##');

@@ -139,10 +139,8 @@ class Person extends \Faker\Provider\Person
      * Return middle name for the specified gender.
      *
      * @access public
-     *
      * @param string|null $gender A gender the middle name should be generated
-     *                            for. If the argument is skipped a random gender will be used.
-     *
+     *     for. If the argument is skipped a random gender will be used.
      * @return string Middle name
      */
     public function middleName($gender = null)
@@ -163,8 +161,7 @@ class Person extends \Faker\Provider\Person
      * Return last name for the specified gender.
      *
      * @param string|null $gender A gender of the last name should be generated
-     *                            for. If the argument is skipped a random gender will be used.
-     *
+     *     for. If the argument is skipped a random gender will be used.
      * @return string Last name
      */
     public function lastName($gender = null)

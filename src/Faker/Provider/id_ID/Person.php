@@ -233,7 +233,6 @@ class Person extends \Faker\Provider\Person
 
     /**
      * For academic title
-     *
      * @link http://id.wikipedia.org/wiki/Gelar_akademik
      */
     private static $suffix = ['S.Ked', 'S.Gz', 'S.Pt', 'S.IP', 'S.E.I',
@@ -264,7 +263,6 @@ class Person extends \Faker\Provider\Person
      * Return last name for male
      *
      * @access public
-     *
      * @return string last name
      */
     public static function lastNameMale()
@@ -276,7 +274,6 @@ class Person extends \Faker\Provider\Person
      * Return last name for female
      *
      * @access public
-     *
      * @return string last name
      */
     public static function lastNameFemale()
@@ -288,7 +285,6 @@ class Person extends \Faker\Provider\Person
      * For academic title
      *
      * @access public
-     *
      * @return string suffix
      */
     public static function suffix()
@@ -301,9 +297,8 @@ class Person extends \Faker\Provider\Person
      *
      * @link https://en.wikipedia.org/wiki/National_identification_number#Indonesia
      *
-     * @param null|string    $gender
+     * @param null|string $gender
      * @param null|\DateTime $birthDate
-     *
      * @return string
      */
     public function nik($gender = null, $birthDate = null)

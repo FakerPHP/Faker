@@ -6,7 +6,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 {
     /**
      * An array of en_NZ landline phone number formats
-     *
      * @var array
      */
     protected static $formats = [
@@ -17,7 +16,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * An array of en_NZ mobile (cell) phone number formats
-     *
      * @var array
      */
     protected static $mobileFormats = [
@@ -30,7 +28,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * An array of toll free phone number formats
-     *
      * @var array
      */
     protected static $tollFreeFormats = [
@@ -44,7 +41,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * An array of en_NZ landline area codes
-     *
      * @var array
      */
     protected static $areaCodes = [
@@ -53,7 +49,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * An array of en_NZ landline beginning numbers
-     *
      * @var array
      */
     protected static $beginningNumbers = [
@@ -62,7 +57,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Return a en_NZ mobile phone number
-     *
      * @return string
      */
     public static function mobileNumber()
@@ -72,7 +66,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Return a en_NZ toll free phone number
-     *
      * @return string
      */
     public static function tollFreeNumber()
@@ -82,7 +75,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Return a en_NZ landline area code
-     *
      * @return string
      */
     public static function areaCode()
@@ -92,7 +84,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Return a en_NZ landline beginning number
-     *
      * @return string
      */
     public static function beginningNumber()

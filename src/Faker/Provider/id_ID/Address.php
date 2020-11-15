@@ -86,7 +86,6 @@ class Address extends \Faker\Provider\Address
     /**
      * Abbreviated State Names.
      * Currently this is all just a guesswork, but should be highly accurate
-     *
      * @var array
      */
     protected static $stateAbbr = [

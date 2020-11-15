@@ -82,7 +82,6 @@ class Person extends \Faker\Provider\Person
      *  @link https://nl.wikipedia.org/wiki/Rijksregisternummer
      *
      *  @param string|null $gender 'male', 'female' or null for any
-     *
      *  @return string
      */
     public static function rrn($gender = null)

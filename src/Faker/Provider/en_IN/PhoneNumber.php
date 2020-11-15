@@ -13,7 +13,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * An array of en_IN mobile (cell) phone number formats
-     *
      * @var array
      */
     protected static $mobileFormats = [
@@ -27,7 +26,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Return a en_IN mobile phone number
-     *
      * @return string
      */
     public static function mobileNumber()
