@@ -3,7 +3,6 @@
 namespace Faker\Provider\en_AU;
 
 /**
- * Class Address
  * @see http://www.ipaustralia.gov.au/about-us/corporate/address-standards/
  */
 class Address extends \Faker\Provider\en_US\Address

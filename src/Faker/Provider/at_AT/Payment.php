@@ -2,9 +2,6 @@
 
 namespace Faker\Provider\at_AT;
 
-/**
- * Class Payment
- */
 class Payment extends \Faker\Provider\Payment
 {
     /**
