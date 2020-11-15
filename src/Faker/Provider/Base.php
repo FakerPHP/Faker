@@ -51,6 +51,7 @@ class Base
      * Generates a random digit, which cannot be $except
      *
      * @param int $except
+     *
      * @return int
      */
     public static function randomDigitNot($except)
@@ -67,8 +68,9 @@ class Base
      *
      * The maximum value returned is mt_getrandmax()
      *
-     * @param int $nbDigits Defaults to a random number between 1 and 9
+     * @param int  $nbDigits Defaults to a random number between 1 and 9
      * @param bool $strict   Whether the returned number should have exactly $nbDigits
+     *
      * @example 79907610
      *
      * @return int
@@ -98,6 +100,7 @@ class Base
      * @param int       $nbMaxDecimals
      * @param int|float $min
      * @param int|float $max
+     *
      * @example 48.8932
      *
      * @return float
@@ -129,6 +132,7 @@ class Base
      *
      * @param int $int1 default to 0
      * @param int $int2 defaults to 32 bit max integer, ie 2147483647
+     *
      * @example 79907610
      *
      * @return int
@@ -173,9 +177,10 @@ class Base
     /**
      * Returns randomly ordered subsequence of $count elements from a provided array
      *
-     * @param  array            $array           Array to take elements from. Defaults to a-c
-     * @param  int          $count           Number of elements to take.
-     * @param  bool          $allowDuplicates Allow elements to be picked several times. Defaults to false
+     * @param array $array           Array to take elements from. Defaults to a-c
+     * @param int   $count           Number of elements to take.
+     * @param bool  $allowDuplicates Allow elements to be picked several times. Defaults to false
+     *
      * @throws \LengthException When requesting more elements than provided
      *
      * @return array New array with $count elements from $array
@@ -223,7 +228,8 @@ class Base
     /**
      * Returns a random element from a passed array
      *
-     * @param  array $array
+     * @param array $array
+     *
      * @return mixed
      */
     public static function randomElement($array = ['a', 'b', 'c'])
@@ -239,7 +245,8 @@ class Base
     /**
      * Returns a random key from a passed associative array
      *
-     * @param  array $array
+     * @param array $array
+     *
      * @return int|string|null
      */
     public static function randomKey($array = [])
@@ -263,6 +270,7 @@ class Base
      * @see shuffleString()
      *
      * @param array|string $arg The set to shuffle
+     *
      * @return array|string The shuffled set
      */
     public static function shuffle($arg = '')
@@ -289,6 +297,7 @@ class Base
      * @example $faker->shuffleArray([1, 2, 3]); // [2, 1, 3]
      *
      * @param array $array The set to shuffle
+     *
      * @return array The shuffled set
      */
     public static function shuffleArray($array = [])
@@ -326,8 +335,9 @@ class Base
      *
      * @example $faker->shuffleString('hello, world'); // 'rlo,h eold!lw'
      *
-     * @param string $string The set to shuffle
+     * @param string $string   The set to shuffle
      * @param string $encoding The string encoding (defaults to UTF-8)
+     *
      * @return string The shuffled set
      */
     public static function shuffleString($string = '', $encoding = 'UTF-8')
@@ -362,7 +372,8 @@ class Base
      * Replaces all hash sign ('#') occurrences with a random number
      * Replaces all percentage sign ('%') occurrences with a not null number
      *
-     * @param  string $string String that needs to bet parsed
+     * @param string $string String that needs to bet parsed
+     *
      * @return string
      */
     public static function numerify($string = '###')
@@ -398,7 +409,8 @@ class Base
     /**
      * Replaces all question mark ('?') occurrences with a random letter
      *
-     * @param  string $string String that needs to bet parsed
+     * @param string $string String that needs to bet parsed
+     *
      * @return string
      */
     public static function lexify($string = '????')
@@ -410,7 +422,8 @@ class Base
      * Replaces hash signs ('#') and question marks ('?') with random numbers and letters
      * An asterisk ('*') is replaced with either a random number or a random letter
      *
-     * @param  string $string String that needs to bet parsed
+     * @param string $string String that needs to bet parsed
+     *
      * @return string
      */
     public static function bothify($string = '## ??')
@@ -426,7 +439,8 @@ class Base
      *
      * @example $faker->asciify(''********'); // "s5'G!uC3"
      *
-     * @param  string $string String that needs to bet parsed
+     * @param string $string String that needs to bet parsed
+     *
      * @return string
      */
     public static function asciify($string = '****')
@@ -458,6 +472,7 @@ class Base
      * @see https://github.com/icomefromthenet/ReverseRegex for a more robust implementation
      *
      * @param string $regex A regular expression (delimiters are optional)
+     *
      * @return string
      */
     public static function regexify($regex = '')
@@ -511,7 +526,8 @@ class Base
      * Converts string to lowercase.
      * Uses mb_string extension if available.
      *
-     * @param  string $string String that should be converted to lowercase
+     * @param string $string String that should be converted to lowercase
+     *
      * @return string
      */
     public static function toLower($string = '')
@@ -523,7 +539,8 @@ class Base
      * Converts string to uppercase.
      * Uses mb_string extension if available.
      *
-     * @param  string $string String that should be converted to uppercase
+     * @param string $string String that should be converted to uppercase
+     *
      * @return string
      */
     public static function toUpper($string = '')
@@ -535,9 +552,10 @@ class Base
      * Chainable method for making any formatter optional.
      *
      * @param float|int $weight Set the probability of receiving a null value.
-     *                              "0" will always return null, "1" will always return the generator.
-     *                              If $weight is an integer value, then the same system works
-     *                              between 0 (always get false) and 100 (always get true).
+     *                          "0" will always return null, "1" will always return the generator.
+     *                          If $weight is an integer value, then the same system works
+     *                          between 0 (always get false) and 100 (always get true).
+     *
      * @return mixed|null
      */
     public function optional($weight = 0.5, $default = null)
@@ -565,8 +583,9 @@ class Base
      * </code>
      *
      * @param bool $reset      If set to true, resets the list of existing values
-     * @param int $maxRetries Maximum number of retries to find a unique value,
-     *                                       After which an OverflowException is thrown.
+     * @param int  $maxRetries Maximum number of retries to find a unique value,
+     *                         After which an OverflowException is thrown.
+     *
      * @throws \OverflowException When no unique value can be found by iterating $maxRetries times
      *
      * @return UniqueGenerator A proxy class returning only non-existing values
@@ -597,8 +616,9 @@ class Base
      * </code>
      *
      * @param Closure $validator  A function returning true for valid values
-     * @param int $maxRetries Maximum number of retries to find a unique value,
+     * @param int     $maxRetries Maximum number of retries to find a unique value,
      *                            After which an OverflowException is thrown.
+     *
      * @throws \OverflowException When no valid value can be found by iterating $maxRetries times
      *
      * @return ValidGenerator A proxy class returning only valid values

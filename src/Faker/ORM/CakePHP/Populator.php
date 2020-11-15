@@ -46,6 +46,7 @@ class Populator
 
     /**
      * @return $this
+     *
      * @throws \Exception
      */
     public function addGuesser($class)
@@ -65,6 +66,7 @@ class Populator
     /**
      * @param array $customColumnFormatters
      * @param array $customModifiers
+     *
      * @return $this
      */
     public function addEntity($entity, $number, $customColumnFormatters = [], $customModifiers = [])
@@ -91,6 +93,7 @@ class Populator
 
     /**
      * @param array $options
+     *
      * @return array
      */
     public function execute($options = [])

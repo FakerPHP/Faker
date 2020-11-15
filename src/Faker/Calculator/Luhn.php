@@ -16,6 +16,7 @@ class Luhn
 {
     /**
      * @param string $number
+     *
      * @return int
      */
     private static function checksum($number)
@@ -35,6 +36,7 @@ class Luhn
 
     /**
      * @param string $partialNumber
+     *
      * @return string
      */
     public static function computeCheckDigit($partialNumber)
@@ -51,6 +53,7 @@ class Luhn
      * Checks whether a number (partial number + check digit) is Luhn compliant
      *
      * @param string $number
+     *
      * @return bool
      */
     public static function isValid($number)
