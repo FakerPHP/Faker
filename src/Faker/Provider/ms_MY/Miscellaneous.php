@@ -160,7 +160,7 @@ class Miscellaneous extends \Faker\Provider\Miscellaneous
      *
      * @example '1234'
      *
-     * @return @integer
+     * @return int
      */
     public static function numberSequence()
     {
