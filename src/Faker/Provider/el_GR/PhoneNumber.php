@@ -218,9 +218,14 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
     /**
      * @deprecated Use PhoneNumber::mobileNumber() instead.
      */
-    public function mobilePhoneNumber()
+    public static function mobilePhoneNumber()
     {
-        return $this->mobileNumber();
+        return static::numerify(
+            strtr(static::randomElement(static::$mobileFormats), [
+                '{{internationalCodePrefix}}' => static::internationalCodePrefix(),
+                '{{mobileCode}}' => static::mobileCode(),
+            ])
+        );
     }
 
     /**
@@ -250,11 +255,13 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      *
      * @return string
      */
-    public function tollFreeNumber()
+    public static function tollFreeNumber()
     {
-        return static::numerify($this->generator->parse(
-            static::randomElement(static::$tollFreeFormats)
-        ));
+        return static::numerify(
+            strtr(static::randomElement(static::$tollFreeFormats), [
+                '{{internationalCodePrefix}}' => static::internationalCodePrefix(),
+            ])
+        );
     }
 
     /**
