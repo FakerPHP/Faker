@@ -17,7 +17,7 @@ class TCNo
      */
     public static function checksum($identityPrefix)
     {
-        if (strlen((string)$identityPrefix) !== 9) {
+        if (strlen((string) $identityPrefix) !== 9) {
             throw new InvalidArgumentException('Argument should be an integer and should be 9 digits.');
         }
 
@@ -43,7 +43,7 @@ class TCNo
      * Checks whether a TCNo has a valid checksum
      *
      * @param string $tcNo
-     * @return boolean
+     * @return bool
      */
     public static function isValid($tcNo)
     {

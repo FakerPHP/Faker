@@ -9,13 +9,13 @@ final class InnTest extends TestCase
 {
     public function checksumProvider()
     {
-        return array(
-            array('143525744', '4'),
-            array('500109285', '3'),
-            array('500109285', '3'),
-            array('500109285', '3'),
-            array('027615723', '1')
-        );
+        return [
+            ['143525744', '4'],
+            ['500109285', '3'],
+            ['500109285', '3'],
+            ['500109285', '3'],
+            ['027615723', '1']
+        ];
     }
 
     /**
@@ -23,21 +23,20 @@ final class InnTest extends TestCase
      */
     public function testChecksum($inn, $checksum)
     {
-        $this->assertEquals($checksum, Inn::checksum($inn), $inn);
+        self::assertSame($checksum, Inn::checksum($inn), $inn);
     }
 
     public function validatorProvider()
     {
-        return array(
-            array('5902179757', true),
-            array('5408294405', true),
-            array('2724164617', true),
-            array('0726000515', true),
-            array('6312123552', true),
-
-            array('1111111111', false),
-            array('0123456789', false),
-        );
+        return [
+            ['5902179757', true],
+            ['5408294405', true],
+            ['2724164617', true],
+            ['0726000515', true],
+            ['6312123552', true],
+            ['1111111111', false],
+            ['0123456789', false],
+        ];
     }
 
     /**
@@ -45,6 +44,6 @@ final class InnTest extends TestCase
      */
     public function testIsValid($inn, $isValid)
     {
-        $this->assertEquals($isValid, Inn::isValid($inn), $inn);
+        self::assertSame($isValid, Inn::isValid($inn), $inn);
     }
 }
