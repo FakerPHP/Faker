@@ -119,7 +119,7 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * Generates a random austrian Social Security number.
+     * Generates a random Austrian Social Security number.
      * @link https://de.wikipedia.org/wiki/Sozialversicherungsnummer#.C3.96sterreich
      * @return string
      */
