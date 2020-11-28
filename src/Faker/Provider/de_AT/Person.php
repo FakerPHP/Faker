@@ -131,7 +131,7 @@ class Person extends \Faker\Provider\Person
             $consecutiveNumber = (string) mt_rand(100, 999);
 
             $verificationNumber = (
-                    (int) $consecutiveNumber[0] * 3
+                (int) $consecutiveNumber[0] * 3
                     + (int) $consecutiveNumber[1] * 7
                     + (int) $consecutiveNumber[2] * 9
                     + (int) $birthdate[0] * 5
@@ -140,7 +140,7 @@ class Person extends \Faker\Provider\Person
                     + (int) $birthdate[3] * 2
                     + (int) $birthdate[4] * 1
                     + (int) $birthdate[5] * 6
-                ) % 11;
+            ) % 11;
         } while ($verificationNumber == 10);
 
         return "{$consecutiveNumber}{$verificationNumber}{$birthdate}";
