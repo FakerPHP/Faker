@@ -117,4 +117,24 @@ class Person extends \Faker\Provider\Person
     {
         return static::randomElement(static::$suffix);
     }
+
+    /**
+     * Generates a random austrian Social Security number.
+     * @link https://de.wikipedia.org/wiki/Sozialversicherungsnummer#.C3.96sterreich
+     * @return string
+     */
+    public static function ssn()
+    {
+        $birthdate = (new \DateTime('@' . mt_rand(0, time())))->format('dmy');
+
+        do {
+            $consecutiveNumber = (string) mt_rand(100, 999);
+
+            $verificationNumber = ($consecutiveNumber[0] * 3 + $consecutiveNumber[1] * 7 + $consecutiveNumber[2] * 9
+                    + $birthdate[0] * 5 + $birthdate[1] * 8 + $birthdate[2] * 4 + $birthdate[3] * 2 + $birthdate[4] * 1
+                    + $birthdate[5] * 6) % 11;
+        } while ($verificationNumber == 10);
+
+        return "{$consecutiveNumber}{$verificationNumber}{$birthdate}";
+    }
 }
