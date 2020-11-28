@@ -130,9 +130,9 @@ class Person extends \Faker\Provider\Person
         do {
             $consecutiveNumber = (string) mt_rand(100, 999);
 
-            $verificationNumber = ($consecutiveNumber[0] * 3 + $consecutiveNumber[1] * 7 + $consecutiveNumber[2] * 9
-                    + $birthdate[0] * 5 + $birthdate[1] * 8 + $birthdate[2] * 4 + $birthdate[3] * 2 + $birthdate[4] * 1
-                    + $birthdate[5] * 6) % 11;
+            $verificationNumber = ((int)$consecutiveNumber[0] * 3 + (int)$consecutiveNumber[1] * 7 + (int)$consecutiveNumber[2] * 9
+                    + (int)$birthdate[0] * 5 + (int)$birthdate[1] * 8 + (int)$birthdate[2] * 4 + (int)$birthdate[3] * 2 + (int)$birthdate[4] * 1
+                    + (int)$birthdate[5] * 6) % 11;
         } while ($verificationNumber == 10);
 
         return "{$consecutiveNumber}{$verificationNumber}{$birthdate}";
