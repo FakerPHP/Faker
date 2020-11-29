@@ -73,7 +73,7 @@ class Address extends \Faker\Provider\Address
      * @link http://kodepos.nomor.net/_kodepos.php?_i=provinsi-kodepos
      */
     protected static $state = [
-        'Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Jambi', 'Bangka Belitung', 'Riau',
+        'Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Jambi', 'Kepulauan Bangka Belitung', 'Riau',
         'Kepulauan Riau', 'Bengkulu', 'Sumatera Selatan', 'Lampung', 'Banten',
         'DKI Jakarta', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Nusa Tenggara Timur',
         'DI Yogyakarta', 'Bali', 'Nusa Tenggara Barat', 'Kalimantan Barat',
