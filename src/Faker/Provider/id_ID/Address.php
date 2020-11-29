@@ -92,7 +92,7 @@ class Address extends \Faker\Provider\Address
     protected static $stateAbbr = [
         'Aceh', 'Sumut', 'Sumbar', 'Jambi', 'Babel', 'Riau', 'Kepri', 'Bengkulu', 'Sumsel',
         'Lampung', 'Banten', 'DKI', 'Jabar', 'Jateng', 'Jatim', 'NTT', 'DIY',
-        'Bali', 'NTB', 'Kalbar', 'Kalteng', 'Kalsel', 'Kaltim', 'Kalut', 'Sulsel',
+        'Bali', 'NTB', 'Kalbar', 'Kalteng', 'Kalsel', 'Kaltim', 'Kaltara', 'Sulsel',
         'Sulut', 'Gorontalo', 'Sulteng', 'Sulbar', 'Sultra', 'Maluku', 'Malut',
         'Pabar', 'Papua'
     ];
