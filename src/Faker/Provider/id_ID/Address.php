@@ -104,9 +104,9 @@ class Address extends \Faker\Provider\Address
         'Amerika Serikat', 'Andorra', 'Angola', 'Anguilla',
 
         // http://id.wikipedia.org/wiki/Antartika
-        'Antarktika',
+        'Antartika',
 
-        'Antigua and Barbuda',
+        'Antigua dan Barbuda',
 
         // http://id.wikipedia.org/wiki/Antillen_Belanda
         'Antillen Belanda',
@@ -119,7 +119,7 @@ class Address extends \Faker\Provider\Address
         'Bosnia dan Herzegovina',
 
         'Botswana', 'Brasil', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso',
-        'Burundi', 'Chili', 'Cina', 'Cocos (Keeling)', 'Denmark', 'Djibouti',
+        'Burundi', 'Chili', 'Cina', 'Kepulauan Cocos (Keeling)', 'Denmark', 'Djibouti',
 
         // http://id.wikipedia.org/wiki/Dominica
         'Dominika',
@@ -151,12 +151,12 @@ class Address extends \Faker\Provider\Address
         'Kepulauan Virgin Amerika Serikat',
 
         'Kepulauan Virgin Inggris', 'Kiribati', 'Kolombia', 'Komoro', 'Kongo', 'Korea',
-        'Korea', 'Kosta Rika', 'Kroasia',
+        'Korea Utara', 'Kosta Rika', 'Kroasia',
 
         // http://id.wikipedia.org/wiki/Cuba
         'Kuba',
 
-        'Kuwait', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya',
+        'Kuwait', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya',
         'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagaskar', 'Makau', 'Makedonia',
         'Maladewa', 'Malawi', 'Malaysia', 'Mali', 'Malta', 'Maroko',
 
