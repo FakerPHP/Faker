@@ -143,6 +143,6 @@ class Person extends \Faker\Provider\Person
             ) % 11;
         } while ($verificationNumber == 10);
 
-        return "{$consecutiveNumber}{$verificationNumber}{$birthdate}";
+        return sprintf('%s%s%s', $consecutiveNumber, $verificationNumber, $birthdate);
     }
 }
