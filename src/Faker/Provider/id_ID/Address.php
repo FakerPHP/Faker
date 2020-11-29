@@ -89,11 +89,11 @@ class Address extends \Faker\Provider\Address
      * @var array
      */
     protected static $stateAbbr = [
-        'Aceh', 'SumUt', 'SumBar', 'Jambi', 'BaBel', 'Riau', 'KepR', 'Bengkulu', 'SumSel',
-        'Lampung', 'Banten', 'DKI', 'JaBar', 'JaTeng', 'JaTim', 'NTT', 'DIY',
-        'Bali', 'NTB', 'KalBar', 'KalTeng', 'KalSel', 'KalTim', 'KalUt', 'SulSel',
-        'SulUt', 'Gorontalo', 'SulTeng', 'SulBar', 'SulTra', 'Maluku', 'MalUt',
-        'PapBar', 'Papua'
+        'Aceh', 'Sumut', 'Sumbar', 'Jambi', 'Babel', 'Riau', 'Kepri', 'Bengkulu', 'Sumsel',
+        'Lampung', 'Banten', 'DKI', 'Jabar', 'Jateng', 'Jatim', 'NTT', 'DIY',
+        'Bali', 'NTB', 'Kalbar', 'Kalteng', 'Kalsel', 'Kaltim', 'Kalut', 'Sulsel',
+        'Sulut', 'Gorontalo', 'Sulteng', 'Sulbar', 'Sultra', 'Maluku', 'Malut',
+        'Pabar', 'Papua'
     ];
 
     /**
