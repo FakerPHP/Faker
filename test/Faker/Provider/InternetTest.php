@@ -126,7 +126,7 @@ final class InternetTest extends TestCase
     public function testSlugWithoutNbWordsIsEmpty()
     {
         $slug = $this->faker->slug(0);
-        $this->assertSame( '', $slug);
+        $this->assertSame('', $slug);
     }
 
     public function testUrlIsValid()
