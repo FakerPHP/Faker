@@ -34,6 +34,8 @@ final class PersonTest extends TestCase
             $consecutiveNumber = substr($number, 0, 3);
             $this->assertGreaterThanOrEqual(100, $consecutiveNumber);
             $this->assertLessThanOrEqual(999, $consecutiveNumber);
+
+            $this->assertCorrectSsnVerificationNumber($number);
         }
     }
 
@@ -52,19 +54,17 @@ final class PersonTest extends TestCase
         $this->assertGreaterThanOrEqual(100, $consecutiveNumber);
         $this->assertLessThanOrEqual(999, $consecutiveNumber);
 
-        // Verification number is correct
-        $verificationNumber = substr($number, 3, 1);
-        $correctVerificationNumber = (
-                (int) $consecutiveNumber[0] * 3
-                + (int) $consecutiveNumber[1] * 7
-                + (int) $consecutiveNumber[2] * 9
-                + (int) $correctBirthDateString[0] * 5
-                + (int) $correctBirthDateString[1] * 8
-                + (int) $correctBirthDateString[2] * 4
-                + (int) $correctBirthDateString[3] * 2
-                + (int) $correctBirthDateString[4] * 1
-                + (int) $correctBirthDateString[5] * 6
-            ) % 11;
-        $this->assertEquals($correctVerificationNumber, $verificationNumber);
+        $this->assertCorrectSsnVerificationNumber($number);
+    }
+
+    private function assertCorrectSsnVerificationNumber($ssn)
+    {
+        $weights = [3, 7, 9, 0, 5, 8, 4, 2, 1, 6];
+        $checkSum = 0;
+        foreach ($weights as $i => $weight) {
+            $checkSum += (int)$ssn[$i] * $weight;
+        }
+
+        $this->assertEquals($ssn[3], $checkSum % 11);
     }
 }
