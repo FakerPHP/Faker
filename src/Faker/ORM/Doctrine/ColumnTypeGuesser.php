@@ -43,7 +43,7 @@ class ColumnTypeGuesser
                 };
             case 'bigint':
                 return function () use ($generator) {
-                    return $generator->numberBetween(0, (int) '18446744073709551615');
+                    return $generator->numberBetween(0, 18446744073709551615);
                 };
             case 'float':
                 return function () use ($generator) {

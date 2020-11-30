@@ -59,11 +59,11 @@ class ColumnTypeGuesser
                 };
             case PropelColumnTypes::INTEGER:
                 return function () use ($generator) {
-                    return $generator->numberBetween(0, (int) '2147483647');
+                    return $generator->numberBetween(0, 2147483647);
                 };
             case PropelColumnTypes::BIGINT:
                 return function () use ($generator) {
-                    return $generator->numberBetween(0, (int) '9223372036854775807');
+                    return $generator->numberBetween(0, 9223372036854775807);
                 };
             case PropelColumnTypes::FLOAT:
             case PropelColumnTypes::DOUBLE:

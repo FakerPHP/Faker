@@ -32,7 +32,7 @@ class ColumnTypeGuesser
                 };
             case 'integer':
                 return function () use ($generator) {
-                    return $generator->numberBetween(0, (int) '4294967295');
+                    return $generator->numberBetween(0, 4294967295);
                 };
             case 'float':
                 return function () use ($generator) {
