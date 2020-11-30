@@ -2,6 +2,8 @@
 
 namespace Faker\Provider\en_US;
 
+use Faker\Provider\Miscellaneous;
+
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
@@ -122,7 +124,7 @@ class Person extends \Faker\Provider\Person
      */
     public static function ssn()
     {
-        $area = mt_rand(0, 1) ? static::numberBetween(1, 665) : static::numberBetween(667, 899);
+        $area = Miscellaneous::boolean() ? static::numberBetween(1, 665) : static::numberBetween(667, 899);
         $group = static::numberBetween(1, 99);
         $serial = static::numberBetween(1, 9999);
 

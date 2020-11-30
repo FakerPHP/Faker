@@ -328,7 +328,7 @@ class Person extends \Faker\Provider\Person
         while (count($nr) < 8) {
             $nr[] = static::randomDigit();
         }
-        $nr[] = mt_rand(0, 6);
+        $nr[] = static::numberBetween(0, 6);
         if ($nr[7] == 0 && $nr[8] == 0) {
             $nr[7] = 0;
         }

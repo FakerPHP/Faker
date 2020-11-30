@@ -171,7 +171,7 @@ class Internet extends Base
             return '';
         }
         if ($variableNbWords) {
-            $nbWords = (int) ($nbWords * mt_rand(60, 140) / 100) + 1;
+            $nbWords = (int) ($nbWords * static::numberBetween(60, 140) / 100) + 1;
         }
         $words = $this->generator->words($nbWords);
 
@@ -183,7 +183,7 @@ class Internet extends Base
      */
     public function ipv4()
     {
-        return long2ip(mt_rand(0, 1) == 0 ? mt_rand(-2147483648, -2) : mt_rand(16777216, 2147483647));
+        return long2ip(Miscellaneous::boolean() ? static::numberBetween(-2147483648, -2) : static::numberBetween(16777216, 2147483647));
     }
 
     /**
@@ -193,7 +193,7 @@ class Internet extends Base
     {
         $res = [];
         for ($i=0; $i < 8; $i++) {
-            $res []= dechex(mt_rand(0, "65535"));
+            $res []= dechex(static::numberBetween(0, 65535));
         }
 
         return implode(':', $res);
@@ -204,7 +204,7 @@ class Internet extends Base
      */
     public static function localIpv4()
     {
-        if (static::numberBetween(0, 1) === 0) {
+        if (Miscellaneous::boolean()) {
             // 10.x.x.x range
             return long2ip(static::numberBetween(ip2long("10.0.0.0"), ip2long("10.255.255.255")));
         }
