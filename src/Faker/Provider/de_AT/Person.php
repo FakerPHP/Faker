@@ -126,11 +126,9 @@ class Person extends \Faker\Provider\Person
      * @param  \DateTime|null  $birthdate
      * @return string
      */
-    public static function ssn(\DateTime $birthdate = null)
+    public static function ssn(\DateTime $birthdate = null): string
     {
-        if (!$birthdate) {
-            $birthdate = DateTime::dateTimeThisCentury();
-        }
+        $birthdate = $birthdate ?? DateTime::dateTimeThisCentury();
 
         $birthDateString = $birthdate->format('dmy');
 
