@@ -39,7 +39,3 @@ enabled:
 
 disabled:
   - no_trailing_whitespace_in_string
-
-finder:
-  path:
-    - src
