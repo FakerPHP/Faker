@@ -109,5 +109,4 @@ final class PhoneNumberTest extends TestCase
             $this->assertNotEquals($digits[4], $digits[5]);
         }
     }
-
 }
