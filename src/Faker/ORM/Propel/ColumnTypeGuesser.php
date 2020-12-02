@@ -63,7 +63,7 @@ class ColumnTypeGuesser
                 };
             case PropelColumnTypes::BIGINT:
                 return function () use ($generator) {
-                    return $generator->numberBetween(0, 9223372036854775807);
+                    return $generator->numberBetween(0, PHP_INT_MAX);
                 };
             case PropelColumnTypes::FLOAT:
             case PropelColumnTypes::DOUBLE:
