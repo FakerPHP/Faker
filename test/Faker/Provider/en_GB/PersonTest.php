@@ -13,10 +13,10 @@ final class PersonTest extends TestCase
 
         self::assertMatchesRegularExpression('/^[A-Z]{2}\d{6}[A-Z]{1}$/', $result);
 
-        self::assertFalse(in_array($result[0], ['D', 'F', 'I', 'Q', 'U', 'V']));
-        self::assertFalse(in_array($result[1], ['D', 'F', 'I', 'Q', 'U', 'V']));
-        self::assertFalse(in_array($result, ['BG', 'GB', 'NK', 'KN', 'TN', 'NT', 'ZZ']));
-        self::assertFalse($result[1] === 'O');
+        self::assertNotContains($result[0], ['D', 'F', 'I', 'Q', 'U', 'V']);
+        self::assertNotContains($result[1], ['D', 'F', 'I', 'Q', 'U', 'V']);
+        self::assertNotContains($result, ['BG', 'GB', 'NK', 'KN', 'TN', 'NT', 'ZZ']);
+        self::assertNotSame('O', $result[1]);
     }
 
     protected function getProviders(): iterable
