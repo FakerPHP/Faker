@@ -605,55 +605,55 @@ class Address extends \Faker\Provider\Address
     {
         $format = [
             'perlis' => [ // (01000 - 02800)
-                '0' . static::numberBetween(1000, 2800)
+                '0' . self::numberBetween(1000, 2800)
             ],
             'kedah' => [ // (05000 - 09810)
-                '0' . static::numberBetween(5000, 9810)
+                '0' . self::numberBetween(5000, 9810)
             ],
             'penang' => [ // (10000 - 14400)
-                static::numberBetween(10000, 14400)
+                self::numberBetween(10000, 14400)
             ],
             'kelantan' => [ // (15000 - 18500)
-                static::numberBetween(15000, 18500)
+                self::numberBetween(15000, 18500)
             ],
             'terengganu' => [ // (20000 - 24300)
-                static::numberBetween(20000, 24300)
+                self::numberBetween(20000, 24300)
             ],
             'pahang' => [ // (25000 - 28800 | 39000 - 39200 | 49000, 69000)
-                static::numberBetween(25000, 28800),
-                static::numberBetween(39000, 39200),
-                static::numberBetween(49000, 69000)
+                self::numberBetween(25000, 28800),
+                self::numberBetween(39000, 39200),
+                self::numberBetween(49000, 69000)
             ],
             'perak' => [ // (30000 - 36810)
-                static::numberBetween(30000, 36810)
+                self::numberBetween(30000, 36810)
             ],
             'selangor' => [ // (40000 - 48300 | 63000 - 68100)
-                static::numberBetween(40000, 48300),
-                static::numberBetween(63000, 68100)
+                self::numberBetween(40000, 48300),
+                self::numberBetween(63000, 68100)
             ],
             'kl' => [ // (50000 - 60000)
-                static::numberBetween(50000, 60000),
+                self::numberBetween(50000, 60000),
             ],
             'putrajaya' => [ // (62000 - 62988)
-                static::numberBetween(62000, 62988)
+                self::numberBetween(62000, 62988)
             ],
             'nsembilan' => [ // (70000 - 73509)
-                static::numberBetween(70000, 73509)
+                self::numberBetween(70000, 73509)
             ],
             'melaka' => [ // (75000 - 78309)
-                static::numberBetween(75000, 78309)
+                self::numberBetween(75000, 78309)
             ],
             'johor' => [ // (79000 - 86900)
-                static::numberBetween(79000, 86900)
+                self::numberBetween(79000, 86900)
             ],
             'labuan' => [ // (87000 - 87033)
-                static::numberBetween(87000, 87033)
+                self::numberBetween(87000, 87033)
             ],
             'sabah' => [ // (88000 - 91309)
-                static::numberBetween(88000, 91309)
+                self::numberBetween(88000, 91309)
             ],
             'sarawak' => [ // (93000 - 98859)
-                static::numberBetween(93000, 98859)
+                self::numberBetween(93000, 98859)
             ]
         ];
 

@@ -140,9 +140,9 @@ class Address extends \Faker\Provider\Address
 
     public static function postcode()
     {
-        $prefix = str_pad(static::numberBetween(1, 85), 2, 0, STR_PAD_LEFT);
+        $prefix = str_pad(self::numberBetween(1, 85), 2, 0, STR_PAD_LEFT);
         $suffix = '00';
 
-        return $prefix . static::numberBetween(10, 88) . $suffix;
+        return $prefix . self::numberBetween(10, 88) . $suffix;
     }
 }

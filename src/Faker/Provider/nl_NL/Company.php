@@ -71,7 +71,7 @@ class Company extends \Faker\Provider\Company
      */
     public function company()
     {
-        $determinator = static::numberBetween(0, 2);
+        $determinator = self::numberBetween(0, 2);
         switch ($determinator) {
             case 0:
                 $companyName = static::randomElement(static::$product) . ' ' . static::randomElement(static::$type);
