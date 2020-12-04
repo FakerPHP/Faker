@@ -10,7 +10,7 @@ final class InternetTest extends TestCase
     public function testEmailIsValid()
     {
         $email = $this->faker->email();
-        static::assertNotFalse(filter_var($email, FILTER_VALIDATE_EMAIL));
+        self::assertNotFalse(filter_var($email, FILTER_VALIDATE_EMAIL));
     }
 
     protected function getProviders(): iterable
