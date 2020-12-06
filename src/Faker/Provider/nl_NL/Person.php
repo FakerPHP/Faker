@@ -4,6 +4,82 @@ namespace Faker\Provider\nl_NL;
 
 use Faker\Provider\DateTime;
 
+abstract class IdentityDocumentDate
+{
+    protected $date;
+    protected $validity;
+
+    /**
+     * @param \DateTime|null $date     Issue or Expiration date
+     * @param \DateTime|null $birth    Birthdate of person
+     * @param string|null    $timezone Timezone to use
+     */
+    public function __construct(\DateTime $date = null, \DateTime $birth = null, $timezone = null)
+    {
+        $this->date = !isset($date) ? DateTime::dateTimeThisDecade('now', $timezone) : $date;
+
+        if (isset($birth)) {
+            $age = $birth->diff(new \DateTime('today'))->y;
+        }
+
+        if (isset($age) && $age < 18) {
+            $this->validity = 5;
+        } else {
+            $this->validity = 10;
+        }
+    }
+
+    /**
+     * @return \DateTime
+     */
+    abstract public function issueDate();
+
+    /**
+     * @return \DateTime
+     */
+    abstract public function expiryDate();
+}
+
+class IdentityDocumentIssueDate extends IdentityDocumentDate
+{
+    /**
+     * @inheritdoc
+     */
+    public function issueDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function expiryDate()
+    {
+        $date = clone $this->date;
+        return $date->modify('+' . $this->validity . 'years');
+    }
+}
+
+class IdentityDocumentExpiryDate extends IdentityDocumentDate
+{
+    /**
+     * @inheritdoc
+     */
+    public function issueDate()
+    {
+        $date = clone $this->date;
+        return $date->modify('-' . $this->validity . 'years');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function expiryDate()
+    {
+        return $this->date;
+    }
+}
+
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
@@ -381,47 +457,13 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * @param string|null $documentCode Key from $idStartLetter
-     * @param array $date               'timestamp' of 'type' issue or expiry. 'birth' is birthdate of person
-     * @param string|null $timezone     Timezone to use
+     * @param string|null $documentCode   Key from $idStartLetter
+     * @param IdentityDocumentDate $date
      */
     public function identityDocument(
-        $documentCode = null,
-        $date = [
-            'timestamp'  => null,
-            'type'       => 'issue',
-            'birth'      => null,
-        ],
-        $timezone = null
+        IdentityDocumentDate $date,
+        string $documentCode = null
     ) {
-        // Validity
-        if (isset($date['birth'])) {
-            $age = $date['birth']->diff(new \DateTime('today'))->y;
-        }
-
-        if (isset($age) && $age < 18) {
-            $validity = 5;
-        } else {
-            $validity = 10;
-        }
-
-        // Date info
-        if (isset($date['type']) && $date['type'] === 'expiry') {
-            $dateType = 'expiry';
-        } else {
-            $dateType = 'issue';
-        }
-
-        $timeStamp = !isset($date['timestamp']) ? DateTime::dateTimeThisDecade('now', $timezone) : $date['timestamp'];
-        $ts = clone $timeStamp;
-        if ($dateType === 'expiry') {
-            $issueDate  = $ts->modify('-' . $validity . 'years');
-            $expiryDate = $timeStamp;
-        } else {
-            $issueDate  = $timeStamp;
-            $expiryDate = $ts->modify('+' . $validity . 'years');
-        }
-
         // Document number
         if (!isset($documentCode)) {
             $documentCode = static::randomKey(static::$idStartLetter);
@@ -429,8 +471,9 @@ class Person extends \Faker\Provider\Person
         $startLetter = static::$idStartLetter[$documentCode];
 
         // No '0' in documents issued from 1 december 2019
-        if ($issueDate < new \DateTime('2020-12-01')) {
-            $extra = [0];
+        $extra = [];
+        if ($date->issueDate() < new \DateTime('2020-12-01')) {
+            array_push($extra, 0);
         }
 
         $number = implode(
@@ -446,8 +489,8 @@ class Person extends \Faker\Provider\Person
         return (object) [
             'code'       => $documentCode,
             'number'     => $number,
-            'issueDate'  => $issueDate,
-            'expiryDate' => $expiryDate,
+            'issueDate'  => $date->issueDate(),
+            'expiryDate' => $date->expiryDate(),
         ];
     }
 }
