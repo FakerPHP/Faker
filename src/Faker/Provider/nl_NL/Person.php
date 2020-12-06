@@ -399,22 +399,14 @@ class Person extends \Faker\Provider\Person
             $age = $date['birth']->diff(new \DateTime('today'))->y;
         }
 
-        if (
-            isset($age)
-            && $age < 18
-        ) {
+        if (isset($age) && $age < 18) {
             $validity = 5;
         } else {
             $validity = 10;
         }
 
         // Date info
-        if (
-            isset($date['type'])
-            && (
-                $date['type'] === 'expiry'
-            )
-        ) {
+        if (isset($date['type']) && $date['type'] === 'expiry') {
             $dateType = 'expiry';
         } else {
             $dateType = 'issue';
@@ -431,12 +423,8 @@ class Person extends \Faker\Provider\Person
         }
 
         // Document number
-        if (
-            !isset($documentCode)
-        ) {
+        if (!isset($documentCode)) {
             $documentCode = static::randomKey(static::$idStartLetter);
-        } elseif (!array_key_exists($documentCode, static::$idStartLetter)) {
-            throw new \InvalidArgumentException($documentCode . ' is not a valid document code');
         }
         $startLetter = static::$idStartLetter[$documentCode];
 
