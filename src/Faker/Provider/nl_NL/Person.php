@@ -2,6 +2,8 @@
 
 namespace Faker\Provider\nl_NL;
 
+use Faker\Provider\DateTime;
+
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
@@ -260,6 +262,37 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
+     * @see https://www.rvig.nl/reisdocumenten/vraag-en-antwoord/hoe-is-het-paspoortnummer-of-identiteitskaartnummer-opgebouwd
+     */
+    protected static $idLetters = [
+        'A', 'B', 'C', 'D', 'E',
+        'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', 'N', 'P',
+        'Q', 'R', 'S', 'T', 'U',
+        'V', 'W', 'X', 'Y', 'Z',
+    ];
+
+    protected static $idNumbers = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9,
+    ];
+
+    /**
+     * @see https://www.rvig.nl/reisdocumenten/register-paspoortsignaleringen/reisdocumentsoort-categorie-12-persoonslijst
+     */
+    protected static $idStartLetter = [
+        'NI' => 'I',
+        'PN' => 'N',
+        'PD' => 'D',
+        'PZ' => 'S',
+        'PB' => 'A',
+        'PV' => 'R',
+        'ZN' => 'B',
+        'TN' => 'N',
+        'TE' => 'B',
+        'PF' => 'N',
+    ];
+
+    /**
      * @example 'Doe'
      */
     public function lastName()
@@ -345,5 +378,88 @@ class Person extends \Faker\Provider\Person
             }
         }
         return implode('', array_reverse($nr));
+    }
+
+    /**
+     * @param string|null $documentCode Key from $idStartLetter
+     * @param array $date               'timestamp' of 'type' issue or expiry. 'birth' is birthdate of person
+     * @param string|null $timezone     Timezone to use
+     */
+    public function identityDocument(
+        $documentCode = null,
+        $date = [
+            'timestamp'  => null,
+            'type'       => 'issue',
+            'birth'      => null,
+        ],
+        $timezone = null
+    ) {
+        // Validity
+        if (isset($date['birth'])) {
+            $age = $date['birth']->diff(new \DateTime('today'))->y;
+        }
+
+        if (
+            isset($age)
+            && $age < 18
+        ) {
+            $validity = 5;
+        } else {
+            $validity = 10;
+        }
+
+        // Date info
+        if (
+            isset($date['type'])
+            && (
+                $date['type'] === 'expiry'
+            )
+        ) {
+            $dateType = 'expiry';
+        } else {
+            $dateType = 'issue';
+        }
+
+        $timeStamp = !isset($date['timestamp']) ? DateTime::dateTimeThisDecade('now', $timezone) : $date['timestamp'];
+        $ts = clone $timeStamp;
+        if ($dateType === 'expiry') {
+            $issueDate  = $ts->modify('-' . $validity . 'years');
+            $expiryDate = $timeStamp;
+        } else {
+            $issueDate  = $timeStamp;
+            $expiryDate = $ts->modify('+' . $validity . 'years');
+        }
+
+        // Document number
+        if (
+            !isset($documentCode)
+        ) {
+            $documentCode = static::randomKey(static::$idStartLetter);
+        } elseif (!array_key_exists($documentCode, static::$idStartLetter)) {
+            throw new \InvalidArgumentException($documentCode . ' is not a valid document code');
+        }
+        $startLetter = static::$idStartLetter[$documentCode];
+
+        // No '0' in documents issued from 1 december 2019
+        if ($issueDate < new \DateTime('2020-12-01')) {
+            $extra = [0];
+        }
+
+        $number = implode(
+            '',
+            array_merge(
+                [$startLetter],
+                [static::randomElement(static::$idLetters)],
+                static::randomElements(array_merge(static::$idLetters, static::$idNumbers, $extra), 7, true),
+                [static::randomElement(static::$idNumbers)],
+            )
+        );
+
+        return (object) [
+            'code'       => $documentCode,
+            'number'     => $number,
+            'issueDate'  => $issueDate,
+            'expiryDate' => $expiryDate,
+        ];
     }
 }
