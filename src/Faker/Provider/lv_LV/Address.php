@@ -48,9 +48,9 @@ class Address extends \Faker\Provider\Address
         'Kurzemes', 'Latgales', 'Rīgas', 'Vidzemes', 'Zemgales'
     ];
 
-    protected static $city = ['Aizkraukle' ,'Aluksne','Balvi', 'Bauska','Cesis',
-        'Daugavpils', 'Dobele','Gulbene', 'Jekabpils', 'Jelgava', 'Kraslava', 'Kuldiga', 'Liepaja',
-        'Limbazi', 'Ludza', 'Madona', 'Mobile Phones', 'Ogre', 'Preili', 'Rezekne', 'Rīga', 'Ventspils'
+    protected static $city = ['Aizkraukle' ,'Aluksne', 'Balvi', 'Bauska', 'Cesis',
+        'Daugavpils', 'Dobele', 'Gulbene', 'Jekabpils', 'Jelgava', 'Kraslava', 'Kuldiga', 'Liepaja',
+        'Limbazi', 'Ludza', 'Madona', 'Mobile Phones', 'Ogre', 'Preili', 'Rezekne', 'Rīga', 'Ventspils',
     ];
 
     protected static $street = [
