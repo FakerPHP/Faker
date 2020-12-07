@@ -19,7 +19,7 @@ class Address extends \Faker\Provider\Address
     ];
     protected static $buildingNumber = ['%##', '%#', '%'];
     protected static $streetSuffix = [
-        'Avenue',
+        'Alley', 'Avenue',
         'Branch', 'Bridge', 'Brook', 'Brooks', 'Burg', 'Burgs', 'Bypass',
         'Camp', 'Canyon', 'Cape', 'Causeway', 'Center', 'Centers', 'Circle', 'Circles', 'Cliff', 'Cliffs', 'Club', 'Common', 'Corner', 'Corners', 'Course', 'Court', 'Courts', 'Cove', 'Coves', 'Creek', 'Crescent', 'Crest', 'Crossing', 'Crossroad', 'Curve',
         'Dale', 'Dam', 'Divide', 'Drive', 'Drive', 'Drives',
@@ -40,7 +40,7 @@ class Address extends \Faker\Provider\Address
         'Terrace', 'Throughway', 'Trace', 'Track', 'Trafficway', 'Trail', 'Tunnel', 'Turnpike',
         'Underpass', 'Union', 'Unions',
         'Valley', 'Valleys', 'Via', 'Viaduct', 'View', 'Views', 'Village', 'Villages', 'Ville', 'Vista', 'Vista',
-        'Walk', 'Walks', 'Wall', 'Way', 'Ways', 'Well', 'Wells'
+        'Walk', 'Walks', 'Wall', 'Way', 'Ways', 'Well', 'Wells',
     ];
 
     protected static $postcode = [
