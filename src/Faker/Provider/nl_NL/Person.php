@@ -2,84 +2,6 @@
 
 namespace Faker\Provider\nl_NL;
 
-use Faker\Provider\DateTime;
-
-abstract class IdentityDocumentDate
-{
-    protected $date;
-    protected $validity;
-
-    /**
-     * @param \DateTime|null $date     Issue or Expiration date
-     * @param \DateTime|null $birth    Birthdate of person
-     * @param string|null    $timezone Timezone to use
-     */
-    public function __construct(\DateTime $date = null, \DateTime $birth = null, $timezone = null)
-    {
-        $this->date = !isset($date) ? DateTime::dateTimeThisDecade('now', $timezone) : $date;
-
-        if (isset($birth)) {
-            $age = $birth->diff(new \DateTime('today'))->y;
-        }
-
-        if (isset($age) && $age < 18) {
-            $this->validity = 5;
-        } else {
-            $this->validity = 10;
-        }
-    }
-
-    /**
-     * @return \DateTime
-     */
-    abstract public function issueDate();
-
-    /**
-     * @return \DateTime
-     */
-    abstract public function expiryDate();
-}
-
-class IdentityDocumentIssueDate extends IdentityDocumentDate
-{
-    /**
-     * @inheritdoc
-     */
-    public function issueDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function expiryDate()
-    {
-        $date = clone $this->date;
-        return $date->modify('+' . $this->validity . 'years');
-    }
-}
-
-class IdentityDocumentExpiryDate extends IdentityDocumentDate
-{
-    /**
-     * @inheritdoc
-     */
-    public function issueDate()
-    {
-        $date = clone $this->date;
-        return $date->modify('-' . $this->validity . 'years');
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function expiryDate()
-    {
-        return $this->date;
-    }
-}
-
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
@@ -457,14 +379,15 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
+     * @param \DateTime   $issueDate
      * @param string|null $documentCode   Key from $idStartLetter
-     * @param IdentityDocumentDate $date
+     *
+     * @return string
      */
-    public function identityDocument(
-        IdentityDocumentDate $date,
+    public function identityDocumentNumber(
+        \DateTime $issueDate,
         string $documentCode = null
     ) {
-        // Document number
         if (!isset($documentCode)) {
             $documentCode = static::randomKey(static::$idStartLetter);
         }
@@ -472,25 +395,28 @@ class Person extends \Faker\Provider\Person
 
         // No '0' in documents issued from 1 december 2019
         $extra = [];
-        if ($date->issueDate() < new \DateTime('2020-12-01')) {
+        if ($issueDate < new \DateTime('2019-12-01')) {
             array_push($extra, 0);
         }
 
-        $number = implode(
+        return implode(
             '',
             array_merge(
                 [$startLetter],
                 [static::randomElement(static::$idLetters)],
                 static::randomElements(array_merge(static::$idLetters, static::$idNumbers, $extra), 7, true),
-                [static::randomElement(static::$idNumbers)],
+                [static::randomElement(static::$idNumbers)]
             )
         );
+    }
 
-        return (object) [
-            'code'       => $documentCode,
-            'number'     => $number,
-            'issueDate'  => $date->issueDate(),
-            'expiryDate' => $date->expiryDate(),
-        ];
+    /**
+     * @param int $age
+     *
+     * @return int Document validity (in years)
+     */
+    public function identityDocumentValidity(int $age)
+    {
+        return ($age < 18) ? 5 : 10;
     }
 }
