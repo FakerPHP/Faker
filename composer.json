@@ -20,6 +20,7 @@
         "ext-json": "*"
     },
     "require-dev": {
+        "ext-intl": "*",
         "bamarni/composer-bin-plugin": "^1.4.1",
         "symfony/phpunit-bridge": "^4.4 || ^5.2"
     },
