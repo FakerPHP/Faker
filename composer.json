@@ -14,10 +14,7 @@
         }
     ],
     "require": {
-        "php": "^7.1 || ^8.0",
-        "ext-dom": "*",
-        "ext-iconv": "*",
-        "ext-json": "*"
+        "php": "^7.1 || ^8.0"
     },
     "require-dev": {
         "ext-intl": "*",
@@ -36,6 +33,11 @@
     },
     "conflict": {
         "fzaninotto/faker": "*"
+    },
+    "suggest": {
+        "ext-dom": "(\\Faker\\Provider\\HtmlLorem) Required for generating random HTML.",
+        "ext-iconv": "(\\Faker\\Provider\\ru_RU\\Text::realText()) Required for generating real Russian text.",
+        "ext-json": "(\\Faker\\Provider\\Miscellaneous::emoji()) Required for generating random emojis."
     },
     "config": {
         "sort-packages": true
