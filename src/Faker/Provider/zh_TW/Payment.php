@@ -9,7 +9,7 @@ namespace Faker\Provider\zh_TW;
 class Payment extends \Faker\Provider\Payment
 {
     /**
-     * @return string
+     * @return array
      * @throws \Exception
      * @deprecated Use {@link \Faker\Provider\Payment::creditCardDetails()} instead
      * @see \Faker\Provider\Payment::creditCardDetails()
