@@ -379,13 +379,13 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * @param \DateTime   $issueDate
-     * @param string|null $documentCode   Key from $idStartLetter
+     * @param \DateTimeInterface $issueDate
+     * @param string|null        $documentCode Key from $idStartLetter
      *
      * @return string
      */
     public function identityDocumentNumber(
-        \DateTime $issueDate,
+        \DateTimeInterface $issueDate,
         string $documentCode = null
     ) {
         if (!isset($documentCode)) {
@@ -404,7 +404,7 @@ class Person extends \Faker\Provider\Person
             array_merge(
                 [$startLetter],
                 [static::randomElement(static::$idLetters)],
-                static::randomElements(array_merge(static::$idLetters, static::$idNumbers, $extra), 7, true),
+                static::randomElements(array_merge(static::$idLetters, static::$idNumbers, $extra), 6, true),
                 [static::randomElement(static::$idNumbers)]
             )
         );
