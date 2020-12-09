@@ -52,6 +52,45 @@ abstract class TestCase extends BaseTestCase
         );
     }
 
+    public static function localeDataProvider(): array
+    {
+        return array_map(function ($locale) {
+            return [$locale];
+        }, self::getAllLocales());
+    }
+
+    protected static function getAllLocales(): array
+    {
+        static $locales = [];
+
+        if (!empty($locales)) {
+            return $locales;
+        }
+
+        // Finding all PHP files in the xx_XX directories
+        $providerDir = __DIR__ . '/../../src/Faker/Provider';
+        foreach (glob($providerDir . '/*_*/*.php') as $file) {
+            $localisation = basename(dirname($file));
+
+            if (isset($locales[$localisation])) {
+                continue;
+            }
+
+            $locales[$localisation] = $localisation;
+        }
+
+        return $locales;
+    }
+
+    protected function loadLocalProvider(string $locale, string $provider): void
+    {
+        $providerClass = "Faker\\Provider\\$locale\\$provider";
+
+        if (class_exists($providerClass)) {
+            $this->faker->addProvider(new $providerClass($this->faker));
+        }
+    }
+
     protected function getProviders(): iterable
     {
         return [];
