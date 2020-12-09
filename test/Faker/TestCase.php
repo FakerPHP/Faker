@@ -27,7 +27,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Asserts that a string matches a given regular expression.
      *
-     * @throws ExpectationFailedException
+     * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public static function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
@@ -38,7 +38,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Asserts that a string does not match a given regular expression.
      *
-     * @throws ExpectationFailedException
+     * @throws \PHPUnit\Framework\ExpectationFailedException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      */
     public static function assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message = ''): void
@@ -84,7 +84,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function loadLocalProvider(string $locale, string $provider): void
     {
-        $providerClass = "Faker\\Provider\\$locale\\$provider";
+        $providerClass = "\\Faker\\Provider\\$locale\\$provider";
 
         if (class_exists($providerClass)) {
             $this->faker->addProvider(new $providerClass($this->faker));
