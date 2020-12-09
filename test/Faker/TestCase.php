@@ -54,32 +54,18 @@ abstract class TestCase extends BaseTestCase
 
     public static function localeDataProvider(): array
     {
-        return array_map(function ($locale) {
-            return [$locale];
-        }, self::getAllLocales());
+        $locales = [];
+
+        foreach (self::getAllLocales() as $locale) {
+            $locales[$locale] = [$locale];
+        }
+
+        return $locales;
     }
 
     protected static function getAllLocales(): array
     {
-        static $locales = [];
-
-        if (!empty($locales)) {
-            return $locales;
-        }
-
-        // Finding all PHP files in the xx_XX directories
-        $providerDir = __DIR__ . '/../../src/Faker/Provider';
-        foreach (glob($providerDir . '/*_*/*.php') as $file) {
-            $localisation = basename(dirname($file));
-
-            if (isset($locales[$localisation])) {
-                continue;
-            }
-
-            $locales[$localisation] = $localisation;
-        }
-
-        return $locales;
+        return array_map('basename', glob(__DIR__ . '/../../src/Faker/Provider/*_*', GLOB_ONLYDIR));
     }
 
     protected function loadLocalProvider(string $locale, string $provider): void
