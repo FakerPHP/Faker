@@ -10,7 +10,6 @@ class Payment extends \Faker\Provider\Payment
 {
     /**
      * @return array
-     * @throws \Exception
      * @deprecated Use {@link \Faker\Provider\Payment::creditCardDetails()} instead
      * @see \Faker\Provider\Payment::creditCardDetails()
      */

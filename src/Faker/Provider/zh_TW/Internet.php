@@ -9,9 +9,6 @@ namespace Faker\Provider\zh_TW;
 class Internet extends \Faker\Provider\Internet
 {
     /**
-     * @return string
-     * @throws \Exception
-     *
      * @deprecated Use {@link \Faker\Provider\Internet::userName()} instead
      * @see \Faker\Provider\Internet::userName()
      */
@@ -21,9 +18,6 @@ class Internet extends \Faker\Provider\Internet
     }
 
     /**
-     * @return string
-     * @throws \Exception
-     *
      * @deprecated Use {@link \Faker\Provider\Internet::domainWord()} instead
      * @see \Faker\Provider\Internet::domainWord()
      */
