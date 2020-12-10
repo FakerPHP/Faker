@@ -393,7 +393,7 @@ class Person extends \Faker\Provider\Person
         }
         $startLetter = static::$idStartLetter[$documentCode];
 
-        // No '0' in documents issued from 1 december 2019
+        // Since December 1, 2019, the figure "0" is no longer mentioned in newly issued passports and Dutch Identity Cards.
         $extra = [];
         if ($issueDate < new \DateTime('2019-12-01')) {
             array_push($extra, 0);
@@ -405,7 +405,7 @@ class Person extends \Faker\Provider\Person
                 [$startLetter],
                 [static::randomElement(static::$idLetters)],
                 static::randomElements(array_merge(static::$idLetters, static::$idNumbers, $extra), 6, true),
-                [static::randomElement(static::$idNumbers)]
+                [static::randomElement(array_merge(static::$idNumbers, $extra))]
             )
         );
     }

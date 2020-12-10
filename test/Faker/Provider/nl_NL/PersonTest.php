@@ -44,6 +44,11 @@ final class PersonTest extends TestCase
     }
 
     /**
+     * Since December 1, 2019, the figure "0" is no longer mentioned in newly issued passports and Dutch Identity Cards.
+     *
+     * @see https://www.rvig.nl/reisdocumenten/vraag-en-antwoord/hoe-is-het-paspoortnummer-of-identiteitskaartnummer-opgebouwd
+     * @see https://www.rvig.nl/reisdocumenten/register-paspoortsignaleringen/reisdocumentsoort-categorie-12-persoonslijst
+     *
      * @return array
      */
     public function identityDocumentNumberProvider()
