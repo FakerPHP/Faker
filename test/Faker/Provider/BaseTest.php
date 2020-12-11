@@ -309,7 +309,8 @@ final class BaseTest extends TestCase
             ['azeQSDF1234', 'azeQSDF1234', 'does not change non regex chars'],
             ['foo(bar){1}', 'foobar', 'replaces regex characters'],
             ['', '', 'supports empty string'],
-            ['/^foo(bar){1}$/', 'foobar', 'ignores regex delimiters']
+            ['/^foo(bar){1}$/', 'foobar', 'ignores regex delimiters'],
+            ['/[.]/', '.', 'leaves literal dot in braces'],
         ];
     }
 
