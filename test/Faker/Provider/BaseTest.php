@@ -337,6 +337,7 @@ final class BaseTest extends TestCase
             ['[a-z]{2,3}', 'brackets quantifiers on character class range'],
             ['(a|b){2,3}', 'brackets quantifiers on alternation'],
             ['\.\*\?\+', 'escaped characters'],
+            ['[.]', 'dots'],
             ['[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', 'complex regex']
         ];
     }
