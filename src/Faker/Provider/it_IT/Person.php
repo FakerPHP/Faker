@@ -93,6 +93,6 @@ class Person extends \Faker\Provider\Person
      */
     public static function taxId()
     {
-        return strtoupper(static::bothify('??????##?##?###?'));
+        return static::toUpper(static::bothify('??????##?##?###?'));
     }
 }

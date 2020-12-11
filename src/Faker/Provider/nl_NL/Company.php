@@ -77,7 +77,7 @@ class Company extends \Faker\Provider\Company
                 $companyName = static::randomElement(static::$product) . ' ' . static::randomElement(static::$type);
                 break;
             case 1:
-                $companyName = static::randomElement(static::$product) . strtolower(static::randomElement(static::$type));
+                $companyName = static::randomElement(static::$product) . static::toLower(static::randomElement(static::$type));
                 break;
             case 2:
                 $companyName = static::randomElement(static::$store) . ' ' . $this->generator->lastName;

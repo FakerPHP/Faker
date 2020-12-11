@@ -102,7 +102,7 @@ class Internet extends Base
         $format = static::randomElement(static::$userNameFormats);
         $username = static::bothify($this->generator->parse($format));
 
-        $username = strtolower(static::transliterate($username));
+        $username = static::toLower(static::transliterate($username));
 
         // check if transliterate() didn't support the language and removed all letters
         if (trim($username, '._') === '') {
@@ -140,7 +140,7 @@ class Internet extends Base
     {
         $lastName = $this->generator->format('lastName');
 
-        $lastName = strtolower(static::transliterate($lastName));
+        $lastName = static::toLower(static::transliterate($lastName));
 
         // check if transliterate() didn't support the language and removed all letters
         if (trim($lastName, '._') === '') {

@@ -230,7 +230,7 @@ class Payment extends Base
      */
     public static function iban($countryCode = null, $prefix = '', $length = null)
     {
-        $countryCode = is_null($countryCode) ? self::randomKey(self::$ibanFormats) : strtoupper($countryCode);
+        $countryCode = is_null($countryCode) ? self::randomKey(self::$ibanFormats) : static::toUpper($countryCode);
 
         $format = !isset(static::$ibanFormats[$countryCode]) ? null : static::$ibanFormats[$countryCode];
         if ($length === null) {
@@ -260,10 +260,10 @@ class Payment extends Base
             switch ($class) {
                 default:
                 case 'c':
-                    $result .= Miscellaneous::boolean() ? static::randomDigit() : strtoupper(static::randomLetter());
+                    $result .= Miscellaneous::boolean() ? static::randomDigit() : static::toUpper(static::randomLetter());
                     break;
                 case 'a':
-                    $result .= strtoupper(static::randomLetter());
+                    $result .= static::toUpper(static::randomLetter());
                     break;
                 case 'n':
                     $result .= static::randomDigit();
