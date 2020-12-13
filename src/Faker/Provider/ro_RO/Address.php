@@ -167,11 +167,4 @@ class Address extends \Faker\Provider\Address
 
         return $this->generator->parse($format);
     }
-
-    public function streetAddress()
-    {
-        $format = static::randomElement(static::$streetAddressFormats);
-
-        return $this->generator->parse($format);
-    }
 }
