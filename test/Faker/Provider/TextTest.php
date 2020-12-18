@@ -23,6 +23,22 @@ final class TextTest extends TestCase
         self::assertLessThan($length, strlen($this->faker->realText($length)));
     }
 
+    /**
+     * @testWith [10]
+     *           [20]
+     *           [50]
+     *           [70]
+     *           [90]
+     *           [120]
+     *           [150]
+     *           [200]
+     *           [500]
+     */
+    public function testTextMinLength($length)
+    {
+        self::assertGreaterThanOrEqual($length * 0.8, strlen($this->faker->realText($length)));
+    }
+
     public function testTextMaxIndex()
     {
         $this->expectException(\InvalidArgumentException::class);
@@ -41,7 +57,7 @@ final class TextTest extends TestCase
         self::fail('The index should be greater than or equal to 1.');
     }
 
-    public function testTextMinLength()
+    public function testTextMinNbChars()
     {
         $this->expectException(\InvalidArgumentException::class);
 
