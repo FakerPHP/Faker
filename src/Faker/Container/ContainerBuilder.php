@@ -54,10 +54,23 @@ final class ContainerBuilder
         return new Container($this->container);
     }
 
+    /**
+     * Get an array with extension that represent the default English
+     * functionality.
+     */
+    public static function getDefaultExtensions(): array
+    {
+        return [
+            File::class => FileExtension::class
+        ];
+    }
+
     public static function getDefault(): ContainerInterface
     {
         $self = new self();
-        $self->add(FileExtension::class, File::class);
+        foreach (self::getDefaultExtensions() as $id => $definition) {
+            $self->add($definition, $id);
+        }
 
         return $self->build();
     }
