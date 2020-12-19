@@ -28,6 +28,27 @@ abstract class Text extends Base
      */
     public function realText($maxNbChars = 200, $indexSize = 2)
     {
+        return $this->realTextBetween(round($maxNbChars * 0.8), $maxNbChars, $indexSize);
+    }
+
+    /**
+     * Generate a text string by the Markov chain algorithm.
+     *
+     * Depending on the $maxNbChars, returns a random valid looking text. The algorithm
+     * generates a weighted table with the specified number of words as the index and the
+     * possible following words as the value.
+     *
+     * @example 'Alice, swallowing down her flamingo, and began by taking the little golden key'
+     * @param int $minNbChars Minimum number of characters the text should contain (maximum: 8)
+     * @param int $maxNbChars Maximum number of characters the text should contain (minimum: 10)
+     * @param int $indexSize  Determines how many words are considered for the generation of the next word.
+     *                             The minimum is 1, and it produces a higher level of randomness, although the
+     *                             generated text usually doesn't make sense. Higher index sizes (up to 5)
+     *                             produce more correct text, at the price of less randomness.
+     * @return string
+     */
+    public function realTextBetween($minNbChars = 150, $maxNbChars = 200, $indexSize = 2)
+    {
         if ($maxNbChars < 10) {
             throw new \InvalidArgumentException('maxNbChars must be at least 10');
         }
@@ -40,19 +61,20 @@ abstract class Text extends Base
             throw new \InvalidArgumentException('indexSize must be at most 5');
         }
 
+        if ($minNbChars >= $maxNbChars) {
+            throw new \InvalidArgumentException('minNbChars must be smaller than maxNbChars');
+        }
+
         $words = $this->getConsecutiveWords($indexSize);
-
         $iterations = 0;
-        $minNbChars = $maxNbChars * 0.8;
-
         do {
-            $iterations ++;
+            $iterations++;
             if ($iterations >= 100) {
                 throw new \OverflowException(sprintf('Maximum retries of %d reached without finding a valid real text', $iterations));
             }
 
             $result = $this->generateText($maxNbChars, $words);
-        } while (strlen($result) < $minNbChars);
+        } while (strlen($result) <= $minNbChars);
 
         return static::appendEnd($result);
     }

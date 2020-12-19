@@ -18,7 +18,7 @@ final class TextTest extends TestCase
      *           [200]
      *           [500]
      */
-    public function testTextMaxLength($length)
+    public function testRealTextMaxLength($length)
     {
         self::assertLessThan($length, strlen($this->faker->realText($length)));
     }
@@ -34,12 +34,12 @@ final class TextTest extends TestCase
      *           [200]
      *           [500]
      */
-    public function testTextMinLength($length)
+    public function testRealTextMinLength($length)
     {
         self::assertGreaterThanOrEqual($length * 0.8, strlen($this->faker->realText($length)));
     }
 
-    public function testTextMaxIndex()
+    public function testRealTextMaxIndex()
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -48,7 +48,7 @@ final class TextTest extends TestCase
         self::fail('The index should be less than or equal to 5.');
     }
 
-    public function testTextMinIndex()
+    public function testRealTextMinIndex()
     {
         $this->expectException(\InvalidArgumentException::class);
 
@@ -57,13 +57,39 @@ final class TextTest extends TestCase
         self::fail('The index should be greater than or equal to 1.');
     }
 
-    public function testTextMinNbChars()
+    public function testRealTextMinNbChars()
     {
         $this->expectException(\InvalidArgumentException::class);
 
         $this->faker->realText(9);
 
         self::fail('The text should be at least 10 characters.');
+    }
+
+    /**
+     * @testWith [0, 10]
+     *           [5, 10]
+     *           [8, 10]
+     *           [8, 20]
+     *           [10, 50]
+     *           [150, 200]
+     *           [1700, 2000]
+     */
+    public function testRealTextBetweenTextLength($min, $max)
+    {
+        $strlen = strlen($this->faker->realTextBetween($min, $max));
+
+        self::assertGreaterThan($min, $strlen);
+        self::assertLessThan($max, $strlen);
+    }
+
+    public function testRealTextBetweenMinNbChars()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $this->faker->realTextBetween(9, 9);
+
+        self::fail('minNbChars should be smaller than maxNbChars');
     }
 
     protected function getProviders(): iterable
