@@ -68,6 +68,7 @@ final class ContainerBuilder
     public static function getDefault(): ContainerInterface
     {
         $self = new self();
+
         foreach (self::getDefaultExtensions() as $id => $definition) {
             $self->add($definition, $id);
         }
