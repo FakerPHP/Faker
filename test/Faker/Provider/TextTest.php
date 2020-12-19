@@ -67,7 +67,7 @@ final class TextTest extends TestCase
     }
 
     /**
-     * @testWith [0, 10]
+     * @testWith [1, 10]
      *           [5, 10]
      *           [8, 10]
      *           [18, 20]
@@ -87,9 +87,18 @@ final class TextTest extends TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        $this->faker->realTextBetween(9, 9);
+        $this->faker->realTextBetween(25, 20);
 
         self::fail('minNbChars should be smaller than maxNbChars');
+    }
+
+    public function testRealTextBetweenMinNbCharsGreaterThan1()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $this->faker->realTextBetween(0, 30);
+
+        self::fail('minNbChars must be bigger than 0');
     }
 
     protected function getProviders(): iterable

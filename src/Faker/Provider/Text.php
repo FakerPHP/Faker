@@ -49,6 +49,10 @@ abstract class Text extends Base
      */
     public function realTextBetween($minNbChars = 160, $maxNbChars = 200, $indexSize = 2)
     {
+        if ($minNbChars < 1) {
+            throw new \InvalidArgumentException('minNbChars must be at least 1');
+        }
+
         if ($maxNbChars < 10) {
             throw new \InvalidArgumentException('maxNbChars must be at least 10');
         }
