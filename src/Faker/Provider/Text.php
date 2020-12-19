@@ -74,7 +74,7 @@ abstract class Text extends Base
             }
 
             $result = $this->generateText($maxNbChars, $words);
-        } while (strlen($result) <= $minNbChars);
+        } while (static::strlen($result) <= $minNbChars);
 
         return $result;
     }
