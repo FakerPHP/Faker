@@ -28,7 +28,7 @@ abstract class Text extends Base
      */
     public function realText($maxNbChars = 200, $indexSize = 2)
     {
-        return $this->realTextBetween(round($maxNbChars * 0.8), $maxNbChars, $indexSize);
+        return $this->realTextBetween((int) round($maxNbChars * 0.8), $maxNbChars, $indexSize);
     }
 
     /**
