@@ -565,9 +565,15 @@ class Generator
 
     private $container;
 
+    /**
+     * @var UniqueGenerator
+     */
+    private $uniqueGenerator;
+
     public function __construct(ContainerInterface $container = null)
     {
         $this->container = $container ?: Extension\ContainerBuilder::getDefault();
+        $this->uniqueGenerator = new UniqueGenerator($this);
     }
 
     /**
@@ -608,6 +614,46 @@ class Generator
     public function getProviders()
     {
         return $this->providers;
+    }
+
+    /**
+     * With the unique generator you are guaranteed to never get the same two
+     * values.
+     *
+     * @return Generator The UniqueGenerator is a proxy
+     */
+    public function withUnique(): Generator
+    {
+        return $this->uniqueGenerator;
+    }
+
+    /**
+     * Get a value only some percentage of the time.
+     *
+     * @param float $weight A probability between 0 and 1, 0 means that we always get the default value.
+     *
+     * @return self
+     */
+    public function withMaybe(float $weight = 0.5, $default = null)
+    {
+        if (mt_rand(1, 100) <= (100*$weight)) {
+            return $this;
+        }
+
+        return new DefaultGenerator($default);
+    }
+
+    /**
+     * To make sure the value meet some criteria, pass a callable that verifies the
+     * output. If the validator fails, the generator will try again.
+     *
+     * @example $faker->withValid(fn($v) => strlen($v) > 3))->name();
+     *
+     * @return self
+     */
+    public function withValid(\Closure $validator, int $maxRetries = 10000)
+    {
+        return new ValidGenerator($this, $validator, $maxRetries);
     }
 
     public function seed($seed = null)
