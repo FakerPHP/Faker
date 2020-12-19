@@ -47,7 +47,7 @@ abstract class Text extends Base
      *                             produce more correct text, at the price of less randomness.
      * @return string
      */
-    public function realTextBetween($minNbChars = 150, $maxNbChars = 200, $indexSize = 2)
+    public function realTextBetween($minNbChars = 160, $maxNbChars = 200, $indexSize = 2)
     {
         if ($maxNbChars < 10) {
             throw new \InvalidArgumentException('maxNbChars must be at least 10');

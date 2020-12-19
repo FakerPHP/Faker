@@ -70,10 +70,10 @@ final class TextTest extends TestCase
      * @testWith [0, 10]
      *           [5, 10]
      *           [8, 10]
-     *           [8, 20]
-     *           [10, 50]
-     *           [150, 200]
-     *           [1700, 2000]
+     *           [18, 20]
+     *           [45, 50]
+     *           [180, 200]
+     *           [1950, 2000]
      */
     public function testRealTextBetweenTextLength($min, $max)
     {
