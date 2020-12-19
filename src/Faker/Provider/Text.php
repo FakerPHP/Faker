@@ -40,27 +40,30 @@ abstract class Text extends Base
             throw new \InvalidArgumentException('indexSize must be at most 5');
         }
 
+        $words = $this->getConsecutiveWords($indexSize);
+
         $iterations = 0;
+        $minNbChars = $maxNbChars * 0.8;
+
         do {
             $iterations ++;
             if ($iterations >= 100) {
                 throw new \OverflowException(sprintf('Maximum retries of %d reached without finding a valid real text', $iterations));
             }
 
-            $result = $this->generateText($indexSize, $maxNbChars);
-        } while (strlen($result) < $maxNbChars * 0.8);
+            $result = $this->generateText($maxNbChars, $words);
+        } while (strlen($result) < $minNbChars);
 
         return static::appendEnd($result);
     }
 
     /**
-     * @param  int  $indexSize
-     * @param  int  $maxNbChars
+     * @param  int      $maxNbChars
+     * @param  array    $words
      * @return string
      */
-    protected function generateText(int $indexSize, int $maxNbChars)
+    protected function generateText($maxNbChars, $words)
     {
-        $words = $this->getConsecutiveWords($indexSize);
         $result = [];
         $resultLength = 0;
         // take a random starting point
