@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Faker\Excpetion;
+namespace Faker\Exception;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>

@@ -4,7 +4,7 @@ namespace Faker\Test;
 
 use Faker\Container\Container;
 use Faker\English\FileExtension;
-use Faker\Excpetion\ExtensionNotFound;
+use Faker\Exception\ExtensionNotFound;
 use Faker\Extension\File;
 use Faker\Generator;
 
@@ -13,9 +13,9 @@ final class GeneratorTest extends TestCase
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition()
     {
         $generator = new Generator(new Container(['file' => FileExtension::class]));
-        
+
         $ext = $generator->ext('file');
-        
+
         self::assertInstanceOf(FileExtension::class, $ext);
     }
 
@@ -24,7 +24,7 @@ final class GeneratorTest extends TestCase
         $generator = new Generator(new Container([]));
 
         $this->expectException(ExtensionNotFound::class);
-        
+
         $generator->ext('foobar');
     }
 

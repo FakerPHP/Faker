@@ -17,7 +17,7 @@ final class ContainerBuilder
     /**
      * @var array<string, string|callable|object>
      */
-    private $container = [];
+    private $definitions = [];
 
     /**
      * @param string|callable|object $value
@@ -28,7 +28,7 @@ final class ContainerBuilder
     public function add($value, string $name = null): self
     {
         if (!is_string($value) && !is_callable($value) && !is_object($value)) {
-            throw new \InvalidArgumentException(sprintf('First argument to "%s::add()" must be a string, callable or object.', __CLASS__));
+            throw new \InvalidArgumentException(sprintf('First argument to "%s::add()" must be a string, callable or object.', self::class));
         }
 
         if ($name === null) {
@@ -39,26 +39,26 @@ final class ContainerBuilder
             } else {
                 throw new \InvalidArgumentException(sprintf(
                     'Second argument to "%s::add()" is required not passing a string or object as first argument',
-                    __CLASS__
+                    self::class
                 ));
             }
         }
 
-        $this->container[$name] = $value;
+        $this->definitions[$name] = $value;
 
         return $this;
     }
 
     public function build(): ContainerInterface
     {
-        return new Container($this->container);
+        return new Container($this->definitions);
     }
 
     /**
      * Get an array with extension that represent the default English
      * functionality.
      */
-    public static function getDefaultExtensions(): array
+    public static function defaultExtensions(): array
     {
         return [
             File::class => FileExtension::class
@@ -69,7 +69,7 @@ final class ContainerBuilder
     {
         $instance = new self();
 
-        foreach (self::getDefaultExtensions() as $id => $definition) {
+        foreach (self::defaultExtensions() as $id => $definition) {
             $instance->add($definition, $id);
         }
 
