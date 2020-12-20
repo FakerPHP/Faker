@@ -7,8 +7,6 @@ namespace Faker\Extension;
 use Faker\Generator;
 
 /**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- *
  * @experimental This interface is experimental and does not fall under our BC promise
  */
 interface GeneratorAwareExtension extends Extension

@@ -9,7 +9,6 @@ use Psr\Container\ContainerInterface;
 /**
  * A simple implementation of a container.
  *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @experimental This class is experimental and does not fall under our BC promise
  */
 final class Container implements ContainerInterface

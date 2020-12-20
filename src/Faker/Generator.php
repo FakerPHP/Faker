@@ -239,11 +239,10 @@ class Generator
 
     /**
      * @template T of Extension
-     * @param class-string<T> $id
-     * @return T
-     *
+     * @param  class-string<T>             $id
      * @throws ExtensionNotFound
      * @throws ContainerExceptionInterface
+     * @return T
      */
     public function ext(string $id): Extension
     {

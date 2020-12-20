@@ -9,9 +9,6 @@ use Faker\Core\File;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
-/**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
- */
 final class ContainerBuilderTest extends TestCase
 {
     public function testBuildEmpty()

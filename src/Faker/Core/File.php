@@ -8,7 +8,6 @@ use Faker\Extension\Extension;
 use Faker\Extension\FileExtension;
 
 /**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @experimental This class is experimental and does not fall under our BC promise
  */
 final class File implements FileExtension

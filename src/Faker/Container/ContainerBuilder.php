@@ -9,7 +9,6 @@ use Faker\Extension\FileExtension;
 use Psr\Container\ContainerInterface;
 
 /**
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  * @experimental This class is experimental and does not fall under our BC promise
  */
 final class ContainerBuilder
@@ -21,7 +20,7 @@ final class ContainerBuilder
 
     /**
      * @param string|callable|object $value
-     * @param string|null $name
+     * @param string|null            $name
      *
      * @throws \LogicException
      */
