@@ -27,6 +27,7 @@ final class Container implements ContainerInterface
     /**
      * @throws NotInContainerException
      * @throws ContainerException
+     * @throws \InvalidArgumentException
      */
     public function get($id)
     {
