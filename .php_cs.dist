@@ -2,6 +2,15 @@
 
 declare(strict_types=1);
 
+$header = <<<TXT
+Copyright (c) 2011 François Zaninotto and contributors
+
+For the full copyright and license information, please view
+the LICENSE file that was distributed with this source code.
+
+@see https://github.com/FakerPHP/Faker
+TXT;
+
 $finder = PhpCsFixer\Finder::create()
     ->exclude([
         '.build/',
@@ -58,6 +67,12 @@ return $config
             'annotations' => [
                 'author',
             ],
+        ],
+        'header_comment' => [
+            'comment_type' => 'PHPDoc',
+            'header' => trim($header),
+            'location' => 'after_declare_strict',
+            'separate' => 'both',
         ],
         'implode_call' => true,
         'lambda_not_used_import' => true,
