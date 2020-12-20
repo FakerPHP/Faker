@@ -3,7 +3,6 @@
 namespace Faker\Test;
 
 use Faker\Generator;
-use PHPUnit\Framework\Constraint\RegularExpression;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
