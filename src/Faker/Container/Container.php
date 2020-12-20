@@ -16,7 +16,7 @@ final class Container implements ContainerInterface
     /**
      * @var array<string, callable|string|object>
      */
-    private $definitions = [];
+    private $definitions;
     private $services = [];
 
     public function __construct(array $definitions)
