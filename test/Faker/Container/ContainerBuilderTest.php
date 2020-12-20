@@ -6,7 +6,7 @@ namespace Faker\Test\Container;
 
 use Faker\Container\ContainerBuilder;
 use Faker\English\FileExtension;
-use Faker\Test\TestCase;
+use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 /**

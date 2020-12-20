@@ -38,7 +38,7 @@ final class Container implements ContainerInterface
             ));
         }
 
-        if (isset($this->services[$id])) {
+        if (array_key_exists($id, $this->services)) {
             return $this->services[$id];
         }
 
@@ -51,7 +51,15 @@ final class Container implements ContainerInterface
 
         $definition = $this->definitions[$id];
 
-        if (is_string($definition)) {
+        if (is_callable($definition)) {
+            try {
+                $service = $definition();
+            } catch (\Throwable $e) {
+                throw new ContainerException(sprintf('Error while invoking callable for "%s"', $id), 0, $e);
+            }
+        } elseif (is_object($definition)) {
+            $service = $definition;
+        } elseif (is_string($definition)) {
             if (!class_exists($definition)) {
                 throw new ContainerException(sprintf(
                     'Could not instantiate class "%s". Class was not found.',
@@ -60,25 +68,17 @@ final class Container implements ContainerInterface
             }
 
             try {
-                return $this->services[$id] = new $definition();
+                $service = new $definition();
             } catch (\Throwable $e) {
                 throw new ContainerException(sprintf('Could not instantiate class "%s"', $id), 0, $e);
             }
+        } else {
+            throw new ContainerException(sprintf('Invalid type for definition with id "%s"', $id));
         }
 
-        if (is_callable($definition)) {
-            try {
-                return $this->services[$id] = $definition();
-            } catch (\Throwable $e) {
-                throw new ContainerException(sprintf('Error while invoking callable for "%s"', $id), 0, $e);
-            }
-        }
+        $this->services[$id] = $service;
 
-        if (is_object($definition)) {
-            return $this->services[$id] = $definition;
-        }
-
-        throw new ContainerException(sprintf('Invalid type for definition with id "%s"', $id));
+        return $service;
     }
 
     /**
