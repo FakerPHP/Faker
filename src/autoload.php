@@ -1,12 +1,14 @@
 <?php
 
 /**
- * Simple autoloader that follow the PHP Standards Recommendation #0 (PSR-0)
- * @see https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md for more informations.
+ * Copyright (c) 2011 François Zaninotto and contributors
  *
- * Code inspired from the SplClassLoader RFC
- * @see https://wiki.php.net/rfc/splclassloader#example_implementation
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ *
+ * @see https://github.com/FakerPHP/Faker
  */
+
 spl_autoload_register(function ($className) {
     $className = ltrim($className, '\\');
     $fileName = '';
