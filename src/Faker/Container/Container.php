@@ -32,7 +32,10 @@ final class Container implements ContainerInterface
     public function get($id)
     {
         if (!is_string($id)) {
-            throw new \LogicException(sprintf('First argument of %s::get() must be string', __CLASS__));
+            throw new \InvalidArgumentException(sprintf(
+                'First argument of %s::get() must be string', 
+                self::class
+            ));
         }
 
         if (isset($this->services[$id])) {
@@ -40,14 +43,20 @@ final class Container implements ContainerInterface
         }
 
         if (!$this->has($id)) {
-            throw new NotInContainerException(sprintf('There is not service with id "%s" in the container.', $id));
+            throw new NotInContainerException(sprintf(
+                'There is not service with id "%s" in the container.', 
+                $id
+            ));
         }
 
         $definition = $this->definitions[$id];
 
         if (is_string($definition)) {
             if (!class_exists($definition)) {
-                throw new ContainerException(sprintf('Could not instantiate class "%s". Class was not found.', $id));
+                throw new ContainerException(sprintf(
+                    'Could not instantiate class "%s". Class was not found.', 
+                    $id
+                ));
             }
 
             try {

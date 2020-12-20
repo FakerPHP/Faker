@@ -53,9 +53,9 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildWithCallable()
     {
         $builder = new ContainerBuilder();
-        $builder->add(\Closure::fromCallable(function () {
+        $builder->add(static function () {
             return new FileExtension();
-        }), 'foo');
+        }, 'foo');
         $container = $builder->build();
 
         self::assertInstanceOf(ContainerInterface::class, $container);

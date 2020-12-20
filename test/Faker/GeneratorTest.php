@@ -10,13 +10,21 @@ use Faker\Generator;
 
 final class GeneratorTest extends TestCase
 {
-    public function testExt()
+    public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition()
     {
         $generator = new Generator(new Container(['file' => FileExtension::class]));
+        
         $ext = $generator->ext('file');
+        
         self::assertInstanceOf(FileExtension::class, $ext);
+    }
+
+        public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition()
+    {
+        $generator = new Generator(new Container([]));
 
         $this->expectException(ExtensionNotFound::class);
+        
         $generator->ext('foobar');
     }
 

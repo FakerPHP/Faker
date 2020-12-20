@@ -11,11 +11,19 @@ use Psr\Container\NotFoundExceptionInterface;
 
 final class ContainerTest extends TestCase
 {
-    public function testGetNonExisting()
+    public function testHasReturnsFalseWhenContainerDoesNotHaveDefinitionForService()
     {
-        $container = new Container(['file' => FileExtension::class]);
+        $container = new Container();
+        
         self::assertFalse($container->has('foo'));
+    }
+    
+    public function testGetThrowsNotFoundExceptionWhenContainerDoesNotHaveDefinitionForService()
+    {
+        $container = new Container();
+        
         $this->expectException(NotFoundExceptionInterface::class);
+
         $container->get('foo');
     }
 
@@ -36,9 +44,9 @@ final class ContainerTest extends TestCase
 
     public function testGetFromCallable()
     {
-        $container = new Container(['file' => \Closure::fromCallable(function () {
+        $container = new Container(['file' => static function () {
             return new FileExtension();
-        })]);
+        }]);
         $object = $container->get('file');
 
         self::assertInstanceOf(FileExtension::class, $object);
@@ -55,18 +63,18 @@ final class ContainerTest extends TestCase
     public function testGetFromNull()
     {
         $container = new Container(['file' => null]);
+        
         $this->expectException(ContainerExceptionInterface::class);
+        
         $container->get('file');
     }
 
     public function testGetSameObject()
     {
         $container = new Container(['file' => FileExtension::class]);
-        $objectA = $container->get('file');
-        $hashA = spl_object_hash($objectA);
-        $objectB = $container->get('file');
-        $hashB = spl_object_hash($objectB);
-
-        self::assertSame($hashA, $hashB, 'The container should only instantiate a service once.');
+        
+        $service = $container->get('file');
+        
+        self::assertSame($service, $container->get('file'), 'The container should only instantiate a service once.');
     }
 }

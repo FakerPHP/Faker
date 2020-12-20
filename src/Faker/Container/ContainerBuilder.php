@@ -28,7 +28,7 @@ final class ContainerBuilder
     public function add($value, string $name = null): self
     {
         if (!is_string($value) && !is_callable($value) && !is_object($value)) {
-            throw new \LogicException(sprintf('First argument to "%s::add()" must be a string, callable or object.', __CLASS__));
+            throw new \InvalidArgumentException(sprintf('First argument to "%s::add()" must be a string, callable or object.', __CLASS__));
         }
 
         if ($name === null) {
@@ -37,7 +37,7 @@ final class ContainerBuilder
             } elseif (is_object($value)) {
                 $name = get_class($value);
             } else {
-                throw new \LogicException(sprintf(
+                throw new \InvalidArgumentException(sprintf(
                     'Second argument to "%s::add()" is required not passing a string or object as first argument',
                     __CLASS__
                 ));
@@ -67,12 +67,12 @@ final class ContainerBuilder
 
     public static function getDefault(): ContainerInterface
     {
-        $self = new self();
+        $instance = new self();
 
         foreach (self::getDefaultExtensions() as $id => $definition) {
-            $self->add($definition, $id);
+            $instance->add($definition, $id);
         }
 
-        return $self->build();
+        return $instance->build();
     }
 }
