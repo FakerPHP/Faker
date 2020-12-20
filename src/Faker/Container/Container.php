@@ -99,12 +99,12 @@ final class Container implements ContainerInterface
     }
 
     /**
-     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     public function has($id)
     {
         if (!is_string($id)) {
-            throw new \LogicException(sprintf(
+            throw new \InvalidArgumentException(sprintf(
                 'First argument of %s::get() must be string',
                 self::class
             ));
