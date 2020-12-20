@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Faker\Test\Container;
 
 use Faker\Container\ContainerBuilder;
-use Faker\English\FileExtension;
+use Faker\Core\FileExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 

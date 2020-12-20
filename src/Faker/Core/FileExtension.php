@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Faker\English;
+namespace Faker\Core;
 
 use Faker\Extension\Extension;
 use Faker\Extension\File;

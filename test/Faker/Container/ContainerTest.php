@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Faker\Container;
 
-use Faker\English\FileExtension;
+use Faker\Core\FileExtension;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
