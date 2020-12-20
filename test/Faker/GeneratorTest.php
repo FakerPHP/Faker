@@ -19,7 +19,7 @@ final class GeneratorTest extends TestCase
         self::assertInstanceOf(FileExtension::class, $ext);
     }
 
-        public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition()
+    public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition()
     {
         $generator = new Generator(new Container([]));
 
