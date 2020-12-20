@@ -55,7 +55,14 @@ final class Container implements ContainerInterface
             try {
                 $service = $definition();
             } catch (\Throwable $e) {
-                throw new ContainerException(sprintf('Error while invoking callable for "%s"', $id), 0, $e);
+                throw new ContainerException(
+                    sprintf(
+                        'Error while invoking callable for "%s"',
+                        $id
+                    ),
+                    0,
+                    $e
+                );
             }
         } elseif (is_object($definition)) {
             $service = $definition;
@@ -70,10 +77,20 @@ final class Container implements ContainerInterface
             try {
                 $service = new $definition();
             } catch (\Throwable $e) {
-                throw new ContainerException(sprintf('Could not instantiate class "%s"', $id), 0, $e);
+                throw new ContainerException(
+                    sprintf(
+                        'Could not instantiate class "%s"',
+                        $id
+                    ),
+                    0,
+                    $e
+                );
             }
         } else {
-            throw new ContainerException(sprintf('Invalid type for definition with id "%s"', $id));
+            throw new ContainerException(sprintf(
+                'Invalid type for definition with id "%s"',
+                $id
+            ));
         }
 
         $this->services[$id] = $service;
@@ -87,7 +104,10 @@ final class Container implements ContainerInterface
     public function has($id)
     {
         if (!is_string($id)) {
-            throw new \LogicException(sprintf('First argument of %s::get() must be string', self::class));
+            throw new \LogicException(sprintf(
+                'First argument of %s::get() must be string',
+                self::class
+            ));
         }
 
         return array_key_exists($id, $this->definitions);
