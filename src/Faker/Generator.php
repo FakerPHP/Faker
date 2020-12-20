@@ -5,7 +5,7 @@ namespace Faker;
 use Faker\Container\ContainerBuilder;
 use Faker\Exception\ExtensionNotFound;
 use Faker\Extension\Extension;
-use Faker\Extension\File;
+use Faker\Extension\FileExtension;
 use Faker\Extension\GeneratorAwareExtension;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -320,17 +320,17 @@ class Generator
 
     public function mimeType()
     {
-        return $this->ext(File::class)->mimeType();
+        return $this->ext(FileExtension::class)->mimeType();
     }
 
     public function fileExtension()
     {
-        return $this->ext(File::class)->extension();
+        return $this->ext(FileExtension::class)->extension();
     }
 
     public function filePath()
     {
-        return $this->ext(File::class)->filePath();
+        return $this->ext(FileExtension::class)->filePath();
     }
 
     protected function callFormatWithMatches($matches)

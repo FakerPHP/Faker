@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Faker\Container;
 
-use Faker\Core\FileExtension;
+use Faker\Core\File;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -29,10 +29,10 @@ final class ContainerTest extends TestCase
 
     public function testGetFromString()
     {
-        $container = new Container(['file' => FileExtension::class]);
+        $container = new Container(['file' => File::class]);
         $object = $container->get('file');
 
-        self::assertInstanceOf(FileExtension::class, $object);
+        self::assertInstanceOf(File::class, $object);
     }
 
     public function testGetFromNoClassString()
@@ -45,19 +45,19 @@ final class ContainerTest extends TestCase
     public function testGetFromCallable()
     {
         $container = new Container(['file' => static function () {
-            return new FileExtension();
+            return new File();
         }]);
         $object = $container->get('file');
 
-        self::assertInstanceOf(FileExtension::class, $object);
+        self::assertInstanceOf(File::class, $object);
     }
 
     public function testGetFromObject()
     {
-        $container = new Container(['file' => new FileExtension()]);
+        $container = new Container(['file' => new File()]);
         $object = $container->get('file');
 
-        self::assertInstanceOf(FileExtension::class, $object);
+        self::assertInstanceOf(File::class, $object);
     }
 
     public function testGetFromNull()
@@ -71,7 +71,7 @@ final class ContainerTest extends TestCase
 
     public function testGetSameObject()
     {
-        $container = new Container(['file' => FileExtension::class]);
+        $container = new Container(['file' => File::class]);
 
         $service = $container->get('file');
 

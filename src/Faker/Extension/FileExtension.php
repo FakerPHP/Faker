@@ -7,7 +7,7 @@ namespace Faker\Extension;
  *
  * @experimental This interface is experimental and does not fall under our BC promise
  */
-interface File extends Extension
+interface FileExtension extends Extension
 {
     /**
      * Get a random MIME type

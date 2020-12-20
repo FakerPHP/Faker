@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Faker\Test\Container;
 
 use Faker\Container\ContainerBuilder;
-use Faker\Core\FileExtension;
+use Faker\Core\File;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
@@ -25,7 +25,7 @@ final class ContainerBuilderTest extends TestCase
     public function testBuild()
     {
         $builder = new ContainerBuilder();
-        $builder->add(FileExtension::class);
+        $builder->add(File::class);
         $container = $builder->build();
 
         self::assertInstanceOf(ContainerInterface::class, $container);
@@ -34,8 +34,8 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildWithDuplicates()
     {
         $builder = new ContainerBuilder();
-        $builder->add(FileExtension::class);
-        $builder->add(FileExtension::class);
+        $builder->add(File::class);
+        $builder->add(File::class);
         $container = $builder->build();
 
         self::assertInstanceOf(ContainerInterface::class, $container);
@@ -44,7 +44,7 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildWithObject()
     {
         $builder = new ContainerBuilder();
-        $builder->add(new FileExtension(), 'foo');
+        $builder->add(new File(), 'foo');
         $container = $builder->build();
 
         self::assertInstanceOf(ContainerInterface::class, $container);
@@ -54,7 +54,7 @@ final class ContainerBuilderTest extends TestCase
     {
         $builder = new ContainerBuilder();
         $builder->add(static function () {
-            return new FileExtension();
+            return new File();
         }, 'foo');
         $container = $builder->build();
 

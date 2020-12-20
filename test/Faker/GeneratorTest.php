@@ -3,20 +3,20 @@
 namespace Faker\Test;
 
 use Faker\Container\Container;
-use Faker\Core\FileExtension;
+use Faker\Core\File;
 use Faker\Exception\ExtensionNotFound;
-use Faker\Extension\File;
+use Faker\Extension\FileExtension;
 use Faker\Generator;
 
 final class GeneratorTest extends TestCase
 {
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition()
     {
-        $generator = new Generator(new Container(['file' => FileExtension::class]));
+        $generator = new Generator(new Container(['file' => File::class]));
 
         $ext = $generator->ext('file');
 
-        self::assertInstanceOf(FileExtension::class, $ext);
+        self::assertInstanceOf(File::class, $ext);
     }
 
     public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition()
@@ -31,9 +31,9 @@ final class GeneratorTest extends TestCase
     public function testConstructorBuildsDefaultExtensions()
     {
         $generator = new Generator();
-        $ext = $generator->ext(File::class);
-        self::assertInstanceOf(File::class, $ext);
+        $ext = $generator->ext(FileExtension::class);
         self::assertInstanceOf(FileExtension::class, $ext);
+        self::assertInstanceOf(File::class, $ext);
     }
 
     public function testMimeType()
