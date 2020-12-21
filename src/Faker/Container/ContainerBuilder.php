@@ -22,7 +22,7 @@ final class ContainerBuilder
      * @param callable|object|string $value
      * @param string|null            $name
      *
-     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     public function add($value, string $name = null): self
     {
