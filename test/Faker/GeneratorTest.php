@@ -12,7 +12,9 @@ final class GeneratorTest extends TestCase
 {
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void
     {
-        $generator = new Generator(new Container(['file' => File::class]));
+        $generator = new Generator(new Container([
+            'file' => File::class
+        ]));
 
         $ext = $generator->ext('file');
 
@@ -31,7 +33,9 @@ final class GeneratorTest extends TestCase
     public function testConstructorBuildsDefaultExtensions(): void
     {
         $generator = new Generator();
+
         $ext = $generator->ext(FileExtension::class);
+
         self::assertInstanceOf(FileExtension::class, $ext);
         self::assertInstanceOf(File::class, $ext);
     }
@@ -39,7 +43,9 @@ final class GeneratorTest extends TestCase
     public function testMimeType(): void
     {
         $generator = new Generator();
+
         $mime = $generator->mimeType();
+
         self::assertMatchesRegularExpression('|.*/.*|', $mime);
     }
 

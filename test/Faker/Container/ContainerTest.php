@@ -29,7 +29,10 @@ final class ContainerTest extends TestCase
 
     public function testGetFromString(): void
     {
-        $container = new Container(['file' => File::class]);
+        $container = new Container([
+            'file' => File::class
+        ]);
+
         $object = $container->get('file');
 
         self::assertInstanceOf(File::class, $object);
@@ -37,16 +40,23 @@ final class ContainerTest extends TestCase
 
     public function testGetFromNoClassString(): void
     {
-        $container = new Container(['file' => 'this is not a class']);
+        $container = new Container([
+            'file' => 'this is not a class'
+        ]);
+
         $this->expectException(ContainerExceptionInterface::class);
+
         $container->get('file');
     }
 
     public function testGetFromCallable(): void
     {
-        $container = new Container(['file' => static function () {
-            return new File();
-        }]);
+        $container = new Container([
+            'file' => static function () {
+                return new File();
+            },
+        ]);
+
         $object = $container->get('file');
 
         self::assertInstanceOf(File::class, $object);
@@ -54,7 +64,10 @@ final class ContainerTest extends TestCase
 
     public function testGetFromObject(): void
     {
-        $container = new Container(['file' => new File()]);
+        $container = new Container([
+            'file' => new File()
+        ]);
+
         $object = $container->get('file');
 
         self::assertInstanceOf(File::class, $object);
@@ -62,7 +75,9 @@ final class ContainerTest extends TestCase
 
     public function testGetFromNull(): void
     {
-        $container = new Container(['file' => null]);
+        $container = new Container([
+            'file' => null
+        ]);
 
         $this->expectException(ContainerExceptionInterface::class);
 
@@ -71,7 +86,9 @@ final class ContainerTest extends TestCase
 
     public function testGetSameObject(): void
     {
-        $container = new Container(['file' => File::class]);
+        $container = new Container([
+            'file' => File::class
+        ]);
 
         $service = $container->get('file');
 

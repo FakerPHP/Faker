@@ -245,7 +245,10 @@ class Generator
     public function ext(string $id): Extension\Extension
     {
         if (!$this->container->has($id)) {
-            throw new Extension\ExtensionNotFound(sprintf('No Faker extension with id "%s" was loaded.', $id));
+            throw new Extension\ExtensionNotFound(sprintf(
+                'No Faker extension with id "%s" was loaded.',
+                $id
+            ));
         }
 
         $extension = $this->container->get($id);
