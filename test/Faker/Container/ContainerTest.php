@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Faker\Container;
 
 use Faker\Core\File;
+use Faker\Extension;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -39,6 +40,47 @@ final class ContainerTest extends TestCase
         $object = $container->get('file');
 
         self::assertInstanceOf(File::class, $object);
+    }
+
+    /**
+     * @dataProvider provideDefinitionThatDoesNotResolveToExtension
+     */
+    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnExtension($definition): void
+    {
+        $id = 'file';
+
+        $container = new Container([
+            $id => $definition,
+        ]);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage(sprintf(
+            'Service resolved for identifier "%s" does not implement the %s" interface.',
+            $id,
+            Extension\Extension::class
+        ));
+
+        $container->get($id);
+    }
+
+    /**
+     * @return \Generator<string, array{0: callable|object|string}>
+     */
+    public function provideDefinitionThatDoesNotResolveToExtension(): \Generator
+    {
+        $definitions = [
+            'callable' => static function (): \stdClass {
+                return new \stdClass();
+            },
+            'object' => new \stdClass(),
+            'string' => \stdClass::class,
+        ];
+
+        foreach ($definitions as $key => $definition) {
+            yield $key => [
+                $definition,
+            ];
+        }
     }
 
     public function testGetFromNoClassString(): void

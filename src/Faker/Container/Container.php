@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Faker\Container;
 
+use Faker\Extension;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -29,6 +30,9 @@ final class Container implements ContainerInterface
      * @throws NotInContainerException
      * @throws ContainerException
      * @throws \InvalidArgumentException
+     * @throws \RuntimeException
+     *
+     * @return Extension\Extension
      */
     public function get($id)
     {
@@ -91,6 +95,14 @@ final class Container implements ContainerInterface
             throw new ContainerException(sprintf(
                 'Invalid type for definition with id "%s"',
                 $id
+            ));
+        }
+
+        if (!$service instanceof Extension\Extension) {
+            throw new \RuntimeException(sprintf(
+                'Service resolved for identifier "%s" does not implement the %s" interface.',
+                $id,
+                Extension\Extension::class
             ));
         }
 
