@@ -539,9 +539,20 @@ class Base
         // replace \d with number and \w with letter and . with ascii
         $regex = preg_replace_callback('/\\\w/', 'static::randomLetter', $regex);
         $regex = preg_replace_callback('/\\\d/', 'static::randomDigit', $regex);
-        $regex = preg_replace_callback('/(?<!\\\)\./', 'static::randomAscii', $regex);
-        // remove remaining backslashes
+        //replace . with ascii except backslash
+        $regex = preg_replace_callback('/(?<!\\\)\./', function() {
+            do {
+                $chr = chr(mt_rand(33, 126));
+            } while ($chr === '\\');
+
+            return $chr;
+        }, $regex);
+
+        // remove remaining single backslashes
+        $regex = str_replace('\\\\', '[:escaped_backslash:]', $regex);
         $regex = str_replace('\\', '', $regex);
+        $regex = str_replace('[:escaped_backslash:]', '\\', $regex);
+
         // phew
         return $regex;
     }
