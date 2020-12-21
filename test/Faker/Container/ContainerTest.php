@@ -11,14 +11,14 @@ use Psr\Container\NotFoundExceptionInterface;
 
 final class ContainerTest extends TestCase
 {
-    public function testHasReturnsFalseWhenContainerDoesNotHaveDefinitionForService()
+    public function testHasReturnsFalseWhenContainerDoesNotHaveDefinitionForService(): void
     {
         $container = new Container([]);
 
         self::assertFalse($container->has('foo'));
     }
 
-    public function testGetThrowsNotFoundExceptionWhenContainerDoesNotHaveDefinitionForService()
+    public function testGetThrowsNotFoundExceptionWhenContainerDoesNotHaveDefinitionForService(): void
     {
         $container = new Container([]);
 
@@ -27,7 +27,7 @@ final class ContainerTest extends TestCase
         $container->get('foo');
     }
 
-    public function testGetFromString()
+    public function testGetFromString(): void
     {
         $container = new Container(['file' => File::class]);
         $object = $container->get('file');
@@ -35,14 +35,14 @@ final class ContainerTest extends TestCase
         self::assertInstanceOf(File::class, $object);
     }
 
-    public function testGetFromNoClassString()
+    public function testGetFromNoClassString(): void
     {
         $container = new Container(['file' => 'this is not a class']);
         $this->expectException(ContainerExceptionInterface::class);
         $container->get('file');
     }
 
-    public function testGetFromCallable()
+    public function testGetFromCallable(): void
     {
         $container = new Container(['file' => static function () {
             return new File();
@@ -52,7 +52,7 @@ final class ContainerTest extends TestCase
         self::assertInstanceOf(File::class, $object);
     }
 
-    public function testGetFromObject()
+    public function testGetFromObject(): void
     {
         $container = new Container(['file' => new File()]);
         $object = $container->get('file');
@@ -60,7 +60,7 @@ final class ContainerTest extends TestCase
         self::assertInstanceOf(File::class, $object);
     }
 
-    public function testGetFromNull()
+    public function testGetFromNull(): void
     {
         $container = new Container(['file' => null]);
 
@@ -69,7 +69,7 @@ final class ContainerTest extends TestCase
         $container->get('file');
     }
 
-    public function testGetSameObject()
+    public function testGetSameObject(): void
     {
         $container = new Container(['file' => File::class]);
 

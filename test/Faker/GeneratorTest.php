@@ -10,7 +10,7 @@ use Faker\Generator;
 
 final class GeneratorTest extends TestCase
 {
-    public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition()
+    public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void
     {
         $generator = new Generator(new Container(['file' => File::class]));
 
@@ -19,7 +19,7 @@ final class GeneratorTest extends TestCase
         self::assertInstanceOf(File::class, $ext);
     }
 
-    public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition()
+    public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition(): void
     {
         $generator = new Generator(new Container([]));
 
@@ -28,7 +28,7 @@ final class GeneratorTest extends TestCase
         $generator->ext('foobar');
     }
 
-    public function testConstructorBuildsDefaultExtensions()
+    public function testConstructorBuildsDefaultExtensions(): void
     {
         $generator = new Generator();
         $ext = $generator->ext(FileExtension::class);
@@ -36,7 +36,7 @@ final class GeneratorTest extends TestCase
         self::assertInstanceOf(File::class, $ext);
     }
 
-    public function testMimeType()
+    public function testMimeType(): void
     {
         $generator = new Generator();
         $mime = $generator->mimeType();

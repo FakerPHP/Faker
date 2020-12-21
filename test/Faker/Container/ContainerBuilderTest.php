@@ -11,7 +11,7 @@ use Psr\Container\ContainerInterface;
 
 final class ContainerBuilderTest extends TestCase
 {
-    public function testBuildEmpty()
+    public function testBuildEmpty(): void
     {
         $builder = new ContainerBuilder();
         $container = $builder->build();
@@ -19,7 +19,7 @@ final class ContainerBuilderTest extends TestCase
         self::assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $builder = new ContainerBuilder();
         $builder->add(File::class);
@@ -28,7 +28,7 @@ final class ContainerBuilderTest extends TestCase
         self::assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testBuildWithDuplicates()
+    public function testBuildWithDuplicates(): void
     {
         $builder = new ContainerBuilder();
         $builder->add(File::class);
@@ -38,7 +38,7 @@ final class ContainerBuilderTest extends TestCase
         self::assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testBuildWithObject()
+    public function testBuildWithObject(): void
     {
         $builder = new ContainerBuilder();
         $builder->add(new File(), 'foo');
@@ -47,7 +47,7 @@ final class ContainerBuilderTest extends TestCase
         self::assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testBuildWithCallable()
+    public function testBuildWithCallable(): void
     {
         $builder = new ContainerBuilder();
         $builder->add(static function () {
@@ -58,7 +58,7 @@ final class ContainerBuilderTest extends TestCase
         self::assertInstanceOf(ContainerInterface::class, $container);
     }
 
-    public function testBuildDefault()
+    public function testBuildDefault(): void
     {
         $container = ContainerBuilder::getDefault();
         self::assertInstanceOf(ContainerInterface::class, $container);
