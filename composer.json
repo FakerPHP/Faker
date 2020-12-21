@@ -35,8 +35,8 @@
         "fzaninotto/faker": "*"
     },
     "suggest": {
-        "ext-dom": "(\\Faker\\Provider\\HtmlLorem) Required for generating random HTML.",
-        "ext-iconv": "(\\Faker\\Provider\\ru_RU\\Text::realText()) Required for generating real Russian text."
+        "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+        "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text."
     },
     "config": {
         "sort-packages": true
