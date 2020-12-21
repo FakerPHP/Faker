@@ -2,11 +2,6 @@
 
 namespace Faker;
 
-use Faker\Container\ContainerBuilder;
-use Faker\Extension\Extension;
-use Faker\Extension\ExtensionNotFound;
-use Faker\Extension\FileExtension;
-use Faker\Extension\GeneratorAwareExtension;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 
@@ -234,28 +229,28 @@ class Generator
 
     public function __construct(ContainerInterface $container = null)
     {
-        $this->container = $container ?: ContainerBuilder::getDefault();
+        $this->container = $container ?: Container\ContainerBuilder::getDefault();
     }
 
     /**
-     * @template T of Extension
+     * @template T of Extension\Extension
      *
      * @param class-string<T> $id
      *
-     * @throws ExtensionNotFound
+     * @throws Extension\ExtensionNotFound
      * @throws ContainerExceptionInterface
      *
      * @return T
      */
-    public function ext(string $id): Extension
+    public function ext(string $id): Extension\Extension
     {
         if (!$this->container->has($id)) {
-            throw new ExtensionNotFound(sprintf('No Faker extension with id "%s" was loaded.', $id));
+            throw new Extension\ExtensionNotFound(sprintf('No Faker extension with id "%s" was loaded.', $id));
         }
 
         $extension = $this->container->get($id);
 
-        if ($extension instanceof GeneratorAwareExtension) {
+        if ($extension instanceof Extension\GeneratorAwareExtension) {
             $extension = $extension->withGenerator($this);
         }
 
@@ -322,17 +317,17 @@ class Generator
 
     public function mimeType()
     {
-        return $this->ext(FileExtension::class)->mimeType();
+        return $this->ext(Extension\FileExtension::class)->mimeType();
     }
 
     public function fileExtension()
     {
-        return $this->ext(FileExtension::class)->extension();
+        return $this->ext(Extension\FileExtension::class)->extension();
     }
 
     public function filePath()
     {
-        return $this->ext(FileExtension::class)->filePath();
+        return $this->ext(Extension\FileExtension::class)->filePath();
     }
 
     protected function callFormatWithMatches($matches)

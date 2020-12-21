@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Faker\Core;
 
-use Faker\Extension\Extension;
-use Faker\Extension\FileExtension;
+use Faker\Extension;
 
 /**
  * @experimental This class is experimental and does not fall under our BC promise
  */
-final class File implements FileExtension
+final class File implements Extension\FileExtension
 {
     /**
      * MIME types from the apache.org file. Some types are truncated.
