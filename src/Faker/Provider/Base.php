@@ -541,7 +541,7 @@ class Base
         $regex = preg_replace_callback('/\\\d/', 'static::randomDigit', $regex);
         //replace . with ascii except backslash
         $regex = preg_replace_callback('/(?<!\\\)\./', function () {
-            $chr = chr(mt_rand(33, 126));
+            $chr = static::asciify('*');
 
             if ($chr === '\\') {
                 $chr .= '\\';
