@@ -49,7 +49,7 @@ class HtmlLorem extends Base
      */
     public function randomHtml($maxDepth = 4, $maxWidth = 4)
     {
-        if (!class_exists('DOMDocument', false)) {
+        if (!class_exists(\DOMDocument::class, false)) {
             throw new \RuntimeException('ext-dom is required to use randomHtml.');
         }
 
