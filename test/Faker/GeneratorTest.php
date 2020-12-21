@@ -8,6 +8,9 @@ use Faker\Extension\ExtensionNotFound;
 use Faker\Extension\FileExtension;
 use Faker\Generator;
 
+/**
+ * @covers \Faker\Generator
+ */
 final class GeneratorTest extends TestCase
 {
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void

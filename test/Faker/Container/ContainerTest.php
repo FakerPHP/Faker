@@ -9,6 +9,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
+/**
+ * @covers \Faker\Container\Container
+ */
 final class ContainerTest extends TestCase
 {
     public function testHasReturnsFalseWhenContainerDoesNotHaveDefinitionForService(): void
