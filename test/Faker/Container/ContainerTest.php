@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Faker\Container;
+namespace Faker\Test\Container;
 
+use Faker\Container\Container;
 use Faker\Core\File;
 use Faker\Extension;
 use PHPUnit\Framework\TestCase;
