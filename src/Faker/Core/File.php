@@ -16,7 +16,7 @@ final class File implements Extension\FileExtension
      *
      * @var array Map of MIME types => file extension(s)
      *
-     * @link http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+     * @see http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
      */
     private $mimeTypes = [
         'application/atom+xml'                                                      => 'atom',
