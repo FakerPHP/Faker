@@ -16,6 +16,7 @@ final class File implements FileExtension
      * MIME types from the apache.org file. Some types are truncated.
      *
      * @var array Map of MIME types => file extension(s)
+     *
      * @link http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
      */
     private $mimeTypes = [

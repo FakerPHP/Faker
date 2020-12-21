@@ -14,12 +14,12 @@ use Psr\Container\ContainerInterface;
 final class ContainerBuilder
 {
     /**
-     * @var array<string, string|callable|object>
+     * @var array<string, callable|object|string>
      */
     private $definitions = [];
 
     /**
-     * @param string|callable|object $value
+     * @param callable|object|string $value
      * @param string|null            $name
      *
      * @throws \LogicException
