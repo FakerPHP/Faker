@@ -20,7 +20,6 @@ final class ContainerBuilder
 
     /**
      * @param callable|object|string $value
-     * @param string|null            $name
      *
      * @throws \InvalidArgumentException
      */
@@ -63,7 +62,7 @@ final class ContainerBuilder
     public static function defaultExtensions(): array
     {
         return [
-            Extension\FileExtension::class => Core\File::class
+            Extension\FileExtension::class => Core\File::class,
         ];
     }
 

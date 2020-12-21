@@ -34,7 +34,7 @@ final class ContainerTest extends TestCase
     public function testGetFromString(): void
     {
         $container = new Container([
-            'file' => File::class
+            'file' => File::class,
         ]);
 
         $object = $container->get('file');
@@ -86,7 +86,7 @@ final class ContainerTest extends TestCase
     public function testGetFromNoClassString(): void
     {
         $container = new Container([
-            'file' => 'this is not a class'
+            'file' => 'this is not a class',
         ]);
 
         $this->expectException(ContainerExceptionInterface::class);
@@ -110,7 +110,7 @@ final class ContainerTest extends TestCase
     public function testGetFromObject(): void
     {
         $container = new Container([
-            'file' => new File()
+            'file' => new File(),
         ]);
 
         $object = $container->get('file');
@@ -121,7 +121,7 @@ final class ContainerTest extends TestCase
     public function testGetFromNull(): void
     {
         $container = new Container([
-            'file' => null
+            'file' => null,
         ]);
 
         $this->expectException(ContainerExceptionInterface::class);
@@ -132,7 +132,7 @@ final class ContainerTest extends TestCase
     public function testGetSameObject(): void
     {
         $container = new Container([
-            'file' => File::class
+            'file' => File::class,
         ]);
 
         $service = $container->get('file');

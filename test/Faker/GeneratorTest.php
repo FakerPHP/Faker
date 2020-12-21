@@ -16,7 +16,7 @@ final class GeneratorTest extends TestCase
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void
     {
         $generator = new Generator(new Container([
-            'file' => File::class
+            'file' => File::class,
         ]));
 
         $ext = $generator->ext('file');
