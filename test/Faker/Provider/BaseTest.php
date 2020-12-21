@@ -503,7 +503,7 @@ final class BaseTest extends TestCase
         $faker = new \Faker\Generator();
         $faker->addProvider(new \Faker\Provider\Base($faker));
         $values = [];
-        $evenValidator = function ($digit) {
+        $evenValidator = static function ($digit) {
             return $digit % 2 === 0;
         };
 
@@ -520,7 +520,7 @@ final class BaseTest extends TestCase
         $this->expectException(\OverflowException::class);
         $faker = new \Faker\Generator();
         $faker->addProvider(new \Faker\Provider\Base($faker));
-        $evenValidator = function ($digit) {
+        $evenValidator = static function ($digit) {
             return $digit % 2 === 0;
         };
 
