@@ -540,14 +540,15 @@ class Base
         $regex = preg_replace_callback('/\\\w/', 'static::randomLetter', $regex);
         $regex = preg_replace_callback('/\\\d/', 'static::randomDigit', $regex);
         //replace . with ascii except backslash
-        $regex = preg_replace_callback('/(?<!\\\)\./', function() {
-            do {
-                $chr = chr(mt_rand(33, 126));
-            } while ($chr === '\\');
+        $regex = preg_replace_callback('/(?<!\\\)\./', function () {
+            $chr = chr(mt_rand(33, 126));
+
+            if ($chr === '\\') {
+                $chr .= '\\';
+            }
 
             return $chr;
         }, $regex);
-
         // remove remaining single backslashes
         $regex = str_replace('\\\\', '[:escaped_backslash:]', $regex);
         $regex = str_replace('\\', '', $regex);
