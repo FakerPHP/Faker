@@ -7,7 +7,9 @@ namespace Faker\Provider;
  */
 class Image extends Base
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     public const BASE_URL = 'https://via.placeholder.com';
 
     /**
@@ -17,7 +19,7 @@ class Image extends Base
      */
     protected static $categories = [
         'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
-        'fashion', 'people', 'nature', 'sports', 'technics', 'transport'
+        'fashion', 'people', 'nature', 'sports', 'technics', 'transport',
     ];
 
     /**

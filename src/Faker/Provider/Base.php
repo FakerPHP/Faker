@@ -19,9 +19,6 @@ class Base
      */
     protected $unique;
 
-    /**
-     * @param \Faker\Generator $generator
-     */
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
@@ -153,10 +150,6 @@ class Base
 
     /**
      * Returns the passed value
-     *
-     * @param mixed $value
-     *
-     * @return mixed
      */
     public static function passthrough($value)
     {
@@ -236,8 +229,6 @@ class Base
      * Returns a random element from a passed array
      *
      * @param array $array
-     *
-     * @return mixed
      */
     public static function randomElement($array = ['a', 'b', 'c'])
     {
@@ -302,7 +293,7 @@ class Base
      * twister random generator. This function is therefore more random than
      * PHP's shuffle() function, and it is seedable.
      *
-     * @link http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+     * @see http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
      *
      * @example $faker->shuffleArray([1, 2, 3]); // [2, 1, 3]
      *
@@ -344,7 +335,7 @@ class Base
      * PHP's shuffle() function, and it is seedable. Additionally, it is
      * UTF8 safe if the mb extension is available.
      *
-     * @link http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+     * @see http://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
      *
      * @example $faker->shuffleString('hello, world'); // 'rlo,h eold!lw'
      *

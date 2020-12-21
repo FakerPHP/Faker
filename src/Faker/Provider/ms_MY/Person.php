@@ -18,7 +18,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Malaysian_names
+     * @see https://en.wikipedia.org/wiki/Malaysian_names
      */
     protected static $maleNameFormats = [
         //Malay
@@ -47,7 +47,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Malaysian_names
+     * @see https://en.wikipedia.org/wiki/Malaysian_names
      */
     protected static $femaleNameFormats = [
         //Malay
@@ -76,9 +76,9 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malay_people
-     * @link https://samttar.edu.my/senarai-nama-pelajar-2016/
-     * @link http://smkspkl.edu.my/senarai-nama-pelajar
+     * @see https://en.wikipedia.org/wiki/List_of_Malay_people
+     * @see https://samttar.edu.my/senarai-nama-pelajar-2016/
+     * @see http://smkspkl.edu.my/senarai-nama-pelajar
      */
     protected static $firstNameMaleMalay = [
         'A', 'A.r', 'A\'fif', 'A\'zizul', 'Ab', 'Abadi', 'Abas', 'Abd', 'Abd.', 'Abd.rahim', 'Abdel', 'Abdul', 'Abdull', 'Abdullah', 'Abdulloh', 'Abu', 'Adam', 'Adi', 'Adib', 'Adil', 'Adnan', 'Ady', 'Adzmin', 'Afandy', 'Afif', 'Afiq', 'Afza', 'Agus', 'Ahmad', 'Ahmat', 'Ahmed', 'Ahwali', 'Ahyer', 'Aidid', 'Aidil', 'Aiman', 'Aimman', 'Ainol', 'Ainuddin', 'Ainul', 'Aizad', 'Aizam', 'Aizat', 'Aizuddin', 'Ajis', 'Ajmal', 'Ajwad', 'Akhmal', 'Akid', 'Akif', 'Akmal', 'Al', 'Al-afnan', 'Al-muazrar', 'Alfian', 'Ali', 'Alias', 'Alif', 'Aliff', 'Alilah', 'Alin', 'Allif', 'Amaanullah', 'Amami', 'Aman', 'Amar', 'Ameershah', 'Amier', 'Amierul', 'Amil', 'Amin', 'Aminuddin', 'Amir', 'Amiruddin', 'Amirul', 'Ammar', 'Amran', 'Amri', 'Amru', 'Amrullah', 'Amsyar', 'Anas', 'Andri', 'Aniq', 'Anuar', 'Anuwar', 'Anwar', 'Aqeel', 'Aqif', 'Aqil', 'Arash', 'Arbani', 'Arefin', 'Arief', 'Arif', 'Arifen', 'Ariff', 'Ariffin', 'Arifin', 'Armi', 'Ashraf', 'Ashraff', 'Ashrof', 'Ashrul', 'Aslam', 'Asmawi', 'Asmin', 'Asmuri', 'Asraf', 'Asri', 'Asrialif', 'Asror', 'Asrul', 'Asymawi', 'Asyraaf', 'Asyraf', 'Atan', 'Athari', 'Awaludin', 'Awira', 'Azam', 'Azely', 'Azfar', 'Azhan', 'Azhar', 'Azhari', 'Azib', 'Azim', 'Aziz', 'Azizan', 'Azizul', 'Azizulhasni', 'Azlan', 'Azlee', 'Azli', 'Azman', 'Azmi', 'Azmie', 'Azmin', 'Aznan', 'Aznizam', 'Azraai', 'Azri', 'Azrie', 'Azrien', 'Azril', 'Azrin', 'Azrul', 'Azry', 'Azuan',
@@ -104,7 +104,7 @@ class Person extends \Faker\Provider\Person
         'Umair', 'Umar', 'Usman',
         'W', 'Wafi', 'Wafiq', 'Wan', 'Wazir', 'Wazzirul', 'Wi',
         'Yani', 'Yaqzan', 'Yazid', 'Yunos', 'Yusaini', 'Yusfaisal', 'Yushafiq', 'Yusni', 'Yusof', 'Yusoff', 'Yusri', 'Yussof', 'Yusuf',
-        'Zabayudin', 'Zabidi', 'Zahari', 'Zahid', 'Zahiruddin', 'Zahrul', 'Zaid', 'Zaidi', 'Zainal', 'Zaini', 'Zainodin', 'Zainordin', 'Zainuddin', 'Zainul', 'Zairy', 'Zaiyon', 'Zakaria', 'Zaki', 'Zakii', 'Zakri', 'Zakwan', 'Zambri', 'Zamre', 'Zamri', 'Zamrul', 'Zan', 'Zaqiyuddin', 'Zar\'ai', 'Zarif', 'Zariq', 'Zarith', 'Zarul', 'Zaukepli', 'Zawawi', 'Zharaubi', 'Zikri', 'Zikril', 'Zikry', 'Zizi', 'Zol', 'Zolkifle', 'Zubair', 'Zubir', 'Zufayri', 'Zufrie', 'Zuheeryrizal', 'Zuhri', 'Zuki', 'Zul', 'Zulfadhli', 'Zulfadli', 'Zulfahmi', 'Zulfaqar', 'Zulfaqqar', 'Zulfikar', 'Zulhaikal', 'Zulhakim', 'Zulhakimi', 'Zulhelmi', 'Zulhilmi', 'Zulkapli', 'Zulkarnain', 'Zulkefli', 'Zulkfli', 'Zulkifli', 'Zulkipli', 'Zulman', 'Zuri'
+        'Zabayudin', 'Zabidi', 'Zahari', 'Zahid', 'Zahiruddin', 'Zahrul', 'Zaid', 'Zaidi', 'Zainal', 'Zaini', 'Zainodin', 'Zainordin', 'Zainuddin', 'Zainul', 'Zairy', 'Zaiyon', 'Zakaria', 'Zaki', 'Zakii', 'Zakri', 'Zakwan', 'Zambri', 'Zamre', 'Zamri', 'Zamrul', 'Zan', 'Zaqiyuddin', 'Zar\'ai', 'Zarif', 'Zariq', 'Zarith', 'Zarul', 'Zaukepli', 'Zawawi', 'Zharaubi', 'Zikri', 'Zikril', 'Zikry', 'Zizi', 'Zol', 'Zolkifle', 'Zubair', 'Zubir', 'Zufayri', 'Zufrie', 'Zuheeryrizal', 'Zuhri', 'Zuki', 'Zul', 'Zulfadhli', 'Zulfadli', 'Zulfahmi', 'Zulfaqar', 'Zulfaqqar', 'Zulfikar', 'Zulhaikal', 'Zulhakim', 'Zulhakimi', 'Zulhelmi', 'Zulhilmi', 'Zulkapli', 'Zulkarnain', 'Zulkefli', 'Zulkfli', 'Zulkifli', 'Zulkipli', 'Zulman', 'Zuri',
     ];
     protected static $firstNameFemaleMalay = [
         '\'Abidah', '\'Alyaa', '\'Aqilah', '\'Atiqah', '\'Afiqah', '\'Alia', '\'Aqilah', 'A\'ishah', 'A\'in', 'A\'zizah', 'Abdah', 'Abiatul', 'Adani', 'Adawiyah', 'Adha', 'Adharina', 'Adhwa', 'Adibah', 'Adilah', 'Adilla', 'Adina', 'Adini', 'Adira', 'Adlina', 'Adlyna', 'Adriana', 'Adzlyana', 'Afifa', 'Afifah', 'Afina', 'Afiqah', 'Afiza', 'Afrina', 'Afzan', 'Ahda', 'Aida', 'Aidatul', 'Aidila', 'Aifa', 'Aiman', 'Aimi', 'Aimuni', 'Ain', 'Aina', 'Ainaa', 'Ainaanasuha', 'Aini', 'Ainin', 'Ainn', 'Ainnaziha', 'Ainul', 'Ainun', 'Ainur', 'Airin', 'Aishah', 'Aisya', 'Aisyah', 'Aiza', 'Akmal', 'Aleeya', 'Aleeza', 'Aleya', 'Aleza', 'Alia', 'Aliaa', 'Aliah', 'Aliffa', 'Aliffatus', 'Alina', 'Alis', 'Alisya', 'Aliya', 'Alkubra', 'Alleisya', 'Ally', 'Alya', 'Alyaa', 'Amalia', 'Amalien', 'Amalin', 'Amalina', 'Amani', 'Amanina', 'Amiera', 'Aminy', 'Amira', 'Amirah', 'Amisha', 'Amrina', 'Amylia', 'Amyra', 'An-nur', 'Anas', 'Andani', 'Andi', 'Anesha', 'Ani', 'Aninafishah', 'Anis', 'Anisah', 'Anisha', 'Anissa', 'Aniza', 'Anna', 'Anne', 'Antaza', 'Aqeem', 'Aqeera', 'Aqila', 'Aqilah', 'Arfahrina', 'Ariana', 'Ariena', 'Ariessa', 'Arifah', 'Arina', 'Ariqah', 'Arissa', 'Arisya', 'Armira', 'Arwina', 'Aryani', 'Ashika', 'Ashriyana', 'Asiah', 'Asma\'rauha', 'Asmaa\'', 'Asmaleana', 'Asniati', 'Asnie', 'Asniza', 'Aswana', 'Asy', 'Asyiqin', 'Asykin', 'Athirah', 'Atifa', 'Atifah', 'Atifahajar', 'Atikah', 'Atiqa', 'Atiqah', 'Atirah', 'Atyqah', 'Auni', 'Awatif', 'Awatiff', 'Ayesha', 'Ayu', 'Ayuni', 'Ayunie', 'Az', 'Azashahira', 'Aziah', 'Aziemah', 'Azika', 'Azira', 'Azizah', 'Azliah', 'Azliatul', 'Azlin', 'Azlina', 'Azmina', 'Azni', 'Azrah', 'Azrina', 'Azua', 'Azuin', 'Azwa', 'Azwani', 'Azyan', 'Azyyati',
@@ -129,7 +129,7 @@ class Person extends \Faker\Provider\Person
         'Umairah', 'Umi', 'Umira', 'Ummi',
         'Wadiha', 'Wafa', 'Waheeda', 'Wahida', 'Wahidah', 'Wan', 'Wardatul', 'Wardina', 'Wardinah', 'Wazira', 'Weni',
         'Yasmeen', 'Yasmin', 'Yetri', 'Yunalis', 'Yusra', 'Yusrinaa', 'Yusyilaaida',
-        'Zaffan', 'Zafirah', 'Zaharah', 'Zahirah', 'Zahrah', 'Zahrak', 'Zaidalina', 'Zaidatulkhoiriyah', 'Zainab', 'Zainatul', 'Zakdatul', 'Zatalini', 'Zati', 'Zayani', 'Zeqafazri', 'Zilhaiza', 'Zubaidah', 'Zulaika', 'Zulaikha'
+        'Zaffan', 'Zafirah', 'Zaharah', 'Zahirah', 'Zahrah', 'Zahrak', 'Zaidalina', 'Zaidatulkhoiriyah', 'Zainab', 'Zainatul', 'Zakdatul', 'Zatalini', 'Zati', 'Zayani', 'Zeqafazri', 'Zilhaiza', 'Zubaidah', 'Zulaika', 'Zulaikha',
     ];
     protected static $lastNameMalay = [
         '\'Aizat', 'A\'liyyuddin', 'Abas', 'Abdillah', 'Abdullah', 'Abidin', 'Adam', 'Adha', 'Adham', 'Adi', 'Adieka', 'Adip', 'Adli', 'Adnan', 'Adrus', 'Afandi', 'Afiq', 'Afizi', 'Afnan', 'Afsyal', 'Ahmad', 'Ahwali', 'Aidi', 'Aidil', 'Aiman', 'Aizad', 'Aizam', 'Aizat', 'Ajllin', 'Ajmal', 'Akashah', 'Akasyah', 'Akbar', 'Akhmal', 'Akid', 'Akif', 'Akmal', 'Al-amin', 'Al-hakim', 'Albukhary', 'Ali', 'Alias', 'Alif', 'Alimi', 'Aliuddin', 'Amaluddin', 'Amin', 'Aminnudin', 'Aminrullah', 'Aminuddin', 'Amiran', 'Amiruddin', 'Amirul', 'Amirullah', 'Ammar', 'Ammer', 'Amni', 'Amran', 'Amri', 'Amry', 'Amsyar', 'Amzah', 'Anam', 'Anaqi', 'Andalis', 'Anuar', 'Anwar', 'Apizan', 'Aqashah', 'Aqil', 'Arfan', 'Arfandi', 'Arias', 'Arief', 'Arif', 'Ariff', 'Ariffin', 'Arifin', 'Arifuddin', 'Arman', 'Arshad', 'Arziman', 'As', 'Asa', 'Ashraf', 'Ashraff', 'Asmadi', 'Asmar', 'Asmawi', 'Asri', 'Asyraf', 'Asyran', 'Asyrani', 'Aszahari', 'Awal', 'Awalluddin', 'Awaluddin', 'Awaludin', 'Awira', 'Ayyadi', 'Azahar', 'Azahari', 'Azam', 'Azhan', 'Azhar', 'Azhari', 'Azim', 'Aziz', 'Azizan', 'Azizi', 'Azizy', 'Azlan', 'Azlansyhah', 'Azli', 'Azlim', 'Azman', 'Azmee', 'Azmi', 'Azmin', 'Aznai', 'Azni', 'Azraai', 'Azrai', 'Azri', 'Azril', 'Azrin', 'Azriq', 'Azrul', 'Azuan',
@@ -161,30 +161,30 @@ class Person extends \Faker\Provider\Person
     /**
      * Note: The empty elements are for names without the title, chances increase by number of empty elements.
      *
-     * @link https://en.wikipedia.org/wiki/Muhammad_(name)
+     * @see https://en.wikipedia.org/wiki/Muhammad_(name)
      */
     protected static $muhammadName = ['', '', '', '', 'Mohamad ', 'Mohamed ', 'Mohammad ', 'Mohammed ', 'Muhamad ', 'Muhamed ', 'Muhammad ', 'Muhammed ', 'Muhammet ', 'Mohd '];
     /**
-     * @link https://en.wikipedia.org/wiki/Noor_(name)
+     * @see https://en.wikipedia.org/wiki/Noor_(name)
      */
     protected static $nurName = ['', '', '', '', 'Noor ', 'Nor ', 'Nur ', 'Nur ', 'Nur ', 'Nurul ', 'Nuur '];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Malaysian_names#Haji_or_Hajjah
+     * @see https://en.wikipedia.org/wiki/Malaysian_names#Haji_or_Hajjah
      */
     protected static $haji = ['', '', '', '', 'Haji ', 'Hj '];
     protected static $hajjah = ['', '', '', '', 'Hajjah ', 'Hjh '];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Malay_styles_and_titles
+     * @see https://en.wikipedia.org/wiki/Malay_styles_and_titles
      */
     protected static $titleMaleMalay = ['', '', '', '', '', '', 'Syed ', 'Wan ', 'Nik ', 'Che '];
 
     /**
      * Chinese family name or surname
      *
-     * @link https://en.wikipedia.org/wiki/List_of_common_Chinese_surnames
-     * @link https://en.wikipedia.org/wiki/Hundred_Family_Surnames
+     * @see https://en.wikipedia.org/wiki/List_of_common_Chinese_surnames
+     * @see https://en.wikipedia.org/wiki/Hundred_Family_Surnames
      */
     protected static $lastNameChinese = [
         'An', 'Ang', 'Au', 'Au-Yong', 'Aun', 'Aw',
@@ -211,16 +211,16 @@ class Person extends \Faker\Provider\Person
         'Wah', 'Waiy', 'Wan', 'Wee', 'Wen', 'Wong', 'Woo', 'Woon', 'Wu',
         'Xia', 'Xiong', 'Xu',
         'Yam', 'Yao', 'Yiaw', 'Ying', 'Yip', 'Yang', 'Yap', 'Yau', 'Yee', 'Yen', 'Yeo', 'Yeoh', 'Yeong', 'Yeow', 'Yep', 'Yew', 'Yong', 'Yow', 'You', 'Yu', 'Yuan', 'Yuen',
-        'Zhong', 'Zhang', 'Zheng', 'Zhu', 'Zu'
+        'Zhong', 'Zhang', 'Zheng', 'Zhu', 'Zu',
     ];
 
     /**
      * Chinese second character
      *
-     * @link https://en.wikipedia.org/wiki/Chinese_given_name
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Chinese_given_name
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
      */
     protected static $firstNameChinese = [
         'Ah', 'Ai', 'Aik', 'An', 'Ann', 'Ang', 'Au', 'Aun', 'Aw',
@@ -275,10 +275,10 @@ class Person extends \Faker\Provider\Person
     /**
      * Chinese male third character
      *
-     * @link https://en.wikipedia.org/wiki/Chinese_given_name
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Chinese_given_name
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
      */
     protected static $firstNameMaleChinese = [
         'Aik', 'Ang', 'Au', 'Aun',
@@ -331,10 +331,10 @@ class Person extends \Faker\Provider\Person
     /**
      * Chinese female third character
      *
-     * @link https://en.wikipedia.org/wiki/Chinese_given_name
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Chinese_given_name
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
      */
     protected static $firstNameFemaleChinese = [
         'Ai', 'An', 'Ann', 'Aw',
@@ -372,16 +372,16 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Chaoshanese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Chinese_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_English_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hakka_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hockchew_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hokkien_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Peranakan_descent
-     * @link https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Cantonese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Chaoshanese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Chinese_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_English_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hakka_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hockchew_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Hokkien_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_people_of_Peranakan_descent
+     * @see https://en.wikipedia.org/wiki/Category:Malaysian_politicians_of_Chinese_descent
      */
     protected static $firstNameMaleChristian = [
         'Aaron', 'Addy', 'Adrian', 'Alex', 'Amos', 'Anthony',
@@ -429,10 +429,10 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
      */
     protected static $initialIndian = [
         'B. ', 'B. C. ',
@@ -451,11 +451,11 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/K._L._Devaser
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/K._L._Devaser
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
      */
     protected static $firstNameMaleIndian = [
         'Anbil', 'Ananda', 'Arasu', 'Arul', 'Arulraj', 'Arumugam', 'Ash',
@@ -481,10 +481,10 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
      */
     protected static $firstNameFemaleIndian = [
         'Ambiga', 'Anaika', 'Anand', 'Anita', 'Asha', 'Athi',
@@ -504,10 +504,10 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
-     * @link https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_politicians_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/List_of_Malaysian_sportspeople_of_Indian_descent
+     * @see https://en.wikipedia.org/wiki/Tamil_Malaysians#Notable_people
      */
     protected static $lastNameIndian = [
         'Alagaratnam', 'Ambumamee', 'Ammasee', 'Ampalavanar', 'Ananthan', 'Arivanathan', 'Arujunan', 'Arumugam', 'Asirvatham', 'Autherapady',
@@ -533,7 +533,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/Malay_styles_and_titles
+     * @see https://en.wikipedia.org/wiki/Malay_styles_and_titles
      */
     protected static $titleMale = ['En.', 'Dr.', 'Prof.', 'Datuk', 'Dato\'', 'Datuk Seri', 'Dato\' Sri', 'Tan Sri', 'Tun'];
     protected static $titleFemale = ['Pn.', 'Cik', 'Dr.', 'Prof.', 'Datin', 'Datin Paduka', 'Datin Paduka Seri', 'Puan Sri', 'Toh Puan'];
@@ -765,7 +765,7 @@ class Person extends \Faker\Provider\Person
      *
      * @example '890123-45-6789'
      *
-     * @link https://en.wikipedia.org/wiki/Malaysian_identity_card#Structure_of_the_National_Registration_Identity_Card_Number_(NRIC)
+     * @see https://en.wikipedia.org/wiki/Malaysian_identity_card#Structure_of_the_National_Registration_Identity_Card_Number_(NRIC)
      *
      * @param string|null      $gender 'male', 'female' or null for any
      * @param bool|string|null $hyphen true, false, or any separator characters

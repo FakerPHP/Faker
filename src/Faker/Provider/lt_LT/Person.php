@@ -22,8 +22,8 @@ class Person extends \Faker\Provider\Person
     protected static $titleFemale = ['p.', 'ponia', 'panelė'];
 
     /**
-     * @link https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
-     **/
+     * @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
+     */
     protected static $firstNameMale = [
         'Abramas', 'Abraomas', 'Achilas', 'Adalbertas', 'Adamas', 'Adas', 'Adolfas', 'Adolis', 'Adomas',
         'Adrijus', 'Agatas', 'Agnius', 'Aidas', 'Ainius', 'Aistis', 'Aivaras', 'Akimas', 'Akvilinas', 'Albertas', 'Albrechtas',
@@ -109,11 +109,11 @@ class Person extends \Faker\Provider\Person
         'Vytenis', 'Vytis', 'Vyturys', 'Vladas', 'Vladimiras', 'Vladislavas', 'Vladislovas', 'Vladlenas', 'Voicechas',
         'Voldemaras', 'Vsevolodas', 'Zacharijus', 'Zakarijus', 'Zbignevas', 'Zdislavas', 'Zenius', 'Zenonas', 'Zigfridas',
         'Zygfridas', 'Zigmantas', 'Zigmas', 'Zygmuntas', 'Zinovijus', 'Žanas', 'Žeimantas', 'Žilvinas', 'Žibartas', 'Žybartas',
-        'Žydrius', 'Žydrūnas', 'Žygaudas', 'Žygimantas', 'Žygintas', 'Žygis', 'Žymantas', 'Žvaigždžius'
+        'Žydrius', 'Žydrūnas', 'Žygaudas', 'Žygimantas', 'Žygintas', 'Žygis', 'Žymantas', 'Žvaigždžius',
     ];
 
     /**
-     * @link https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
+     * @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
      */
     protected static $firstNameFemale = [
         'Ada', 'Adelė', 'Adelija', 'Adelina', 'Adolfa', 'Adolfina',
@@ -231,11 +231,11 @@ class Person extends \Faker\Provider\Person
         'Vladė', 'Vladislava', 'Vladislova', 'Vladlena', 'Vilita', 'Zabelė', 'Zanė', 'Zelma', 'Zenė',
         'Zigfrida', 'Zigmantė', 'Zylė', 'Zina', 'Zinaida', 'Zita', 'Zofija', 'Zoja', 'Zosė', 'Zuzana',
         'Žana', 'Žaneta', 'Žara', 'Žeimantė', 'Žemyna', 'Žibuoklė', 'Žibutė', 'Žiedė', 'Živilė', 'Žydrė',
-        'Žydronė', 'Žydrūnė', 'Žygimantė', 'Žyginta', 'Žilvinė', 'Žymantė', 'Žoržeta'
+        'Žydronė', 'Žydrūnė', 'Žygimantė', 'Žyginta', 'Žilvinė', 'Žymantė', 'Žoržeta',
     ];
 
     /**
-     * @link http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
+     * @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
      */
     protected static $lastNameMale = [
         'Kazlaukas', 'Jankauskas', 'Petrauskas', 'Stankevičius', 'Vasiliauskas', 'Žukauskas', 'Butkus',
@@ -243,12 +243,12 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
+     * @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
      */
     protected static $lastNameFemale = [
         'Kazlauskienė', 'Jankauskienė', 'Petrauskienė', 'Stankevičienė', 'Vasiliauskienė', 'Paulauskienė',
         'Žukauskienė', 'Urbonienė', 'Kavaliauskienė', 'Navickienė', 'Kazlauskaitė', 'Jankauskaitė', 'Stankevičiūtė',
-        'Petrauskaitė', 'Vasiliauskaitė', 'Butkutė', 'Pociūtė', 'Lukoševičiūtė', 'Balčiūnaitė', 'Kavaliauskaitė'
+        'Petrauskaitė', 'Vasiliauskaitė', 'Butkutė', 'Pociūtė', 'Lukoševičiūtė', 'Balčiūnaitė', 'Kavaliauskaitė',
     ];
 
     /**
@@ -322,8 +322,8 @@ class Person extends \Faker\Provider\Person
     /**
      * National Personal Identity number (asmens kodas)
      *
-     * @link https://en.wikipedia.org/wiki/National_identification_number#Lithuania
-     * @link https://lt.wikipedia.org/wiki/Asmens_kodas
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
+     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
      *
      * @param string    $gender       [male|female]
      * @param \DateTime $birthdate
@@ -364,8 +364,8 @@ class Person extends \Faker\Provider\Person
     /**
      * Calculate the sum of personal code
      *
-     * @link https://en.wikipedia.org/wiki/National_identification_number#Lithuania
-     * @link https://lt.wikipedia.org/wiki/Asmens_kodas
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
+     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
      *
      * @param string $numbers
      * @param int    $time    [1|2]

@@ -7,7 +7,7 @@ class Person extends \Faker\Provider\Person
     /**
      * CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     protected static $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
@@ -21,7 +21,7 @@ class Person extends \Faker\Provider\Person
     /**
      * CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     protected static $femaleNameFormats = [
         '{{firstNameFemale}} {{lastName}}',
@@ -35,7 +35,7 @@ class Person extends \Faker\Provider\Person
     /**
      * CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     protected static $firstNameMale = [
         'Aaron', 'Adam', 'Adria', 'Adrian', 'Alberto', 'Aleix', 'Alejandro', 'Alex', 'Alonso', 'Alvaro', 'Ander', 'Andres',
@@ -51,7 +51,7 @@ class Person extends \Faker\Provider\Person
     /**
      * CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     protected static $firstNameFemale = [
         'Abril', 'Adriana', 'Africa', 'Ainara', 'Antonia', 'Alba', 'Alejandra', 'Alexandra', 'Alexia', 'Alicia', 'Alma',
@@ -68,7 +68,7 @@ class Person extends \Faker\Provider\Person
     /**
      * CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     protected static $lastName = [
         'Abad', 'Abeyta', 'Abrego', 'Abreu', 'Acevedo', 'Acosta', 'Acuña', 'Adame', 'Adorno', 'Agosto', 'Aguado', 'Aguayo',
@@ -134,7 +134,7 @@ class Person extends \Faker\Provider\Person
         'Vega', 'Vela', 'Velasco', 'Velásquez', 'Velázquez', 'Venegas', 'Vera', 'Verdugo', 'Verduzco', 'Vergara', 'Vicente', 'Vidal', 'Viera',
         'Vigil', 'Vila', 'Villa', 'Villagómez', 'Villalba', 'Villalobos', 'Villalpando', 'Villanueva', 'Villar', 'Villareal', 'Villarreal',
         'Villaseñor', 'Villegas', 'Vásquez', 'Vázquez', 'Vélez', 'Véliz', 'Ybarra', 'Yáñez', 'Zambrano', 'Zamora', 'Zamudio', 'Zapata',
-        'Zaragoza', 'Zarate', 'Zavala', 'Zayas', 'Zelaya', 'Zepeda', 'Zúñiga', 'de Anda', 'de Jesús', 'Águilar', 'Álvarez', 'Ávalos', 'Ávila'
+        'Zaragoza', 'Zarate', 'Zavala', 'Zayas', 'Zelaya', 'Zepeda', 'Zúñiga', 'de Anda', 'de Jesús', 'Águilar', 'Álvarez', 'Ávalos', 'Ávila',
     ];
 
     protected static $titleMale = ['Sr.', 'Dn.', 'Dr.', 'Lcdo.', 'Ing.'];
@@ -161,7 +161,7 @@ class Person extends \Faker\Provider\Person
      * @return string CNE is the official national election registry org.
      *                CNE is the official national election registry org.
      *
-     * @link http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
+     * @see http://www.cne.gob.ve/web/registro_electoral/ciudadanos_111_129_2011.php
      */
     public function nationalId($separator = '')
     {

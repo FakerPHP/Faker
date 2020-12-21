@@ -79,7 +79,7 @@ class Person extends \Faker\Provider\Person
         'Wettenranta', 'Wiitanen', 'Wirtanen', 'Wiskari',
         'Ylijälä', 'Yliannala', 'Ylijoki', 'Ylikangas', 'Ylioja', 'Ylitalo', 'Ylppö', 'Yläjoki', 'Yrjänen', 'Yrjänä', 'Yrjölä', 'Yrttiaho', 'Yömaa',
         'Äijälä', 'Ämmälä', 'Änäkkälä', 'Äyräs', 'Äärynen',
-        'Översti', 'Öysti', 'Öörni'
+        'Översti', 'Öysti', 'Öörni',
     ];
 
     protected static $titleMale = ['Hra.', 'Tri.'];
@@ -89,7 +89,7 @@ class Person extends \Faker\Provider\Person
     /**
      * National Personal Identity Number (Henkilötunnus)
      *
-     * @link http://www.finlex.fi/fi/laki/ajantasa/2010/20100128
+     * @see http://www.finlex.fi/fi/laki/ajantasa/2010/20100128
      *
      * @param \DateTime $birthdate
      * @param string    $gender    Person::GENDER_MALE || Person::GENDER_FEMALE

@@ -24,7 +24,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @link http://www.guzelisimler.com/en_cok_aranan_erkek_isimleri.php
+     * @see http://www.guzelisimler.com/en_cok_aranan_erkek_isimleri.php
      *
      * @var array Turkish first names.
      */
@@ -32,20 +32,20 @@ class Person extends \Faker\Provider\Person
         'Ahmet', 'Ali', 'Alp', 'Armağan', 'Atakan', 'Aşkın', 'Baran', 'Bartu', 'Berk', 'Berkay', 'Berke', 'Bora', 'Burak', 'Canberk',
         'Cem', 'Cihan', 'Deniz', 'Efe', 'Ege', 'Ege', 'Emir', 'Emirhan', 'Emre', 'Ferid', 'Göktürk', 'Görkem', 'Güney',
         'Kağan', 'Kerem', 'Koray', 'Kutay', 'Mert', 'Onur', 'Ogün', 'Polat', 'Rüzgar', 'Sarp', 'Serhan', 'Toprak', 'Tuna',
-        'Türker', 'Utku', 'Yağız', 'Yiğit', 'Çınar', 'Derin', 'Meriç', 'Barlas', 'Dağhan', 'Doruk', 'Çağan'
+        'Türker', 'Utku', 'Yağız', 'Yiğit', 'Çınar', 'Derin', 'Meriç', 'Barlas', 'Dağhan', 'Doruk', 'Çağan',
     ];
 
     /**
-     * @link http://www.guzelisimler.com/en_cok_aranan_kiz_isimleri.php
+     * @see http://www.guzelisimler.com/en_cok_aranan_kiz_isimleri.php
      *
      * @var array Turkish first names.
      */
     protected static $firstNameFemale = [
-        'Ada', 'Esma', 'Emel', 'Ebru', 'Şahnur', 'Ümran', 'Sinem', 'İrem', 'Rüya', 'Ece', 'Burcu'
+        'Ada', 'Esma', 'Emel', 'Ebru', 'Şahnur', 'Ümran', 'Sinem', 'İrem', 'Rüya', 'Ece', 'Burcu',
     ];
 
     /**
-     * @link http://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk%C3%A7e_soyadlar%C4%B1
+     * @see http://tr.wikipedia.org/wiki/Kategori:T%C3%BCrk%C3%A7e_soyadlar%C4%B1
      *
      * @var array Turkish last names.
      */
@@ -71,7 +71,7 @@ class Person extends \Faker\Provider\Person
         'Tütüncü', 'Tüzün', 'Uca', 'Uluhan', 'Velioğlu', 'Yalçın', 'Yazıcı', 'Yetkiner', 'Yeşilkaya', 'Yıldırım',
         'Yıldızoğlu', 'Yılmazer', 'Yorulmaz', 'Çamdalı', 'Çapanoğlu', 'Çatalbaş', 'Çağıran', 'Çetin', 'Çetiner',
         'Çevik', 'Çörekçi', 'Önür', 'Örge', 'Öymen', 'Özberk', 'Özbey', 'Özbir', 'Özdenak', 'Özdoğan', 'Özgörkey',
-        'Özkara', 'Özkök', 'Öztonga', 'Öztuna'
+        'Özkara', 'Özkök', 'Öztonga', 'Öztuna',
     ];
 
     protected static $title = ['Doç. Dr.', 'Dr.', 'Prof. Dr.'];
@@ -100,7 +100,7 @@ class Person extends \Faker\Provider\Person
     /**
      * National Personal Identity number (tc kimlik no)
      *
-     * @link https://en.wikipedia.org/wiki/Turkish_Identification_Number
+     * @see https://en.wikipedia.org/wiki/Turkish_Identification_Number
      *
      * @return string on format XXXXXXXXXXX
      */

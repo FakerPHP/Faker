@@ -6,13 +6,13 @@ class Address extends \Faker\Provider\Address
 {
     protected static $wardNumber = ['##', '#'];
     protected static $streetSuffix = [
-        'bagh', 'bazaar', 'besi', 'chowk', 'gaun', 'kot', 'mandir', 'marg', 'nagar', 'sahar', 'sthan', 'tar'
+        'bagh', 'bazaar', 'besi', 'chowk', 'gaun', 'kot', 'mandir', 'marg', 'nagar', 'sahar', 'sthan', 'tar',
     ];
 
     protected static $postcode = ['#####'];
 
     /**
-     * @link http://en.wikipedia.org/wiki/List_of_districts_of_Nepal
+     * @see http://en.wikipedia.org/wiki/List_of_districts_of_Nepal
      */
     protected static $district = [
         'Achham', 'Arghakhanchi',
@@ -32,11 +32,11 @@ class Address extends \Faker\Provider\Address
         'Ramechhap', 'Rasuwa', 'Rautahat', 'Rolpa', 'Rukum', 'Rupandehi',
         'Salyan', 'Sankhuwasabha', 'Saptari', 'Sarlahi', 'Sindhuli', 'Sindhupalchok', 'Siraha', 'Solukhumbu', 'Sunsari', 'Surkhet', 'Syangja',
         'Tanahu', 'Taplejung', 'Terhathum',
-        'Udayapur'
+        'Udayapur',
     ];
 
     /**
-     * @link http://www.fallingrain.com/world/NP/
+     * @see http://www.fallingrain.com/world/NP/
      */
     protected static $cityName = [
         'Achham', 'Aiselukharka', 'Amardaha', 'Amariya', 'Amlekhganj', 'Amraia', 'Andia', 'Andruli', 'Angbung',  'Arghkot', 'Arughatbazaar', 'Asaina', 'Ataria', 'Atrauli', 'Aulgurta',
@@ -87,14 +87,14 @@ class Address extends \Faker\Provider\Address
         'Vanuatu', 'Venezuela', 'Vietnam',
         'Wallis and Futuna', 'Western Sahara',
         'Yemen',
-        'Zambia', 'Zimbabwe'
+        'Zambia', 'Zimbabwe',
     ];
     protected static $cityFormats = [
-        '{{cityName}}'
+        '{{cityName}}',
     ];
     protected static $streetNameFormats = [
         '{{firstName}}{{streetSuffix}}',
-        '{{lastName}}{{streetSuffix}}'
+        '{{lastName}}{{streetSuffix}}',
     ];
     protected static $streetAddressFormats = [
         '{{streetName}}',

@@ -11,7 +11,7 @@ class Address extends \Faker\Provider\it_IT\Address
     protected static $postcode = ['####'];
 
     /**
-     * @link https://it.wikipedia.org/wiki/Citt%C3%A0_svizzere
+     * @see https://it.wikipedia.org/wiki/Citt%C3%A0_svizzere
      */
     protected static $cityNames = [
         'Aarau', 'Adliswil', 'Aesch', 'Affoltern am Albis', 'Allschwil', 'Altstätten', 'Amriswil', 'Arbon', 'Arth',
@@ -36,11 +36,11 @@ class Address extends \Faker\Provider\it_IT\Address
         'Val-de-Travers', 'Vernier', 'Versoix', 'Vevey', 'Veyrier', 'Villars-sur-Glâne', 'Volketswil',
         'Wallisellen', 'Weinfelden', 'Wettingen', 'Wetzikon', 'Wil', 'Winterthur', 'Wohlen', 'Worb', 'Wädenswil',
         'Yverdon-les-Bains',
-        'Zofingen', 'Zollikon', 'Zugo', 'Zurigo'
+        'Zofingen', 'Zollikon', 'Zugo', 'Zurigo',
     ];
 
     /**
-     * @link https://it.wikipedia.org/wiki/Cantoni_della_Svizzera
+     * @see https://it.wikipedia.org/wiki/Cantoni_della_Svizzera
      */
     protected static $canton = [
         ['AG' => 'Argovia'],
@@ -68,7 +68,7 @@ class Address extends \Faker\Provider\it_IT\Address
         ['VD' => 'Vaud'],
         ['VS' => 'Vallese'],
         ['ZG' => 'Zugo'],
-        ['ZH' => 'Zurigo']
+        ['ZH' => 'Zurigo'],
     ];
 
     protected static $cityFormats = [
@@ -77,7 +77,7 @@ class Address extends \Faker\Provider\it_IT\Address
 
     protected static $streetNameFormats = [
         '{{streetSuffix}} {{firstName}}',
-        '{{streetSuffix}} {{lastName}}'
+        '{{streetSuffix}} {{lastName}}',
     ];
 
     protected static $streetAddressFormats = [

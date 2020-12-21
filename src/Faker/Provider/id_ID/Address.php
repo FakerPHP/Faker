@@ -5,8 +5,8 @@ namespace Faker\Provider\id_ID;
 class Address extends \Faker\Provider\Address
 {
     /**
-     * @link http://bandung.go.id/images/download/daftarruasjalan.htm
-     **/
+     * @see http://bandung.go.id/images/download/daftarruasjalan.htm
+     */
     protected static $street = [
         'Abang', 'Abdul', 'Abdul Muis', 'Abdul Rahmat', 'Abdul. Muis', 'Abdullah',
         'Aceh', 'Achmad', 'Achmad Yani', 'Acordion', 'Adisucipto',
@@ -66,11 +66,11 @@ class Address extends \Faker\Provider\Address
     ];
 
     protected static $streetPrefix = [
-        'Ds.', 'Dk.', 'Gg.', 'Jln.', 'Jr.', 'Kpg.', 'Ki.', 'Psr.'
+        'Ds.', 'Dk.', 'Gg.', 'Jln.', 'Jr.', 'Kpg.', 'Ki.', 'Psr.',
     ];
 
     /**
-     * @link http://kodepos.nomor.net/_kodepos.php?_i=provinsi-kodepos
+     * @see http://kodepos.nomor.net/_kodepos.php?_i=provinsi-kodepos
      */
     protected static $state = [
         'Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Jambi', 'Kepulauan Bangka Belitung', 'Riau',
@@ -80,13 +80,13 @@ class Address extends \Faker\Provider\Address
         'Kalimantan Tengah', 'Kalimantan Selatan', 'Kalimantan Timur',
         'Kalimantan Utara', 'Sulawesi Selatan', 'Sulawesi Utara', 'Gorontalo',
         'Sulawesi Tengah', 'Sulawesi Barat', 'Sulawesi Tenggara', 'Maluku',
-        'Maluku Utara', 'Papua Barat', 'Papua'
+        'Maluku Utara', 'Papua Barat', 'Papua',
     ];
 
     /**
      * Abbreviated State Names.
      *
-     * @link https://en.wikipedia.org/wiki/Provinces_of_Indonesia#Table_of_provinces
+     * @see https://en.wikipedia.org/wiki/Provinces_of_Indonesia#Table_of_provinces
      *
      * @var array
      */
@@ -95,12 +95,12 @@ class Address extends \Faker\Provider\Address
         'Lampung', 'Banten', 'DKI', 'Jabar', 'Jateng', 'Jatim', 'NTT', 'DIY',
         'Bali', 'NTB', 'Kalbar', 'Kalteng', 'Kalsel', 'Kaltim', 'Kaltara', 'Sulsel',
         'Sulut', 'Gorontalo', 'Sulteng', 'Sulbar', 'Sultra', 'Maluku', 'Malut',
-        'Pabar', 'Papua'
+        'Pabar', 'Papua',
     ];
 
     /**
-     * @link http://id.wikipedia.org/wiki/Daftar_negara-negara_di_dunia
-     **/
+     * @see http://id.wikipedia.org/wiki/Daftar_negara-negara_di_dunia
+     */
     protected static $country = [
         'Afganistan', 'Afrika Selatan', 'Albania', 'Aljazair',
         'Amerika Serikat', 'Andorra', 'Angola', 'Anguilla',
@@ -220,11 +220,11 @@ class Address extends \Faker\Provider\Address
         // http://id.wikipedia.org/wiki/United_States_Virgin_Islands
         'Wilayah Samudra Hindia Britania',
 
-        'Wilayah Selatan Perancis', 'Yaman', 'Yunani', 'Zambia', 'Zimbabwe'
+        'Wilayah Selatan Perancis', 'Yaman', 'Yunani', 'Zambia', 'Zimbabwe',
     ];
 
     /**
-     * @link http://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_Indonesia#Daftar_kota
+     * @see http://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_Indonesia#Daftar_kota
      */
     protected static $cityNames = [
         'Administrasi Jakarta Barat', 'Administrasi Jakarta Pusat',
@@ -260,7 +260,7 @@ class Address extends \Faker\Provider\Address
     ];
 
     protected static $streetNameFormats = [
-        '{{street}}'
+        '{{street}}',
     ];
 
     protected static $streetAddressFormats = [

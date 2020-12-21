@@ -50,7 +50,7 @@ class Address extends \Faker\Provider\Address
      * @var array Danish zip code.
      */
     protected static $postcode = [
-        '%###'
+        '%###',
     ];
 
     /**
@@ -140,7 +140,7 @@ class Address extends \Faker\Provider\Address
     ];
 
     /**
-     * @link https://github.com/umpirsky/country-list/blob/master/country/cldr/da_DK/country.php
+     * @see https://github.com/umpirsky/country-list/blob/master/country/cldr/da_DK/country.php
      *
      * @var array Some countries in danish.
      */

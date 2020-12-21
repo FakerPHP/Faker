@@ -20,12 +20,16 @@ class Address extends \Faker\Provider\Address
         '{{streetName}}, {{buildingNumber}}, {{secondaryAddress}}',
     ];
 
-    /** @link http://www.univ-ab.pt/PINTAC/carta_normas.htm address example in letters **/
+    /**
+     * @see http://www.univ-ab.pt/PINTAC/carta_normas.htm address example in letters *
+     */
     protected static $addressFormats = [
         '{{streetAddress}} {{postcode}} {{city}}',
     ];
 
-    /** @link http://www.mapadeportugal.net/indicecidades.asp **/
+    /**
+     * @see http://www.mapadeportugal.net/indicecidades.asp *
+     */
     private static $cities = [
         'Abrantes', 'Agualva-Cacém', 'Águeda', 'Albufeira', 'Alcácer do Sal', 'Alcobaça', 'Almada', 'Almeirim', 'Alverca do Ribatejo', 'Amadora', 'Amarante', 'Amora', 'Anadia', 'Angra do Heroísmo', 'Aveiro', 'Barcelos', 'Barreiro',
         'Beja', 'Braga', 'Bragança', 'Caldas da Rainha', 'Camara de Lobos', 'Cantanhede', 'Cartaxo', 'Castelo Branco', 'Chaves', 'Coimbra', 'Covilhã', 'Elvas', 'Entroncamento', 'Ermesinde', 'Esmoriz', 'Espinho', 'Esposende', 'Estarreja',
@@ -35,7 +39,7 @@ class Address extends \Faker\Provider\Address
         'Paredes', 'Penafiel', 'Peniche', 'Peso da Régua', 'Pinhel', 'Pombal', 'Ponta Delgada', 'Ponte de Sor', 'Portalegre', 'Portimão', 'Porto', 'Porto Santo', 'Póvoa de Santa Iria', 'Póvoa de Varzim', 'Quarteira', 'Queluz', 'Ribeira Grande', 'Rio Maior',
         'Rio Tinto', 'Sacavém', 'Santa Comba Dão', 'Santa Cruz', 'Santa Maria da Feira', 'Santana', 'Santarém', 'Santiago do Cacém', 'Santo Tirso',
         'São João da Madeira', 'São Mamede de Infesta', 'Seia', 'Seixal', 'Setúbal', 'Silves', 'Sines', 'Tarouca', 'Tavira', 'Tomar', 'Tondela', 'Torres Novas', 'Torres Vedras', 'Valbom', 'Vale de Cambra', 'Valongo', 'Valpaços', 'Vendas Novas',
-        'Viana do Castelo', 'Vila do Conde', 'Vila Franca de Xira', 'Vila Nova de Famalicão', 'Vila Nova de Foz Côa', 'Vila Nova de Gaia', 'Vila Praia da Vitória', 'Vila Real', 'Vila Real de Santo António', 'Viseu', 'Vizela'
+        'Viana do Castelo', 'Vila do Conde', 'Vila Franca de Xira', 'Vila Nova de Famalicão', 'Vila Nova de Foz Côa', 'Vila Nova de Gaia', 'Vila Praia da Vitória', 'Vila Real', 'Vila Real de Santo António', 'Viseu', 'Vizela',
     ];
 
     protected static $postcode = [
@@ -62,7 +66,9 @@ class Address extends \Faker\Provider\Address
         return static::numerify(static::randomElement(static::$secondaryAddressFormats));
     }
 
-    /** @link http://www.indexmundi.com/pt/ **/
+    /**
+     * @see http://www.indexmundi.com/pt/ *
+     */
     protected static $country = [
         'Afeganistão', 'África do Sul', 'Albânia', 'Alemanha', 'Andorra',
         'Angola', 'Antigua e Barbuda', 'Arabia Saudita', 'Argélia',
@@ -103,7 +109,7 @@ class Address extends \Faker\Provider\Address
         'Togo', 'Tonga', 'Trinidad e Tobago', 'Turcomenistão', 'Turquia',
         'Tuvalu', 'Tunísia', 'Ucrânia', 'Uganda', 'Uruguai', 'Uzbequistão',
         'Vaticano', 'Vanuatu', 'Venezuela', 'Vietnã', 'Yemen', 'Zâmbia',
-        'Zimbábue'
+        'Zimbábue',
     ];
 
     /**

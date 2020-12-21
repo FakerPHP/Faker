@@ -5,7 +5,7 @@ namespace Faker\Provider\pl_PL;
 class Address extends \Faker\Provider\Address
 {
     protected static $streetAddressFormats = [
-        '{{streetName}} {{buildingNumber}}'
+        '{{streetName}} {{buildingNumber}}',
     ];
     protected static $addressFormats = [
         '{{streetAddress}}, {{postcode}} {{city}}',
@@ -19,12 +19,12 @@ class Address extends \Faker\Provider\Address
     protected static $state = [
         'dolnośląskie', 'kujawsko-pomorskie', 'lubelskie', 'lubuskie', 'łódzkie', 'małopolskie', 'mazowieckie',
         'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie',
-        'wielkopolskie', 'zachodniopomorskie'
+        'wielkopolskie', 'zachodniopomorskie',
     ];
     /**
      * @var array Countries in Polish
      *
-     * @link http://ksng.gugik.gov.pl/english/files/dictionary.pdf
+     * @see http://ksng.gugik.gov.pl/english/files/dictionary.pdf
      */
     protected static $country = [
         'Afganistan', 'Albania', 'Algieria', 'Andora', 'Angola', 'Antigua i Barbuda', 'Arabia Saudyjska', 'Argentyna',
@@ -49,13 +49,13 @@ class Address extends \Faker\Provider\Address
         'Tanzania', 'Timor Wschodni', 'Togo', 'Tonga', 'Trynidad i Tobago', 'Tunezja', 'Turcja', 'Turkmenistan',
         'Tuvalu', 'Uganda', 'Ukraina', 'Urugwaj', 'Uzbekistan', 'Vanuatu', 'Watykan', 'Wenezuela', 'Węgry',
         'Wielka Brytania', 'Wietnam', 'Włochy', 'Wybrzeże Kości Słoniowej', 'Wyspy Marshalla', 'Wyspy Salomona',
-        'Wyspy Świętego Tomasza i Książęca', 'Zambia', 'Zimbabwe', 'Zjednoczone Emiraty Arabskie'
+        'Wyspy Świętego Tomasza i Książęca', 'Zambia', 'Zimbabwe', 'Zjednoczone Emiraty Arabskie',
     ];
     /**
      * @var array 250 Polish cities with biggest number of streets. Extracted from data issued by the official
      *            public postal service of Poland.
      *
-     * @link http://www.poczta-polska.pl/
+     * @see http://www.poczta-polska.pl/
      */
     protected static $city = [
         'Babienica', 'Bartoszyce', 'Bełchatów', 'Bezrzecze', 'Będzin', 'Biała Podlaska', 'Białystok',
@@ -96,7 +96,7 @@ class Address extends \Faker\Provider\Address
      * @var array 549 most common Polish street names. Extracted from data issued by the official public
      *            postal service of Poland.
      *
-     * @link http://www.poczta-polska.pl/
+     * @see http://www.poczta-polska.pl/
      */
     protected static $street = [
         '1 Maja', '3 Maja', '11 Listopada', 'Agrestowa', 'Akacjowa', 'Andersa Władysława', 'Armii Krajowej',

@@ -340,7 +340,7 @@ final class BaseTest extends TestCase
             ['[.]', 'literal dot in character class'],
             ['.', 'catch-all dot'],
             ['\\\\', 'escaped backslash'],
-            ['[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', 'complex regex']
+            ['[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}', 'complex regex'],
         ];
     }
 
@@ -404,7 +404,7 @@ final class BaseTest extends TestCase
     }
 
     /**
-     * @link https://github.com/fzaninotto/Faker/issues/265
+     * @see https://github.com/fzaninotto/Faker/issues/265
      */
     public function testOptionalPercentageAndWeight()
     {

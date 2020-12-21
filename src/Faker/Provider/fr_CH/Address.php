@@ -11,7 +11,7 @@ class Address extends \Faker\Provider\fr_FR\Address
     protected static $postcode = ['####'];
 
     /**
-     * @link https://fr.wikipedia.org/wiki/Villes_de_Suisse
+     * @see https://fr.wikipedia.org/wiki/Villes_de_Suisse
      */
     protected static $cityNames = [
         'Aarau', 'Aarberg', 'Aarburg', 'Agno', 'Aigle VD', 'Altdorf', 'Altstätten', 'Appenzell', 'Arbon', 'Ascona', 'Aubonne', 'Avenches',
@@ -36,11 +36,11 @@ class Address extends \Faker\Provider\fr_FR\Address
         'Valangin', 'Vevey', 'Villeneuve', 'Viège',
         'Waldenburg', 'Walenstadt', 'Wangen an der Aare', 'Werdenberg', 'Wiedlisbach', 'Wil', 'Willisau', 'Winterthour',
         'Yverdon-les-Bains',
-        'Zofingue', 'Zoug', 'Zurich'
+        'Zofingue', 'Zoug', 'Zurich',
     ];
 
     /**
-     * @link https://fr.wikipedia.org/wiki/Canton_suisse
+     * @see https://fr.wikipedia.org/wiki/Canton_suisse
      */
     protected static $canton = [
         ['AG' => 'Argovie'],
@@ -68,7 +68,7 @@ class Address extends \Faker\Provider\fr_FR\Address
         ['VD' => 'Vaud'],
         ['VS' => 'Valais'],
         ['ZG' => 'Zoug'],
-        ['ZH' => 'Zurich']
+        ['ZH' => 'Zurich'],
     ];
 
     protected static $cityFormats = [
@@ -78,7 +78,7 @@ class Address extends \Faker\Provider\fr_FR\Address
     protected static $streetNameFormats = [
         '{{streetPrefix}} {{lastName}}',
         '{{streetPrefix}} de {{cityName}}',
-        '{{streetPrefix}} de {{lastName}}'
+        '{{streetPrefix}} de {{lastName}}',
     ];
 
     protected static $streetAddressFormats = [

@@ -340,7 +340,6 @@ class DateTime extends Base
     /**
      * Internal method to set the time zone on a DateTime.
      *
-     * @param \DateTime   $dt
      * @param string|null $timezone
      *
      * @return \DateTime
@@ -354,8 +353,6 @@ class DateTime extends Base
      * Sets default time zone.
      *
      * @param string $timezone
-     *
-     * @return void
      */
     public static function setDefaultTimezone($timezone = null)
     {

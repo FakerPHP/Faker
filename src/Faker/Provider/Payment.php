@@ -31,7 +31,7 @@ class Payment extends Base
             '40240071#######',
             '4485###########',
             '4716###########',
-            '4##############'
+            '4##############',
         ],
         'Visa Retired' => [
             '4539########',
@@ -55,14 +55,14 @@ class Payment extends Base
             '52#############',
             '53#############',
             '54#############',
-            '55#############'
+            '55#############',
         ],
         'American Express' => [
             '34############',
-            '37############'
+            '37############',
         ],
         'Discover Card' => [
-            '6011###########'
+            '6011###########',
         ],
         'JCB' => [
             '3528###########',
@@ -71,7 +71,7 @@ class Payment extends Base
     ];
 
     /**
-     * @var array list of IBAN formats, source: @link https://www.swift.com/standards/data-standards/iban
+     * @var array list of IBAN formats, source: @see https://www.swift.com/standards/data-standards/iban
      */
     protected static $ibanFormats = [
         'AD' => [['n', 4],    ['n', 4],  ['c', 12]],
@@ -222,14 +222,14 @@ class Payment extends Base
             'type'   => $type,
             'number' => static::creditCardNumber($type),
             'name'   => $this->generator->name(),
-            'expirationDate' => $this->creditCardExpirationDateString($valid)
+            'expirationDate' => $this->creditCardExpirationDateString($valid),
         ];
     }
 
     /**
      * International Bank Account Number (IBAN)
      *
-     * @link http://en.wikipedia.org/wiki/International_Bank_Account_Number
+     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      *
      * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @param string $prefix      for generating bank account number of a specific bank
@@ -300,7 +300,7 @@ class Payment extends Base
      *
      * @example 'RZTIAT22263'
      *
-     * @link    http://en.wikipedia.org/wiki/ISO_9362
+     * @see    http://en.wikipedia.org/wiki/ISO_9362
      *
      * @return string Swift/Bic number
      */

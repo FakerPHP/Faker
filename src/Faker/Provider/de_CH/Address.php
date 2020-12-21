@@ -7,16 +7,16 @@ class Address extends \Faker\Provider\Address
     protected static $buildingNumber = ['%##', '%#', '%', '##[abc]', '#[abc]'];
 
     protected static $streetSuffixLong = [
-        'Gasse', 'Platz', 'Ring', 'Strasse', 'Weg', 'Allee'
+        'Gasse', 'Platz', 'Ring', 'Strasse', 'Weg', 'Allee',
     ];
     protected static $streetSuffixShort = [
-        'gasse', 'platz', 'ring', 'strasse', 'str.', 'weg', 'allee'
+        'gasse', 'platz', 'ring', 'strasse', 'str.', 'weg', 'allee',
     ];
 
     protected static $postcode = ['####'];
 
     /**
-     * @link https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_der_Schweiz
+     * @see https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_der_Schweiz
      */
     protected static $cityNames = [
         'Aarau', 'Aarberg', 'Aarburg', 'Adliswil', 'Aesch', 'Affoltern am Albis', 'Agno', 'Aigle', 'Allschwil', 'Altdorf', 'Altstätten', 'Amriswil', 'Appenzell', 'Arbon', 'Arth', 'Ascona', 'Aubonne', 'Avenches',
@@ -40,11 +40,11 @@ class Address extends \Faker\Provider\Address
         'Val-de-Travers NE', 'Valangin', 'Vernier', 'Versoix', 'Vevey', 'Veyrier GE', 'Villars-sur-Glâne', 'Villeneuve', 'Visp', 'Volketswil',
         'Waldenburg', 'Walenstadt', 'Wallisellen', 'Wangen an der Aare', 'Weinfelden', 'Werdenberg', 'Wettingen', 'Wetzikon', 'Wiedlisbach', 'Willisau', 'Wil', 'Winterthur', 'Wohlen', 'Worb', 'Wädenswil',
         'Yverdon-les-Bains',
-        'Zofingen', 'Zollikon', 'Zug', 'Zürich'
+        'Zofingen', 'Zollikon', 'Zug', 'Zürich',
     ];
 
     /**
-     * @link https://de.wikipedia.org/wiki/Kanton_(Schweiz)
+     * @see https://de.wikipedia.org/wiki/Kanton_(Schweiz)
      */
     protected static $canton = [
         ['AG' => 'Aargau'],
@@ -72,7 +72,7 @@ class Address extends \Faker\Provider\Address
         ['VD' => 'Waadt'],
         ['VS' => 'Wallis'],
         ['ZG' => 'Zug'],
-        ['ZH' => 'Zürich']
+        ['ZH' => 'Zürich'],
     ];
 
     protected static $country = [
@@ -108,7 +108,7 @@ class Address extends \Faker\Provider\Address
     protected static $streetNameFormats = [
         '{{lastName}}{{streetSuffixShort}}',
         '{{cityName}}{{streetSuffixShort}}',
-        '{{firstName}}-{{lastName}}-{{streetSuffixLong}}'
+        '{{firstName}}-{{lastName}}-{{streetSuffixLong}}',
     ];
 
     protected static $streetAddressFormats = [

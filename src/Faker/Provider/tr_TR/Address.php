@@ -7,13 +7,13 @@ class Address extends \Faker\Provider\Address
     protected static $buildingNumber = ['%##', '%#', '%'];
 
     protected static $streetSuffix = [
-        'Sokak', 'Caddesi', 'Kavşağı', 'Durağı', 'İş Hanı', 'Mevkii'
+        'Sokak', 'Caddesi', 'Kavşağı', 'Durağı', 'İş Hanı', 'Mevkii',
     ];
 
     protected static $postcode = ['#####'];
 
     /**
-     * @var array Cities of Turkey, for future updates please use @link https://tr.wikipedia.org/wiki/T%C3%BCrkiye'nin_illeri
+     * @var array Cities of Turkey, for future updates please use @see https://tr.wikipedia.org/wiki/T%C3%BCrkiye'nin_illeri
      */
     protected static $cityNames = [
         'Adana', 'Adıyaman', 'Afyonkarahisar', 'Ağrı', 'Aksaray', 'Amasya', 'Ankara', 'Antalya', 'Ardahan', 'Artvin', 'Aydın',
@@ -35,13 +35,13 @@ class Address extends \Faker\Provider\Address
         'Uşak',
         'Van',
         'Yalova', 'Yozgat',
-        'Zonguldak'
+        'Zonguldak',
     ];
 
     /**
      * @var array Countries in Turkish
      *
-     * @link https://tr.wikipedia.org/wiki/%C3%9Clkeler_listesi
+     * @see https://tr.wikipedia.org/wiki/%C3%9Clkeler_listesi
      */
     protected static $country = [
         'Almanya', 'Amerika Birleşik Devletleri', 'Arjantin', 'Arnavutluk', 'Avustralya', 'Avusturya', 'Azerbaycan',
@@ -67,7 +67,7 @@ class Address extends \Faker\Provider\Address
         'Ukrayna', 'Umman', 'Ürdün',
         'Venezuela', 'Vietnam',
         'Yemen', 'Yeni Zelanda', 'Yeşil Burun', 'Yunanistan',
-        'Zambiya', 'Zimbabve'
+        'Zambiya', 'Zimbabve',
     ];
 
     protected static $cityFormats = [
@@ -77,7 +77,7 @@ class Address extends \Faker\Provider\Address
     protected static $streetNameFormats = [
         '{{lastName}} {{streetSuffix}}',
         '{{firstName}} {{streetSuffix}}',
-        '{{firstName}} {{streetSuffix}}'
+        '{{firstName}} {{streetSuffix}}',
     ];
 
     protected static $streetAddressFormats = [

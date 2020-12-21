@@ -9,14 +9,14 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
     /**
      * Since december 2016 all mobile phone numbers in brazil begin with 9 and landlines 2, 3 or 4.
      *
-     * @link http://www.anatel.gov.br/Portal/exibirPortalPaginaEspecial.do?org.apache.struts.taglib.html.TOKEN=9594e1d11fbc996d52bda44e608bb744&codItemCanal=1794&pastaSelecionada=2984
+     * @see http://www.anatel.gov.br/Portal/exibirPortalPaginaEspecial.do?org.apache.struts.taglib.html.TOKEN=9594e1d11fbc996d52bda44e608bb744&codItemCanal=1794&pastaSelecionada=2984
      */
     protected static $cellphoneFormats = ['9####-####'];
 
     /**
      * Generates a 2-digit area code not composed by zeroes.
      *
-     * @link http://www.anatel.gov.br/legislacao/resolucoes/16-2001/383-resolucao-263.
+     * @see http://www.anatel.gov.br/legislacao/resolucoes/16-2001/383-resolucao-263.
      *
      * @return string
      */
@@ -28,7 +28,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
             '44', '45', '46', '47', '48', '49', '51', '53', '54', '55', '61', '62',
             '63', '64', '65', '66', '67', '68', '69', '71', '73', '74', '75', '77',
             '79', '81', '82', '83', '84', '85', '86', '87', '88', '89', '91', '92',
-            '93', '94', '95', '96', '97', '98', '99'
+            '93', '94', '95', '96', '97', '98', '99',
         ];
 
         return self::randomElement($areaCodes);
@@ -74,8 +74,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * Randomizes between cellphone and landline numbers.
      *
      * @param bool $formatted [def: true] If it should return a formatted number or not.
-     *
-     * @return mixed
      */
     public static function phone($formatted = true)
     {
@@ -132,8 +130,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Randomizes between complete cellphone and landline numbers.
-     *
-     * @return mixed
      */
     public function phoneNumber()
     {
@@ -144,8 +140,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     /**
      * Randomizes between complete cellphone and landline numbers, cleared from formatting symbols.
-     *
-     * @return mixed
      */
     public static function phoneNumberCleared()
     {

@@ -14,7 +14,7 @@ class Company extends \Faker\Provider\Company
     /**
      * There are more Private Limited Companies(Sdn Bhd) than Public Listed Companies(Berhad)
      *
-     * @link http://www.risscorporateservices.com/types-of-business-entities.html
+     * @see http://www.risscorporateservices.com/types-of-business-entities.html
      */
     protected static $companySuffix = [
         'Berhad',
@@ -22,11 +22,11 @@ class Company extends \Faker\Provider\Company
         'Bhd.',
         'Enterprise',
         'Sdn Bhd', 'Sdn Bhd', 'Sdn Bhd', 'Sdn Bhd',
-        'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.'
+        'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.',
     ];
 
     /**
-     * @link https://en.wikipedia.org/wiki/List_of_companies_of_Malaysia
+     * @see https://en.wikipedia.org/wiki/List_of_companies_of_Malaysia
      */
     protected static $companies = [
         'Adventa', 'AirAsia', 'AmBank', 'Astro Malaysia Holdings', 'Astro Radio', 'Axiata',
@@ -51,11 +51,11 @@ class Company extends \Faker\Provider\Company
         'U Mobile', 'UEM Group', 'UMW Holdings',
         'VADS', 'ViTrox',
         'Wasco Energy',
-        'YTL Corporation'
+        'YTL Corporation',
     ];
 
     /**
-     * @link http://www.daftarsyarikat.biz/perkhidmatan-dan-konsultasi/pendaftaran-lesen-kementerian-kewangan/senarai-kod-bidang/
+     * @see http://www.daftarsyarikat.biz/perkhidmatan-dan-konsultasi/pendaftaran-lesen-kementerian-kewangan/senarai-kod-bidang/
      */
     protected static $industry = [
         'Agen Pengembaraan', 'Agen Penghantaran', 'Agen Perkapalan', 'Agensi Kredit Dan Pemfaktoran', 'Air', 'Akseso Kenderaan', 'Aksesori', 'Aksesori Jentera Berat', 'Aksesori Penghubung Dan Telekomunikasi', 'Aksesori Senjata Api', 'Akuatik', 'Akustik Dan Gelombang', 'Alat Forensik Dan Aksesori', 'Alat Gani', 'Alat Ganti', 'Alat Ganti Dan Kelengkapan Bot', 'Alat Hawa Dingin', 'Alat Hawa Dingin Kenderaan', 'Alat Kebombaan', 'Alat Kelengkapan Perubatan', 'Alat Keselamatan, Perlindungan Dan Kawalan Perlindungan Dan Kawalan', 'Alat Muzik Dan Aksesori', 'Alat Muzik, Kesenian dan Aksesori', 'Alat Penghasil Nyalaan', 'Alat penyelamat', 'Alat Penyimpan Tenaga Dan Aksesori', 'Alat Perhubungan', 'Alat Semboyan', 'Alat-Alat Marin', 'Alatganti Dan Kelengkapan Pesawat', 'Alatulis', 'Animation', 'Anti Kakis', 'Artis Dan Penghibur Profesional', 'Audio Visual',
@@ -80,7 +80,7 @@ class Company extends \Faker\Provider\Company
         'Tag', 'Talian Paip', 'Taman', 'Tanaman', 'Tanda Dan Stiker', 'Tangki', 'Tasik', 'Tatahias Haiwan', 'Teknologi Hijau', 'Teknologi Maklumat Dan Komunikasi', 'Tekstil', 'Tekstil Guna Semula Kakitangan', 'Tekstil Pakai Buang Kakitangan', 'Telecommunication', 'Telekomunikasi', 'Telly Clerk', 'Tempat Letak Kereta', 'Tenaga Buruh', 'Ternakan', 'Terusan', 'Topografi', 'Trailer Dan Aksesori', 'Tukun Tiruan', 'Tumbuhan',
         'Ubat Haiwan', 'Ubat Tidak Berjadual', 'Ujian Makmal', 'Ukuran',
         'Varnishing',
-        'WAN', 'Wayar Elektrik Dan Aksesori', 'Wireless'
+        'WAN', 'Wayar Elektrik Dan Aksesori', 'Wireless',
     ];
 
     /**

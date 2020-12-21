@@ -11,30 +11,40 @@ use Faker\Generator;
  */
 class Populator
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $batchSize;
 
-    /** @var Generator */
+    /**
+     * @var Generator
+     */
     protected $generator;
 
-    /** @var ObjectManager|null */
+    /**
+     * @var ObjectManager|null
+     */
     protected $manager;
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $entities = [];
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $quantities = [];
 
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $generateId = [];
 
     /**
      * Populator constructor.
      *
-     * @param Generator          $generator
-     * @param ObjectManager|null $manager
-     * @param int                $batchSize
+     * @param int $batchSize
      */
     public function __construct(Generator $generator, ObjectManager $manager = null, $batchSize = 1000)
     {

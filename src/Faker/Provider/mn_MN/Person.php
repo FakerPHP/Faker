@@ -5,7 +5,7 @@ namespace Faker\Provider\mn_MN;
 class Person extends \Faker\Provider\Person
 {
     /**
-     * @link http://ner.query.mn/son
+     * @see http://ner.query.mn/son
      */
     protected static $firstNameMale = [
         'Агь-Од', 'Адархидай', 'Адхираг', 'Ажай', 'Аз-Оргил', 'Алаг-Наяа', 'Алахуш-дигитхури', 'Алдиэр', 'Алтаннар', 'Алхуй', 'Алчи', 'Алчидай', 'Амал', 'Амбагай', 'Амин-Эрдэнэ', 'Анхлан', 'Арачиан', 'Аргасун', 'Арин', 'Арулад', 'Архай Хасар', 'Аучу', 'Ачиг-Чирүн', 'Ачиг-Ширүн', 'Аша-хамбу',
@@ -32,11 +32,11 @@ class Person extends \Faker\Provider\Person
         'Шижуудай', 'Шинч', 'Шинэсочи', 'Ширахул',
         'Эди', 'Элжгэдэй', 'Элхудур', 'Эрххар', 'Эхлэлсайхан',
         'Ю-Хунан', 'Юрүхан',
-        'Ядир', 'Ялавач', 'Ялбаг'
+        'Ядир', 'Ялавач', 'Ялбаг',
     ];
 
     /**
-     * @link http://ner.query.mn/daugther
+     * @see http://ner.query.mn/daugther
      */
     protected static $firstNameFemale = [
         'Агь-Од', 'Алагабэх', 'Алалтун', 'Алахчит', 'Амин-Эрдэнэ', 'Анхлан',
@@ -53,7 +53,7 @@ class Person extends \Faker\Provider\Person
         'Хожинбэх', 'Хорижин', 'Хуагчин', 'Хутугтай', 'Хуурчин',
         'Цотан',
         'Чаалун', 'Чаурбэх', 'Чэчэйхэн',
-        'Эбэхэй'
+        'Эбэхэй',
     ];
 
     protected static $namePrefix = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'Ө', 'П', 'Р', 'С', 'Т', 'У', 'Ү', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Э', 'Ю', 'Я'];
@@ -61,11 +61,11 @@ class Person extends \Faker\Provider\Person
     protected static $alphabet = ['А', 'Л', 'Х', 'Б', 'М', 'Ц', 'В', 'Н', 'Ч', 'Г', 'О', 'Ш', 'Д', 'Ө', 'Щ', 'Е', 'П', 'Ъ', 'Ё', 'Р', 'Ы', 'Ж', 'С', 'Ь', 'З', 'Т', 'Э', 'И', 'У', 'Ю', 'Й', 'Ү', 'Я', 'К', 'Ф'];
 
     protected static $maleNameFormats = [
-        '{{namePrefix}}.{{firstNameMale}}'
+        '{{namePrefix}}.{{firstNameMale}}',
     ];
 
     protected static $femaleNameFormats = [
-        '{{namePrefix}}.{{firstNameFemale}}'
+        '{{namePrefix}}.{{firstNameFemale}}',
     ];
 
     protected static $idNumberFormat = '{{alphabet}}{{alphabet}}########';

@@ -5,12 +5,12 @@ namespace Faker\Provider\zh_TW;
 class Color extends \Faker\Provider\Color
 {
     /**
-     * @link http://zh.wikipedia.org/zh-tw/%E9%A2%9C%E8%89%B2%E5%88%97%E8%A1%A8
+     * @see http://zh.wikipedia.org/zh-tw/%E9%A2%9C%E8%89%B2%E5%88%97%E8%A1%A8
      */
     protected static $safeColorNames = [
         '黑色', '粟色', '綠色', '藏青', '橄欖色',
         '紫', '鳧綠', '鮮綠色', '藍色', '銀色',
-        '灰色', '黃色', '品紅', '水色', '白色'
+        '灰色', '黃色', '品紅', '水色', '白色',
     ];
 
     protected static $allColorNames = [
