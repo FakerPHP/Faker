@@ -50,7 +50,7 @@ class HtmlLorem extends Base
     public function randomHtml($maxDepth = 4, $maxWidth = 4)
     {
         if (!class_exists('DOMDocument', false)) {
-            return new \RuntimeException('DOMDocument is required to use randomHtml.');
+            throw new \RuntimeException('DOMDocument is required to use randomHtml.');
         }
 
         $document = new \DOMDocument();
