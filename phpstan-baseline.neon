@@ -18,7 +18,7 @@ parameters:
 		-
 			message: "#^Result of && is always false\\.$#"
 			count: 1
-			path: src/Faker/Container/ContainerBuilder.php
+			path: src/Faker/Extension/ContainerBuilder.php
 
 		-
 			message: "#^PHPDoc tag @throws with type Faker\\\\Extension\\\\ExtensionNotFound\\|Psr\\\\Container\\\\ContainerExceptionInterface is not subtype of Throwable$#"

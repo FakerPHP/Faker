@@ -229,7 +229,7 @@ class Generator
 
     public function __construct(ContainerInterface $container = null)
     {
-        $this->container = $container ?: Container\ContainerBuilder::getDefault();
+        $this->container = $container ?: Extension\ContainerBuilder::getDefault();
     }
 
     /**

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Faker\Test\Container;
+namespace Faker\Test\Extension;
 
-use Faker\Container\ContainerBuilder;
 use Faker\Core\File;
+use Faker\Extension\ContainerBuilder;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 
 /**
- * @covers \Faker\Container\ContainerBuilder
+ * @covers \Faker\Extension\ContainerBuilder
  */
 final class ContainerBuilderTest extends TestCase
 {

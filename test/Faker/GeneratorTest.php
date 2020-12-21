@@ -2,8 +2,8 @@
 
 namespace Faker\Test;
 
-use Faker\Container\Container;
 use Faker\Core\File;
+use Faker\Extension\Container;
 use Faker\Extension\ExtensionNotFound;
 use Faker\Extension\FileExtension;
 use Faker\Generator;

@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Faker\Container;
+namespace Faker\Extension;
 
 use Faker\Core;
-use Faker\Extension;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -62,7 +61,7 @@ final class ContainerBuilder
     public static function defaultExtensions(): array
     {
         return [
-            Extension\FileExtension::class => Core\File::class,
+            FileExtension::class => Core\File::class,
         ];
     }
 
