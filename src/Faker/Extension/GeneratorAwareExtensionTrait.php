@@ -8,8 +8,6 @@ use Faker\Generator;
 
 /**
  * A helper trait to be used with GeneratorAwareExtension.
- *
- * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
 trait GeneratorAwareExtensionTrait
 {
@@ -18,6 +16,9 @@ trait GeneratorAwareExtensionTrait
      */
     private $generator = null;
 
+    /**
+     * @return static
+     */
     public function withGenerator(Generator $generator): self
     {
         $instance  = clone $this;
