@@ -36,7 +36,7 @@
     },
     "suggest": {
         "ext-dom": "(\\Faker\\Provider\\HtmlLorem) Required for generating random HTML.",
-        "symfony/polyfill-iconv": "(\\Faker\\Provider\\ru_RU\\Text::realText()) Required for generating real Russian text."
+        "ext-iconv": "(\\Faker\\Provider\\ru_RU\\Text::realText()) Required for generating real Russian text."
     },
     "config": {
         "sort-packages": true
