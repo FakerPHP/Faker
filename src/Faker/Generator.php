@@ -234,7 +234,7 @@ class Generator
 
     public function __construct(ContainerInterface $container = null)
     {
-        $this->container = $container ?? ContainerBuilder::getDefault();
+        $this->container = $container ?: ContainerBuilder::getDefault();
     }
 
     /**
