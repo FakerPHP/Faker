@@ -20,6 +20,12 @@ final class Container implements ContainerInterface
 
     private $services = [];
 
+    /**
+     * Create a container object with a set of definitions. The array value MUST
+     * produce an object that implements Extension.
+     *
+     * @param array<string, callable|object|string> $definitions
+     */
     public function __construct(array $definitions)
     {
         $this->definitions = $definitions;
