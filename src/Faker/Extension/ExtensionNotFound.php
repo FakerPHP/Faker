@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Faker\Exception;
+namespace Faker\Extension;
 
 /**
  * @experimental This class is experimental and does not fall under our BC promise

@@ -4,7 +4,7 @@ namespace Faker\Test;
 
 use Faker\Container\Container;
 use Faker\Core\File;
-use Faker\Exception\ExtensionNotFound;
+use Faker\Extension\ExtensionNotFound;
 use Faker\Extension\FileExtension;
 use Faker\Generator;
 

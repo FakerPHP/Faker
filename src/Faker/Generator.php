@@ -3,8 +3,8 @@
 namespace Faker;
 
 use Faker\Container\ContainerBuilder;
-use Faker\Exception\ExtensionNotFound;
 use Faker\Extension\Extension;
+use Faker\Extension\ExtensionNotFound;
 use Faker\Extension\FileExtension;
 use Faker\Extension\GeneratorAwareExtension;
 use Psr\Container\ContainerExceptionInterface;
