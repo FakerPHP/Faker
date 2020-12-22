@@ -14,7 +14,7 @@ trait GeneratorAwareExtensionTrait
     /**
      * @var Generator|null
      */
-    private $generator = null;
+    private $generator;
 
     /**
      * @return static
