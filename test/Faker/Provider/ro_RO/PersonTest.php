@@ -191,12 +191,12 @@ final class PersonTest extends TestCase
 
     protected function isValidFemaleCnp($value)
     {
-        return $this->isValidCnp($value) && in_array($value[0], [2, 4, 6, 8, 9], true);
+        return $this->isValidCnp($value) && in_array($value[0], [2, 4, 6, 8, 9], false);
     }
 
     protected function isValidMaleCnp($value)
     {
-        return $this->isValidCnp($value) && in_array($value[0], [1, 3, 5, 7, 9], true);
+        return $this->isValidCnp($value) && in_array($value[0], [1, 3, 5, 7, 9], false);
     }
 
     protected function isValidCnp($cnp)
