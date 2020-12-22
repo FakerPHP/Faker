@@ -21,7 +21,7 @@ trait GeneratorAwareExtensionTrait
      */
     public function withGenerator(Generator $generator): self
     {
-        $instance  = clone $this;
+        $instance = clone $this;
 
         $instance->generator = $generator;
 
