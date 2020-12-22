@@ -2,7 +2,7 @@
 
 namespace Faker;
 
-class Factory
+final class Factory
 {
     public const DEFAULT_LOCALE = 'en_US';
 
