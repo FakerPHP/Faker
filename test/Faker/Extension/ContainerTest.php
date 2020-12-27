@@ -65,7 +65,7 @@ final class ContainerTest extends TestCase
     }
 
     /**
-     * @return \Generator<string, array{0: callable|object|string}>
+     * @return \Generator<string, array{0: callable|object|string>
      */
     public function provideDefinitionThatDoesNotResolveToExtension(): \Generator
     {
