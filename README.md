@@ -1,3 +1,5 @@
+<p align="center"><img src="/art/socialcard.png" alt="Social Card of FakerPHP"></p>
+
 # Faker
 
 [![Packagist Downloads](https://img.shields.io/packagist/dm/FakerPHP/Faker)](https://packagist.org/packages/fakerphp/faker)
@@ -65,6 +67,13 @@ for ($i = 0; $i < 10; $i++) {
 // Wellington Koelpin II
 // Ms. Karley Kiehn V
 ```
+
+## Credits
+
+- [Francois Zaninotto](https://github.com/fzaninotto) for the original code.
+- [All Contributors](../../contributors)
+
+And a special thanks to [Caneco](https://twitter.com/caneco) for the logo ✨
 
 ## License
 
