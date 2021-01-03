@@ -10,16 +10,41 @@ final class BloodTest extends TestCase
 {
     public function testBloodType(): void
     {
-        self::assertContains($this->faker->bloodType(), ['A', 'AB', 'B', 'O']);
+        $resultSet = [];
+        for ($i = 0; $i < 100; ++$i) {
+            $resultSet[] = $this->faker->bloodType();
+        }
+
+        self::assertContains('A', $resultSet);
+        self::assertContains('AB', $resultSet);
+        self::assertContains('B', $resultSet);
+        self::assertContains('O', $resultSet);
     }
 
     public function testBloodRh(): void
     {
-        self::assertContains($this->faker->bloodRh(), ['+', '-']);
+        $resultSet = [];
+        for ($i = 0; $i < 100; ++$i){
+            $resultSet[] = $this->faker->bloodRh();
+        }
+        self::assertContains('+', $resultSet);
+        self::assertContains('-', $resultSet);
     }
 
     public function testBloodGroup(): void
     {
-        self::assertContains($this->faker->bloodGroup(), ['A+', 'A-', 'AB+', 'AB-', 'B+', 'B-', 'O+', 'O-']);
+        $resultSet = [];
+        for ($i = 0; $i < 100; ++$i){
+            $resultSet[] = $this->faker->bloodGroup();
+        }
+
+        self::assertContains('A+', $resultSet);
+        self::assertContains('A-', $resultSet);
+        self::assertContains('AB+', $resultSet);
+        self::assertContains('AB-', $resultSet);
+        self::assertContains('B+', $resultSet);
+        self::assertContains('B-', $resultSet);
+        self::assertContains('O+', $resultSet);
+        self::assertContains('O-', $resultSet);
     }
 }
