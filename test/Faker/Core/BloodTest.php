@@ -5,49 +5,69 @@ declare(strict_types=1);
 namespace Faker\Test\Core;
 
 use Faker\Test\TestCase;
+use Faker\UniqueGenerator;
 
 final class BloodTest extends TestCase
 {
     public function testBloodType(): void
     {
-        $resultSet = [];
+        $expected = [
+            'A',
+            'AB',
+            'B',
+            'O',
+        ];
 
-        for ($i = 0; $i < 17; ++$i) {
-            $resultSet[] = $this->faker->bloodType();
+        $faker = new UniqueGenerator($this->faker);
+
+        $generated = [];
+        for ($i = 0; $i < count($expected); ++$i) {
+            $generated[] = $faker->bloodType();
         }
 
-        self::assertContains('A', $resultSet);
-        self::assertContains('AB', $resultSet);
-        self::assertContains('B', $resultSet);
-        self::assertContains('O', $resultSet);
+        self::assertEqualsCanonicalizing($expected, $generated);
     }
 
     public function testBloodRh(): void
     {
-        $resultSet = [];
+        $expected = [
+            '+',
+            '-',
+        ];
 
-        for ($i = 0; $i < 3; ++$i) {
-            $resultSet[] = $this->faker->bloodRh();
+        $faker = new UniqueGenerator($this->faker);
+
+        $generated = [];
+        for ($i = 0; $i < count($expected); ++$i) {
+            $generated[] = $faker->bloodRh();
         }
-        self::assertContains('+', $resultSet);
-        self::assertContains('-', $resultSet);
+
+        self::assertEqualsCanonicalizing($expected, $generated);
+
     }
 
     public function testBloodGroup(): void
     {
-        $resultSet = [];
 
-        for ($i = 0; $i < 10; ++$i) {
-            $resultSet[] = $this->faker->bloodGroup();
+        $expected = [
+            'A+',
+            'A-',
+            'AB+',
+            'AB-',
+            'B+',
+            'B-',
+            'O+',
+            'O-',
+        ];
+
+        $faker = new UniqueGenerator($this->faker);
+
+        $generated = [];
+        for ($i = 0; $i < count($expected); ++$i) {
+            $generated[] = $faker->bloodGroup();
         }
 
-        self::assertContains('A+', $resultSet);
-        self::assertContains('A-', $resultSet);
-        self::assertContains('AB+', $resultSet);
-        self::assertContains('AB-', $resultSet);
-        self::assertContains('B+', $resultSet);
-        self::assertContains('B-', $resultSet);
-        self::assertContains('O+', $resultSet);
-        self::assertContains('O-', $resultSet);
+        self::assertEqualsCanonicalizing($expected, $generated);
+
     }
 }
