@@ -21,6 +21,7 @@ final class BloodTest extends TestCase
         $faker = new UniqueGenerator($this->faker);
 
         $generated = [];
+
         for ($i = 0; $i < count($expected); ++$i) {
             $generated[] = $faker->bloodType();
         }
@@ -38,17 +39,16 @@ final class BloodTest extends TestCase
         $faker = new UniqueGenerator($this->faker);
 
         $generated = [];
+
         for ($i = 0; $i < count($expected); ++$i) {
             $generated[] = $faker->bloodRh();
         }
 
         self::assertEqualsCanonicalizing($expected, $generated);
-
     }
 
     public function testBloodGroup(): void
     {
-
         $expected = [
             'A+',
             'A-',
@@ -63,11 +63,11 @@ final class BloodTest extends TestCase
         $faker = new UniqueGenerator($this->faker);
 
         $generated = [];
+
         for ($i = 0; $i < count($expected); ++$i) {
             $generated[] = $faker->bloodGroup();
         }
 
         self::assertEqualsCanonicalizing($expected, $generated);
-
     }
 }
