@@ -81,7 +81,7 @@ class Company extends \Faker\Provider\Company
      */
     public static function ruc(bool $isNaturalPerson = false): string
     {
-        $prefix = $isNaturalPerson ? 10 : 20;
+        $prefix = $isNaturalPerson ? '10' : '20';
 
         return $prefix . static::numerify('#########');
     }
