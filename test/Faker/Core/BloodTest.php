@@ -12,7 +12,7 @@ final class BloodTest extends TestCase
     {
         $resultSet = [];
 
-        for ($i = 0; $i < 100; ++$i) {
+        for ($i = 0; $i < 17; ++$i) {
             $resultSet[] = $this->faker->bloodType();
         }
 
@@ -26,7 +26,7 @@ final class BloodTest extends TestCase
     {
         $resultSet = [];
 
-        for ($i = 0; $i < 100; ++$i) {
+        for ($i = 0; $i < 3; ++$i) {
             $resultSet[] = $this->faker->bloodRh();
         }
         self::assertContains('+', $resultSet);
@@ -37,7 +37,7 @@ final class BloodTest extends TestCase
     {
         $resultSet = [];
 
-        for ($i = 0; $i < 100; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $resultSet[] = $this->faker->bloodGroup();
         }
 
