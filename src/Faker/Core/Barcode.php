@@ -11,14 +11,11 @@ use Faker\Extension;
  */
 final class Barcode implements Extension\BarcodeExtension
 {
-    /**
-     * @param int $length
-     */
-    private function ean($length = 13): string
+    private function ean(int $length = 13): string
     {
         $code = Extension\Helper::numerify(str_repeat('#', $length - 1));
 
-        return $code . \Faker\Calculator\Ean::checksum($code);
+        return sprintf('%s%s', $code, \Faker\Calculator\Ean::checksum($code));
     }
 
     /**
@@ -52,7 +49,7 @@ final class Barcode implements Extension\BarcodeExtension
     {
         $code = Extension\Helper::numerify(str_repeat('#', 9));
 
-        return $code . \Faker\Calculator\Isbn::checksum($code);
+        return sprintf('%s%s', $code, \Faker\Calculator\Isbn::checksum($code));
     }
 
     /**
@@ -66,6 +63,6 @@ final class Barcode implements Extension\BarcodeExtension
     {
         $code = '97' . mt_rand(8, 9) . Extension\Helper::numerify(str_repeat('#', 9));
 
-        return $code . \Faker\Calculator\Ean::checksum($code);
+        return sprintf('%s%s', $code, \Faker\Calculator\Ean::checksum($code));
     }
 }
