@@ -14,12 +14,8 @@ class Company extends \Faker\Provider\Company
      * UK VAT number
      *
      * @see https://en.wikipedia.org/wiki/VAT_identification_number#VAT_numbers_by_country
-     *
-     * @param string|null $type
-     *
-     * @return string
      */
-    public static function vat($type = null)
+    public static function vat(string $type = null): string
     {
         switch ($type) {
             /**
@@ -27,14 +23,14 @@ class Company extends \Faker\Provider\Company
              * 12 digits (as for 9 digits, followed by a block of 3 digits)
              */
             case static::VAT_TYPE_BRANCH:
-            return sprintf(
-                '%s%d %d %d %d',
-                static::VAT_PREFIX,
-                static::randomNumber(3, true),
-                static::randomNumber(4, true),
-                static::randomNumber(2, true),
-                static::randomNumber(3, true)
-            );
+                return sprintf(
+                    '%s%d %d %d %d',
+                    static::VAT_PREFIX,
+                    static::randomNumber(3, true),
+                    static::randomNumber(4, true),
+                    static::randomNumber(2, true),
+                    static::randomNumber(3, true)
+                );
             /**
              * government departments:
              * the letters GD then 3 digits from 000 to 499 (e.g. GBGD001)

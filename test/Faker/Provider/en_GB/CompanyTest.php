@@ -11,7 +11,12 @@ final class CompanyTest extends TestCase
 {
     public function testVat()
     {
-        $number = $this->faker->vat();
+        $this->assertDefaultVatFormat($this->faker->vat());
+        $this->assertDefaultVatFormat($this->faker->vat(Company::VAT_TYPE_DEFAULT));
+    }
+
+    private function assertDefaultVatFormat($number)
+    {
         self::assertEquals(1, preg_match('/^GB[\d]{3} [\d]{4} [\d]{2}$/', $number));
     }
 
