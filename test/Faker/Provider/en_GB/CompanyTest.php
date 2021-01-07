@@ -20,11 +20,6 @@ final class CompanyTest extends TestCase
         self::assertEquals(1, preg_match('/^GB[\d]{3} [\d]{4} [\d]{2}$/', $number));
     }
 
-    public function testVatDefaultType()
-    {
-        $this->testVat();
-    }
-
     public function testVatBranchType()
     {
         $number = $this->faker->vat(Company::VAT_TYPE_BRANCH);
