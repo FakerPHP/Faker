@@ -34,7 +34,7 @@ class Address extends \Faker\Provider\Address
         'Salyan', 'Sankhuwasabha', 'Saptari', 'Sarlahi', 'Sindhuli', 'Sindhupalchok', 'Siraha', 'Solukhumbu', 'Sunsari', 'Surkhet', 'Syangja',
         'Tanahu', 'Taplejung', 'Terhathum',
         'Udayapur',
-        'Western Rukum'
+        'Western Rukum',
     ];
 
     /**
