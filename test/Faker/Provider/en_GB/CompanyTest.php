@@ -1,7 +1,8 @@
 <?php
 
-namespace Faker\Provider\en_GB;
+namespace Faker\Test\Provider\en_GB;
 
+use Faker\Provider\en_GB\Company;
 use Faker\Test\TestCase;
 
 /**
@@ -17,6 +18,12 @@ final class CompanyTest extends TestCase
         self::assertSame('82', $this->faker->calculateModulus97(1234567, false));
         // The following value expects a leading zero
         self::assertSame('06', $this->faker->calculateModulus97(1271786));
+    }
+
+    public function testModulus97AlgorithmWithInvalidArgument()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->faker->calculateModulus97(123);
     }
 
     public function testVat()
