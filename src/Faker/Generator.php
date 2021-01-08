@@ -166,10 +166,7 @@ use Psr\Container\ContainerInterface;
  * @property string $randomLetter
  * @property string $randomAscii
  *
- * @method int randomNumber($nbDigits = null, $strict = false)
  * @method int|string|null randomKey(array $array = array())
- * @method int numberBetween($min = 0, $max = 2147483647)
- * @method float randomFloat($nbMaxDecimals = null, $min = 0, $max = null)
  * @method mixed randomElement(array $array = array('a', 'b', 'c'))
  * @method array randomElements(array $array = array('a', 'b', 'c'), $count = 1, $allowDuplicates = false)
  * @method array|string shuffle($arg = '')
@@ -363,6 +360,36 @@ class Generator
     public function isbn13(): string
     {
         return $this->ext(Extension\BarcodeExtension::class)->isbn13();
+    }
+
+    public function numberBetween($int1 = 0, $int2 = 2147483647): int
+    {
+        return $this->ext(Extension\NumberExtension::class)->numberBetween($int1, $int2);
+    }
+
+    public function randomDigit(): int
+    {
+        return $this->ext(Extension\NumberExtension::class)->randomDigit();
+    }
+
+    public function randomDigitNot($except): int
+    {
+        return $this->ext(Extension\NumberExtension::class)->randomDigitNot($except);
+    }
+
+    public function randomDigitNotNull(): int
+    {
+        return $this->ext(Extension\NumberExtension::class)->randomDigitNotNull();
+    }
+
+    public function randomFloat($nbMaxDecimals = null, $min = 0, $max = null): float
+    {
+        return $this->ext(Extension\NumberExtension::class)->randomFloat($nbMaxDecimals, $min, $max);
+    }
+
+    public function randomNumber($nbDigits = null, $strict = false): int
+    {
+        return $this->ext(Extension\NumberExtension::class)->randomNumber($nbDigits, $strict);
     }
 
     protected function callFormatWithMatches($matches)
