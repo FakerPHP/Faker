@@ -39,7 +39,7 @@ class Company extends \Faker\Provider\Company
                 return sprintf(
                     '%sGD%s',
                     static::VAT_PREFIX,
-                    str_pad(static::numberBetween(0, 499), 3, '0', STR_PAD_LEFT)
+                    str_pad((string) static::numberBetween(0, 499), 3, '0', STR_PAD_LEFT)
                 );
             /**
              * health authorities:
