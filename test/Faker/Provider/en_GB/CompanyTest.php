@@ -9,6 +9,16 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
+    public function testModulus97Algorithm()
+    {
+        // 9755 format
+        self::assertSame('27', $this->faker->calculateModulus97(1234567));
+        // Pre November 2009 format
+        self::assertSame('82', $this->faker->calculateModulus97(1234567, false));
+        // The following value expects a leading zero
+        self::assertSame('06', $this->faker->calculateModulus97(1271786));
+    }
+
     public function testVat()
     {
         $this->assertDefaultVatFormat($this->faker->vat());
