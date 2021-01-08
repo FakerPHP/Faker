@@ -34,7 +34,7 @@ class Person extends \Faker\Provider\Person
         'Gabriel', 'Gael',
         'Hipólito', 'Hidalgo', 'Horacio', 'Hugo', 'Hidalgo',
         'Ian', 'Ignacio', 'Isaac', 'Ivan',
-        'Jacobo', 'Javier', 'Jerónimo', 'Jesús', 'Joaquín', 'Jorge', 'Joshua', 'Josué', 'José', 'Juan', 'Juan David', 'Juan Diego', 'Juan José', 'Juan Manuel', 'Juan Martín', 'Juan Pablo', 'Juan Sebastián', 'Julián','Juan Esteban',
+        'Jacobo', 'Javier', 'Jerónimo', 'Jesús', 'Joaquín', 'Jorge', 'Joshua', 'Josué', 'José', 'Juan', 'Juan David', 'Juan Diego', 'Juan José', 'Juan Manuel', 'Juan Martín', 'Juan Pablo', 'Juan Sebastián', 'Julián', 'Juan Esteban',
         'Kevin',
         'Lautaro', 'Leonardo', 'Lorenzo', 'Lucas', 'Luciano', 'Luis',
         'Manuel', 'Mario', 'Martín', 'Mateo', 'Matthew', 'Matías', 'Maximiliano', 'Miguel', 'Miguel Ángel', 'Máximo',
