@@ -34,12 +34,6 @@ final class NumberTest extends TestCase
         }
     }
 
-    public function testRandomNumberThrowsExceptionWhenCalledWithAMax()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->faker->randomNumber(5, 200);
-    }
-
     public function testRandomNumberThrowsExceptionWhenCalledWithATooHighNumberOfDigits()
     {
         $this->expectException(\InvalidArgumentException::class);

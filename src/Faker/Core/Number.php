@@ -65,10 +65,6 @@ final class Number implements Extension\NumberExtension
 
     public function randomNumber(int $nbDigits = null, bool $strict = false): int
     {
-        if (!is_bool($strict)) {
-            throw new \InvalidArgumentException('randomNumber() generates numbers of fixed width. To generate numbers between two boundaries, use numberBetween() instead.');
-        }
-
         if (null === $nbDigits) {
             $nbDigits = $this->randomDigitNotNull();
         }
