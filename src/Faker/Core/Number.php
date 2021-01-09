@@ -19,7 +19,7 @@ final class Number implements Extension\NumberExtension
      *
      * @example 79907610
      */
-    public function numberBetween($int1 = 0, $int2 = 2147483647): int
+    public function numberBetween(int $int1 = 0, int $int2 = 2147483647): int
     {
         $min = $int1 < $int2 ? $int1 : $int2;
         $max = $int1 < $int2 ? $int2 : $int1;
@@ -40,7 +40,7 @@ final class Number implements Extension\NumberExtension
      *
      * @param int $except
      */
-    public function randomDigitNot($except): int
+    public function randomDigitNot(int $except): int
     {
         $result = self::numberBetween(0, 8);
 
@@ -68,7 +68,7 @@ final class Number implements Extension\NumberExtension
      *
      * @example 48.8932
      */
-    public function randomFloat($nbMaxDecimals = null, $min = 0, $max = null): float
+    public function randomFloat(int $nbMaxDecimals = null, float $min = 0, float $max = null): float
     {
         if (null === $nbMaxDecimals) {
             $nbMaxDecimals = $this->randomDigit();
@@ -101,7 +101,7 @@ final class Number implements Extension\NumberExtension
      *
      * @example 79907610
      */
-    public function randomNumber($nbDigits = null, $strict = false): int
+    public function randomNumber(int $nbDigits = null, bool $strict = false): int
     {
         if (!is_bool($strict)) {
             throw new \InvalidArgumentException('randomNumber() generates numbers of fixed width. To generate numbers between two boundaries, use numberBetween() instead.');

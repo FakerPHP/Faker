@@ -15,7 +15,7 @@ interface NumberExtension extends Extension
      *
      * @example 79907610
      */
-    public function numberBetween($int1, $int2): int;
+    public function numberBetween(int $int1, int $int2): int;
 
     /**
      * Returns a random number between 0 and 9
@@ -27,7 +27,7 @@ interface NumberExtension extends Extension
      *
      * @param int $except
      */
-    public function randomDigitNot($except): int;
+    public function randomDigitNot(int $except): int;
 
     /**
      * Returns a random number between 1 and 9
@@ -43,7 +43,7 @@ interface NumberExtension extends Extension
      *
      * @example 48.8932
      */
-    public function randomFloat($nbMaxDecimals, $min, $max): float;
+    public function randomFloat(int $nbMaxDecimals, float $min, float $max): float;
 
     /**
      * Returns a random integer with 0 to $nbDigits digits.

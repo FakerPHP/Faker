@@ -364,7 +364,7 @@ class Generator
 
     public function numberBetween($int1 = 0, $int2 = 2147483647): int
     {
-        return $this->ext(Extension\NumberExtension::class)->numberBetween($int1, $int2);
+        return $this->ext(Extension\NumberExtension::class)->numberBetween((int) $int1, (int) $int2);
     }
 
     public function randomDigit(): int
@@ -374,7 +374,7 @@ class Generator
 
     public function randomDigitNot($except): int
     {
-        return $this->ext(Extension\NumberExtension::class)->randomDigitNot($except);
+        return $this->ext(Extension\NumberExtension::class)->randomDigitNot((int) $except);
     }
 
     public function randomDigitNotNull(): int
@@ -384,12 +384,12 @@ class Generator
 
     public function randomFloat($nbMaxDecimals = null, $min = 0, $max = null): float
     {
-        return $this->ext(Extension\NumberExtension::class)->randomFloat($nbMaxDecimals, $min, $max);
+        return $this->ext(Extension\NumberExtension::class)->randomFloat((int) $nbMaxDecimals, (float) $min, (float) $max);
     }
 
     public function randomNumber($nbDigits = null, $strict = false): int
     {
-        return $this->ext(Extension\NumberExtension::class)->randomNumber($nbDigits, $strict);
+        return $this->ext(Extension\NumberExtension::class)->randomNumber((int) $nbDigits, (bool) $strict);
     }
 
     protected function callFormatWithMatches($matches)
