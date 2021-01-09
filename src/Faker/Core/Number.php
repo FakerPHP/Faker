@@ -11,14 +11,6 @@ use Faker\Extension;
  */
 final class Number implements Extension\NumberExtension
 {
-    /**
-     * Returns a random number between $int1 and $int2 (any order)
-     *
-     * @param int $int1 default to 0
-     * @param int $int2 defaults to 32 bit max integer, ie 2147483647
-     *
-     * @example 79907610
-     */
     public function numberBetween(int $int1 = 0, int $int2 = 2147483647): int
     {
         $min = $int1 < $int2 ? $int1 : $int2;
@@ -27,19 +19,11 @@ final class Number implements Extension\NumberExtension
         return mt_rand($min, $max);
     }
 
-    /**
-     * Returns a random number between 0 and 9
-     */
     public function randomDigit(): int
     {
         return mt_rand(0, 9);
     }
 
-    /**
-     * Generates a random digit, which cannot be $except
-     *
-     * @param int $except
-     */
     public function randomDigitNot(int $except): int
     {
         $result = self::numberBetween(0, 8);
@@ -51,23 +35,11 @@ final class Number implements Extension\NumberExtension
         return $result;
     }
 
-    /**
-     * Returns a random number between 1 and 9
-     */
     public function randomDigitNotNull(): int
     {
         return mt_rand(1, 9);
     }
 
-    /**
-     * Return a random float number
-     *
-     * @param int|null  $nbMaxDecimals
-     * @param float|int $min
-     * @param float|int $max
-     *
-     * @example 48.8932
-     */
     public function randomFloat(int $nbMaxDecimals = null, float $min = 0, float $max = null): float
     {
         if (null === $nbMaxDecimals) {
@@ -91,16 +63,6 @@ final class Number implements Extension\NumberExtension
         return round($min + mt_rand() / mt_getrandmax() * ($max - $min), $nbMaxDecimals);
     }
 
-    /**
-     * Returns a random integer with 0 to $nbDigits digits.
-     *
-     * The maximum value returned is mt_getrandmax()
-     *
-     * @param int|null $nbDigits Defaults to a random number between 1 and 9
-     * @param bool     $strict   Whether the returned number should have exactly $nbDigits
-     *
-     * @example 79907610
-     */
     public function randomNumber(int $nbDigits = null, bool $strict = false): int
     {
         if (!is_bool($strict)) {
