@@ -11,12 +11,12 @@ use Faker\Extension;
  */
 final class Number implements Extension\NumberExtension
 {
-    public function numberBetween(int $int1 = 0, int $int2 = 2147483647): int
+    public function numberBetween(int $min = 0, int $max = 2147483647): int
     {
-        $min = $int1 < $int2 ? $int1 : $int2;
-        $max = $int1 < $int2 ? $int2 : $int1;
+        $int1 = $min < $max ? $min : $max;
+        $int2 = $min < $max ? $max : $min;
 
-        return mt_rand($min, $max);
+        return mt_rand($int1, $int2);
     }
 
     public function randomDigit(): int

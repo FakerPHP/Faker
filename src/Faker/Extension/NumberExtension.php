@@ -10,12 +10,12 @@ interface NumberExtension extends Extension
     /**
      * Returns a random number between $int1 and $int2 (any order)
      *
-     * @param int $int1 default to 0
-     * @param int $int2 defaults to 32 bit max integer, ie 2147483647
+     * @param int $min default to 0
+     * @param int $max defaults to 32 bit max integer, ie 2147483647
      *
      * @example 79907610
      */
-    public function numberBetween(int $int1, int $int2): int;
+    public function numberBetween(int $min, int $max): int;
 
     /**
      * Returns a random number between 0 and 9
@@ -24,8 +24,6 @@ interface NumberExtension extends Extension
 
     /**
      * Generates a random digit, which cannot be $except
-     *
-     * @param int $except
      */
     public function randomDigitNot(int $except): int;
 
@@ -37,13 +35,9 @@ interface NumberExtension extends Extension
     /**
      * Return a random float number
      *
-     * @param int|null  $nbMaxDecimals
-     * @param float $min
-     * @param float $max
-     *
      * @example 48.8932
      */
-    public function randomFloat(int $nbMaxDecimals, float $min, float $max): float;
+    public function randomFloat(?int $nbMaxDecimals, float $min, float $max): float;
 
     /**
      * Returns a random integer with 0 to $nbDigits digits.
@@ -55,5 +49,5 @@ interface NumberExtension extends Extension
      *
      * @example 79907610
      */
-    public function randomNumber(int $nbDigits, bool $strict): int;
+    public function randomNumber(?int $nbDigits, bool $strict): int;
 }
