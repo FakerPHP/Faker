@@ -38,8 +38,8 @@ interface NumberExtension extends Extension
      * Return a random float number
      *
      * @param int|null  $nbMaxDecimals
-     * @param float|int $min
-     * @param float|int $max
+     * @param float $min
+     * @param float $max
      *
      * @example 48.8932
      */
@@ -55,5 +55,5 @@ interface NumberExtension extends Extension
      *
      * @example 79907610
      */
-    public function randomNumber($nbDigits, $strict): int;
+    public function randomNumber(int $nbDigits, bool $strict): int;
 }
