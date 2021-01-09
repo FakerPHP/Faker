@@ -30,7 +30,7 @@ interface NumberExtension extends Extension
     /**
      * Returns a random number between 1 and 9
      */
-    public function randomDigitNotNull(): int;
+    public function randomDigitNotZero(): int;
 
     /**
      * Return a random float number

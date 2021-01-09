@@ -35,7 +35,7 @@ final class Number implements Extension\NumberExtension
         return $result;
     }
 
-    public function randomDigitNotNull(): int
+    public function randomDigitNotZero(): int
     {
         return mt_rand(1, 9);
     }
@@ -66,7 +66,7 @@ final class Number implements Extension\NumberExtension
     public function randomNumber(int $nbDigits = null, bool $strict = false): int
     {
         if (null === $nbDigits) {
-            $nbDigits = $this->randomDigitNotNull();
+            $nbDigits = $this->randomDigitNotZero();
         }
         $max = 10 ** $nbDigits - 1;
 

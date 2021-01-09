@@ -21,8 +21,8 @@ final class NumberTest extends TestCase
 
     public function testRandomDigitNotNullReturnsNotNullDigit()
     {
-        self::assertGreaterThan(0, $this->faker->randomDigitNotNull());
-        self::assertLessThan(10, $this->faker->randomDigitNotNull());
+        self::assertGreaterThan(0, $this->faker->randomDigitNotZero());
+        self::assertLessThan(10, $this->faker->randomDigitNotZero());
     }
 
     public function testRandomDigitNotReturnsValidDigit()

@@ -391,9 +391,9 @@ class Generator
     /**
      * Returns a random number between 1 and 9
      */
-    public function randomDigitNotNull(): int
+    public function randomDigitNotZero(): int
     {
-        return $this->ext(Extension\NumberExtension::class)->randomDigitNotNull();
+        return $this->ext(Extension\NumberExtension::class)->randomDigitNotZero();
     }
 
     /**
