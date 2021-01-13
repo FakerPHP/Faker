@@ -4,7 +4,6 @@ namespace Faker\Test\Provider\en_US;
 
 use Faker\Provider\en_US\PhoneNumber;
 use Faker\Test\TestCase;
-use libphonenumber\PhoneNumberUtil;
 
 /**
  * @group legacy
