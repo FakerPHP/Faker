@@ -8,7 +8,9 @@ class PhoneNumber extends Base
 {
     protected static $formats = ['###-###-###'];
 
-    /** @link https://github.com/giggsey/libphonenumber-for-php/blob/master/src/CountryCodeToRegionCodeMapForTesting.php */
+    /**
+     * @see https://github.com/giggsey/libphonenumber-for-php/blob/master/src/CountryCodeToRegionCodeMapForTesting.php
+     */
     protected static $e164Formats = [
         '+1##########',
         '+7##########',
