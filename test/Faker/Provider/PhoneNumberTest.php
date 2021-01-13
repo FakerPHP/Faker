@@ -11,7 +11,7 @@ use Faker\Test\TestCase;
  */
 final class PhoneNumberTest extends TestCase
 {
-    public function testPhoneNumberFormat()
+    public function testE164PhoneNumberFormat()
     {
         $number = $this->faker->e164PhoneNumber();
         self::assertMatchesRegularExpression('/^\+[1-9][0-9]{10,}$/', $number);
