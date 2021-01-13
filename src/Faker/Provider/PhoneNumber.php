@@ -8,6 +8,38 @@ class PhoneNumber extends Base
 {
     protected static $formats = ['###-###-###'];
 
+    /** @link https://github.com/giggsey/libphonenumber-for-php/blob/master/src/CountryCodeToRegionCodeMapForTesting.php */
+    protected static $e164Formats = [
+        '+1##########',
+        '+7##########',
+        '+33##########',
+        '+39##########',
+        '+44##########',
+        '+46##########',
+        '+48##########',
+        '+49##########',
+        '+52##########',
+        '+54##########',
+        '+55##########',
+        '+61##########',
+        '+64##########',
+        '+65##########',
+        '+81##########',
+        '+82##########',
+        '+86##########',
+        '+244##########',
+        '+262##########',
+        '+290##########',
+        '+374##########',
+        '+375##########',
+        '+376##########',
+        '+800##########',
+        '+882##########',
+        '+971##########',
+        '+979##########',
+        '+998##########',
+    ];
+
     /**
      * @example '555-123-546'
      */
@@ -17,15 +49,13 @@ class PhoneNumber extends Base
     }
 
     /**
-     * @example +27113456789
+     * @example +11134567890
      *
      * @return string
      */
     public function e164PhoneNumber()
     {
-        $formats = ['+%############'];
-
-        return static::numerify($this->generator->parse(static::randomElement($formats)));
+        return static::numerify($this->generator->parse(static::randomElement(static::$e164Formats)));
     }
 
     /**
