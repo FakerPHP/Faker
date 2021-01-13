@@ -20,6 +20,12 @@ final class PhoneNumberTest extends TestCase
         self::assertMatchesRegularExpression('/^07[56789] ?\d{3} ?\d{2} ?\d{2}$/', $this->faker->mobileNumber());
     }
 
+    public function testE164PhoneNumberFormat()
+    {
+        $number = $this->faker->e164PhoneNumber();
+        self::assertMatchesRegularExpression('/^\+41[0-9]{10,}$/', $number);
+    }
+
     protected function getProviders(): iterable
     {
         yield new PhoneNumber($this->faker);

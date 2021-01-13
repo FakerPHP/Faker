@@ -45,6 +45,11 @@ final class PhoneNumberTest extends TestCase
         $serviceNumberFormat = $this->faker->phoneNumber08WithSeparator();
         self::assertMatchesRegularExpression('/^((0|1|2)\d{1}|9[^46])( \d{2}){3}$/', $serviceNumberFormat);
     }
+    public function testE164PhoneNumberFormat()
+    {
+        $number = $this->faker->e164PhoneNumber();
+        self::assertMatchesRegularExpression('/^\+33[0-9]{10,}$/', $number);
+    }
 
     protected function getProviders(): iterable
     {
