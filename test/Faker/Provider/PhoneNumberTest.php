@@ -16,7 +16,7 @@ final class PhoneNumberTest extends TestCase
         for ($i = 0; $i < 1000; ++$i) {
             $number = $this->faker->e164PhoneNumber();
             self::assertMatchesRegularExpression('/^\+[1-9]\d{1,14}$/', $number);
-            self::assertLessThanOrEqual(16, strlen($number)); // +\d{2,15}
+            self::assertLessThanOrEqual(16, strlen($number)); // plus-sign and max. 15 digits incl. CC-prefix
         }
     }
 
