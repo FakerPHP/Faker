@@ -861,7 +861,7 @@ class Generator
      */
     protected function callFormatWithMatches($matches)
     {
-        trigger_deprecation('fakerphp/faker', '1.14', 'Protected method "callFormatWithMatches()" is deprecated and will me removed.');
+        trigger_deprecation('fakerphp/faker', '1.14', 'Protected method "callFormatWithMatches()" is deprecated and will be removed.');
 
         return $this->format($matches[1]);
     }
