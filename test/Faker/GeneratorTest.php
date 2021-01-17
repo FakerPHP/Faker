@@ -2,7 +2,6 @@
 
 namespace Faker\Test;
 
-use Faker\Core\Barcode;
 use Faker\Core\Blood;
 use Faker\Core\File;
 use Faker\Extension\BloodExtension;
@@ -122,7 +121,7 @@ final class GeneratorTest extends TestCase
         $faker = new Generator($builder->build());
 
         $output = $faker->format('bloodType');
-        self::assertTrue(in_array($output, ['A', 'AB', 'B', '0']));
+        self::assertTrue(in_array($output, ['A', 'AB', 'B', '0'], true));
     }
 
     public function testFormatterCallsExtension()
@@ -132,7 +131,7 @@ final class GeneratorTest extends TestCase
         $faker = new Generator($builder->build());
 
         $output = $faker->format('Faker\Core\Blood->bloodType');
-        self::assertTrue(in_array($output, ['A', 'AB', 'B', '0']));
+        self::assertTrue(in_array($output, ['A', 'AB', 'B', '0'], true));
     }
 
     public function testParseReturnsSameStringWhenItContainsNoCurlyBraces()
