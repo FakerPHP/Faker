@@ -91,10 +91,9 @@ final class PersonTest extends TestCase
 
     public function testTitle()
     {
-        self::assertContains($this->faker->titleFemale(),  ['mgr', 'inż.', 'dr', 'doc.']);
-        self::assertContains($this->faker->titleMale(),  ['mgr', 'inż.', 'dr', 'doc.']);
+        self::assertContains($this->faker->titleFemale(), ['mgr', 'inż.', 'dr', 'doc.']);
+        self::assertContains($this->faker->titleMale(), ['mgr', 'inż.', 'dr', 'doc.']);
     }
-
 
     protected function getProviders(): iterable
     {
