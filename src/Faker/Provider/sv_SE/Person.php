@@ -140,11 +140,11 @@ class Person extends \Faker\Provider\Person
     }
 
     /**
-     * @param $gender
+     * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
      *
-     * @return string
+     * @return string of three digits
      */
-    protected function getBirthNumber($gender)
+    protected function getBirthNumber($gender = null)
     {
         do {
             if ($gender && $gender == static::GENDER_MALE) {
