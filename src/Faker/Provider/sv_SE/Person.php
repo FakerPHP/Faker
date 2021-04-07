@@ -132,17 +132,30 @@ class Person extends \Faker\Provider\Person
             $birthdate = \Faker\Provider\DateTime::dateTimeThisCentury();
         }
         $datePart = $birthdate->format('ymd');
-
-        if ($gender && $gender == static::GENDER_MALE) {
-            $randomDigits = (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
-        } elseif ($gender && $gender == static::GENDER_FEMALE) {
-            $randomDigits = (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]);
-        } else {
-            $randomDigits = (string) static::numerify('###');
-        }
+        $randomDigits = $this->getBirthNumber($gender);
 
         $checksum = Luhn::computeCheckDigit($datePart . $randomDigits);
 
         return $datePart . '-' . $randomDigits . $checksum;
+    }
+
+    /**
+     * @param $gender
+     *
+     * @return string
+     */
+    protected function getBirthNumber($gender)
+    {
+        do {
+            if ($gender && $gender == static::GENDER_MALE) {
+                $randomDigits = (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
+            } elseif ($gender && $gender == static::GENDER_FEMALE) {
+                $randomDigits = (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]);
+            } else {
+                $randomDigits = (string) static::numerify('###');
+            }
+        } while ($randomDigits === '000');
+
+        return $randomDigits;
     }
 }
