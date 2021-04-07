@@ -66,7 +66,6 @@ final class PersonTest extends TestCase
         $faker->seed(372920);
         $pin = $this->faker->personalIdentityNumber(null, 'female');
 
-
         self::assertNotEquals('000', substr($pin, 7, 3));
     }
 
