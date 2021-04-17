@@ -310,6 +310,7 @@ final class BaseTest extends TestCase
         return [
             ['azeQSDF1234', 'azeQSDF1234', 'does not change non regex chars'],
             ['foo(bar){1}', 'foobar', 'replaces regex characters'],
+            ['[А]{2}[Е]{3}[2]{1}', 'ААЕЕЕ2', 'replaces regex characters support UFT-8'],
             ['', '', 'supports empty string'],
             ['/^foo(bar){1}$/', 'foobar', 'ignores regex delimiters'],
             ['/[.]/', '.', 'leaves literal dot in braces'],
