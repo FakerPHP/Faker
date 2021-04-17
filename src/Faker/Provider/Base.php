@@ -518,14 +518,34 @@ class Base
             return Base::randomElement(explode('|', str_replace(['(', ')'], '', $matches[1])));
         }, $regex);
         // All A-F inside of [] become ABCDEF
-        $regex = preg_replace_callback('/\[([^\]]+)\]/', static function ($matches) {
-            return '[' . preg_replace_callback('/(\w|\d)\-(\w|\d)/', static function ($range) {
-                return implode('', range($range[1], $range[2]));
-            }, $matches[1]) . ']';
+        $regex = preg_replace_callback('/\[([^\]]+)\]/', function ($matches) {
+            return '[' . preg_replace_callback('/([\p{L}\p{N}\p{Pd}]|\d)\-([\p{L}\p{N}\p{Pd}]|\d)/u', function ($range) {
+                    if (extension_loaded('mbstring')) {
+                        if (PHP_VERSION_ID >= 70200) {
+                            return implode('',
+                                array_map(function ($chr) {
+                                    return mb_chr($chr);
+                                }, range(mb_ord($range[1]), mb_ord($range[2])))
+                            );
+                        } else {
+                            $start = unpack('N', mb_convert_encoding($range[1], 'UCS-4BE', 'UTF-8'))[1];
+                            $end = unpack('N', mb_convert_encoding($range[2], 'UCS-4BE', 'UTF-8'))[1];
+
+                            return implode('',
+                                array_map(function ($chr) {
+                                    return mb_convert_encoding(pack("N*", $chr), "UTF-8", "UTF-32BE");
+                                }, range($start, $end))
+                            );
+                        }
+                    } else {
+                        return implode('', range($range[1], $range[2]));
+                    }
+                }, $matches[1]) . ']';
         }, $regex);
         // All [ABC] become B (or A or C)
         $regex = preg_replace_callback('/\[([^\]]+)\]/', static function ($matches) {
-            $randomElement = Base::randomElement(str_split($matches[1]));
+            preg_match_all('/[\d\D]/u', $matches[1], $strSplit);
+            $randomElement = Base::randomElement($strSplit[0]);
             //[.] should not be a random character, but a literal .
             return str_replace('.', '\.', $randomElement);
         }, $regex);
