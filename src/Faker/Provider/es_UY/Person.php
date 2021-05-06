@@ -4,7 +4,6 @@ namespace Faker\Provider\es_UY;
 
 class Person extends \Faker\Provider\Person
 {
-
     /**
      * @param string $ci
      * @return string
@@ -28,7 +27,6 @@ class Person extends \Faker\Provider\Person
         $baseNumber = "2987634";
 
         for ($i = 0; $i < 7; $i++) {
-
             $a += (intval($baseNumber[$i]) * intval($ci[$i])) % 10;
         }
 
@@ -42,11 +40,10 @@ class Person extends \Faker\Provider\Person
      * @return string
      * @see https://es.wikipedia.org/wiki/C%C3%A9dula_de_Identidad_de_Uruguay
      */
-    function ci(): string
+    public function ci(): string
     {
         $ci = (string)floor(((float)rand() / (float)getrandmax()) * 10000000);
 
         return substr($ci, 0, 7) . $this->validationDigit($ci);
     }
-
 }
