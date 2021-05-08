@@ -19,7 +19,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
             '036#######',
             '037#######', // non-geographic
         ],
-        'mobile' => [ // 
+        'mobile' => [ // https://github.com/google/libphonenumber/blob/7e9612a9112d498b61e5453538c4b0953969b46a/javascript/i18n/phonenumbers/metadatalite.js#L6212
             '7020#####',
             '7120#####',
             '700######',
