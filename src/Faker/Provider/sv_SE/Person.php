@@ -146,16 +146,22 @@ class Person extends \Faker\Provider\Person
      */
     protected function getBirthNumber($gender = null)
     {
-        do {
-            if ($gender && $gender == static::GENDER_MALE) {
-                $randomDigits = (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
-            } elseif ($gender && $gender == static::GENDER_FEMALE) {
-                $randomDigits = (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]);
-            } else {
-                $randomDigits = (string) static::numerify('###');
-            }
-        } while ($randomDigits === '000');
+        if ($gender && $gender == static::GENDER_MALE) {
+            return (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
+        }
 
-        return $randomDigits;
+        $zeroCheck = function($callback) {
+            do {
+                $randomDigits = $callback();
+            } while ($randomDigits === '000');
+
+            return $randomDigits;
+        };
+
+        if ($gender && $gender == static::GENDER_FEMALE) {
+            return $zeroCheck(fn() => (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]));
+        }
+
+        return  $zeroCheck(fn() => (string) static::numerify('###'));
     }
 }
