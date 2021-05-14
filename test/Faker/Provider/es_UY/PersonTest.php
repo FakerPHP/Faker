@@ -19,8 +19,9 @@ final class PersonTest extends TestCase
         self::assertFalse($this->validateCi('57351033'));
 
         //Check generation
-        self::assertTrue($this->validateCi($this->faker->ci));
-        self::assertTrue($this->validateCi($this->faker->ci));
+        for ($i = 1; $i <= 10; $i++) {
+            self::assertTrue($this->validateCi($this->faker->ci));
+        }
     }
 
     /**

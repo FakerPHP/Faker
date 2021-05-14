@@ -4,6 +4,9 @@ namespace Faker\Provider\es_UY;
 
 class Person extends \Faker\Provider\Person
 {
+
+    public const BASE_NUMBER = "2987634";
+
     /**
      * @param string $ci
      * @return string
@@ -24,10 +27,9 @@ class Person extends \Faker\Provider\Person
         $ci = str_pad($ci, 7, '0', STR_PAD_LEFT);
 
         $a = 0;
-        $baseNumber = "2987634";
 
         for ($i = 0; $i < 7; $i++) {
-            $a += (intval($baseNumber[$i]) * intval($ci[$i])) % 10;
+            $a += (intval(self::BASE_NUMBER[$i]) * intval($ci[$i])) % 10;
         }
 
         return $a % 10 == 0 ? 0 : 10 - $a % 10;
