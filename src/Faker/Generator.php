@@ -294,6 +294,14 @@ use Psr\Container\ContainerInterface;
  *
  * @method string image($dir = null, $width = 640, $height = 480, $category = null, $fullPath = true, $randomize = true, $word = null, $gray = false)
  *
+ * @property string $photoUrl
+ *
+ * @method string photoUrl($width = 640, $height = 480, $filters = [], $format = 'jpg')
+ *
+ * @property string $photo
+ *
+ * @method string photo($dir = null, $width = 640, $height = 480, $filters = [], $format = 'jpg', $fullPath = true)
+ *
  * @property string $email
  *
  * @method string email()
