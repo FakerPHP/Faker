@@ -146,7 +146,7 @@ class Person extends \Faker\Provider\Person
      */
     protected function getBirthNumber($gender = null)
     {
-        if ($gender && $gender == static::GENDER_MALE) {
+        if ($gender && $gender === static::GENDER_MALE) {
             return (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
         }
 
@@ -158,7 +158,7 @@ class Person extends \Faker\Provider\Person
             return $randomDigits;
         };
 
-        if ($gender && $gender == static::GENDER_FEMALE) {
+        if ($gender && $gender === static::GENDER_FEMALE) {
             return $zeroCheck(function() {
                 return (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]);
             });
