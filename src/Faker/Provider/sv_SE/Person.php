@@ -150,7 +150,7 @@ class Person extends \Faker\Provider\Person
             return (string) static::numerify('##') . static::randomElement([1, 3, 5, 7, 9]);
         }
 
-        $zeroCheck = function($callback) {
+        $zeroCheck = static function ($callback) {
             do {
                 $randomDigits = $callback();
             } while ($randomDigits === '000');
@@ -159,12 +159,12 @@ class Person extends \Faker\Provider\Person
         };
 
         if ($gender && $gender === static::GENDER_FEMALE) {
-            return $zeroCheck(function() {
+            return $zeroCheck(static function () {
                 return (string) static::numerify('##') . static::randomElement([0, 2, 4, 6, 8]);
             });
         }
 
-        return  $zeroCheck(function() {
+        return  $zeroCheck(static function () {
             return (string) static::numerify('###');
         });
     }
