@@ -9,8 +9,7 @@ $finder = PhpCsFixer\Finder::create()
         'vendor-bin/',
     ])
     ->ignoreDotFiles(false)
-    ->in(__DIR__)
-    ->name('.php_cs.dist');
+    ->in(__DIR__);
 
 $config = new PhpCsFixer\Config('faker');
 
