@@ -29,7 +29,6 @@ return $config
                 'break',
                 'continue',
                 'default',
-                'die',
                 'do',
                 'exit',
                 'for',
