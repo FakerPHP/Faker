@@ -15,6 +15,15 @@ class Company extends \Faker\Provider\Company
      * @see http://id.wikipedia.org/wiki/Jenis_badan_usaha
      */
     protected static $companyPrefix = ['PT', 'CV', 'UD', 'PD', 'Perum'];
+    
+
+    /**
+     * @see https://www.amesbostonhotel.com/macam-macam-profesi-pekerjaan/
+     */   
+    protected static $jobTitleFormat = [
+        'Guru', 'Dosen', 'Polisi', 'Tentara', 'Pilot', 'Pramugari', 'Satpam', 'Nelayan', 'Penyelam', 'Nahkoda', 'Sopir', 'Kondektur', 'Masinis', 'Perawat', 'Dokter', 'Bidan', 'Pengacara', 'Programmer', 'Pedagang', 'Pemandu', 'Wisata', 'Penambang', 'Petani', 'Peternak', 'Fashion', 'Designer', 'Tukang', 'Chef', 'Pramusaji', 'Kasir', 'Wartawan', 'Seniman', 'Penari', 'Penulis', 'Arsitek', 'Atlet', 'Profesional', 'Porter', 'Apoteker', 'Hakim', 'Jaksa', 'Montir'
+    ];
+
 
     /**
      * @see http://id.wikipedia.org/wiki/Jenis_badan_usaha
