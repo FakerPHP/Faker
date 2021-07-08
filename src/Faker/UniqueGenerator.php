@@ -3,19 +3,30 @@
 namespace Faker;
 
 /**
- * Proxy for other generators, to return only unique values. Works with
- * Faker\Generator\Base->unique()
+ * Proxy for other generators that returns only unique values.
+ *
+ * Instantiated through @see Generator::unique().
+ *
+ * @mixin Generator
  */
 class UniqueGenerator
 {
+    /**
+     * @var Generator
+     */
     protected $generator;
-    protected $maxRetries;
-    protected $uniques = [];
 
     /**
-     * @param int $maxRetries
+     * @var int
      */
-    public function __construct(Generator $generator, $maxRetries = 10000)
+    protected $maxRetries;
+
+    /**
+     * @var array<string, array<string, null>>
+     */
+    protected $uniques = [];
+
+    public function __construct(Generator $generator, int $maxRetries = 10000)
     {
         $this->generator = $generator;
         $this->maxRetries = $maxRetries;
