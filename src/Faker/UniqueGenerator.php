@@ -22,6 +22,13 @@ class UniqueGenerator
     protected $maxRetries;
 
     /**
+     * Maps from method names to a map with serialized result keys.
+     *
+     * @example [
+     *   'phone' => ['0123' => null],
+     *   'city' => ['London' => null, 'Tokyo' => null],
+     * ]
+     *
      * @var array<string, array<string, null>>
      */
     protected $uniques = [];
