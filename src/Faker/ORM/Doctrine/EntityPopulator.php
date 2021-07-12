@@ -2,16 +2,13 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Doctrine\Common\Persistence\ObjectManager;
-
 /**
  * Service class for populating a table through a Doctrine Entity class.
  */
 class EntityPopulator
 {
     /**
-     * @var ClassMetadata
+     * @var \Doctrine\Common\Persistence\Mapping\ClassMetadata|\Doctrine\Persistence\Mapping\ClassMetadata
      */
     protected $class;
     /**
@@ -23,8 +20,11 @@ class EntityPopulator
      */
     protected $modifiers = [];
 
-    public function __construct(ClassMetadata $class)
+    public function __construct($class)
     {
+        if (!($class instanceof \Doctrine\Common\Persistence\Mapping\ClassMetadata || $class instanceof \Doctrine\Persistence\Mapping\ClassMetadata)) {
+            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\Mapping\ClassMetadata" but got "%s"', get_class($class)));
+        }
         $this->class = $class;
     }
 
@@ -170,8 +170,12 @@ class EntityPopulator
      *
      * @return EntityPopulator
      */
-    public function execute(ObjectManager $manager, $insertedEntities, $generateId = false)
+    public function execute($manager, $insertedEntities, $generateId = false)
     {
+        if (!($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager)) {
+            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
+        }
+
         $obj = $this->class->newInstance();
 
         $this->fillColumns($obj, $insertedEntities);
@@ -228,8 +232,12 @@ class EntityPopulator
     /**
      * @return int|null
      */
-    private function generateId($obj, $column, ObjectManager $manager)
+    private function generateId($obj, $column, $manager)
     {
+        if (!($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager)) {
+            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
+        }
+
         /** @var \Doctrine\Common\Persistence\ObjectRepository $repository */
         $repository = $manager->getRepository(get_class($obj));
         $result = $repository->createQueryBuilder('e')

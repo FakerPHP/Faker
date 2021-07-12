@@ -2,7 +2,6 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Generator;
 
 /**
@@ -22,7 +21,7 @@ class Populator
     protected $generator;
 
     /**
-     * @var ObjectManager|null
+     * @var \Doctrine\Common\Persistence\ObjectManager|\Doctrine\Persistence\ObjectManager|null
      */
     protected $manager;
 
@@ -46,11 +45,14 @@ class Populator
      *
      * @param int $batchSize
      */
-    public function __construct(Generator $generator, ObjectManager $manager = null, $batchSize = 1000)
+    public function __construct(Generator $generator, $manager = null, $batchSize = 1000)
     {
         $this->generator = $generator;
-        $this->manager = $manager;
         $this->batchSize = $batchSize;
+
+        if ($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager) {
+            $this->manager = $manager;
+        }
     }
 
     /**

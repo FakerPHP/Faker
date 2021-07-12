@@ -2,7 +2,6 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Faker\Generator;
 
 class ColumnTypeGuesser
@@ -17,8 +16,12 @@ class ColumnTypeGuesser
     /**
      * @return \Closure|null
      */
-    public function guessFormat($fieldName, ClassMetadata $class)
+    public function guessFormat($fieldName, $class)
     {
+        if (!($class instanceof \Doctrine\Common\Persistence\Mapping\ClassMetadata || $class instanceof \Doctrine\Persistence\Mapping\ClassMetadata)) {
+            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\Mapping\ClassMetadata" but got "%s"', get_class($class)));
+        }
+
         $generator = $this->generator;
         $type = $class->getTypeOfField($fieldName);
 
