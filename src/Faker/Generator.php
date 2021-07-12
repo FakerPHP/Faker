@@ -557,10 +557,6 @@ use Psr\Container\ContainerInterface;
  * @property string $uuid
  *
  * @method string uuid()
- *
- * @property string $semver
- *
- * @method string semver(bool $preRelease = false, bool $build = false)
  */
 class Generator
 {
