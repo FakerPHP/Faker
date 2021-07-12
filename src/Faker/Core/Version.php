@@ -36,6 +36,7 @@ final class Version implements VersionExtension
     private function semverPreReleaseIdentifier(): string
     {
         $ident = Helper::randomElement($this->semverCommonPreReleaseIdentifiers);
+
         if (!mt_rand(0, 1)) {
             return $ident;
         }
