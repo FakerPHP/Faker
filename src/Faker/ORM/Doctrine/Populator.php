@@ -50,7 +50,7 @@ class Populator
         $this->generator = $generator;
         $this->batchSize = $batchSize;
 
-        if ($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager) {
+        if (get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager') {
             $this->manager = $manager;
         }
     }

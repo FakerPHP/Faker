@@ -22,7 +22,7 @@ class EntityPopulator
 
     public function __construct($class)
     {
-        if (!($class instanceof \Doctrine\Common\Persistence\Mapping\ClassMetadata || $class instanceof \Doctrine\Persistence\Mapping\ClassMetadata)) {
+        if (!(get_class($class) === 'Doctrine\Common\Persistence\Mapping\ClassMetadata' || get_class($class) === 'Doctrine\Persistence\Mapping\ClassMetadata')) {
             throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\Mapping\ClassMetadata" but got "%s"', get_class($class)));
         }
         $this->class = $class;
@@ -172,7 +172,7 @@ class EntityPopulator
      */
     public function execute($manager, $insertedEntities, $generateId = false)
     {
-        if (!($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager)) {
+        if (!(get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager')) {
             throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
         }
 
@@ -234,7 +234,7 @@ class EntityPopulator
      */
     private function generateId($obj, $column, $manager)
     {
-        if (!($manager instanceof \Doctrine\Common\Persistence\ObjectManager || $manager instanceof \Doctrine\Persistence\ObjectManager)) {
+        if (!(get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager')) {
             throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
         }
 
