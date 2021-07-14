@@ -2,6 +2,8 @@
 
 namespace Faker\ORM\Doctrine;
 
+use Doctrine\Common\Persistence\Mapping\ClassMetadata as LegacyClassMetadata;
+use Doctrine\Persistence\Mapping\ClassMetadata;
 use Faker\Generator;
 
 class ColumnTypeGuesser
@@ -14,12 +16,16 @@ class ColumnTypeGuesser
     }
 
     /**
+     * @param ClassMetadata|LegacyClassMetadata $class
+     *
      * @return \Closure|null
      */
     public function guessFormat($fieldName, $class)
     {
-        if (!(get_class($class) === 'Doctrine\Common\Persistence\Mapping\ClassMetadata' || get_class($class) === 'Doctrine\Persistence\Mapping\ClassMetadata')) {
-            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\Mapping\ClassMetadata" but got "%s"', get_class($class)));
+        if (!$class instanceof ClassMetadata && !$class instanceof LegacyClassMetadata) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #2 ($class) must be of type %s, %s given', __METHOD__, implode('|', [ClassMetadata::class, LegacyClassMetadata::class]), \get_debug_type($class))
+            );
         }
 
         $generator = $this->generator;
