@@ -246,12 +246,16 @@ class EntityPopulator
     }
 
     /**
+     * @param ObjectManager|LegacyObjectManager $manager
+     *
      * @return int|null
      */
     private function generateId($obj, $column, $manager)
     {
-        if (!(get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager')) {
-            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
+        if (!$manager instanceof ObjectManager && !$class instanceof LegacyObjectManager) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #3 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class]), \get_debug_type($manager))
+            );
         }
 
         /** @var \Doctrine\Common\Persistence\ObjectRepository $repository */
