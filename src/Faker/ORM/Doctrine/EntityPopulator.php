@@ -3,7 +3,9 @@
 namespace Faker\ORM\Doctrine;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata as LegacyClassMetadata;
+use Doctrine\Common\Persistence\ObjectManager as LegacyObjectManager;
 use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Service class for populating a table through a Doctrine Entity class.
@@ -177,14 +179,17 @@ class EntityPopulator
     /**
      * Insert one new record using the Entity class.
      *
-     * @param bool $generateId
+     * @param ObjectManager|LegacyObjectManager $manager
+     * @param bool                              $generateId
      *
      * @return EntityPopulator
      */
     public function execute($manager, $insertedEntities, $generateId = false)
     {
-        if (!(get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager')) {
-            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\ObjectManager" but got "%s"', get_class($manager)));
+        if (!$manager instanceof ObjectManager && !$class instanceof LegacyObjectManager) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #1 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class]), \get_debug_type($manager))
+            );
         }
 
         $obj = $this->class->newInstance();
