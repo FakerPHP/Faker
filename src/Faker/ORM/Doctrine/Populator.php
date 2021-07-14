@@ -2,6 +2,8 @@
 
 namespace Faker\ORM\Doctrine;
 
+use Doctrine\Common\Persistence\ObjectManager as LegacyObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
 
 /**
@@ -21,7 +23,7 @@ class Populator
     protected $generator;
 
     /**
-     * @var \Doctrine\Common\Persistence\ObjectManager|\Doctrine\Persistence\ObjectManager|null
+     * @var ObjectManager|LegacyObjectManager|null
      */
     protected $manager;
 
@@ -41,18 +43,21 @@ class Populator
     protected $generateId = [];
 
     /**
-     * Populator constructor.
-     *
-     * @param int $batchSize
+     * @param ObjectManager|LegacyObjectManager|null $manager
+     * @param int                                    $batchSize
      */
     public function __construct(Generator $generator, $manager = null, $batchSize = 1000)
     {
         $this->generator = $generator;
         $this->batchSize = $batchSize;
 
-        if (get_class($manager) === 'Doctrine\Common\Persistence\ObjectManager' || get_class($manager) === 'Doctrine\Persistence\ObjectManager') {
-            $this->manager = $manager;
+        if (null !== $manager && !$manager instanceof ObjectManager && !$manager instanceof LegacyObjectManager) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #2 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class, 'null']), \get_debug_type($manager))
+            );
         }
+
+        $this->manager = $manager;
     }
 
     /**
