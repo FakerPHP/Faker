@@ -2,29 +2,40 @@
 
 namespace Faker\ORM\Doctrine;
 
+use Doctrine\Common\Persistence\Mapping\ClassMetadata as LegacyClassMetadata;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+
 /**
  * Service class for populating a table through a Doctrine Entity class.
  */
 class EntityPopulator
 {
     /**
-     * @var \Doctrine\Common\Persistence\Mapping\ClassMetadata|\Doctrine\Persistence\Mapping\ClassMetadata
+     * @var ClassMetadata|LegacyClassMetadata
      */
     protected $class;
+
     /**
      * @var array
      */
     protected $columnFormatters = [];
+
     /**
      * @var array
      */
     protected $modifiers = [];
 
+    /**
+     * @param ClassMetadata|LegacyClassMetadata $class
+     */
     public function __construct($class)
     {
-        if (!(get_class($class) === 'Doctrine\Common\Persistence\Mapping\ClassMetadata' || get_class($class) === 'Doctrine\Persistence\Mapping\ClassMetadata')) {
-            throw new \InvalidArgumentException(sprintf('Invalid class metadata. Expected "Doctrine\Persistence\Mapping\ClassMetadata" but got "%s"', get_class($class)));
+        if (!$class instanceof ClassMetadata && !$class instanceof LegacyClassMetadata) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #1 ($class) must be of type %s, %s given', __METHOD__, implode('|', [ClassMetadata::class, LegacyClassMetadata::class]), \get_debug_type($class))
+            );
         }
+
         $this->class = $class;
     }
 
