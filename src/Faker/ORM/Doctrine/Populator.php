@@ -48,16 +48,15 @@ class Populator
      */
     public function __construct(Generator $generator, $manager = null, $batchSize = 1000)
     {
-        $this->generator = $generator;
-        $this->batchSize = $batchSize;
-
         if (null !== $manager && !$manager instanceof ObjectManager && !$manager instanceof LegacyObjectManager) {
             throw new \TypeError(
                 \sprintf('%s(): Argument #2 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class, 'null']), \get_debug_type($manager))
             );
         }
 
+        $this->generator = $generator;
         $this->manager = $manager;
+        $this->batchSize = $batchSize;
     }
 
     /**
