@@ -2,8 +2,10 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\Mapping\ClassMetadata as LegacyClassMetadata;
+use Doctrine\Common\Persistence\ObjectManager as LegacyObjectManager;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Service class for populating a table through a Doctrine Entity class.
@@ -11,20 +13,31 @@ use Doctrine\Common\Persistence\ObjectManager;
 class EntityPopulator
 {
     /**
-     * @var ClassMetadata
+     * @var ClassMetadata|LegacyClassMetadata
      */
     protected $class;
+
     /**
      * @var array
      */
     protected $columnFormatters = [];
+
     /**
      * @var array
      */
     protected $modifiers = [];
 
-    public function __construct(ClassMetadata $class)
+    /**
+     * @param ClassMetadata|LegacyClassMetadata $class
+     */
+    public function __construct($class)
     {
+        if (!$class instanceof ClassMetadata && !$class instanceof LegacyClassMetadata) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #1 ($class) must be of type %s, %s given', __METHOD__, implode('|', [ClassMetadata::class, LegacyClassMetadata::class]), \get_debug_type($class))
+            );
+        }
+
         $this->class = $class;
     }
 
@@ -166,12 +179,19 @@ class EntityPopulator
     /**
      * Insert one new record using the Entity class.
      *
-     * @param bool $generateId
+     * @param ObjectManager|LegacyObjectManager $manager
+     * @param bool                              $generateId
      *
      * @return EntityPopulator
      */
-    public function execute(ObjectManager $manager, $insertedEntities, $generateId = false)
+    public function execute($manager, $insertedEntities, $generateId = false)
     {
+        if (!$manager instanceof ObjectManager && !$class instanceof LegacyObjectManager) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #1 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class]), \get_debug_type($manager))
+            );
+        }
+
         $obj = $this->class->newInstance();
 
         $this->fillColumns($obj, $insertedEntities);
@@ -226,10 +246,18 @@ class EntityPopulator
     }
 
     /**
+     * @param ObjectManager|LegacyObjectManager $manager
+     *
      * @return int|null
      */
-    private function generateId($obj, $column, ObjectManager $manager)
+    private function generateId($obj, $column, $manager)
     {
+        if (!$manager instanceof ObjectManager && !$class instanceof LegacyObjectManager) {
+            throw new \TypeError(
+                \sprintf('%s(): Argument #3 ($manager) must be of type %s, %s given', __METHOD__, implode('|', [ObjectManager::class, LegacyObjectManager::class]), \get_debug_type($manager))
+            );
+        }
+
         /** @var \Doctrine\Common\Persistence\ObjectRepository $repository */
         $repository = $manager->getRepository(get_class($obj));
         $result = $repository->createQueryBuilder('e')
