@@ -15,7 +15,10 @@ abstract class TestCase extends BaseTestCase
     protected function setUp(): void
     {
         $this->faker = new Generator();
-        $this->faker->seed(1);
+
+        if (in_array('seed', $this->getGroups(), true)) {
+            $this->faker->seed(1);
+        }
 
         foreach ($this->getProviders() as $provider) {
             $this->faker->addProvider($provider);

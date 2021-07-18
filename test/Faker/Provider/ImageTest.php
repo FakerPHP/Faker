@@ -85,6 +85,9 @@ final class ImageTest extends TestCase
         self::assertMatchesRegularExpression('#\w*#', $splitUrl[1]);
     }
 
+    /**
+     * @group external
+     */
     public function testDownloadWithDefaults()
     {
         $curlPing = curl_init(Image::BASE_URL);

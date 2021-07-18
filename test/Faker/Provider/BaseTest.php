@@ -193,6 +193,9 @@ final class BaseTest extends TestCase
         self::assertContains(10, $shuffleArray);
     }
 
+    /**
+     * @group seed
+     */
     public function testShuffleArrayReturnsADifferentArrayThanTheOriginal()
     {
         $arr = [1, 2, 3, 4, 5];
@@ -229,6 +232,9 @@ final class BaseTest extends TestCase
         self::assertStringContainsString('i', $shuffleString);
     }
 
+    /**
+     * @group seed
+     */
     public function testShuffleStringReturnsADifferentStringThanTheOriginal()
     {
         $string = 'abcdef';
@@ -424,8 +430,8 @@ final class BaseTest extends TestCase
         }
 
         self::assertEquals(
-            round(array_sum($valuesOld) / 10000, 2),
-            round(array_sum($valuesNew) / 10000, 2)
+            round(array_sum($valuesOld) / 10000, 1),
+            round(array_sum($valuesNew) / 10000, 1)
         );
     }
 

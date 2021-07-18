@@ -6,6 +6,7 @@ use Faker\Provider\ja_JP\Person;
 use Faker\Test\TestCase;
 
 /**
+ * @group seed
  * @group legacy
  */
 final class PersonTest extends TestCase

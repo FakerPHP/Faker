@@ -6,6 +6,7 @@ use Faker\Provider\ja_JP\Internet;
 use Faker\Test\TestCase;
 
 /**
+ * @group seed
  * @group legacy
  */
 final class InternetTest extends TestCase

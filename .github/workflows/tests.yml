@@ -11,10 +11,11 @@ name: Tests
 
 jobs:
   phpunit:
-    name: PHPUnit on ${{ matrix.operating-system }} with PHP ${{ matrix.php-version }}
+    name: PHPUnit on ${{ matrix.operating-system }} with PHP ${{ matrix.php-version }} ${{ matrix.phpunit-flags }}
 
     strategy:
       matrix:
+        phpunit-flags: ['-v']
         operating-system:
           - 'ubuntu-latest'
         php-version:
@@ -26,6 +27,10 @@ jobs:
         include:
           - operating-system: 'windows-latest'
             php-version: '7.1'
+            phpunit-flags: '-v'
+          - php-version: '8.0'
+            operating-system: 'ubuntu-latest'
+            phpunit-flags: '--repeat 100 --exclude-group external,seed'
 
     runs-on: ${{ matrix.operating-system }}
 
@@ -61,4 +66,4 @@ jobs:
 
       - name: Run tests with PHPUnit
         run: |
-          ./vendor/bin/simple-phpunit
+          ./vendor/bin/simple-phpunit ${{ matrix.phpunit-flags }}

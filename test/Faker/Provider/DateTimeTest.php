@@ -192,8 +192,8 @@ final class DateTimeTest extends TestCase
     {
         $date = DateTimeProvider::dateTimeBetween($start, $end);
         self::assertInstanceOf('\DateTime', $date);
-        self::assertGreaterThanOrEqual(new \DateTime($start), $date);
-        self::assertLessThanOrEqual(new \DateTime($end), $date);
+        self::assertGreaterThanOrEqual((new \DateTime($start))->getTimestamp(), $date->getTimestamp());
+        self::assertLessThanOrEqual((new \DateTime($end))->getTimestamp(), $date->getTimestamp());
         self::assertEquals(new \DateTimeZone($this->defaultTz), $date->getTimezone());
     }
 

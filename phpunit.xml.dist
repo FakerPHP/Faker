@@ -7,7 +7,6 @@
     cacheResultFile=".build/.phpunit.result.cache"
     colors="true"
     columns="max"
-    verbose="true"
 >
     <testsuites>
         <testsuite name="Faker Test Suite">
