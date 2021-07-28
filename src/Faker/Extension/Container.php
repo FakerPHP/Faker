@@ -39,7 +39,7 @@ final class Container implements ContainerInterface
      *
      * @return Extension
      */
-    public function get($id)
+    public function get(string $id)
     {
         if (!is_string($id)) {
             throw new \InvalidArgumentException(sprintf(
@@ -119,7 +119,7 @@ final class Container implements ContainerInterface
     /**
      * @throws \InvalidArgumentException
      */
-    public function has($id)
+    public function has(string $id): bool
     {
         if (!is_string($id)) {
             throw new \InvalidArgumentException(sprintf(
