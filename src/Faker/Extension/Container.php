@@ -119,7 +119,7 @@ final class Container implements ContainerInterface
     /**
      * @throws \InvalidArgumentException
      */
-    public function has(string $id): bool
+    public function has(string $id)
     {
         if (!is_string($id)) {
             throw new \InvalidArgumentException(sprintf(
