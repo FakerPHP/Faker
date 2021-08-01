@@ -49,6 +49,9 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '+38(0####)#####',
     ];
 
+    /**
+     * @see Detailed numbering scheme. Source: https://www.itu.int/oth/T02020000DB/en
+     */
     protected static $e164Formats = [
 
         '+38050#######',
