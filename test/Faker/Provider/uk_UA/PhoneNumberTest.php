@@ -23,7 +23,7 @@ final class PhoneNumberTest extends TestCase
 
     public function testE164PhoneNumberFormat()
     {
-        $pattern = "/^\+?380[1-9]\d{8}$/";
+        $pattern = '/^\+?380[1-9]\d{8}$/';
         $phoneNumber = $this->faker->e164PhoneNumber;
         self::assertSame(
             preg_match($pattern, $phoneNumber),
