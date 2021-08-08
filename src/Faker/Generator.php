@@ -622,8 +622,22 @@ class Generator
      *
      * @return self
      */
+    public function chance(float $weight = 0.5, $default = null)
+    {
+        return new ChanceGenerator($this, $weight, $default);
+    }
+
+    /**
+     * Get a value only some percentage of the time.
+     *
+     * @param float $weight A probability between 0 and 1, 0 means that we always get the default value.
+     *
+     * @return self
+     */
     public function optional(float $weight = 0.5, $default = null)
     {
+        trigger_deprecation('fakerphp/faker', '1.16', 'Method "%s::optional()" is deprecated, use "%s::chance()" instead.', __CLASS__, __CLASS__);
+
         if (mt_rand(1, 100) <= (100*$weight)) {
             return $this;
         }

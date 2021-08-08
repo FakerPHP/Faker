@@ -4,19 +4,22 @@ namespace Faker;
 
 /**
  * This generator returns a default value for all called properties
- * and methods. It works with Faker\Generator\Base->optional().
+ * and methods.
  *
  * @mixin Generator
  */
 class DefaultGenerator
 {
     protected $default;
-    private $generator;
 
-    public function __construct(Generator $generator, $default = null)
+    public function __construct($default = null)
     {
         $this->default = $default;
-        $this->generator = $generator;
+    }
+
+    public function ext()
+    {
+        return $this;
     }
 
     /**
