@@ -7,6 +7,7 @@ namespace Faker;
  * and methods.
  *
  * @mixin Generator
+ * @deprecated Use ChanceGenerator instead
  */
 class DefaultGenerator
 {
@@ -14,6 +15,8 @@ class DefaultGenerator
 
     public function __construct($default = null)
     {
+        trigger_deprecation('fakerphp/faker', '1.16', 'Class "%s" is deprecated, use "%s" instead.', __CLASS__, ChanceGenerator::class);
+
         $this->default = $default;
     }
 
