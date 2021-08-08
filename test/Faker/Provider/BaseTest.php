@@ -532,11 +532,11 @@ final class BaseTest extends TestCase
         }
     }
 
-    public function testValidThrowsExceptionWhenParameterIsNotCollable()
+    public function testValidThrowsExceptionWhenParameterIsNotCallable()
     {
-        $this->expectException(\InvalidArgumentException::class);
         $faker = new \Faker\Generator();
         $faker->addProvider(new \Faker\Provider\Base($faker));
+        $this->expectException(\TypeError::class);
         $faker->valid(12)->randomElement([1, 3, 5, 7, 9]);
     }
 

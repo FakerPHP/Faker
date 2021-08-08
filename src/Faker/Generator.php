@@ -561,7 +561,6 @@ class Generator
     public function __construct(ContainerInterface $container = null)
     {
         $this->container = $container ?: Extension\ContainerBuilder::getDefault();
-        $this->uniqueGenerator = new UniqueGenerator($this);
     }
 
     /**
@@ -608,10 +607,14 @@ class Generator
      * With the unique generator you are guaranteed to never get the same two
      * values.
      *
-     * @return Generator The UniqueGenerator is a proxy
+     * @return self
      */
-    public function unique(): Generator
+    public function unique($reset = false, $maxRetries = 10000)
     {
+        if ($reset || $this->uniqueGenerator === null) {
+            $this->uniqueGenerator = new UniqueGenerator($this, $maxRetries);
+        }
+
         return $this->uniqueGenerator;
     }
 
@@ -642,7 +645,7 @@ class Generator
             return $this;
         }
 
-        return new DefaultGenerator($this, $default);
+        return new DefaultGenerator($default);
     }
 
     /**
@@ -653,7 +656,7 @@ class Generator
      *
      * @return self
      */
-    public function valid(\Closure $validator, int $maxRetries = 10000)
+    public function valid(\Closure $validator = null, int $maxRetries = 10000)
     {
         return new ValidGenerator($this, $validator, $maxRetries);
     }
