@@ -11,10 +11,12 @@ namespace Faker;
 class DefaultGenerator
 {
     protected $default;
+    private $generator;
 
-    public function __construct($default = null)
+    public function __construct(Generator $generator, $default = null)
     {
         $this->default = $default;
+        $this->generator = $generator;
     }
 
     /**

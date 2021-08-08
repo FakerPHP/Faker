@@ -122,18 +122,6 @@ use Psr\Container\ContainerInterface;
  *
  * @method string toUpper($string = '')
  *
- * @property mixed $optional
- *
- * @method mixed optional($weight = null, $default = null)
- *
- * @property UniqueGenerator $unique
- *
- * @method UniqueGenerator unique($reset = false, $maxRetries = 10000)
- *
- * @property ValidGenerator $valid
- *
- * @method ValidGenerator valid($validator = null, $maxRetries = 10000)
- *
  * @property int $biasedNumberBetween
  *
  * @method int biasedNumberBetween($min = 0, $max = 100, $function = 'sqrt')
@@ -622,7 +610,7 @@ class Generator
      *
      * @return Generator The UniqueGenerator is a proxy
      */
-    public function withUnique(): Generator
+    public function unique(): Generator
     {
         return $this->uniqueGenerator;
     }
@@ -634,13 +622,13 @@ class Generator
      *
      * @return self
      */
-    public function withMaybe(float $weight = 0.5, $default = null)
+    public function optional(float $weight = 0.5, $default = null)
     {
         if (mt_rand(1, 100) <= (100*$weight)) {
             return $this;
         }
 
-        return new DefaultGenerator($default);
+        return new DefaultGenerator($this, $default);
     }
 
     /**
@@ -651,7 +639,7 @@ class Generator
      *
      * @return self
      */
-    public function withValid(\Closure $validator, int $maxRetries = 10000)
+    public function valid(\Closure $validator, int $maxRetries = 10000)
     {
         return new ValidGenerator($this, $validator, $maxRetries);
     }
