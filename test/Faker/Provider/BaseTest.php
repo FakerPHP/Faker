@@ -401,7 +401,7 @@ final class BaseTest extends TestCase
         $values = [];
 
         for ($i = 0; $i < 10; ++$i) {
-            $values[] = $faker->optional(50)->randomDigit;
+            $values[] = $faker->optional(0.5)->randomDigit;
         }
         self::assertContains(null, $values);
     }

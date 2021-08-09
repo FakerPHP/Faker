@@ -46,13 +46,13 @@ class ChanceGenerator
     }
 
     /**
-     * @param string $method
-     * @param array  $attributes
+     * @param string $name
+     * @param array  $arguments
      */
-    public function __call($method, $attributes)
+    public function __call($name, $arguments)
     {
         if (mt_rand(1, 100) <= (100*$this->weight)) {
-            return $this->generator;
+            return call_user_func_array([$this->generator, $name], $arguments);
         }
 
         return $this->default;
