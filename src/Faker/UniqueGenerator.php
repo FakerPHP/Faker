@@ -40,7 +40,7 @@ class UniqueGenerator
 
     public function ext(string $id)
     {
-        return new self($this->generator->ext($id), $this->maxRetries, $this->maxRetries);
+        return new self($this->generator->ext($id), $this->maxRetries);
     }
 
     /**
