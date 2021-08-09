@@ -7,6 +7,7 @@ namespace Faker;
  * and methods.
  *
  * @mixin Generator
+ *
  * @deprecated Use ChanceGenerator instead
  */
 class DefaultGenerator

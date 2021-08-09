@@ -17,7 +17,7 @@ class ChanceGenerator
     protected $default;
 
     /**
-     * @param Generator|Extension $generator
+     * @param Extension|Generator $generator
      */
     public function __construct($generator, float $weight, $default = null)
     {
@@ -51,7 +51,7 @@ class ChanceGenerator
      */
     public function __call($name, $arguments)
     {
-        if (mt_rand(1, 100) <= (100*$this->weight)) {
+        if (mt_rand(1, 100) <= (100 * $this->weight)) {
             return call_user_func_array([$this->generator, $name], $arguments);
         }
 

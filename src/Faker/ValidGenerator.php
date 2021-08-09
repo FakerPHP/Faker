@@ -17,9 +17,9 @@ class ValidGenerator
     protected $maxRetries;
 
     /**
-     * @param Generator|Extension $generator
-     * @param callable|null $validator
-     * @param int           $maxRetries
+     * @param Extension|Generator $generator
+     * @param callable|null       $validator
+     * @param int                 $maxRetries
      */
     public function __construct($generator, $validator = null, $maxRetries = 10000)
     {

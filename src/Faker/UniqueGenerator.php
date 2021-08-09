@@ -29,8 +29,8 @@ class UniqueGenerator
     protected $uniques = [];
 
     /**
-     * @param Generator|Extension $generator
-     * @param int $maxRetries
+     * @param Extension|Generator $generator
+     * @param int                 $maxRetries
      */
     public function __construct($generator, $maxRetries = 10000)
     {
