@@ -607,7 +607,18 @@ class Generator
      * With the unique generator you are guaranteed to never get the same two
      * values.
      *
-     * @return self
+     * <code>
+     * // will never return twice the same value
+     * $faker->unique()->randomElement(array(1, 2, 3));
+     * </code>
+     *
+     * @param bool $reset      If set to true, resets the list of existing values
+     * @param int  $maxRetries Maximum number of retries to find a unique value,
+     *                         After which an OverflowException is thrown.
+     *
+     * @throws \OverflowException When no unique value can be found by iterating $maxRetries times
+     *
+     * @return self A proxy class returning only non-existing values
      */
     public function unique($reset = false, $maxRetries = 10000)
     {
@@ -625,36 +636,35 @@ class Generator
      *
      * @return self
      */
-    public function chance(float $weight = 0.5, $default = null)
-    {
-        return new ChanceGenerator($this, $weight, $default);
-    }
-
-    /**
-     * Get a value only some percentage of the time.
-     *
-     * @param float $weight A probability between 0 and 1, 0 means that we always get the default value.
-     *
-     * @return self
-     */
     public function optional(float $weight = 0.5, $default = null)
     {
-        trigger_deprecation('fakerphp/faker', '1.16', 'Method "%s::optional()" is deprecated, use "%s::chance()" instead.', __CLASS__, __CLASS__);
-
-        if (mt_rand(1, 100) <= (100*$weight)) {
-            return $this;
-        }
-
-        return new DefaultGenerator($default);
+        return new ChanceGenerator($this, $weight, $default);
     }
 
     /**
      * To make sure the value meet some criteria, pass a callable that verifies the
      * output. If the validator fails, the generator will try again.
      *
-     * @example $faker->withValid(fn($v) => strlen($v) > 3))->name();
+     * The value validity is determined by a function passed as first argument.
      *
-     * @return self
+     * <code>
+     * $values = array();
+     * $evenValidator = function ($digit) {
+     *   return $digit % 2 === 0;
+     * };
+     * for ($i=0; $i < 10; $i++) {
+     *   $values []= $faker->valid($evenValidator)->randomDigit;
+     * }
+     * print_r($values); // [0, 4, 8, 4, 2, 6, 0, 8, 8, 6]
+     * </code>
+     *
+     * @param Closure $validator  A function returning true for valid values
+     * @param int     $maxRetries Maximum number of retries to find a valid value,
+     *                            After which an OverflowException is thrown.
+     *
+     * @throws \OverflowException When no valid value can be found by iterating $maxRetries times
+     *
+     * @return self A proxy class returning only valid values
      */
     public function valid(\Closure $validator = null, int $maxRetries = 10000)
     {
