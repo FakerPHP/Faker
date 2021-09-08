@@ -1,0 +1,25 @@
+<?php
+
+namespace Faker\Test\Provider\ar_EG;
+
+use Faker\Calculator\Luhn;
+use Faker\Provider\ar_EG\Company;
+use Faker\Test\TestCase;
+
+/**
+ * @group legacy
+ */
+final class CompanyTest extends TestCase
+{
+    public function testCompanyIdNumberIsValid()
+    {
+        $companyIdNumber = $this->faker->companyIdNumber;
+        self::assertMatchesRegularExpression('/^700\d{7}$/', $companyIdNumber);
+        self::assertTrue(Luhn::isValid($companyIdNumber));
+    }
+
+    protected function getProviders(): iterable
+    {
+        yield new Company($this->faker);
+    }
+}
