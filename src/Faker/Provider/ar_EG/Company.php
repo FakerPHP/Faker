@@ -7,9 +7,12 @@ use Faker\Calculator\Luhn;
 class Company extends \Faker\Provider\Company
 {
     protected static $formats = [
+        '{{companyPrefix}} {{cityName}}',
+        '{{companyPrefix}} {{lastName}}',
+        '{{cityName}} {{companySuffix}}',
         '{{lastName}} {{companySuffix}}',
         '{{companyPrefix}} {{lastName}} {{companySuffix}}',
-        '{{companyPrefix}} {{lastName}}',
+        '{{companyPrefix}} {{cityName}} {{companySuffix}}',
     ];
 
     protected static $bsWords = [
@@ -26,7 +29,17 @@ class Company extends \Faker\Provider\Company
 
     protected static $companyPrefix = ['شركة', 'مؤسسة', 'مجموعة', 'مكتب', 'أكاديمية', 'معرض'];
 
-    protected static $companySuffix = ['وأولاده', 'للمساهمة المحدودة', ' ش.م.م', 'مساهمة عامة', 'وشركائه'];
+    protected static $companySuffix = [
+        ' ش.م.م',
+        ' للتجاره العامه',
+        'للأجهزة الطبيه',
+        'للتوريدات',
+        'للمقاولات',
+        'للتطوير العقاري',
+        'للدعايه و الاعلان',
+        'للحلول المتقدمه',
+        'للحلول المتقدمه',
+    ];
 
     /**
      * @example 'مؤسسة'
