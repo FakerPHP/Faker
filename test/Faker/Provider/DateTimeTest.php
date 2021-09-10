@@ -201,7 +201,7 @@ final class DateTimeTest extends TestCase
     {
         return [
             ['-1 year', false],
-            ['-1 year', null],
+            ['-1 year', ''],
             ['-1 day', '-1 hour'],
             ['-1 day', 'now'],
         ];

@@ -56,9 +56,16 @@ jobs:
             composer-
 
       - name: Download dependencies
+        if: ${{ '8.1' <> matrix.php-version }}
         run: |
           composer update --no-interaction --no-progress --optimize-autoloader
           ./vendor/bin/simple-phpunit install
+
+      - name: Download dependencies for php 8.1
+        if: ${{ '8.1' == matrix.php-version }}
+        run: |
+          composer update --no-interaction --no-progress --optimize-autoloader
+          SYMFONY_PHPUNIT_VERSION=9.5.5 ./vendor/bin/simple-phpunit install
 
       - name: Run tests with PHPUnit
         run: |
