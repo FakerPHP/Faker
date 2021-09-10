@@ -64,4 +64,4 @@ jobs:
 
       - name: Run tests for php 8.1
         if: ${{ '8.1' == matrix.php-version }}
-        run: SYMFONY_PHPUNIT_VERSION=9.5.5 ./vendor/bin/simple-phpunit
+        run: SYMFONY_PHPUNIT_VERSION=9.5 ./vendor/bin/simple-phpunit
