@@ -23,6 +23,12 @@ class Payment extends \Faker\Provider\Payment
     protected static $financeCompanies = ['Best Finance Company', 'Capital Merchant Banking & Finance', 'Central Finance', 'Goodwill Finance Company', 'Guheshwori Merchant Banking & Finance', 'Gurkhas Finance', 'ICFC Finance', 'Janaki Finance Company', 'Manjushree Finance', 'Multipurpose Finance Company', 'Nepal Finance', 'Nepal Share Markets', 'Pokhara Finance', 'Progressive Finance', 'Reliance Finance', 'Samriddhi Finance Company', 'Shree Investment Finance Company'];
 
     /**
+     * List of microfinance companies sorted in alphabetical order.
+     * @var string[]
+     */
+    protected static $microFinances = ['Aatmanirbhar', 'Adarsha', 'Adhikhola', 'Arambha Chautari', 'Asha', 'Aviyan', 'BPW', 'Buddha Jyoti', 'Chhimek', 'Civil', 'CYC Nepal', 'Deprosc', 'Deurali', 'Dhaulagiri', 'First Microfinance', 'Forward Microfinance', 'Ganapati', 'Ghodighoda', 'Global IME', 'Grameen Bikas', 'Gurans', 'Infinity', 'Jalpa Samudayik', 'Janautthan Samudayik', 'Jeevan Bikas', 'Kalika', 'Khaptad', 'Kisan', 'Laxmi', 'Mahila', 'Mahuli', 'Manakamana Smart', 'Manushi', 'Meromicrofinance', 'Mirmire', 'Mithila', 'NADEP', 'National Microfinance', 'Naya Sarathi', 'Nepal Sewa', 'Nerude', 'NESDO Samriddha', 'NIC Asia', 'Nirdhan Utthan', 'NMB', 'Rastra Utthan', 'RMDC', 'RSDC', 'Sabaiko', 'Sadhana', 'Samaj', 'Samata Gharelu', 'Samudayik', 'Sana Kisan Bikas', 'Shrijanshil', 'Summit', 'Super', 'Support', 'Suryodaya', 'Swabalamban', 'Swabhiman', 'Swastik', 'Sworojagar', 'Unique Nepal', 'Unnati Sahakarya', 'Upakar', 'Vijaya', 'WEAN', 'Womi'];
+
+    /**
      * List of digital wallets sorted in alphabetical order.
      * @var string[]
      */
@@ -53,6 +59,16 @@ class Payment extends \Faker\Provider\Payment
     public function financeCompany(): string
     {
         return static::randomElement(static::$financeCompanies);
+    }
+
+    /**
+     * @return string
+     * @example 'Adarsha Laghubitta Bittiya Sanstha'
+     */
+    public function microFinance(): string
+    {
+        $suffix = ' Laghubitta Bittiya Sanstha';
+        return static::randomElement(static::$microFinances) . $suffix;
     }
 
     /**
