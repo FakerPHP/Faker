@@ -11,6 +11,12 @@ class Payment extends \Faker\Provider\Payment
     protected static $commercialBanks = ['Agricultural Development Bank', 'Bank Of Kathmandu', 'Century Commercial Bank', 'Citizens Bank International', 'Civil Bank', 'Everest Bank', 'Global IME Bank', 'Himalayan Bank', 'Kumari Bank', 'Laxmi Bank', 'Machhapuchchhre Bank', 'Mega Bank Nepal', 'Nabil Bank', 'Nepal Bangladesh Bank', 'Nepal Bank', 'Nepal Credit & Commerce Bank', 'Nepal Investment Bank', 'Nepal SBI Bank', 'NIC ASIA Bank', 'NMB Bank', 'Prabhu Bank', 'Prime Commercial Bank', 'Rastriya Banijya Bank', 'Sanima Bank', 'Siddhartha Bank', 'Standard Chartered Bank Nepal', 'Sunrise Bank'];
 
     /**
+     * List of development banks sorted in alphabetical order.
+     * @var string[]
+     */
+    protected static $developmentBanks = ['Corporate Development Bank', 'Excel Development Bank', 'Garima Bikas Bank', 'Green Development Bank', 'Jyoti Bikas Bank', 'Kamana Sewa Bikash Bank', 'Karnali Development Bank', 'Lumbini Bikas Bank', 'Mahalaxmi Bikas Bank', 'Miteri Development Bank', 'Muktinath  Bikas Bank', 'Narayani Development Bank', 'Nepal Infrastructure Bank', 'Sahara Bikas Bank', 'Salapa Bikas Bank', 'Saptakoshi Development Bank', 'Shangrila Development Bank', 'Shine Resunga Development Bank', 'Sindhu Bikas Bank'];
+
+    /**
      * List of digital wallets sorted in alphabetical order.
      * @var string[]
      */
@@ -23,6 +29,15 @@ class Payment extends \Faker\Provider\Payment
     public function commercialBank(): string
     {
         return static::randomElement(static::$commercialBanks);
+    }
+
+    /**
+     * @return string
+     * @example 'Nepal Infrastructure Bank'
+     */
+    public function developmentBank(): string
+    {
+        return static::randomElement(static::$developmentBanks);
     }
 
     /**
