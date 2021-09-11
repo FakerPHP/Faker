@@ -35,6 +35,13 @@ class Payment extends \Faker\Provider\Payment
     protected static $digitalWallets = ['CellPay', 'CG Pay', 'Chito Paisa', 'DigiPay', 'dPaisa', 'EnetPay', 'eSewa', 'Fonepay', 'GME Pay', 'iCash', 'IME Pay', 'Ipay', 'Khalti', 'Kurakani Pay', 'Lenden', 'Mobalet', 'MOCO', 'Mohar', 'Moru', 'N-Cash', 'Namaste Pay', 'PayTime', 'PayWell', 'PrabhuPAY', 'QPay', 'SajiloPay', 'WePay'];
 
     /**
+     * List of Swift Codes in alphabetical order.
+     * @link https://www.theswiftcodes.com/nepal/
+     * @var string[]
+     */
+    protected static $swiftCodes = ['ADBLNPKA', 'BOKLNPKA', 'CCBNNPKA', 'CIVLNPKA', 'CTZNNPKA', 'EVBLNPKA', 'GLBBNPKA', 'HIMANPKA', 'KMBLNPKA', 'LXBLNPKA', 'MBLNNPKA', 'MBNLNPKA', 'NARBNPKA', 'NBOCNPKA', 'NBOCNPKANRD', 'NEBLNPKA', 'NIBLNPKT', 'NICENPKA', 'NMBBNPKA', 'NPBBNPKA', 'NRBLNPKA', 'NRBLNPKAFED', 'NSBINPKA', 'NSBINPKA001', 'PCBLNPKA', 'PRVUNPKA', 'RBBANPKA', 'SCBLNPKA', 'SIDDNPKA', 'SNMANPKA', 'SRBLNPKA'];
+
+    /**
      * @return string
      * @example 'Agricultural Development Bank'
      */
@@ -78,5 +85,14 @@ class Payment extends \Faker\Provider\Payment
     public function digitalWallet(): string
     {
         return static::randomElement(static::$digitalWallets);
+    }
+
+    /**
+     * @return string
+     * @example 'ADBLNPKA'
+     */
+    public function swiftCode(): string
+    {
+        return static::randomElement(static::$swiftCodes);
     }
 }
