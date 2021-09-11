@@ -98,14 +98,12 @@ class Payment extends \Faker\Provider\Payment
 
     /**
      * @return string
+     * @example '00454689832792' or 'S49646367883667'
      */
     public function bankAccountNumber(): string
     {
         $prefixType = self::randomElement(['alpha', 'zero']);
-        $length = $prefixType === 'alpha' ? self::numberBetween(8, 19) : self::numberBetween(7, 18);
-
-        // format account
-        $format = $prefixType === 'alpha' ? '[A-Z]' : '00';
-        return self::regexify(sprintf('%s[1-9]{%d}', $format, $length));
+        $format = $prefixType === 'alpha' ? '[A-Z][1-9]{8,19}' : '[0]{2}[1-9]{7,18}';
+        return static::regexify($format);
     }
 }
