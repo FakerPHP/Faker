@@ -32,7 +32,7 @@ class Payment extends \Faker\Provider\Payment
      * List of digital wallets sorted in alphabetical order.
      * @var string[]
      */
-    protected static $digitalWallets = ['CellPay', 'CGPay', 'dPaisa', 'EnetPay', 'eSewa', 'iCash', 'IME Pay', 'Khalti', 'MoRu', 'PayWell', 'PrabhuPAY', 'QPay'];
+    protected static $digitalWallets = ['CellPay', 'CG Pay', 'Chito Paisa', 'DigiPay', 'dPaisa', 'EnetPay', 'eSewa', 'Fonepay', 'GME Pay', 'iCash', 'IME Pay', 'Ipay', 'Khalti', 'Kurakani Pay', 'Lenden', 'Mobalet', 'MOCO', 'Mohar', 'Moru', 'N-Cash', 'Namaste Pay', 'PayTime', 'PayWell', 'PrabhuPAY', 'QPay', 'SajiloPay', 'WePay'];
 
     /**
      * @return string
