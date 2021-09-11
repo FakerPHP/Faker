@@ -95,4 +95,17 @@ class Payment extends \Faker\Provider\Payment
     {
         return static::randomElement(static::$swiftCodes);
     }
+
+    /**
+     * @return string
+     */
+    public function bankAccountNumber(): string
+    {
+        $prefixType = self::randomElement(['alpha', 'zero']);
+        $length = $prefixType === 'alpha' ? self::numberBetween(8, 19) : self::numberBetween(7, 18);
+
+        // format account
+        $format = $prefixType === 'alpha' ? '[A-Z]' : '00';
+        return self::regexify(sprintf('%s[1-9]{%d}', $format, $length));
+    }
 }
