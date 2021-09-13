@@ -84,7 +84,11 @@ class Person extends \Faker\Provider\Person
      */
     public static function nationalIdNumber()
     {
-        $partialValue = static::numerify(2 . str_repeat('#', 13));
+        $timestamp = self::numberBetween(1, time());
+
+        $date = explode(':', date('y:m:d', $timestamp));
+
+        $partialValue = static::numerify(2 . $date[0] . $date[1] . $date[2] . str_repeat('#', 7));
 
         return Luhn::generateLuhnNumber($partialValue);
     }
