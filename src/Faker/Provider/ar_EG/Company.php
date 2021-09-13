@@ -82,11 +82,21 @@ class Company extends \Faker\Provider\Company
     }
 
     /**
-     * example 7001010101
+     * example 010101010
      */
-    public static function companyIdNumber()
+    public static function taxIdNumber()
     {
-        $partialValue = static::numerify(700 . str_repeat('#', 6));
+        $partialValue = static::numerify(str_repeat('#', 9));
+
+        return Luhn::generateLuhnNumber($partialValue);
+    }
+
+    /**
+     * example 010101
+     */
+    public static function tradeRegisterNumber()
+    {
+        $partialValue = static::numerify(str_repeat('#', 6));
 
         return Luhn::generateLuhnNumber($partialValue);
     }

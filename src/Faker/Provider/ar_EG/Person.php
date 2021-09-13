@@ -82,31 +82,9 @@ class Person extends \Faker\Provider\Person
     /**
      * @example 1010101010
      */
-    public static function idNumber()
-    {
-        $partialValue = static::numerify(
-            static::randomElement([1, 2]) . str_repeat('#', 8)
-        );
-
-        return Luhn::generateLuhnNumber($partialValue);
-    }
-
-    /**
-     * @example 1010101010
-     */
     public static function nationalIdNumber()
     {
-        $partialValue = static::numerify(1 . str_repeat('#', 8));
-
-        return Luhn::generateLuhnNumber($partialValue);
-    }
-
-    /**
-     * @example 2010101010
-     */
-    public static function foreignerIdNumber()
-    {
-        $partialValue = static::numerify(2 . str_repeat('#', 8));
+        $partialValue = static::numerify(2 . str_repeat('#', 13));
 
         return Luhn::generateLuhnNumber($partialValue);
     }
