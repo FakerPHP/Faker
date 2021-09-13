@@ -193,7 +193,7 @@ final class DateTimeTest extends TestCase
         $date = DateTimeProvider::dateTimeBetween($start, $end);
         self::assertInstanceOf('\DateTime', $date);
         self::assertGreaterThanOrEqual(new \DateTime($start), $date);
-        self::assertLessThanOrEqual(new \DateTime($end), $date);
+        self::assertLessThanOrEqual(new \DateTime($end ?: 'now'), $date);
         self::assertEquals(new \DateTimeZone($this->defaultTz), $date->getTimezone());
     }
 
@@ -201,7 +201,7 @@ final class DateTimeTest extends TestCase
     {
         return [
             ['-1 year', false],
-            ['-1 year', ''],
+            ['-1 year', null],
             ['-1 day', '-1 hour'],
             ['-1 day', 'now'],
         ];
