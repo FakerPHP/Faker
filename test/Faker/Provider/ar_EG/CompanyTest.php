@@ -11,11 +11,18 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
-    public function testCompanyIdNumberIsValid()
+    public function testCompanyTaxIdNumberIsValid()
     {
-        $companyIdNumber = $this->faker->companyIdNumber;
-        self::assertMatchesRegularExpression('/^700\d{7}$/', $companyIdNumber);
-        self::assertTrue(Luhn::isValid($companyIdNumber));
+        $companyTaxIdNumber = $this->faker->companyTaxIdNumber;
+        self::assertMatchesRegularExpression('/\d{9}$/', $companyTaxIdNumber);
+        self::assertTrue(Luhn::isValid($companyTaxIdNumber));
+    }
+
+    public function testCompanyTradeRegisterNumberIsValid()
+    {
+        $companyTradeRegisterNumber = $this->faker->companyTradeRegisterNumber;
+        self::assertMatchesRegularExpression('/\d{6}$/', $companyTradeRegisterNumber);
+        self::assertTrue(Luhn::isValid($companyTradeRegisterNumber));
     }
 
     protected function getProviders(): iterable

@@ -84,7 +84,7 @@ class Company extends \Faker\Provider\Company
     /**
      * example 010101010
      */
-    public static function taxIdNumber()
+    public static function companyTaxIdNumber()
     {
         $partialValue = static::numerify(str_repeat('#', 9));
 
@@ -94,7 +94,7 @@ class Company extends \Faker\Provider\Company
     /**
      * example 010101
      */
-    public static function tradeRegisterNumber()
+    public static function companyTradeRegisterNumber()
     {
         $partialValue = static::numerify(str_repeat('#', 6));
 
