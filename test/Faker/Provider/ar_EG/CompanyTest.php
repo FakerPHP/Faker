@@ -11,6 +11,18 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
+    public function testCompanyPrefix()
+    {
+        $companyPrefix = $this->faker->companyPrefix();
+        self::assertIsString($companyPrefix);
+    }
+
+    public function testCatchPhrase()
+    {
+        $catchPhrase = $this->faker->catchPhrase();
+        self::assertIsString($catchPhrase);
+    }
+
     public function testCompanyTaxIdNumberIsValid()
     {
         $companyTaxIdNumber = $this->faker->companyTaxIdNumber;

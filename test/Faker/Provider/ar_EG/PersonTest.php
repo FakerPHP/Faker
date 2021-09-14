@@ -11,6 +11,12 @@ use Faker\Test\TestCase;
  */
 final class PersonTest extends TestCase
 {
+    public function testPrefix()
+    {
+        $prefix = $this->faker->prefix();
+        self::assertIsString($prefix);
+    }
+
     public function testNationalIdNumber()
     {
         $nationalIdNumber = $this->faker->nationalIdNumber;
