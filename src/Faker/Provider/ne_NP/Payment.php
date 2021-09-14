@@ -309,8 +309,7 @@ class Payment extends \Faker\Provider\Payment
      */
     public function bankAccountNumber(): string
     {
-        $alphaPrefix = self::randomElement([true, false]);
-        $format = $alphaPrefix ? '[A-Z][1-9]{8,19}' : '[0]{2}[1-9]{7,18}';
+        $format = self::randomElement(['[A-Z][1-9]{8,19}', '[0]{2}[1-9]{7,18}']);
 
         return static::regexify($format);
     }
