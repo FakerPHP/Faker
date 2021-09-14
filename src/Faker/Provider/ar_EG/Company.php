@@ -15,10 +15,6 @@ class Company extends \Faker\Provider\Company
         '{{companyPrefix}} {{cityName}} {{companySuffix}}',
     ];
 
-    protected static $bsWords = [
-        [],
-    ];
-
     protected static $catchPhraseWords = [
         ['الخدمات', 'الحلول', 'الانظمة'],
         [
@@ -61,20 +57,6 @@ class Company extends \Faker\Provider\Company
         $result = [];
 
         foreach (static::$catchPhraseWords as &$word) {
-            $result[] = static::randomElement($word);
-        }
-
-        return implode(' ', $result);
-    }
-
-    /**
-     * @example 'integrate extensible convergence'
-     */
-    public function bs()
-    {
-        $result = [];
-
-        foreach (static::$bsWords as &$word) {
             $result[] = static::randomElement($word);
         }
 

@@ -8,8 +8,9 @@ class Address extends \Faker\Provider\Address
         'شمال',
         'جنوب',
         'شرق',
-        'غرب'
+        'غرب',
     ];
+
     protected static $streetPrefix = ['شارع', 'طريق', 'ممر'];
 
     /**
@@ -78,7 +79,7 @@ class Address extends \Faker\Provider\Address
         'عبده باشا',
         'الجيش',
         'الكيت كات',
-        'إمبابة'
+        'إمبابة',
     ];
 
     /**
@@ -111,7 +112,7 @@ class Address extends \Faker\Provider\Address
         'مطروح',
         'المنوفية',
         'المنيا',
-        'الوادي الجديد'
+        'الوادي الجديد',
     ];
 
     protected static $buildingNumber = ['%####', '%###', '%#'];

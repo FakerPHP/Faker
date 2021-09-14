@@ -8,11 +8,9 @@ class Payment extends \Faker\Provider\Payment
      * International Bank Account Number (IBAN)
      *
      * @see https://www.upiqrcode.com/iban-generator/eg/egypt
-     *
-     * @return string
      */
     public function bankAccountNumber(): string
     {
-        return self::iban('EG', '', '25');
+        return self::iban('EG', '', 25);
     }
 }
