@@ -13,6 +13,7 @@ final class InternetTest extends TestCase
     public function testEmailIsValid()
     {
         $email = $this->faker->email();
+        self::assertMatchesRegularExpression('/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-z]{2,3}$/', $email);
         self::assertNotFalse(filter_var($email, FILTER_VALIDATE_EMAIL));
     }
 
