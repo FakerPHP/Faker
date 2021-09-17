@@ -13,31 +13,31 @@ final class AddressTest extends TestCase
     public function testCityPrefix()
     {
         $cityPrefix = $this->faker->cityPrefix();
-        self::assertIsString($cityPrefix);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $cityPrefix);
     }
 
     public function testCityName()
     {
         $cityName = $this->faker->cityName();
-        self::assertIsString($cityName);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $cityName);
     }
 
     public function testStreetPrefix()
     {
         $streetPrefix = $this->faker->streetPrefix();
-        self::assertIsString($streetPrefix);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $streetPrefix);
     }
 
     public function testSecondaryAddress()
     {
         $secondaryAddress = $this->faker->secondaryAddress();
-        self::assertIsString($secondaryAddress);
+        self::assertMatchesRegularExpression('/^[0-9\p{Arabic}\s]+$/u', $secondaryAddress);
     }
 
     public function testGovernorate()
     {
         $governorate = $this->faker->governorate();
-        self::assertIsString($governorate);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $governorate);
     }
 
     protected function getProviders(): iterable

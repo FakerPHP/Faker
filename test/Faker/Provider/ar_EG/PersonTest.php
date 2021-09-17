@@ -14,7 +14,7 @@ final class PersonTest extends TestCase
     public function testPrefix()
     {
         $prefix = $this->faker->prefix();
-        self::assertIsString($prefix);
+        self::assertMatchesRegularExpression('/.?[\p{Arabic}\s]$/u', $prefix);
     }
 
     public function testNationalIdNumber()

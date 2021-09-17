@@ -14,25 +14,25 @@ final class CompanyTest extends TestCase
     public function testCompanyPrefix()
     {
         $companyPrefix = $this->faker->companyPrefix();
-        self::assertIsString($companyPrefix);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $companyPrefix);
     }
 
     public function testCatchPhrase()
     {
         $catchPhrase = $this->faker->catchPhrase();
-        self::assertIsString($catchPhrase);
+        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $catchPhrase);
     }
 
     public function testCompanyTaxIdNumberIsValid()
     {
-        $companyTaxIdNumber = $this->faker->companyTaxIdNumber;
+        $companyTaxIdNumber = $this->faker->companyTaxIdNumber();
         self::assertMatchesRegularExpression('/\d{9}$/', $companyTaxIdNumber);
         self::assertTrue(Luhn::isValid($companyTaxIdNumber));
     }
 
     public function testCompanyTradeRegisterNumberIsValid()
     {
-        $companyTradeRegisterNumber = $this->faker->companyTradeRegisterNumber;
+        $companyTradeRegisterNumber = $this->faker->companyTradeRegisterNumber();
         self::assertMatchesRegularExpression('/\d{6}$/', $companyTradeRegisterNumber);
         self::assertTrue(Luhn::isValid($companyTradeRegisterNumber));
     }
