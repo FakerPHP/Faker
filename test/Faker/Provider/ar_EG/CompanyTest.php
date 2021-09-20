@@ -11,18 +11,6 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
-    public function testCompanyPrefix()
-    {
-        $companyPrefix = $this->faker->companyPrefix();
-        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $companyPrefix);
-    }
-
-    public function testCatchPhrase()
-    {
-        $catchPhrase = $this->faker->catchPhrase();
-        self::assertMatchesRegularExpression('/^[\p{Arabic}\s]+$/u', $catchPhrase);
-    }
-
     public function testCompanyTaxIdNumberIsValid()
     {
         $companyTaxIdNumber = $this->faker->companyTaxIdNumber();

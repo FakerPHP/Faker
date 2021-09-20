@@ -11,15 +11,9 @@ use Faker\Test\TestCase;
  */
 final class PersonTest extends TestCase
 {
-    public function testPrefix()
-    {
-        $prefix = $this->faker->prefix();
-        self::assertMatchesRegularExpression('/.?[\p{Arabic}\s]$/u', $prefix);
-    }
-
     public function testNationalIdNumber()
     {
-        $nationalIdNumber = $this->faker->nationalIdNumber;
+        $nationalIdNumber = $this->faker->nationalIdNumber();
         self::assertMatchesRegularExpression('/^2\d{13}$/', $nationalIdNumber);
         self::assertTrue(Luhn::isValid($nationalIdNumber));
     }
