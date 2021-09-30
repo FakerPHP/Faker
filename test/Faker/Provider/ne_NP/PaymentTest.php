@@ -27,7 +27,6 @@ final class PaymentTest extends TestCase
 
         $strNext = $this->faker->developmentBank();
         self::assertSame($str, $strNext);
-        echo " $str -> $strNext";
     }
 
     public function testFinanceCompany(): void
