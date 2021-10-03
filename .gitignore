@@ -5,3 +5,56 @@
 /vendor-bin/psalm/vendor/
 /.php-cs-fixer.cache
 /composer.lock
+
+### Linux ###
+*~
+.Trash-*
+.directory
+.fuse_hidden*
+.nfs*
+
+### macOS ###
+.AppleDouble
+.DS_Store
+.LSOverride
+._*
+Icon
+
+### Windows ###
+*.stackdump
+Thumbs.db
+Thumbs.db:encryptable
+[Dd]esktop.ini
+ehthumbs.db
+ehthumbs_vista.db
+
+### VisualStudioCode ###
+*.code-workspace
+.history
+.ionide
+/.history/
+/.vscode/
+
+### JetBrains ###
+*.iml
+*.ipr
+*.iws
+modules.xml
+/.idea/
+/.idea_modules/
+/cmake-build-*/
+/out/
+
+### NetBeans ###
+/.nb-gradle/
+/build/
+/dist/
+/nbbuild/
+/nbdist/
+/nbproject/
+
+### Generated Files ###
+*.cache
+*.key
+*.log
+.env
