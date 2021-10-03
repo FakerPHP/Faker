@@ -46,7 +46,6 @@ modules.xml
 /out/
 
 ### NetBeans ###
-/.nb-gradle/
 /build/
 /dist/
 /nbbuild/
