@@ -142,6 +142,6 @@ class Address extends \Faker\Provider\Address
     {
         $randomDepartmentNumber = array_keys(static::department());
 
-        return $randomDepartmentNumber[0];
+        return (string) $randomDepartmentNumber[0];
     }
 }
