@@ -1,4 +1,4 @@
-# CHANGELOG
+# Changelog
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.16.0..main)
 
