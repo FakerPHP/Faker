@@ -5,8 +5,8 @@
 ## [2021-12-05, v1.17.0](https://github.com/FakerPHP/Faker/compare/v1.16.0..v1.17.0)
 
 - Partial 8.1 compatibility (#373)
-- Add Payment Provider for `ne_NP (#375)
-  Add Egyptian Arabic (ar_EG) locale (#377)
+- Add Payment Provider for ne_NP (#375)
+- Add Egyptian Arabic (ar_EG) locale (#377)
 - Updates to en_ZA/internet (#383)
 - Proper format for E.164 numbers (#380)
 - Allow deprecation-contracts v3.0 (#397)
