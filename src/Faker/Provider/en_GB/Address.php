@@ -11,7 +11,7 @@ class Address extends \Faker\Provider\Address
         'fort', 'furt',
         'haven',
         'land',
-        'mouth', 'mouth',
+        'mouth',
         'port',
         'shire', 'side', 'stad',
         'ton', 'town',
