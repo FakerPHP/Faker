@@ -2,8 +2,8 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadata;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\Persistence\ObjectManager;
 
 /**
  * Service class for populating a table through a Doctrine Entity class.
