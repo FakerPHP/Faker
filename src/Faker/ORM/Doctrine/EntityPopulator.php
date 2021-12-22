@@ -2,7 +2,7 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\Persistence\ObjectManager;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\Persistence\ObjectManager;
 class EntityPopulator
 {
     /**
-     * @var ClassMetadata
+     * @var ClassMetadataInfo
      */
     protected $class;
     /**
@@ -23,7 +23,10 @@ class EntityPopulator
      */
     protected $modifiers = [];
 
-    public function __construct(ClassMetadata $class)
+    /**
+     * @param ClassMetadataInfo<object> $class
+     */
+    public function __construct(ClassMetadataInfo $class)
     {
         $this->class = $class;
     }
@@ -226,19 +229,16 @@ class EntityPopulator
     }
 
     /**
-     * @return int|null
+     * @return int
      */
     private function generateId($obj, $column, ObjectManager $manager)
     {
-        /** @var \Doctrine\Common\Persistence\ObjectRepository $repository */
         $repository = $manager->getRepository(get_class($obj));
         $result = $repository->createQueryBuilder('e')
                 ->select(sprintf('e.%s', $column))
                 ->getQuery()
                 ->execute();
         $ids = array_map('current', $result->toArray());
-
-        $id = null;
 
         do {
             $id = mt_rand();

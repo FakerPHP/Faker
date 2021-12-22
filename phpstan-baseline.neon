@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Parameter \\#1 \\$input of function str_pad expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Calculator/Iban.php
 
@@ -66,27 +66,7 @@ parameters:
 			path: src/Faker/ORM/CakePHP/Populator.php
 
 		-
-			message: "#^Access to property \\$fieldMappings on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 2
-			path: src/Faker/ORM/Doctrine/ColumnTypeGuesser.php
-
-		-
-			message: "#^Call to method getTypeOfField\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/ColumnTypeGuesser.php
-
-		-
-			message: "#^Parameter \\$class of method Faker\\\\ORM\\\\Doctrine\\\\ColumnTypeGuesser\\:\\:guessFormat\\(\\) has invalid typehint type Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/ColumnTypeGuesser.php
-
-		-
 			message: "#^Access to constant ONE on an unknown class Doctrine\\\\ODM\\\\MongoDB\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Access to constant ONE_TO_ONE on an unknown class Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadata\\.$#"
 			count: 1
 			path: src/Faker/ORM/Doctrine/EntityPopulator.php
 
@@ -96,92 +76,12 @@ parameters:
 			path: src/Faker/ORM/Doctrine/EntityPopulator.php
 
 		-
-			message: "#^Access to property \\$associationMappings on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
 			message: "#^Access to property \\$associationMappings on an unknown class Doctrine\\\\ODM\\\\MongoDB\\\\Mapping\\\\ClassMetadata\\.$#"
 			count: 1
 			path: src/Faker/ORM/Doctrine/EntityPopulator.php
 
 		-
-			message: "#^Access to property \\$fieldMappings on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Access to property \\$reflFields on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 2
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method createQueryBuilder\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectRepository\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getAssociationMappings\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getAssociationMappings\\(\\) on an unknown class Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getAssociationNames\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getAssociationTargetClass\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getFieldNames\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getIdentifier\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getName\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method getRepository\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method hasField\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method isCollectionValuedAssociation\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method isIdentifier\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method newInstance\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method persist\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
+			message: "#^Call to an undefined method Doctrine\\\\Persistence\\\\ObjectRepository\\<object\\>\\:\\:createQueryBuilder\\(\\)\\.$#"
 			count: 1
 			path: src/Faker/ORM/Doctrine/EntityPopulator.php
 
@@ -189,71 +89,6 @@ parameters:
 			message: "#^Class Doctrine\\\\ODM\\\\MongoDB\\\\Mapping\\\\ClassMetadata not found\\.$#"
 			count: 1
 			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Class Doctrine\\\\ORM\\\\Mapping\\\\ClassMetadata not found\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Method Faker\\\\ORM\\\\Doctrine\\\\EntityPopulator\\:\\:generateId\\(\\) never returns null so it can be removed from the return typehint\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^PHPDoc tag @var for variable \\$repository contains unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectRepository\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Parameter \\$class of method Faker\\\\ORM\\\\Doctrine\\\\EntityPopulator\\:\\:__construct\\(\\) has invalid typehint type Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Parameter \\$manager of method Faker\\\\ORM\\\\Doctrine\\\\EntityPopulator\\:\\:execute\\(\\) has invalid typehint type Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Parameter \\$manager of method Faker\\\\ORM\\\\Doctrine\\\\EntityPopulator\\:\\:generateId\\(\\) has invalid typehint type Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Property Faker\\\\ORM\\\\Doctrine\\\\EntityPopulator\\:\\:\\$class has unknown class Doctrine\\\\Common\\\\Persistence\\\\Mapping\\\\ClassMetadata as its type\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/EntityPopulator.php
-
-		-
-			message: "#^Call to method flush\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 2
-			path: src/Faker/ORM/Doctrine/Populator.php
-
-		-
-			message: "#^Call to method flush\\(\\) on an unknown class Faker\\\\ORM\\\\Doctrine\\\\EntityManager\\.$#"
-			count: 2
-			path: src/Faker/ORM/Doctrine/Populator.php
-
-		-
-			message: "#^Call to method getClassMetadata\\(\\) on an unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/Populator.php
-
-		-
-			message: "#^Parameter \\$entityManager of method Faker\\\\ORM\\\\Doctrine\\\\Populator\\:\\:execute\\(\\) has invalid typehint type Faker\\\\ORM\\\\Doctrine\\\\EntityManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/Populator.php
-
-		-
-			message: "#^Parameter \\$manager of method Faker\\\\ORM\\\\Doctrine\\\\Populator\\:\\:__construct\\(\\) has invalid typehint type Doctrine\\\\Common\\\\Persistence\\\\ObjectManager\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/Populator.php
-
-		-
-			message: "#^Property Faker\\\\ORM\\\\Doctrine\\\\Populator\\:\\:\\$manager has unknown class Doctrine\\\\Common\\\\Persistence\\\\ObjectManager as its type\\.$#"
-			count: 1
-			path: src/Faker/ORM/Doctrine/Populator.php
 
 		-
 			message: "#^Call to method create\\(\\) on an unknown class Mandango\\\\Mandango\\.$#"
@@ -765,7 +600,7 @@ parameters:
 			path: src/Faker/Provider/Base.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function str_pad expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/Base.php
 
@@ -795,12 +630,12 @@ parameters:
 			path: src/Faker/Provider/File.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function md5 expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function md5 expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/Miscellaneous.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function sha1 expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function sha1 expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/Miscellaneous.php
 
@@ -835,7 +670,7 @@ parameters:
 			path: src/Faker/Provider/cs_CZ/Person.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function str_pad expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/en_ZA/Person.php
 
@@ -910,7 +745,7 @@ parameters:
 			path: src/Faker/Provider/ro_RO/Person.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function str_pad expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/ru_RU/Company.php
 
@@ -920,7 +755,7 @@ parameters:
 			path: src/Faker/Provider/sl_SI/Person.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function str_pad expects string, int given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_pad expects string, int given\\.$#"
 			count: 1
 			path: src/Faker/Provider/zh_CN/Address.php
 
@@ -930,7 +765,7 @@ parameters:
 			path: src/Faker/Provider/zh_CN/Address.php
 
 		-
-			message: "#^Parameter \\#1 \\$autoload_function of function spl_autoload_register expects callable\\(string\\)\\: void, Closure\\(mixed\\)\\: bool given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of function spl_autoload_register expects \\(callable\\(string\\)\\: void\\)\\|null, Closure\\(mixed\\)\\: bool given\\.$#"
 			count: 1
 			path: src/autoload.php
 

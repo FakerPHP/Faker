@@ -2,7 +2,7 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\Persistence\Mapping\ClassMetadata;
+use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Faker\Generator;
 
 class ColumnTypeGuesser
@@ -17,7 +17,7 @@ class ColumnTypeGuesser
     /**
      * @return \Closure|null
      */
-    public function guessFormat($fieldName, ClassMetadata $class)
+    public function guessFormat($fieldName, ClassMetadataInfo $class)
     {
         $generator = $this->generator;
         $type = $class->getTypeOfField($fieldName);
