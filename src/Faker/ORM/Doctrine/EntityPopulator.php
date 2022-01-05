@@ -2,8 +2,8 @@
 
 namespace Faker\ORM\Doctrine;
 
-use Doctrine\ORM\Mapping\ClassMetadataInfo;
-use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+use Doctrine\Common\Persistence\ObjectManager;
 
 /**
  * Service class for populating a table through a Doctrine Entity class.
@@ -11,7 +11,7 @@ use Doctrine\Persistence\ObjectManager;
 class EntityPopulator
 {
     /**
-     * @var ClassMetadataInfo
+     * @var ClassMetadata
      */
     protected $class;
     /**
@@ -23,10 +23,7 @@ class EntityPopulator
      */
     protected $modifiers = [];
 
-    /**
-     * @param ClassMetadataInfo<object> $class
-     */
-    public function __construct(ClassMetadataInfo $class)
+    public function __construct(ClassMetadata $class)
     {
         $this->class = $class;
     }
