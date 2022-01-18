@@ -2,7 +2,6 @@
 
 namespace Faker;
 
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 
 /**
@@ -568,7 +567,6 @@ class Generator
      *
      * @param class-string<T> $id
      *
-     * @throws ContainerExceptionInterface
      * @throws Extension\ExtensionNotFound
      *
      * @return T
@@ -663,15 +661,15 @@ class Generator
      * print_r($values); // [0, 4, 8, 4, 2, 6, 0, 8, 8, 6]
      * </code>
      *
-     * @param Closure $validator  A function returning true for valid values
-     * @param int     $maxRetries Maximum number of retries to find a valid value,
-     *                            After which an OverflowException is thrown.
+     * @param ?\Closure $validator  A function returning true for valid values
+     * @param int       $maxRetries Maximum number of retries to find a valid value,
+     *                              After which an OverflowException is thrown.
      *
      * @throws \OverflowException When no valid value can be found by iterating $maxRetries times
      *
      * @return self A proxy class returning only valid values
      */
-    public function valid(\Closure $validator = null, int $maxRetries = 10000)
+    public function valid(?\Closure $validator = null, int $maxRetries = 10000)
     {
         return new ValidGenerator($this, $validator, $maxRetries);
     }
