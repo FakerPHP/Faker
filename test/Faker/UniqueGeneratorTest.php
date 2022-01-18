@@ -13,8 +13,8 @@ final class UniqueGeneratorTest extends TestCase
     {
         $this->expectException(\OverflowException::class);
 
-        for ($i = 0; $i < 5; ++$i) {
-            $this->faker->unique()->ext(NumberExtension::class)->numberBetween(0, 3);
+        for ($i = 0; $i < 3; ++$i) {
+            $this->faker->unique()->ext(NumberExtension::class)->numberBetween(0, 1);
         }
     }
 
