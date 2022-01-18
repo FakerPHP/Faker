@@ -29,18 +29,20 @@ class UniqueGenerator
     protected $uniques = [];
 
     /**
-     * @param Extension|Generator $generator
-     * @param int                 $maxRetries
+     * @param Extension|Generator                $generator
+     * @param int                                $maxRetries
+     * @param array<string, array<string, null>> $uniques
      */
-    public function __construct($generator, $maxRetries = 10000)
+    public function __construct($generator, $maxRetries = 10000, &$uniques = [])
     {
         $this->generator = $generator;
         $this->maxRetries = $maxRetries;
+        $this->uniques = &$uniques;
     }
 
     public function ext(string $id)
     {
-        return new self($this->generator->ext($id), $this->maxRetries);
+        return new self($this->generator->ext($id), $this->maxRetries, $this->uniques);
     }
 
     /**
