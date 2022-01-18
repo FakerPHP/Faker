@@ -8,6 +8,18 @@
       <code>string</code>
     </InvalidReturnType>
   </file>
+  <file src="src/Faker/Generator.php">
+    <InvalidReturnStatement occurrences="3">
+      <code>$this-&gt;uniqueGenerator</code>
+      <code>new ChanceGenerator($this, $weight, $default)</code>
+      <code>new ValidGenerator($this, $validator, $maxRetries)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="3">
+      <code>self</code>
+      <code>self</code>
+      <code>self</code>
+    </InvalidReturnType>
+    </file>
   <file src="src/Faker/ORM/CakePHP/EntityPopulator.php">
     <UndefinedClass occurrences="1">
       <code>TableRegistry</code>
