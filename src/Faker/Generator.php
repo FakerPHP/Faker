@@ -859,6 +859,22 @@ class Generator
     }
 
     /**
+     * Gets a random enum case.
+     *
+     * @example 'Gender::Male'
+     *
+     * @template T of UnitEnum
+     *
+     * @param class-string<T> $enumClass
+     *
+     * @return T
+     */
+    public function enum(string $enumClass): \UnitEnum
+    {
+        return $this->ext(Extension\EnumExtension::class)->enum($enumClass);
+    }
+
+    /**
      * @deprecated
      */
     protected function callFormatWithMatches($matches)

@@ -60,13 +60,19 @@ final class ContainerBuilder
      */
     public static function defaultExtensions(): array
     {
-        return [
+        $extensions = [
             BarcodeExtension::class => Core\Barcode::class,
             BloodExtension::class => Core\Blood::class,
             FileExtension::class => Core\File::class,
             NumberExtension::class => Core\Number::class,
             VersionExtension::class => Core\Version::class,
         ];
+
+        if (PHP_VERSION_ID >= 80100) {
+            $extensions[EnumExtension::class] = Core\Enum::class;
+        }
+
+        return $extensions;
     }
 
     public static function getDefault(): ContainerInterface
