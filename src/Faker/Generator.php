@@ -122,9 +122,9 @@ use Psr\Container\ContainerInterface;
  *
  * @method string toUpper($string = '')
  *
- * @property mixed $optional
+ * @property self $optional
  *
- * @method mixed optional($weight = null, $default = null)
+ * @method self optional($weight = null, $default = null)
  *
  * @property UniqueGenerator $unique
  *
