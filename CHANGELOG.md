@@ -4,6 +4,7 @@
 
 ## [2022-01-22, v1.18.0](https://github.com/FakerPHP/Faker/compare/v1.17.0..v1.18.0)
 
+- Deprecated UUID, use uuid3 to specify version (#427)
 - Reset formatters when adding a new provider (#366)
 - Helper methods to use our custom generators (#155)
 - Set allow-plugins for Composer 2.2 (#405)
@@ -11,7 +12,8 @@
 - Allow for -> syntax to be used in parsing (#423)
 - Person->name was missing string return type (#424)
 - Generate a valid BE TAX number (#415)
-
+- Added the UUID extension to Core (#427)
+- 
 ## [2021-12-05, v1.17.0](https://github.com/FakerPHP/Faker/compare/v1.16.0..v1.17.0)
 
 - Partial PHP 8.1 compatibility (#373)
