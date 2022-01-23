@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.18.0..main)
 
-## [2022-01-22, v1.18.0](https://github.com/FakerPHP/Faker/compare/v1.17.0..v1.18.0)
+## [2022-01-23, v1.18.0](https://github.com/FakerPHP/Faker/compare/v1.17.0..v1.18.0)
 
 - Deprecated UUID, use uuid3 to specify version (#427)
 - Reset formatters when adding a new provider (#366)
