@@ -540,10 +540,6 @@ use Psr\Container\ContainerInterface;
  * @property string $linuxPlatformToken
  *
  * @method string linuxPlatformToken()
- *
- * @property string $uuid
- *
- * @method string uuid()
  */
 class Generator
 {
