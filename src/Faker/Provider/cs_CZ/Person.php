@@ -26,7 +26,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     protected static $firstNameMale = [
-        'Adam', 'Aleš', 'Alois', 'Antonín', 'Bohumil', 'Bohuslav', 'Dagmar',
+        'Adam', 'Aleš', 'Alois', 'Antonín', 'Bivoj', 'Bohumil', 'Bohuslav',
         'Dalibor', 'Daniel', 'David', 'Dominik', 'Dušan', 'Eduard', 'Emil',
         'Filip', 'František', 'Ilona', 'Ivan', 'Ivo', 'Jakub', 'Jan', 'Ján',
         'Jaromír', 'Jaroslav', 'Jindřich', 'Jiří', 'Josef', 'Jozef', 'Kamil',
@@ -42,9 +42,9 @@ class Person extends \Faker\Provider\Person
 
     protected static $firstNameFemale = [
         'Adéla', 'Alena', 'Alžběta', 'Andrea', 'Aneta', 'Anežka', 'Anna',
-        'Barbora', 'Blanka', 'Božena', 'Dana', 'Daniela', 'Denisa', 'Dominika',
-        'Eliška', 'Emilie', 'Eva', 'Františka', 'Gabriela', 'Hana', 'Helena',
-        'Irena', 'Iva', 'Ivana', 'Iveta', 'Jana', 'Jarmila', 'Jaroslava',
+        'Barbora', 'Blanka', 'Božena', 'Dagmar', 'Dana', 'Daniela', 'Denisa',
+        'Dominika', 'Eliška', 'Emilie', 'Eva', 'Františka', 'Gabriela', 'Hana',
+        'Helena', 'Irena', 'Iva', 'Ivana', 'Iveta', 'Jana', 'Jarmila', 'Jaroslava',
         'Jindřiška', 'Jiřina', 'Jitka', 'Kamila', 'Karolína', 'Kateřina',
         'Klára', 'Kristýna', 'Lenka', 'Libuše', 'Lucie', 'Ludmila', 'Marcela',
         'Mária', 'Marie', 'Markéta', 'Marta', 'Martina', 'Michaela', 'Milada',
