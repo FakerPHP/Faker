@@ -4,7 +4,7 @@ namespace Faker\Provider;
 
 class UserAgent extends Base
 {
-    protected static $userAgents = ['firefox', 'chrome', 'internetExplorer', 'opera', 'safari', 'edge'];
+    protected static $userAgents = ['firefox', 'chrome', 'internetExplorer', 'opera', 'safari', 'msedge'];
 
     protected static $windowsPlatformTokens = [
         'Windows NT 6.2', 'Windows NT 6.1', 'Windows NT 6.0', 'Windows NT 5.2', 'Windows NT 5.1',
@@ -88,7 +88,7 @@ class UserAgent extends Base
      *
      * @return string
      */
-    public static function edge()
+    public static function msedge()
     {
         $saf = self::numberBetween(531, 537) . '.' . self::numberBetween(0, 2);
         $chrv = self::numberBetween(79, 99) . '.0';
