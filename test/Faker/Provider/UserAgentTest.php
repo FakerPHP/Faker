@@ -4,7 +4,6 @@ namespace Faker\Test\Provider;
 
 use Faker\Provider\UserAgent;
 use Faker\Test\TestCase;
-use ReflectionClass;
 
 /**
  * @group legacy
@@ -14,7 +13,7 @@ final class UserAgentTest extends TestCase
     public function testAllAgents()
     {
         $agent = new UserAgent($this->faker);
-        $reflection = new ReflectionClass($agent);
+        $reflection = new \ReflectionClass($agent);
         $agents = $reflection->getProperty('userAgents');
         $agents->setAccessible(true);
 
