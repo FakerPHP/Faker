@@ -18,6 +18,22 @@ final class ImageTest extends TestCase
         );
     }
 
+    public function testImageUrlAcceptsDifferentImageFormats()
+    {
+        foreach (Image::$imageFormats as $format) {
+            self::assertMatchesRegularExpression(
+                '#^https://via.placeholder.com/640x480.'. $format .'/#',
+                Image::imageUrl(format: $format)
+            );
+        }
+    }
+
+    public function testImageUrlThrowsExceptionOnIllegalImageFormat()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        Image::imageUrl(format: 'foo');
+    }
+
     public function testImageUrlAcceptsCustomWidthAndHeight()
     {
         self::assertMatchesRegularExpression(

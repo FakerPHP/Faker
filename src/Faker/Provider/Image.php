@@ -25,7 +25,7 @@ class Image extends Base
     /**
      * @var array
      */
-    protected static $imageFormats = [
+    public static $imageFormats = [
         'gif', 'jpg', 'jpeg', 'png',
     ];
 
