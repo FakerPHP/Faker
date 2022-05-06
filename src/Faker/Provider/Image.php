@@ -23,6 +23,13 @@ class Image extends Base
     ];
 
     /**
+     * @var array
+     */
+    protected static $imageFormats = [
+        'gif', 'jpg', 'jpeg', 'png',
+    ];
+
+    /**
      * Generate the URL that will return a random image
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
@@ -35,6 +42,7 @@ class Image extends Base
      * @param bool        $randomize
      * @param string|null $word
      * @param bool        $gray
+     * @param string      $format
      *
      * @return string
      */
@@ -44,9 +52,19 @@ class Image extends Base
         $category = null,
         $randomize = true,
         $word = null,
-        $gray = false
+        $gray = false,
+        $format = 'png'
     ) {
-        $size = sprintf('%dx%d.png', $width, $height);
+        // Validate image format
+        if (!in_array(strtolower($format), static::$imageFormats)) {
+            throw new \InvalidArgumentException(sprintf(
+                'Invalid image format "%s". Allowable formats are: %s',
+                $format,
+                implode(', ', static::$imageFormats)
+            ));
+        }
+
+        $size = sprintf('%dx%d.%s', $width, $height, $format);
 
         $imageParts = [];
 
@@ -90,7 +108,8 @@ class Image extends Base
         $fullPath = true,
         $randomize = true,
         $word = null,
-        $gray = false
+        $gray = false,
+        $format = 'png'
     ) {
         $dir = null === $dir ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
         // Validate directory path
@@ -101,10 +120,10 @@ class Image extends Base
         // Generate a random filename. Use the server address so that a file
         // generated at the same time on a different server won't have a collision.
         $name = md5(uniqid(empty($_SERVER['SERVER_ADDR']) ? '' : $_SERVER['SERVER_ADDR'], true));
-        $filename = $name . '.png';
+        $filename = $name . '.' . $format;
         $filepath = $dir . DIRECTORY_SEPARATOR . $filename;
 
-        $url = static::imageUrl($width, $height, $category, $randomize, $word, $gray);
+        $url = static::imageUrl($width, $height, $category, $randomize, $word, $gray, $format);
 
         // save file
         if (function_exists('curl_exec')) {
