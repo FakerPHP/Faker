@@ -28,7 +28,7 @@ final class ImageTest extends TestCase
         }
     }
 
-    public function testImageUrlThrowsExceptionOnIllegalImageFormat()
+    public function testImageUrlThrowsExceptionOnInvalidImageFormat()
     {
         $this->expectException(\InvalidArgumentException::class);
         Image::imageUrl(format: 'foo');
