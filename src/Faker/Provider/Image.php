@@ -12,6 +12,10 @@ class Image extends Base
      */
     public const BASE_URL = 'https://via.placeholder.com';
 
+    public const FORMAT_JPG = 'jpg';
+    public const FORMAT_JPEG = 'jpeg';
+    public const FORMAT_PNG = 'png';
+
     /**
      * @var array
      *
@@ -20,13 +24,6 @@ class Image extends Base
     protected static $categories = [
         'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
         'fashion', 'people', 'nature', 'sports', 'technics', 'transport',
-    ];
-
-    /**
-     * @var array
-     */
-    public static $imageFormats = [
-        'gif', 'jpg', 'jpeg', 'png',
     ];
 
     /**
@@ -56,11 +53,12 @@ class Image extends Base
         $format = 'png'
     ) {
         // Validate image format
-        if (!in_array(strtolower($format), static::$imageFormats)) {
+        $imageFormats = static::getFormats();
+        if (!in_array(strtolower($format), $imageFormats, true)) {
             throw new \InvalidArgumentException(sprintf(
                 'Invalid image format "%s". Allowable formats are: %s',
                 $format,
-                implode(', ', static::$imageFormats)
+                implode(', ', $imageFormats)
             ));
         }
 
@@ -120,7 +118,7 @@ class Image extends Base
         // Generate a random filename. Use the server address so that a file
         // generated at the same time on a different server won't have a collision.
         $name = md5(uniqid(empty($_SERVER['SERVER_ADDR']) ? '' : $_SERVER['SERVER_ADDR'], true));
-        $filename = $name . '.' . $format;
+        $filename = sprintf('%s.%s', $name, $format);
         $filepath = $dir . DIRECTORY_SEPARATOR . $filename;
 
         $url = static::imageUrl($width, $height, $category, $randomize, $word, $gray, $format);
@@ -154,5 +152,19 @@ class Image extends Base
         }
 
         return $fullPath ? $filepath : $filename;
+    }
+
+    public static function getFormats(): array
+    {
+        return array_keys(static::getFormatConstants());
+    }
+
+    public static function getFormatConstants(): array
+    {
+        return [
+            static::FORMAT_JPG => constant('IMAGETYPE_JPEG'),
+            static::FORMAT_JPEG => constant('IMAGETYPE_JPEG'),
+            static::FORMAT_PNG => constant('IMAGETYPE_PNG')
+        ];
     }
 }
