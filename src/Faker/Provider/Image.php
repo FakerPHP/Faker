@@ -54,6 +54,7 @@ class Image extends Base
     ) {
         // Validate image format
         $imageFormats = static::getFormats();
+
         if (!in_array(strtolower($format), $imageFormats, true)) {
             throw new \InvalidArgumentException(sprintf(
                 'Invalid image format "%s". Allowable formats are: %s',
@@ -164,7 +165,7 @@ class Image extends Base
         return [
             static::FORMAT_JPG => constant('IMAGETYPE_JPEG'),
             static::FORMAT_JPEG => constant('IMAGETYPE_JPEG'),
-            static::FORMAT_PNG => constant('IMAGETYPE_PNG')
+            static::FORMAT_PNG => constant('IMAGETYPE_PNG'),
         ];
     }
 }
