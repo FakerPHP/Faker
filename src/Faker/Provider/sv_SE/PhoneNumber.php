@@ -34,4 +34,25 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '+46(0)%######',
         '+46%######',
     ];
+        
+     /**
+     * @var array Swedish mobile number formats
+     */
+    protected static $mobileFormats = [
+        '+467########',
+        '+46(0)7########',
+        '+46 (0)7## ## ## ##',
+        '+46 (0)7## ### ###',
+        '07## ## ## ##',
+        '07## ### ###',
+
+    ];
+
+    public function mobileNumber()
+    {
+        $format = static::randomElement(static::$mobileFormats);
+
+        return self::numerify($this->generator->parse($format));
+    }
+    
 }
