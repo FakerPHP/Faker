@@ -35,7 +35,7 @@ final class PersonTest extends TestCase
 
     public function testPersonalIdentityNumberGeneratesCompliantNumbers()
     {
-        if (strtotime('1800-01-01 00:00:00')) {
+        if (!$this->is32bitSystem()) {
             $min = '1900';
             $max = '2099';
 

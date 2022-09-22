@@ -43,6 +43,8 @@ final class DateTimeTest extends TestCase
 
     public function testDateTimeAD()
     {
+        $this->skipOn32bitSystem();
+
         $dateTime = $this->extension->dateTimeAD('2012-04-12T19:22:23');
 
         self::assertInstanceOf(\DateTime::class, $dateTime);
@@ -122,6 +124,8 @@ final class DateTimeTest extends TestCase
 
     public function testDate()
     {
+        $this->skipOn32bitSystem();
+
         $date = $this->extension->date('Y-m-d', '2102-11-12T14:45:29');
 
         self::assertIsString($date);

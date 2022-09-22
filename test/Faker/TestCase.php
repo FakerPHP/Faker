@@ -51,4 +51,16 @@ abstract class TestCase extends BaseTestCase
     {
         return [];
     }
+
+    protected function is32bitSystem(): bool
+    {
+        return PHP_INT_SIZE === 4;
+    }
+
+    protected function skipOn32bitSystem(): void
+    {
+        if ($this->is32bitSystem()) {
+            self::markTestSkipped('Test case is incompatible with 32-bit systems.');
+        }
+    }
 }

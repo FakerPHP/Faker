@@ -18,6 +18,8 @@ final class PersonTest extends TestCase
      */
     public function testIndividualIdentificationNumberIsValid()
     {
+        $this->skipOn32bitSystem();
+
         // 21st century.
         $birthDate = DateTime::dateTimeBetween('2000-01-01', '2099-12-31');
         $individualIdentificationNumber = $this->faker->individualIdentificationNumber($birthDate, Person::GENDER_MALE);

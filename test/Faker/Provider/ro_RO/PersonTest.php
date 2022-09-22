@@ -13,6 +13,12 @@ final class PersonTest extends TestCase
 {
     public const TEST_CNP_REGEX = '/^[1-9][0-9]{2}(?:0[1-9]|1[012])(?:0[1-9]|[12][0-9]|3[01])(?:0[1-9]|[123][0-9]|4[0-6]|5[12])[0-9]{3}[0-9]$/';
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->skipOn32bitSystem();
+    }
+
     public function invalidGenderProvider()
     {
         return [
