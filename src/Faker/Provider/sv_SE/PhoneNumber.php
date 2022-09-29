@@ -2,6 +2,9 @@
 
 namespace Faker\Provider\sv_SE;
 
+/**
+ * @see https://www.pts.se/sv/bransch/telefoni/nummer-och-adressering/telefoninummerplanen/telefonnummers-struktur/
+ */
 class PhoneNumber extends \Faker\Provider\PhoneNumber
 {
     /**
