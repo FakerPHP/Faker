@@ -276,9 +276,9 @@ final class GeneratorTest extends TestCase
 
         $remainingWords = $words;
         // ensure that all words are found only once
-        for ($i = 0; $i < count($words); $i++) {
+        for ($i = 0; $i < count($words); ++$i) {
             $word = $uniqueGenerator->word();
-            $foundKey = array_search($word, $remainingWords);
+            $foundKey = array_search($word, $remainingWords, true);
             self::assertNotFalse($foundKey);
             unset($remainingWords[$foundKey]);
         }
