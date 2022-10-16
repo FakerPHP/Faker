@@ -63,6 +63,6 @@ jobs:
         if: ${{ '8.1' != matrix.php-version && '8.2' != matrix.php-version }}
         run: ./vendor/bin/simple-phpunit
 
-      - name: Run tests for php 8.1
+      - name: Run tests for php >= 8.1
         if: ${{ '8.1' == matrix.php-version || '8.2' == matrix.php-version }}
         run: SYMFONY_PHPUNIT_VERSION=9.5 ./vendor/bin/simple-phpunit

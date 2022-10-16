@@ -9,6 +9,9 @@
     columns="max"
     verbose="true"
 >
+    <php>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[total]=404"/>
+    </php>
     <testsuites>
         <testsuite name="Faker Test Suite">
             <directory suffix="Test.php">./test/Faker</directory>
