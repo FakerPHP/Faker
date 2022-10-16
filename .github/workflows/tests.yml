@@ -24,6 +24,7 @@ jobs:
           - '7.4'
           - '8.0'
           - '8.1'
+          - '8.2'
         include:
           - operating-system: 'windows-latest'
             php-version: '7.1'
@@ -59,9 +60,9 @@ jobs:
         run: composer update --no-interaction --no-progress --optimize-autoloader
 
       - name: Run tests
-        if: ${{ '8.1' != matrix.php-version }}
+        if: ${{ '8.1' != matrix.php-version && '8.2' != matrix.php-version }}
         run: ./vendor/bin/simple-phpunit
 
       - name: Run tests for php 8.1
-        if: ${{ '8.1' == matrix.php-version }}
+        if: ${{ '8.1' == matrix.php-version || '8.2' == matrix.php-version }}
         run: SYMFONY_PHPUNIT_VERSION=9.5 ./vendor/bin/simple-phpunit
