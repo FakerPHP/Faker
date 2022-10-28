@@ -274,14 +274,13 @@ final class GeneratorTest extends TestCase
 
         $uniqueGenerator = $generator->unique();
 
-        $remainingWords = $words;
-        // ensure that all words are found only once
-        for ($i = 0; $i < count($words); ++$i) {
-            $word = $uniqueGenerator->word();
-            $foundKey = array_search($word, $remainingWords, true);
-            self::assertNotFalse($foundKey);
-            unset($remainingWords[$foundKey]);
-        }
+        $generatedWords = [
+            $uniqueGenerator->word(),
+            $uniqueGenerator->word(),
+            $uniqueGenerator->word(),
+        ];
+
+        self::assertEquals($words, $generatedWords);
     }
 
     public function testUniqueReturnsUniqueGeneratorThatThrowsWhenItCanNotGenerateUniqueValuesAnymore(): void
