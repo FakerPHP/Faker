@@ -215,10 +215,7 @@ final class DateTimeTest extends TestCase
         $century = $this->extension->century();
 
         self::assertIsString($century);
-        self::assertContains(
-            $century,
-            ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI']
-        );
+        self::assertEquals('XIX', $century);
     }
 
     public function testTimezone()
