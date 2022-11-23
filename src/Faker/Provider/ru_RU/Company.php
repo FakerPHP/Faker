@@ -133,6 +133,43 @@ class Company extends \Faker\Provider\Company
         return $inn_base . self::inn10Checksum($inn_base);
     }
 
+    /**
+     * Generates a Russian Main state registration number
+     * @see https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80
+     *
+     * @return string
+     */
+    public static function ogrn13()
+    {
+        $ogrn = [];
+
+        // 1-nt
+        $options = [1, 5];
+        shuffle($options);
+        $ogrn[] = $options[0];
+
+        // 2-nt - 3-nt
+        $ogrn[] = str_pad(mt_rand(2, date('y')), 2, '0', STR_PAD_LEFT);
+
+        // 4-nt - 5-nt
+        $ogrn[] = str_pad(mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
+
+        // 6-nt - 7-nt
+        $ogrn[] = str_pad(mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
+
+        // 8-nt - 12-nt
+        $ogrn[] = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+
+        // 13-nt
+        $checksum = ( (implode('', $ogrn) % 11) % 10 );
+        if ($checksum == 10) {
+            $checksum = 0;
+        }
+        $ogrn[] = $checksum;
+
+        return implode('', $ogrn);
+    }
+
     public static function kpp($inn = '')
     {
         if ($inn === '' || strlen($inn) < 4) {

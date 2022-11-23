@@ -17,6 +17,11 @@ final class CompanyTest extends TestCase
         self::assertEquals('02', substr($this->faker->inn10(2), 0, 2));
     }
 
+    public function testOGRN()
+    {
+        self::assertMatchesRegularExpression('/^[0-9]{13}$/', $this->faker->ogrn13);
+    }
+
     public function testKPP()
     {
         self::assertMatchesRegularExpression('/^[0-9]{9}$/', $this->faker->kpp);
