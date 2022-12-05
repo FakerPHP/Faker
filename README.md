@@ -66,7 +66,7 @@ You can use the provided [Rector](https://github.com/rectorphp/rector) config fi
 Run
 
 ```bash
-$ composer require --dev rector/rector
+composer require --dev rector/rector
 ```
 
 to install `rector/rector`.
