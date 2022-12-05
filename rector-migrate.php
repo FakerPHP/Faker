@@ -30,6 +30,7 @@ return static function (RectorConfig $rectorConfig): void {
     ];
 
     $methodCalls = [];
+
     foreach ($properties as $property) {
         $methodCalls[] = new PropertyFetchToMethodCall(Generator::class, $property, $property);
     }
