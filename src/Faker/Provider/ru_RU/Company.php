@@ -149,16 +149,16 @@ class Company extends \Faker\Provider\Company
         $ogrn[] = $options[0];
 
         // 2-nt - 3-nt
-        $ogrn[] = str_pad(mt_rand(2, date('y')), 2, '0', STR_PAD_LEFT);
+        $ogrn[] = str_pad((string) mt_rand(2, (int) date('y')), 2, '0', STR_PAD_LEFT);
 
         // 4-nt - 5-nt
-        $ogrn[] = str_pad(mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
+        $ogrn[] = str_pad((string) mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
 
         // 6-nt - 7-nt
-        $ogrn[] = str_pad(mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
+        $ogrn[] = str_pad((string) mt_rand(1, 99), 2, '0', STR_PAD_LEFT);
 
         // 8-nt - 12-nt
-        $ogrn[] = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+        $ogrn[] = str_pad((string) mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
 
         // 13-nt
         $checksum = ( (implode('', $ogrn) % 11) % 10 );
