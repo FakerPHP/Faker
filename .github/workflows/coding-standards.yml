@@ -61,3 +61,19 @@ jobs:
       - name: Run php-cs-fixer
         run: |
           vendor/bin/php-cs-fixer fix --diff --dry-run --verbose
+
+  yamllint:
+    name: "yamllint"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+
+      - name: "Lint YAML files"
+        uses: "ibiqlik/action-yamllint@v3.1.1"
+        with:
+          config_file: ".yamllint.yaml"
+          file_or_dir: "."
+          strict: true
