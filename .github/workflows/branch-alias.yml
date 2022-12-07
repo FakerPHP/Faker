@@ -1,6 +1,6 @@
 name: "Update branch alias"
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     tags: ["*"]
 
