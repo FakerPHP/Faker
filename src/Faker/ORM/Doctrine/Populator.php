@@ -61,7 +61,7 @@ class Populator
      * @param mixed $entity A Doctrine classname, or a \Faker\ORM\Doctrine\EntityPopulator instance
      * @param int   $number The number of entities to populate
      */
-    public function addEntity($entity, $number, $customColumnFormatters = [], $customModifiers = [], $generateId = false)
+    public function addEntity($entity, $number, $customColumnFormatters = [], $customModifiers = [], $generateId = false): void
     {
         if (!$entity instanceof \Faker\ORM\Doctrine\EntityPopulator) {
             if (null === $this->manager) {
@@ -111,7 +111,7 @@ class Populator
                 $insertedEntities[$class][] = $this->entities[$class]->execute(
                     $entityManager,
                     $insertedEntities,
-                    $generateId
+                    $generateId,
                 );
 
                 if (count($insertedEntities) % $this->batchSize === 0) {

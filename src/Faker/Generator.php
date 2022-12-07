@@ -584,7 +584,7 @@ class Generator
         if (!$this->container->has($id)) {
             throw new Extension\ExtensionNotFound(sprintf(
                 'No Faker extension with id "%s" was loaded.',
-                $id
+                $id,
             ));
         }
 
@@ -597,7 +597,7 @@ class Generator
         return $extension;
     }
 
-    public function addProvider($provider)
+    public function addProvider($provider): void
     {
         array_unshift($this->providers, $provider);
 
@@ -682,7 +682,7 @@ class Generator
         return new ValidGenerator($this, $validator, $maxRetries);
     }
 
-    public function seed($seed = null)
+    public function seed($seed = null): void
     {
         if ($seed === null) {
             mt_srand();
@@ -893,7 +893,7 @@ class Generator
         return $this->ext(Extension\NumberExtension::class)->randomFloat(
             $nbMaxDecimals !== null ? (int) $nbMaxDecimals : null,
             (float) $min,
-            $max !== null ? (float) $max : null
+            $max !== null ? (float) $max : null,
         );
     }
 
@@ -911,7 +911,7 @@ class Generator
     {
         return $this->ext(Extension\NumberExtension::class)->randomNumber(
             $nbDigits !== null ? (int) $nbDigits : null,
-            (bool) $strict
+            (bool) $strict,
         );
     }
 
@@ -966,7 +966,7 @@ class Generator
         $this->seed();
     }
 
-    public function __wakeup()
+    public function __wakeup(): void
     {
         $this->formatters = [];
     }

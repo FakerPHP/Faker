@@ -10,7 +10,7 @@ use Faker\Test\TestCase;
  */
 final class PhoneNumberTest extends TestCase
 {
-    public function testPhoneNumber()
+    public function testPhoneNumber(): void
     {
         for ($i = 0; $i < 10; ++$i) {
             $number = $this->faker->phoneNumber;
@@ -26,7 +26,7 @@ final class PhoneNumberTest extends TestCase
         }
     }
 
-    public function testTollFreePhoneNumber()
+    public function testTollFreePhoneNumber(): void
     {
         for ($i = 0; $i < 10; ++$i) {
             $number = $this->faker->tollFreeNumber;
@@ -41,7 +41,7 @@ final class PhoneNumberTest extends TestCase
         }
     }
 
-    public function testCellPhoneNumber()
+    public function testCellPhoneNumber(): void
     {
         for ($i = 0; $i < 10; ++$i) {
             $number = $this->faker->mobileNumber;
@@ -55,7 +55,7 @@ final class PhoneNumberTest extends TestCase
 
             self::assertMatchesRegularExpression(
                 '/^(\+27|27)?(\()?0?([6][0-4]|[7][1-9]|[8][1-9])(\))?( |-|\.|_)?(\d{3})( |-|\.|_)?(\d{4})/',
-                $number
+                $number,
             );
         }
     }

@@ -7,14 +7,14 @@ use Faker\Test\TestCase;
 
 final class UuidTest extends TestCase
 {
-    public function testUuidReturnsUuid()
+    public function testUuidReturnsUuid(): void
     {
         $instance = new Uuid();
         $uuid = $instance->uuid3();
         self::assertTrue($this->isUuid($uuid));
     }
 
-    public function testUuidExpectedSeed()
+    public function testUuidExpectedSeed(): void
     {
         $instance = new Uuid();
 
@@ -30,7 +30,7 @@ final class UuidTest extends TestCase
     {
         return is_string($uuid) && (bool) preg_match(
             '/^[a-f0-9]{8,8}-(?:[a-f0-9]{4,4}-){3,3}[a-f0-9]{12,12}$/i',
-            $uuid
+            $uuid,
         );
     }
 }

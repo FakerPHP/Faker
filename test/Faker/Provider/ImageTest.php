@@ -10,39 +10,39 @@ use Faker\Test\TestCase;
  */
 final class ImageTest extends TestCase
 {
-    public function testImageUrlUses640x680AsTheDefaultSize()
+    public function testImageUrlUses640x680AsTheDefaultSize(): void
     {
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/640x480.png/#',
-            Image::imageUrl()
+            Image::imageUrl(),
         );
     }
 
-    public function testImageUrlAcceptsCustomWidthAndHeight()
+    public function testImageUrlAcceptsCustomWidthAndHeight(): void
     {
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/800x400.png/#',
-            Image::imageUrl(800, 400)
+            Image::imageUrl(800, 400),
         );
     }
 
-    public function testImageUrlAcceptsCustomCategory()
+    public function testImageUrlAcceptsCustomCategory(): void
     {
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+.*#',
-            Image::imageUrl(800, 400, 'nature')
+            Image::imageUrl(800, 400, 'nature'),
         );
     }
 
-    public function testImageUrlAcceptsCustomText()
+    public function testImageUrlAcceptsCustomText(): void
     {
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+Faker#',
-            Image::imageUrl(800, 400, 'nature', false, 'Faker')
+            Image::imageUrl(800, 400, 'nature', false, 'Faker'),
         );
     }
 
-    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsFalse()
+    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsFalse(): void
     {
         $imageUrl = Image::imageUrl(
             800,
@@ -50,16 +50,16 @@ final class ImageTest extends TestCase
             'nature',
             false,
             'Faker',
-            false
+            false,
         );
 
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+Faker#',
-            $imageUrl
+            $imageUrl,
         );
     }
 
-    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsTrue()
+    public function testImageUrlReturnsLinkToRegularImageWhenGrayIsTrue(): void
     {
         $imageUrl = Image::imageUrl(
             800,
@@ -67,16 +67,16 @@ final class ImageTest extends TestCase
             'nature',
             false,
             'Faker',
-            true
+            true,
         );
 
         self::assertMatchesRegularExpression(
             '#^https://via.placeholder.com/800x400.png/CCCCCC\?text=nature\+Faker#',
-            $imageUrl
+            $imageUrl,
         );
     }
 
-    public function testImageUrlAddsARandomGetParameterByDefault()
+    public function testImageUrlAddsARandomGetParameterByDefault(): void
     {
         $url = Image::imageUrl(800, 400);
         $splitUrl = preg_split('/\?text=/', $url);
@@ -85,7 +85,7 @@ final class ImageTest extends TestCase
         self::assertMatchesRegularExpression('#\w*#', $splitUrl[1]);
     }
 
-    public function testImageUrlThrowsExceptionOnInvalidImageFormat()
+    public function testImageUrlThrowsExceptionOnInvalidImageFormat(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         Image::imageUrl(
@@ -95,11 +95,11 @@ final class ImageTest extends TestCase
             false,
             'Faker',
             true,
-            'foo'
+            'foo',
         );
     }
 
-    public function testImageUrlAcceptsDifferentImageFormats()
+    public function testImageUrlAcceptsDifferentImageFormats(): void
     {
         foreach (Image::getFormats() as $format) {
             $imageUrl = Image::imageUrl(
@@ -109,17 +109,17 @@ final class ImageTest extends TestCase
                 false,
                 'Faker',
                 true,
-                $format
+                $format,
             );
 
             self::assertMatchesRegularExpression(
                 "#^https://via.placeholder.com/800x400.{$format}/CCCCCC\?text=nature\+Faker#",
-                $imageUrl
+                $imageUrl,
             );
         }
     }
 
-    public function testDownloadWithDefaults()
+    public function testDownloadWithDefaults(): void
     {
         self::checkUrlConnection(Image::BASE_URL);
 
@@ -129,7 +129,7 @@ final class ImageTest extends TestCase
         self::checkImageProperties($file, 640, 480, 'png');
     }
 
-    public function testDownloadWithDifferentImageFormats()
+    public function testDownloadWithDifferentImageFormats(): void
     {
         self::checkUrlConnection(Image::BASE_URL);
 
@@ -145,7 +145,7 @@ final class ImageTest extends TestCase
                 false,
                 'Faker',
                 true,
-                $format
+                $format,
             );
             self::assertFileExists($file);
 
@@ -158,7 +158,7 @@ final class ImageTest extends TestCase
         int $width,
         int $height,
         string $format
-    ) {
+    ): void {
         if (function_exists('getimagesize')) {
             $imageConstants = Image::getFormatConstants();
             [$actualWidth, $actualHeight, $type, $attr] = getimagesize($file);
@@ -174,7 +174,7 @@ final class ImageTest extends TestCase
         }
     }
 
-    private static function checkUrlConnection(string $url)
+    private static function checkUrlConnection(string $url): void
     {
         $curlPing = curl_init($url);
         curl_setopt($curlPing, CURLOPT_TIMEOUT, 5);
