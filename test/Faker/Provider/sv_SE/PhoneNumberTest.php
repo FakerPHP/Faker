@@ -24,7 +24,7 @@ final class PhoneNumberTest extends TestCase
         $prefixes = ['+467', '+46(0)7', '+46 (0)7', '+46 (0)7', '07'];
 
         foreach ($prefixes as $prefix) {
-            if (str_starts_with($number, $prefix)) {
+            if (strpos($number, (string) $prefix) === 0) {
                 return true;
             }
         }
