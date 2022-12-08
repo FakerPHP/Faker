@@ -15,10 +15,21 @@ final class PhoneNumberTest extends TestCase
         for ($i = 0; $i < 10; ++$i) {
             $number = $this->faker->mobileNumber;
 
-            foreach(['+467', '+46(0)7', '+46 (0)7', '+46 (0)7', '07'] as $prefix) {
-                self::assertStringStartsWith($prefix, $number);
+            self::assertTrue(self::itStartsWithPrefix($number));
+        }
+    }
+
+    protected static function itStartsWithPrefix($number): bool
+    {
+        $prefixes = ['+467', '+46(0)7', '+46 (0)7', '+46 (0)7', '07'];
+
+        foreach ($prefixes as $prefix) {
+            if (str_starts_with($number, $prefix)) {
+                return true;
             }
         }
+
+        return false;
     }
 
     protected function getProviders(): iterable
