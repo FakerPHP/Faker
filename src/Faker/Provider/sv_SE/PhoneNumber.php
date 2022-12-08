@@ -51,7 +51,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
 
     ];
 
-    public function mobileNumber()
+    public function mobileNumber(): string
     {
         $format = static::randomElement(static::$mobileFormats);
 
