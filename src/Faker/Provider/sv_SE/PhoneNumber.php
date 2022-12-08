@@ -48,7 +48,6 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '+46 (0)7## ### ###',
         '07## ## ## ##',
         '07## ### ###',
-
     ];
 
     public function mobileNumber(): string
