@@ -148,14 +148,14 @@ return static function (RectorConfig $rectorConfig): void {
         'year',
     ];
 
-    $methodCalls = [];
-
-    foreach ($properties as $property) {
-        $methodCalls[] = new PropertyFetchToMethodCall(Generator::class, $property, $property);
-    }
-
     $rectorConfig->ruleWithConfiguration(
         PropertyFetchToMethodCallRector::class,
-        $methodCalls,
+        array_map(static function (string $property): PropertyFetchToMethodCall {
+            return new PropertyFetchToMethodCall(
+                Generator::class,
+                $property,
+                $property,
+            );
+        }, $properties),
     );
 };
