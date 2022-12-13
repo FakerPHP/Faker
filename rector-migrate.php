@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-use Rector\Config\RectorConfig;
-use Rector\Transform\Rector\Assign\PropertyFetchToMethodCallRector;
-use Rector\Transform\ValueObject\PropertyFetchToMethodCall;
+use Rector\Config;
+use Rector\Transform;
 
 // This file configures rector/rector to replace all deprecated property usages with their equivalent functions.
-return static function (RectorConfig $rectorConfig): void {
+return static function (Config\RectorConfig $rectorConfig): void {
     $properties = [
         'address',
         'amPm',
@@ -149,9 +148,9 @@ return static function (RectorConfig $rectorConfig): void {
     ];
 
     $rectorConfig->ruleWithConfiguration(
-        PropertyFetchToMethodCallRector::class,
-        array_map(static function (string $property): PropertyFetchToMethodCall {
-            return new PropertyFetchToMethodCall(
+        Transform\Rector\Assign\PropertyFetchToMethodCallRector::class,
+        array_map(static function (string $property): Transform\ValueObject\PropertyFetchToMethodCall {
+            return new Transform\ValueObject\PropertyFetchToMethodCall(
                 Generator::class,
                 $property,
                 $property,
