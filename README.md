@@ -85,7 +85,6 @@ Another way is to use it in your `rector.php` file:
 
 ```php
 $rectorConfig->import('vendor/fakerphp/faker/rector-migrate.php');
-$faker($rectorConfig);
 ```
 
 ## License
