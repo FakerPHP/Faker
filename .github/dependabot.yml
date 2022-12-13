@@ -44,7 +44,7 @@ updates:
       prefix: "composer"
     directory: "/vendor-bin/rector"
     labels:
-        - "dependency"
+      - "dependency"
     open-pull-requests-limit: 10
     package-ecosystem: "composer"
     schedule:
