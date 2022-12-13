@@ -156,6 +156,6 @@ return static function (RectorConfig $rectorConfig): void {
 
     $rectorConfig->ruleWithConfiguration(
         PropertyFetchToMethodCallRector::class,
-        $methodCalls
+        $methodCalls,
     );
 };
