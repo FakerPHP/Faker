@@ -151,9 +151,6 @@ return static function (RectorConfig $rectorConfig): void {
     $methodCalls = [];
 
     foreach ($properties as $property) {
-        if (!property_exists(\Faker\Generator::class, $property)) {
-            throw new \InvalidArgumentException(sprintf('Property "%s" does not exist in class "%s"', $property, \Faker\Generator::class));
-        }
 
         $methodCalls[] = new PropertyFetchToMethodCall(Generator::class, $property, $property);
     }
