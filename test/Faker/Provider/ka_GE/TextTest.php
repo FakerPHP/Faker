@@ -25,36 +25,36 @@ final class TextTest extends TestCase
         return $method;
     }
 
-    public function testItShouldAppendEndPunctToTheEndOfString()
+    public function testItShouldAppendEndPunctToTheEndOfString(): void
     {
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე ']),
         );
 
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე— '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე— ']),
         );
 
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე,  '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე,  ']),
         );
 
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე!.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე! '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე! ']),
         );
 
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე; '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე; ']),
         );
 
         self::assertSame(
             'ჭეშმარიტია. ჩვენც ისე.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე: '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['ჭეშმარიტია. ჩვენც ისე: ']),
         );
     }
 }

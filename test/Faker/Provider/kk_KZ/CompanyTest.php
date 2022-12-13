@@ -10,7 +10,7 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
-    public function testBusinessIdentificationNumberIsValid()
+    public function testBusinessIdentificationNumberIsValid(): void
     {
         $registrationDate = new \DateTime('now');
         $businessIdentificationNumber = $this->faker->businessIdentificationNumber($registrationDate);
@@ -18,7 +18,7 @@ final class CompanyTest extends TestCase
 
         self::assertMatchesRegularExpression(
             '/^(' . $registrationDateAsString . ')([4-6]{1})([0-3]{1})(\\d{6})$/',
-            $businessIdentificationNumber
+            $businessIdentificationNumber,
         );
     }
 

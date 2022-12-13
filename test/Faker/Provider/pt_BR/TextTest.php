@@ -25,36 +25,36 @@ final class TextTest extends TestCase
         return $method;
     }
 
-    public function testItShouldAppendEndPunctToTheEndOfString()
+    public function testItShouldAppendEndPunctToTheEndOfString(): void
     {
         self::assertSame(
             'Uma noite destas.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas, '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas, ']),
         );
 
         self::assertSame(
             'Uma noite destas.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas—   '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas—   ']),
         );
 
         self::assertSame(
             'Uma noite destas.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas,'])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas,']),
         );
 
         self::assertSame(
             'Uma noite destas!.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas! '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas! ']),
         );
 
         self::assertSame(
             'Uma noite destas.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas: '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas: ']),
         );
 
         self::assertSame(
             'Uma noite destas.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas; '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Uma noite destas; ']),
         );
     }
 }

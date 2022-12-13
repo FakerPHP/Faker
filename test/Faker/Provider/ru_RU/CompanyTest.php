@@ -10,14 +10,14 @@ use Faker\Test\TestCase;
  */
 final class CompanyTest extends TestCase
 {
-    public function testINN()
+    public function testINN(): void
     {
         self::assertMatchesRegularExpression('/^[0-9]{10}$/', $this->faker->inn10);
         self::assertEquals('77', substr($this->faker->inn10('77'), 0, 2));
         self::assertEquals('02', substr($this->faker->inn10(2), 0, 2));
     }
 
-    public function testKPP()
+    public function testKPP(): void
     {
         self::assertMatchesRegularExpression('/^[0-9]{9}$/', $this->faker->kpp);
         self::assertEquals('01001', substr($this->faker->kpp, -5, 5));
@@ -25,14 +25,14 @@ final class CompanyTest extends TestCase
         self::assertEquals(substr($inn10, 0, 4), substr($this->faker->kpp($inn10), 0, 4));
     }
 
-    public function testCatchPhrase()
+    public function testCatchPhrase(): void
     {
         $phrase = $this->faker->catchPhrase;
         self::assertNotNull($phrase);
         self::assertGreaterThanOrEqual(
             3,
             count(explode(' ', $this->faker->catchPhrase)),
-            "'$phrase' - should be contain 3 word"
+            "'$phrase' - should be contain 3 word",
         );
     }
 
@@ -50,7 +50,7 @@ final class CompanyTest extends TestCase
     /**
      * @dataProvider checksumProvider
      */
-    public function testInn10Checksum($inn10, $checksum)
+    public function testInn10Checksum($inn10, $checksum): void
     {
         self::assertSame($checksum, $this->faker->inn10Checksum($inn10), $inn10);
     }
@@ -71,7 +71,7 @@ final class CompanyTest extends TestCase
     /**
      * @dataProvider inn10ValidatorProvider
      */
-    public function testInn10IsValid($inn10, $isValid)
+    public function testInn10IsValid($inn10, $isValid): void
     {
         self::assertSame($isValid, $this->faker->inn10IsValid($inn10), $inn10);
     }

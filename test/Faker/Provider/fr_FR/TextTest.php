@@ -25,36 +25,36 @@ final class TextTest extends TestCase
         return $method;
     }
 
-    public function testItShouldAppendEndPunctToTheEndOfString()
+    public function testItShouldAppendEndPunctToTheEndOfString(): void
     {
         self::assertSame(
             'Que faisaient-elles maintenant? À.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À ']),
         );
 
         self::assertSame(
             'Que faisaient-elles maintenant? À.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À—   '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À—   ']),
         );
 
         self::assertSame(
             'Que faisaient-elles maintenant? À.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À,'])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À,']),
         );
 
         self::assertSame(
             'Que faisaient-elles maintenant? À!.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À! '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À! ']),
         );
 
         self::assertSame(
             'Que faisaient-elles maintenant? À.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À: '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À: ']),
         );
 
         self::assertSame(
             'Que faisaient-elles maintenant? À.',
-            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À; '])
+            $this->getMethod('appendEnd')->invokeArgs(null, ['Que faisaient-elles maintenant? À; ']),
         );
     }
 }

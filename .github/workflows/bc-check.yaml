@@ -1,0 +1,24 @@
+on: # yamllint disable-line rule:truthy
+  pull_request: ~
+  push:
+    branches:
+      - "main"
+      - "[0-9].*"
+
+name: "BC Check"
+
+jobs:
+  roave-bc-check:
+    name: "Roave BC Check"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout code"
+        uses: "actions/checkout@v3"
+
+      - name: "Roave BC Check"
+        uses: "addnab/docker-run-action@v3"
+        with:
+          image: "nyholm/roave-bc-check-ga"
+          options: "--env GITHUB_REPOSITORY=${{ github.repository }} --user 1001 --volume ${{ github.workspace }}:/app"
+          run: "/entrypoint.sh"

@@ -76,27 +76,27 @@ final class PersonTest extends TestCase
         ];
     }
 
-    public function testAllRandomReturnsValidCnp()
+    public function testAllRandomReturnsValidCnp(): void
     {
         $cnp = $this->faker->cnp;
         self::assertTrue(
             $this->isValidCnp($cnp),
-            sprintf("Invalid CNP '%' generated", $cnp)
+            sprintf("Invalid CNP '%' generated", $cnp),
         );
     }
 
-    public function testValidGenderReturnsValidCnp()
+    public function testValidGenderReturnsValidCnp(): void
     {
         $cnp = $this->faker->cnp(Person::GENDER_MALE);
         self::assertTrue(
             $this->isValidMaleCnp($cnp),
-            sprintf("Invalid CNP '%' generated for '%s' gender", $cnp, Person::GENDER_MALE)
+            sprintf("Invalid CNP '%' generated for '%s' gender", $cnp, Person::GENDER_MALE),
         );
 
         $cnp = $this->faker->cnp(Person::GENDER_FEMALE);
         self::assertTrue(
             $this->isValidFemaleCnp($cnp),
-            sprintf("Invalid CNP '%' generated for '%s' gender", $cnp, Person::GENDER_FEMALE)
+            sprintf("Invalid CNP '%' generated for '%s' gender", $cnp, Person::GENDER_FEMALE),
         );
     }
 
@@ -105,7 +105,7 @@ final class PersonTest extends TestCase
      *
      * @dataProvider invalidGenderProvider
      */
-    public function testInvalidGenderThrowsException($value)
+    public function testInvalidGenderThrowsException($value): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->faker->cnp($value);
@@ -116,12 +116,12 @@ final class PersonTest extends TestCase
      *
      * @dataProvider validYearProvider
      */
-    public function testValidYearReturnsValidCnp($value)
+    public function testValidYearReturnsValidCnp($value): void
     {
         $cnp = $this->faker->cnp(null, $value);
         self::assertTrue(
             $this->isValidCnp($cnp),
-            sprintf("Invalid CNP '%' generated for valid year '%s'", $cnp, $value)
+            sprintf("Invalid CNP '%' generated for valid year '%s'", $cnp, $value),
         );
     }
 
@@ -130,7 +130,7 @@ final class PersonTest extends TestCase
      *
      * @dataProvider invalidYearProvider
      */
-    public function testInvalidYearThrowsException($value)
+    public function testInvalidYearThrowsException($value): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->faker->cnp(null, $value);
@@ -138,38 +138,40 @@ final class PersonTest extends TestCase
 
     /**
      * @param string $value
+     *
      * @dataProvider validCountyCodeProvider
      */
-    public function testValidCountyCodeReturnsValidCnp($value)
+    public function testValidCountyCodeReturnsValidCnp($value): void
     {
         $cnp = $this->faker->cnp(null, null, $value);
         self::assertTrue(
             $this->isValidCnp($cnp),
-            sprintf("Invalid CNP '%' generated for valid year '%s'", $cnp, $value)
+            sprintf("Invalid CNP '%' generated for valid year '%s'", $cnp, $value),
         );
     }
 
     /**
      * @param string $value
+     *
      * @dataProvider invalidCountyCodeProvider
      */
-    public function testInvalidCountyCodeThrowsException($value)
+    public function testInvalidCountyCodeThrowsException($value): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->faker->cnp(null, null, $value);
     }
 
-    public function testNonResidentReturnsValidCnp()
+    public function testNonResidentReturnsValidCnp(): void
     {
         $cnp = $this->faker->cnp(null, null, null, false);
         self::assertTrue(
             $this->isValidCnp($cnp),
-            sprintf("Invalid CNP '%' generated for non resident", $cnp)
+            sprintf("Invalid CNP '%' generated for non resident", $cnp),
         );
         self::assertStringStartsWith(
             '9',
             $cnp,
-            sprintf("Invalid CNP '%' generated for non resident (should start with 9)", $cnp)
+            sprintf("Invalid CNP '%' generated for non resident (should start with 9)", $cnp),
         );
     }
 
@@ -182,13 +184,13 @@ final class PersonTest extends TestCase
      *
      * @dataProvider validInputDataProvider
      */
-    public function testValidInputDataReturnsValidCnp($gender, $dateOfBirth, $county, $isResident, $expectedCnpStart)
+    public function testValidInputDataReturnsValidCnp($gender, $dateOfBirth, $county, $isResident, $expectedCnpStart): void
     {
         $cnp = $this->faker->cnp($gender, $dateOfBirth, $county, $isResident);
         self::assertStringStartsWith(
             $expectedCnpStart,
             $cnp,
-            sprintf("Invalid CNP '%' generated for non valid data", $cnp)
+            sprintf("Invalid CNP '%' generated for non valid data", $cnp),
         );
     }
 

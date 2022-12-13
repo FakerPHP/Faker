@@ -180,7 +180,7 @@ class EntityPopulator
         return $obj;
     }
 
-    private function fillColumns($obj, $insertedEntities)
+    private function fillColumns($obj, $insertedEntities): void
     {
         foreach ($this->columnFormatters as $field => $format) {
             if (null !== $format) {
@@ -190,7 +190,7 @@ class EntityPopulator
         }
     }
 
-    private function callMethods($obj, $insertedEntities)
+    private function callMethods($obj, $insertedEntities): void
     {
         foreach ($this->getModifiers() as $modifier) {
             $modifier($obj, $insertedEntities);
