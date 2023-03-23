@@ -167,6 +167,22 @@ class Base
     }
 
     /**
+     * Returns a random string of $count letters
+     *
+     * @param integer $count
+     * @return string
+     */
+    public static function randomLetters($count = 1)
+    {
+        $result = '';
+        for ($i = 0; $i < $count; $i++) {
+            $result .= static::randomLetter();
+        }
+
+        return $result;
+    }
+
+    /**
      * Returns a random ASCII character (excluding accents and special chars)
      *
      * @return string
