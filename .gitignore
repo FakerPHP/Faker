@@ -1,3 +1,5 @@
+/.idea/
+/.vscode/
 /.build/
 /vendor/
 /vendor-bin/php-cs-fixer/vendor/
