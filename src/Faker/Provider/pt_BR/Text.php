@@ -50,7 +50,7 @@ class Text extends \Faker\Provider\Text
      *
      *   @see https://www.gutenberg.org/cache/epub/55752/pg55752.txt
      *
-     *   @var string
+     * @var string
      */
     protected static $baseText = <<<'EOT'
 I
