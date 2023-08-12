@@ -386,10 +386,33 @@ class Address extends \Faker\Provider\Address
         return static::randomFloat(6, 120, 122);
     }
 
+    public function county()
+    {
+        return static::randomElement(array_keys(static::$city));
+    }
+
+    public function distOf(string $county)
+    {
+        $dist = static::$city[$county] ?? [];
+
+        if ($dist === []) {
+            return null;
+        }
+
+        return static::randomElement($dist);
+    }
+
+    public function dist()
+    {
+        $county = $this->county();
+
+        return $this->distOf($county);
+    }
+
     public function city()
     {
-        $county = static::randomElement(array_keys(static::$city));
-        $city = static::randomElement(static::$city[$county]);
+        $county = $this->county();
+        $city = $this->distOf($county);
 
         return $county . $city;
     }

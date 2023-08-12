@@ -16,4 +16,47 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '(0##)######',
         '(0##)###-###',
     ];
+
+    public function localCellPhoneNumber(bool $addDashes = false)
+    {
+        if ($addDashes) {
+            return self::numerify('09##-###-###');
+        }
+
+        return self::numerify('09########');
+    }
+
+    public function intlCellPhoneNumber(bool $addDashes = false)
+    {
+        if ($addDashes) {
+            return self::numerify('+886-9##-###-###');
+        }
+
+        return self::numerify('+8869########');
+    }
+
+    public function localPhoneNumber(bool $addDashes = false)
+    {
+        if ($addDashes) {
+            return self::numerify(
+                self::randomElement(
+                    [
+                        '(02)####-####',
+                        '(0#)###-####',
+                        '(0##)###-###',
+                    ]
+                )
+            );
+        }
+
+        return self::numerify(
+            self::randomElement(
+                [
+                    '(02)########',
+                    '(0#)#######',
+                    '(0##)######',
+                ]
+            )
+        );
+    }
 }
