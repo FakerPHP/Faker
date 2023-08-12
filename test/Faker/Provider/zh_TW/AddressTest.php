@@ -17,7 +17,7 @@ final class AddressTest extends TestCase
 
         $county = $this->faker->county();
 
-        self::assertTrue(in_array($county, $city));
+        self::assertTrue(in_array($county, $city, true));
     }
 
     public function testDistOf(): void
@@ -29,7 +29,7 @@ final class AddressTest extends TestCase
         $county = $this->faker->county();
         $dist = $this->faker->distOf($county);
 
-        self::assertTrue(in_array($dist, $city[$county]));
+        self::assertTrue(in_array($dist, $city[$county], true));
     }
 
     public function testDist(): void
@@ -48,7 +48,7 @@ final class AddressTest extends TestCase
 
         $dist = $this->faker->dist();
 
-        self::assertTrue(in_array($dist, $distSet));
+        self::assertTrue(in_array($dist, $distSet, true));
     }
 
     protected function getProviders(): iterable
