@@ -17,7 +17,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '(0##)###-###',
     ];
 
-    public function localCellPhoneNumber(bool $addDashes = false)
+    public function cellPhoneNumber(bool $addDashes = false)
     {
         if ($addDashes) {
             return self::numerify('09##-###-###');
@@ -44,8 +44,8 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
                         '(02)####-####',
                         '(0#)###-####',
                         '(0##)###-###',
-                    ]
-                )
+                    ],
+                ),
             );
         }
 
@@ -55,8 +55,8 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
                     '(02)########',
                     '(0#)#######',
                     '(0##)######',
-                ]
-            )
+                ],
+            ),
         );
     }
 }
