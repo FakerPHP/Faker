@@ -38,7 +38,7 @@ final class Barcode implements Extension\BarcodeExtension
 
     public function isbn13(): string
     {
-        $code = '97' . mt_rand(8, 9) . Extension\Helper::numerify(str_repeat('#', 9));
+        $code = '97' . random_int(8, 9) . Extension\Helper::numerify(str_repeat('#', 9));
 
         return sprintf('%s%s', $code, Calculator\Ean::checksum($code));
     }

@@ -16,12 +16,12 @@ final class Number implements Extension\NumberExtension
         $int1 = min($min, $max);
         $int2 = max($min, $max);
 
-        return mt_rand($int1, $int2);
+        return random_int($int1, $int2);
     }
 
     public function randomDigit(): int
     {
-        return mt_rand(0, 9);
+        return random_int(0, 9);
     }
 
     public function randomDigitNot(int $except): int
@@ -37,7 +37,7 @@ final class Number implements Extension\NumberExtension
 
     public function randomDigitNotZero(): int
     {
-        return mt_rand(1, 9);
+        return random_int(1, 9);
     }
 
     public function randomFloat(?int $nbMaxDecimals = null, float $min = 0, ?float $max = null): float

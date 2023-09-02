@@ -51,7 +51,7 @@ class ChanceGenerator
      */
     public function __call($name, $arguments)
     {
-        if (mt_rand(1, 100) <= (100 * $this->weight)) {
+        if (random_int(1, 100) <= (100 * $this->weight)) {
             return call_user_func_array([$this->generator, $name], $arguments);
         }
 

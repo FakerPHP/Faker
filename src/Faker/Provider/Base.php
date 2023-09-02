@@ -31,7 +31,7 @@ class Base
      */
     public static function randomDigit()
     {
-        return mt_rand(0, 9);
+        return random_int(0, 9);
     }
 
     /**
@@ -41,7 +41,7 @@ class Base
      */
     public static function randomDigitNotNull()
     {
-        return mt_rand(1, 9);
+        return random_int(1, 9);
     }
 
     /**
@@ -90,10 +90,10 @@ class Base
         }
 
         if ($strict) {
-            return mt_rand(10 ** ($nbDigits - 1), $max);
+            return random_int(10 ** ($nbDigits - 1), $max);
         }
 
-        return mt_rand(0, $max);
+        return random_int(0, $max);
     }
 
     /**
