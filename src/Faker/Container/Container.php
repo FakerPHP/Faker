@@ -34,22 +34,12 @@ final class Container implements ContainerInterface
     /**
      * Retrieve a definition from the container.
      *
-     * @param string $id
-     *
-     * @throws \InvalidArgumentException
      * @throws \RuntimeException
      * @throws ContainerException
      * @throws NotInContainerException
      */
-    public function get($id): Extension
+    public function get(string $id): Extension
     {
-        if (!is_string($id)) {
-            throw new \InvalidArgumentException(sprintf(
-                'First argument of %s::get() must be string',
-                self::class,
-            ));
-        }
-
         if (array_key_exists($id, $this->services)) {
             return $this->services[$id];
         }
@@ -118,20 +108,9 @@ final class Container implements ContainerInterface
 
     /**
      * Check if the container contains a given identifier.
-     *
-     * @param string $id
-     *
-     * @throws \InvalidArgumentException
      */
-    public function has($id): bool
+    public function has(string $id): bool
     {
-        if (!is_string($id)) {
-            throw new \InvalidArgumentException(sprintf(
-                'First argument of %s::get() must be string',
-                self::class,
-            ));
-        }
-
         return array_key_exists($id, $this->definitions);
     }
 
