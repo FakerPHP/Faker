@@ -41,11 +41,7 @@ final class ContainerBuilder
         return new Container($this->definitions);
     }
 
-    /**
-     * Get an array with extension that represent the default English
-     * functionality.
-     */
-    public static function defaultExtensions(): array
+    private static function defaultExtensions(): array
     {
         return [
             Extension\BarcodeExtension::class => Core\Barcode::class,

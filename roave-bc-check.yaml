@@ -1,6 +1,7 @@
 parameters:
   ignoreErrors:
     - '#\[BC\] CHANGED: Class Faker\\Core\\Coordinates became final#'
+    - '#\[BC\] CHANGED: Method defaultExtensions\(\) of class Faker\\Container\\ContainerBuilder visibility reduced from public to private#'
     - '#\[BC\] CHANGED: Property Faker\\Factory::\$defaultProviders changed default value#'
     - '#\[BC\] CHANGED: Property Faker\\Provider\\[a-z_A-Z]+\\[a-zA-Z]+::\$[1-9a-zA-Z]+ changed default value#'
     - '#\[BC\] CHANGED: Property Faker\\Provider\\[a-zA-Z]+::\$[1-9a-zA-Z]+ changed default value#'
@@ -37,6 +38,7 @@ parameters:
     - '#\[BC\] REMOVED: Class Faker\\Extension\\ContainerException has been deleted#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\NotInContainerException has been deleted#'
     - '#\[BC\] REMOVED: Method Faker\\Container\\Container\#getDefinitions\(\) was removed#'
+    - '#\[BC\] REMOVED: Method Faker\\Container\\ContainerBuilder\::defaultExtensions\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Container\\ContainerInterface\#getDefinitions\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Core\\DateTime\#getDefaultTimezone\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Core\\DateTime\#getTimestamp\(\) was removed#'
