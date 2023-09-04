@@ -14,9 +14,9 @@ final class Barcode implements Extension\BarcodeExtension
 {
     private Extension\NumberExtension $numberExtension;
 
-    public function __construct(Extension\NumberExtension $numberExtension = null)
+    public function __construct(Extension\NumberExtension $numberExtension)
     {
-        $this->numberExtension = $numberExtension ?: new Number();
+        $this->numberExtension = $numberExtension;
     }
 
     private function ean(int $length = 13): string

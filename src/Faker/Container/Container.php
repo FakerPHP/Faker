@@ -87,7 +87,7 @@ final class Container implements ContainerInterface
     {
         if (is_callable($definition)) {
             try {
-                return $definition();
+                return $definition($this);
             } catch (\Throwable $e) {
                 throw new ContainerException(
                     sprintf('Error while invoking callable for "%s"', $id),
