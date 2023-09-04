@@ -18,10 +18,8 @@ class Ean
      * @see https://en.wikipedia.org/wiki/International_Article_Number
      *
      * @param string $digits
-     *
-     * @return int
      */
-    public static function checksum($digits)
+    public static function checksum($digits): int
     {
         $sequence = (strlen($digits) + 1) === 8 ? [3, 1] : [1, 3];
         $sums = 0;
@@ -38,10 +36,8 @@ class Ean
      * the checksum is correct.
      *
      * @param string $ean An EAN number
-     *
-     * @return bool
      */
-    public static function isValid($ean)
+    public static function isValid($ean): bool
     {
         if (!preg_match(self::PATTERN, $ean)) {
             return false;
