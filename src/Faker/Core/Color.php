@@ -15,7 +15,7 @@ final class Color implements Extension\ColorExtension
     /**
      * @var string[]
      */
-    private $safeColorNames = [
+    private array $safeColorNames = [
         'black', 'maroon', 'green', 'navy', 'olive',
         'purple', 'teal', 'lime', 'blue', 'silver',
         'gray', 'yellow', 'fuchsia', 'aqua', 'white',
@@ -24,7 +24,7 @@ final class Color implements Extension\ColorExtension
     /**
      * @var string[]
      */
-    private $allColorNames = [
+    private array $allColorNames = [
         'AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine',
         'Azure', 'Beige', 'Bisque', 'Black', 'BlanchedAlmond',
         'Blue', 'BlueViolet', 'Brown', 'BurlyWood', 'CadetBlue',

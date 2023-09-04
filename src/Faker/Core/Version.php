@@ -13,7 +13,7 @@ final class Version implements VersionExtension
     /**
      * @var string[]
      */
-    private $semverCommonPreReleaseIdentifiers = ['alpha', 'beta', 'rc'];
+    private array $semverCommonPreReleaseIdentifiers = ['alpha', 'beta', 'rc'];
 
     /**
      * Represents v2.0.0 of the semantic versioning: https://semver.org/spec/v2.0.0.html
