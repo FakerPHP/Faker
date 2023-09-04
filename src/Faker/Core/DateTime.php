@@ -56,16 +56,6 @@ final class DateTime implements DateTimeExtension, GeneratorAwareExtension
         return new \DateTime('@' . $timestamp);
     }
 
-    private function setDefaultTimezone(string $timezone = null): void
-    {
-        $this->defaultTimezone = $timezone;
-    }
-
-    private function getDefaultTimezone(): ?string
-    {
-        return $this->defaultTimezone;
-    }
-
     private function resolveTimezone(?string $timezone): string
     {
         if ($timezone !== null) {
