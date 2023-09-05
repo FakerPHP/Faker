@@ -18,20 +18,20 @@ final class ContainerBuilder
     private array $definitions = [];
 
     /**
-     * @param callable|object|string $value
+     * @param callable|object|string $definition
      *
      * @throws \InvalidArgumentException
      */
-    public function add(string $id, $value): self
+    public function add(string $id, $definition): self
     {
-        if (!is_string($value) && !is_callable($value) && !is_object($value)) {
+        if (!is_string($definition) && !is_callable($definition) && !is_object($definition)) {
             throw new \InvalidArgumentException(sprintf(
                 'First argument to "%s::add()" must be a string, callable or object.',
                 self::class,
             ));
         }
 
-        $this->definitions[$id] = $value;
+        $this->definitions[$id] = $definition;
 
         return $this;
     }
