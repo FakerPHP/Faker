@@ -65,9 +65,4 @@ final class ContainerBuilder
 
         return $instance;
     }
-
-    public static function getDefault(): ContainerInterface
-    {
-        return self::withDefaultExtensions()->build();
-    }
 }

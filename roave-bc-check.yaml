@@ -38,6 +38,7 @@ parameters:
     - '#\[BC\] REMOVED: Class Faker\\Extension\\ContainerException has been deleted#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\NotInContainerException has been deleted#'
     - '#\[BC\] REMOVED: Method Faker\\Container\\Container\#getDefinitions\(\) was removed#'
+    - '#\[BC\] REMOVED: Method Faker\\Container\\ContainerBuilder::getDefault\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Container\\ContainerBuilder\::defaultExtensions\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Container\\ContainerInterface\#getDefinitions\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Core\\DateTime\#getDefaultTimezone\(\) was removed#'
