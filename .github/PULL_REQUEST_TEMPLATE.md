@@ -17,4 +17,5 @@
 ### Review checklist
 
 - [ ] All checks have passed
+- [ ] Changes are added to the `CHANGELOG.md`
 - [ ] Changes are approved by maintainer
