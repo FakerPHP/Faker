@@ -7,6 +7,8 @@ namespace Faker\Extension;
 use Faker\Generator;
 
 /**
+ * @experimental This trait is experimental and does not fall under our BC promise
+ *
  * A helper trait to be used with GeneratorAwareExtension.
  */
 trait GeneratorAwareExtensionTrait
