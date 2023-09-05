@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.23.0...main)
 
+- Fixed polish license plates (#685)
+
 ## [2023-06-12, v1.23.0](https://github.com/FakerPHP/Faker/compare/v1.22.0..v1.23.0)
 
 - Update `randomElements` to return random number of elements when no count is provided (#658)
