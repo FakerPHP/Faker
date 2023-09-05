@@ -131,9 +131,11 @@ final class ContainerBuilderTest extends TestCase
         self::assertEquals($definition(), $container->get($id));
     }
 
-    public function testGetDefaultReturnsContainerWithDefaultExtensions(): void
+    public function testWithDefaultExtensionsReturnsContainerBuilderWithDefaultExtensions(): void
     {
-        $container = ContainerBuilder::getDefault();
+        $builder = ContainerBuilder::withDefaultExtensions();
+
+        $container = $builder->build();
 
         self::assertTrue($container->has(Extension\BarcodeExtension::class));
         self::assertTrue($container->has(Extension\BloodExtension::class));
