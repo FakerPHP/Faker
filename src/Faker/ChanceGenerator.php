@@ -13,7 +13,7 @@ use Faker\Extension\Extension;
 class ChanceGenerator
 {
     private $generator;
-    private $weight;
+    private float $weight;
     protected $default;
 
     /**

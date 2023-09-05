@@ -558,12 +558,9 @@ class Generator
     protected $providers = [];
     protected $formatters = [];
 
-    private $container;
+    private ContainerInterface $container;
 
-    /**
-     * @var UniqueGenerator
-     */
-    private $uniqueGenerator;
+    private ?UniqueGenerator $uniqueGenerator = null;
 
     public function __construct(ContainerInterface $container = null)
     {

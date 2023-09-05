@@ -32,6 +32,7 @@ parameters:
     - '#\[BC\] CHANGED: The parameter \$value of Faker\\Container\\ContainerBuilder\#add\(\) changed from no type to a non-contravariant string#'
     - '#\[BC\] CHANGED: The return type of Faker\\Extension\\PersonExtension\#name\(\) changed from no type to string#'
     - '#\[BC\] CHANGED: Type documentation for property Faker\\Provider\\en_ZA\\Internet::\$tld changed from having no type to array#'
+    - '#\[BC\] CHANGED: Type of property Faker\\Extension\\GeneratorAwareExtensionTrait\#\$generator changed from having no type to Faker\\Generator\|null#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\Container has been deleted#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\ContainerBuilder has been deleted#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\ContainerException has been deleted#'

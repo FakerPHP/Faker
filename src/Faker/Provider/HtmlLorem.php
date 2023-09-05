@@ -30,7 +30,7 @@ class HtmlLorem extends Base
     public const INPUT_TAG = 'input';
     public const LABEL_TAG = 'label';
 
-    private $idGenerator;
+    private ?UniqueGenerator $idGenerator = null;
 
     public function __construct(Generator $generator)
     {

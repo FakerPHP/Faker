@@ -11,10 +11,7 @@ use Faker\Generator;
  */
 trait GeneratorAwareExtensionTrait
 {
-    /**
-     * @var Generator|null
-     */
-    private $generator;
+    private ?Generator $generator = null;
 
     /**
      * @return static
