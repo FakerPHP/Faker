@@ -99,6 +99,10 @@ return static function (Config\RectorConfig $rectorConfig): void {
 
 Faker is released under the MIT License. See [`LICENSE`](LICENSE) for details.
 
+## PHP Version Support Policy
+
+The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version one year after it has reached its end of security support.
+
 ## Backward compatibility promise
 
 Faker is using [Semver](https://semver.org/). This means that versions are tagged
