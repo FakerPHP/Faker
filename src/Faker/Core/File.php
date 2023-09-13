@@ -547,14 +547,14 @@ final class File implements Extension\FileExtension
 
     public function mimeType(): string
     {
-        return array_rand($this->mimeTypes, 1);
+        return Extension\Helper::randomElement(array_keys($this->mimeTypes));
     }
 
     public function extension(): string
     {
-        $extension = $this->mimeTypes[array_rand($this->mimeTypes, 1)];
+        $extension = Extension\Helper::randomElement($this->mimeTypes);
 
-        return is_array($extension) ? $extension[array_rand($extension, 1)] : $extension;
+        return is_array($extension) ? Extension\Helper::randomElement($extension) : $extension;
     }
 
     public function filePath(): string

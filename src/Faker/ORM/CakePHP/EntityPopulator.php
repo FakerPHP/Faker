@@ -3,6 +3,7 @@
 namespace Faker\ORM\CakePHP;
 
 use Cake\ORM\TableRegistry;
+use Faker\Extension;
 
 class EntityPopulator
 {
@@ -112,7 +113,7 @@ class EntityPopulator
                     throw new \Exception(sprintf('%s belongsTo %s, which seems empty at this point.', $this->getTable($this->class)->table(), $assoc->table()));
                 }
 
-                $foreignKey = $foreignKeys[array_rand($foreignKeys)];
+                $foreignKey = Extension\Helper::randomElement($foreignKeys);
                 $data[$assoc->foreignKey()] = $foreignKey;
 
                 return $data;
