@@ -25,8 +25,8 @@ class Biased extends Base
     public function biasedNumberBetween($min = 0, $max = 100, $function = 'sqrt')
     {
         do {
-            $x = mt_rand() / Extension\Helper::largestRandomNumber();
-            $y = mt_rand() / (Extension\Helper::largestRandomNumber() + 1);
+            $x = Extension\Helper::randomNumber() / Extension\Helper::largestRandomNumber();
+            $y = Extension\Helper::randomNumber() / (Extension\Helper::largestRandomNumber() + 1);
         } while (call_user_func($function, $x) < $y);
 
         return (int) floor($x * ($max - $min + 1) + $min);

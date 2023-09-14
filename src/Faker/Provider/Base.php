@@ -128,7 +128,7 @@ class Base
             $max = $tmp;
         }
 
-        return round($min + mt_rand() / Extension\Helper::largestRandomNumber() * ($max - $min), $nbMaxDecimals);
+        return round($min + Extension\Helper::randomNumber() / Extension\Helper::largestRandomNumber() * ($max - $min), $nbMaxDecimals);
     }
 
     /**
@@ -643,7 +643,7 @@ class Base
     {
         // old system based on 0.1 <= $weight <= 0.9
         // TODO: remove in v2
-        if ($weight > 0 && $weight < 1 && mt_rand() / Extension\Helper::largestRandomNumber() <= $weight) {
+        if ($weight > 0 && $weight < 1 && Extension\Helper::randomNumber() / Extension\Helper::largestRandomNumber() <= $weight) {
             return $this->generator;
         }
 

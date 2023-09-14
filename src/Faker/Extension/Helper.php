@@ -21,6 +21,11 @@ final class Helper
         return $array[array_rand($array, 1)];
     }
 
+    public static function randomNumber(): int
+    {
+        return mt_rand();
+    }
+
     public static function largestRandomNumber(): int
     {
         return mt_getrandmax();

@@ -4,6 +4,7 @@ namespace Faker\ORM\Doctrine;
 
 use Doctrine\Common\Persistence\Mapping\ClassMetadata;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Extension;
 
 require_once 'backward-compatibility.php';
 
@@ -240,7 +241,7 @@ class EntityPopulator
         $ids = array_map('current', $result->toArray());
 
         do {
-            $id = mt_rand();
+            $id = Extension\Helper::randomNumber();
         } while (in_array($id, $ids, false));
 
         return $id;
