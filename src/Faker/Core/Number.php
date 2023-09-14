@@ -60,7 +60,7 @@ final class Number implements Extension\NumberExtension
             $max = $tmp;
         }
 
-        return round($min + $this->numberBetween() / mt_getrandmax() * ($max - $min), $nbMaxDecimals);
+        return round($min + $this->numberBetween() / Extension\Helper::largestRandomNumber() * ($max - $min), $nbMaxDecimals);
     }
 
     public function randomNumber(int $nbDigits = null, bool $strict = false): int
@@ -70,7 +70,7 @@ final class Number implements Extension\NumberExtension
         }
         $max = 10 ** $nbDigits - 1;
 
-        if ($max > mt_getrandmax()) {
+        if ($max > Extension\Helper::largestRandomNumber()) {
             throw new \InvalidArgumentException('randomNumber() can only generate numbers up to mt_getrandmax()');
         }
 

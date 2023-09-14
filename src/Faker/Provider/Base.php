@@ -3,6 +3,7 @@
 namespace Faker\Provider;
 
 use Faker\DefaultGenerator;
+use Faker\Extension;
 use Faker\Generator;
 use Faker\UniqueGenerator;
 use Faker\ValidGenerator;
@@ -85,7 +86,7 @@ class Base
         }
         $max = 10 ** $nbDigits - 1;
 
-        if ($max > mt_getrandmax()) {
+        if ($max > Extension\Helper::largestRandomNumber()) {
             throw new \InvalidArgumentException('randomNumber() can only generate numbers up to mt_getrandmax()');
         }
 
@@ -127,7 +128,7 @@ class Base
             $max = $tmp;
         }
 
-        return round($min + mt_rand() / mt_getrandmax() * ($max - $min), $nbMaxDecimals);
+        return round($min + mt_rand() / Extension\Helper::largestRandomNumber() * ($max - $min), $nbMaxDecimals);
     }
 
     /**
@@ -449,7 +450,7 @@ class Base
         }
 
         if ($nbReplacements = count($toReplace)) {
-            $maxAtOnce = strlen((string) mt_getrandmax()) - 1;
+            $maxAtOnce = strlen((string) Extension\Helper::largestRandomNumber()) - 1;
             $numbers = '';
             $i = 0;
 
@@ -642,7 +643,7 @@ class Base
     {
         // old system based on 0.1 <= $weight <= 0.9
         // TODO: remove in v2
-        if ($weight > 0 && $weight < 1 && mt_rand() / mt_getrandmax() <= $weight) {
+        if ($weight > 0 && $weight < 1 && mt_rand() / Extension\Helper::largestRandomNumber() <= $weight) {
             return $this->generator;
         }
 

@@ -21,6 +21,11 @@ final class Helper
         return $array[array_rand($array, 1)];
     }
 
+    public static function largestRandomNumber(): int
+    {
+        return mt_getrandmax();
+    }
+
     /**
      * Replaces all hash sign ('#') occurrences with a random number
      * Replaces all percentage sign ('%') occurrences with a non-zero number.
@@ -42,7 +47,7 @@ final class Helper
         }
 
         if ($nbReplacements = count($toReplace)) {
-            $maxAtOnce = strlen((string) mt_getrandmax()) - 1;
+            $maxAtOnce = strlen((string) self::largestRandomNumber()) - 1;
             $numbers = '';
             $i = 0;
 
