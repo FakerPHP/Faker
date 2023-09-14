@@ -2,8 +2,6 @@
 
 namespace Faker;
 
-use Faker\Extension\Extension;
-
 /**
  * This generator returns a default value for all called properties
  * and methods. It works with Faker\Generator::optional().
@@ -17,7 +15,7 @@ class ChanceGenerator
     protected $default;
 
     /**
-     * @param Extension|Generator $generator
+     * @param Extension\Extension|Generator $generator
      */
     public function __construct($generator, float $weight, $default = null)
     {
@@ -51,7 +49,7 @@ class ChanceGenerator
      */
     public function __call($name, $arguments)
     {
-        if (mt_rand(1, 100) <= (100 * $this->weight)) {
+        if (Extension\Helper::randomNumberBetween(1, 100) <= (100 * $this->weight)) {
             return call_user_func_array([$this->generator, $name], $arguments);
         }
 

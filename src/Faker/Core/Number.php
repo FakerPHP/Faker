@@ -16,7 +16,7 @@ final class Number implements Extension\NumberExtension
         $int1 = min($min, $max);
         $int2 = max($min, $max);
 
-        return mt_rand($int1, $int2);
+        return Extension\Helper::randomNumberBetween($int1, $int2);
     }
 
     public function randomDigit(): int

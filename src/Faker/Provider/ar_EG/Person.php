@@ -2,6 +2,8 @@
 
 namespace Faker\Provider\ar_EG;
 
+use Faker\Extension;
+
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
@@ -86,12 +88,12 @@ class Person extends \Faker\Provider\Person
      */
     public static function nationalIdNumber($gender = null)
     {
-        $randomBirthDateTimestamp = mt_rand(strtotime('1950-Jan-10'), strtotime('2005-Dec-25'));
+        $randomBirthDateTimestamp = Extension\Helper::randomNumberBetween(strtotime('1950-Jan-10'), strtotime('2005-Dec-25'));
 
         $centuryId = ((int) date('Y', $randomBirthDateTimestamp)) >= 2000 ? 3 : 2;
         $fullBirthDate = date('ymd', $randomBirthDateTimestamp);
         $governorateId = Address::governorateId();
-        $birthRegistrationSequence = mt_rand(1, 500);
+        $birthRegistrationSequence = Extension\Helper::randomNumberBetween(1, 500);
 
         if ($gender === static::GENDER_MALE) {
             $birthRegistrationSequence = $birthRegistrationSequence | 1; // Convert to the nearest odd number
@@ -100,7 +102,7 @@ class Person extends \Faker\Provider\Person
         }
 
         $birthRegistrationSequence = str_pad((string) $birthRegistrationSequence, 4, '0', STR_PAD_LEFT);
-        $randomCheckDigit = mt_rand(1, 9);
+        $randomCheckDigit = Extension\Helper::randomNumberBetween(1, 9);
 
         return $centuryId . $fullBirthDate . $governorateId . $birthRegistrationSequence . $randomCheckDigit;
     }

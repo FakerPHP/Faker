@@ -32,7 +32,7 @@ class Base
      */
     public static function randomDigit()
     {
-        return mt_rand(0, 9);
+        return Extension\Helper::randomNumberBetween(0, 9);
     }
 
     /**
@@ -42,7 +42,7 @@ class Base
      */
     public static function randomDigitNotNull()
     {
-        return mt_rand(1, 9);
+        return Extension\Helper::randomNumberBetween(1, 9);
     }
 
     /**
@@ -91,10 +91,10 @@ class Base
         }
 
         if ($strict) {
-            return mt_rand(10 ** ($nbDigits - 1), $max);
+            return Extension\Helper::randomNumberBetween(10 ** ($nbDigits - 1), $max);
         }
 
-        return mt_rand(0, $max);
+        return Extension\Helper::randomNumberBetween(0, $max);
     }
 
     /**
@@ -146,7 +146,7 @@ class Base
         $min = $int1 < $int2 ? $int1 : $int2;
         $max = $int1 < $int2 ? $int2 : $int1;
 
-        return mt_rand($min, $max);
+        return Extension\Helper::randomNumberBetween($min, $max);
     }
 
     /**
@@ -164,7 +164,7 @@ class Base
      */
     public static function randomLetter()
     {
-        return chr(mt_rand(97, 122));
+        return chr(Extension\Helper::randomNumberBetween(97, 122));
     }
 
     /**
@@ -174,7 +174,7 @@ class Base
      */
     public static function randomAscii()
     {
-        return chr(mt_rand(33, 126));
+        return chr(Extension\Helper::randomNumberBetween(33, 126));
     }
 
     /**
@@ -223,7 +223,7 @@ class Base
         }
 
         if (null === $count) {
-            $count = mt_rand(1, $numberOfElements);
+            $count = Extension\Helper::randomNumberBetween(1, $numberOfElements);
         }
 
         $randomElements = [];
@@ -234,7 +234,7 @@ class Base
         $numberOfRandomElements = 0;
 
         while ($numberOfRandomElements < $count) {
-            $index = mt_rand(0, $maxIndex);
+            $index = Extension\Helper::randomNumberBetween(0, $maxIndex);
 
             if (!$allowDuplicates) {
                 if (isset($elementHasBeenSelectedAlready[$index])) {
@@ -305,7 +305,7 @@ class Base
         }
         $keys = array_keys($array);
 
-        return $keys[mt_rand(0, count($keys) - 1)];
+        return $keys[Extension\Helper::randomNumberBetween(0, count($keys) - 1)];
     }
 
     /**
@@ -362,7 +362,7 @@ class Base
             if ($i == 0) {
                 $j = 0;
             } else {
-                $j = mt_rand(0, $i);
+                $j = Extension\Helper::randomNumberBetween(0, $i);
             }
 
             if ($j == $i) {
@@ -492,7 +492,7 @@ class Base
     public static function bothify($string = '## ??')
     {
         $string = self::replaceWildcard($string, '*', static function () {
-            return mt_rand(0, 1) === 1 ? '#' : '?';
+            return Extension\Helper::randomNumberBetween(0, 1) === 1 ? '#' : '?';
         });
 
         return static::lexify(static::numerify($string));
@@ -648,7 +648,7 @@ class Base
         }
 
         // new system with percentage
-        if (is_int($weight) && mt_rand(1, 100) <= $weight) {
+        if (is_int($weight) && Extension\Helper::randomNumberBetween(1, 100) <= $weight) {
             return $this->generator;
         }
 
