@@ -8,6 +8,7 @@ use Faker\Container\ContainerBuilder;
 use Faker\Core\File;
 use Faker\Core\Number;
 use Faker\Extension;
+use Faker\Generator;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -86,7 +87,9 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildReturnsContainerWhenContainerBuilderHasOverriddenDefinitions(): void
     {
         $id = 'foo';
-        $definition = Number::class;
+        $definition = static function (): Extension\NumberExtension {
+            return new Number(new Generator\MersenneTwisterIntegerGenerator());
+        };
 
         $builder = new ContainerBuilder();
 
@@ -96,7 +99,7 @@ final class ContainerBuilderTest extends TestCase
         $container = $builder->build();
 
         self::assertTrue($container->has($id));
-        self::assertInstanceOf($definition, $container->get($id));
+        self::assertEquals($definition(), $container->get($id));
     }
 
     public function testBuildReturnsContainerWhenContainerBuilderHasObjectAsDefinition(): void

@@ -6,20 +6,21 @@ namespace Faker\Test\Core;
 
 use Faker\Core\Number;
 use Faker\Core\Uuid;
+use Faker\Generator;
 use Faker\Test\TestCase;
 
 final class UuidTest extends TestCase
 {
     public function testUuidReturnsUuid(): void
     {
-        $instance = new Uuid(new Number());
+        $instance = new Uuid(new Number(new Generator\MersenneTwisterIntegerGenerator()));
         $uuid = $instance->uuid3();
         self::assertTrue($this->isUuid($uuid));
     }
 
     public function testUuidExpectedSeed(): void
     {
-        $instance = new Uuid(new Number());
+        $instance = new Uuid(new Number(new Generator\MersenneTwisterIntegerGenerator()));
 
         if (pack('L', 0x6162797A) == pack('N', 0x6162797A)) {
             self::markTestSkipped('Big Endian');

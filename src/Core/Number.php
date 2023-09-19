@@ -5,28 +5,36 @@ declare(strict_types=1);
 namespace Faker\Core;
 
 use Faker\Extension;
+use Faker\Generator;
 
 /**
  * @experimental This class is experimental and does not fall under our BC promise
  */
 final class Number implements Extension\NumberExtension
 {
+    private Generator\IntegerGenerator $integerGenerator;
+
+    public function __construct(Generator\IntegerGenerator $integerGenerator)
+    {
+        $this->integerGenerator = $integerGenerator;
+    }
+
     public function numberBetween(int $min = 0, int $max = 2147483647): int
     {
         $int1 = min($min, $max);
         $int2 = max($min, $max);
 
-        return Extension\Helper::randomNumberBetween($int1, $int2);
+        return $this->integerGenerator->integerBetween($int1, $int2);
     }
 
     public function randomDigit(): int
     {
-        return $this->numberBetween(0, 9);
+        return $this->integerGenerator->integerBetween(0, 9);
     }
 
     public function randomDigitNot(int $except): int
     {
-        $result = $this->numberBetween(0, 8);
+        $result = $this->integerGenerator->integerBetween(0, 8);
 
         if ($result >= $except) {
             ++$result;
@@ -37,17 +45,17 @@ final class Number implements Extension\NumberExtension
 
     public function randomDigitNotZero(): int
     {
-        return $this->numberBetween(1, 9);
+        return $this->integerGenerator->integerBetween(1, 9);
     }
 
     public function randomFloat(?int $nbMaxDecimals = null, float $min = 0, ?float $max = null): float
     {
         if (null === $nbMaxDecimals) {
-            $nbMaxDecimals = $this->randomDigit();
+            $nbMaxDecimals = $this->integerGenerator->integerBetween(0, 9);
         }
 
         if (null === $max) {
-            $max = $this->randomNumber();
+            $max = $this->integerGenerator->integer();
 
             if ($min > $max) {
                 $max = $min;
@@ -60,24 +68,29 @@ final class Number implements Extension\NumberExtension
             $max = $tmp;
         }
 
-        return round($min + $this->numberBetween() / Extension\Helper::largestRandomNumber() * ($max - $min), $nbMaxDecimals);
+        return round($min + $this->integerGenerator->integer() / $this->integerGenerator->largestInteger() * ($max - $min), $nbMaxDecimals);
     }
 
     public function randomNumber(int $nbDigits = null, bool $strict = false): int
     {
         if (null === $nbDigits) {
-            $nbDigits = $this->randomDigitNotZero();
+            $nbDigits = $this->integerGenerator->integerBetween(1, 9);
         }
         $max = 10 ** $nbDigits - 1;
 
-        if ($max > Extension\Helper::largestRandomNumber()) {
-            throw new \InvalidArgumentException('randomNumber() can only generate numbers up to mt_getrandmax()');
+        $largestInteger = $this->integerGenerator->largestInteger();
+
+        if ($max > $largestInteger) {
+            throw new \InvalidArgumentException(sprintf(
+                'randomNumber() can only generate numbers up to %d.',
+                $largestInteger,
+            ));
         }
 
         if ($strict) {
-            return $this->numberBetween(10 ** ($nbDigits - 1), $max);
+            return $this->integerGenerator->integerBetween(10 ** ($nbDigits - 1), $max);
         }
 
-        return $this->numberBetween(0, $max);
+        return $this->integerGenerator->integerBetween(0, $max);
     }
 }

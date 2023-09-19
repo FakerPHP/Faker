@@ -6,6 +6,7 @@ namespace Faker\Container;
 
 use Faker\Core;
 use Faker\Extension;
+use Faker\Generator;
 
 /**
  * @experimental This class is experimental and does not fall under our BC promise
@@ -44,6 +45,7 @@ final class ContainerBuilder
     private static function defaultExtensions(): array
     {
         return [
+            Generator\IntegerGenerator::class => Generator\MersenneTwisterIntegerGenerator::class,
             Extension\BarcodeExtension::class => static function (ContainerInterface $container): Extension\BarcodeExtension {
                 return new Core\Barcode($container->get(Extension\NumberExtension::class));
             },
@@ -53,7 +55,9 @@ final class ContainerBuilder
             },
             Extension\DateTimeExtension::class => Core\DateTime::class,
             Extension\FileExtension::class => Core\File::class,
-            Extension\NumberExtension::class => Core\Number::class,
+            Extension\NumberExtension::class => static function (ContainerInterface $container): Extension\NumberExtension {
+                return new Core\Number($container->get(Generator\IntegerGenerator::class));
+            },
             Extension\VersionExtension::class => static function (ContainerInterface $container): Extension\VersionExtension {
                 return new Core\Version($container->get(Extension\NumberExtension::class));
             },
