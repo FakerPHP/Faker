@@ -52,6 +52,10 @@
         "sort-packages": true
     },
     "extra": {
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": false
+        },
         "branch-alias": {
             "dev-main": "v1.21-dev"
         }
