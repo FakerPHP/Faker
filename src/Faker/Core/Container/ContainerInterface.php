@@ -1,6 +1,6 @@
 <?php
 
-namespace Faker\Container;
+namespace Faker\Core\Container;
 
 use Psr\Container\ContainerInterface as BaseContainerInterface;
 

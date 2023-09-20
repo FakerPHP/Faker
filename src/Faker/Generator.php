@@ -2,8 +2,6 @@
 
 namespace Faker;
 
-use Faker\Container\ContainerInterface;
-
 /**
  * @property string $citySuffix
  *
@@ -565,9 +563,9 @@ class Generator
      */
     private $uniqueGenerator;
 
-    public function __construct(ContainerInterface $container = null)
+    public function __construct(Core\Container\ContainerInterface $container = null)
     {
-        $this->container = $container ?: Container\ContainerBuilder::withDefaultExtensions()->build();
+        $this->container = $container ?: Core\Container\ContainerBuilder::withDefaultExtensions()->build();
     }
 
     /**

@@ -2,25 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Faker\Test\Extension;
+namespace Faker\Test\Core\Container;
 
-use Faker\Container\Container;
-use Faker\Container\ContainerException;
-use Faker\Core\File;
-use Faker\Extension\Extension;
+use Faker\Core;
+use Faker\Extension;
 use Faker\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * @covers \Faker\Container\Container
+ * @covers \Faker\Core\Container\Container
  */
 final class ContainerTest extends TestCase
 {
     public function testHasThrowsInvalidArgumentExceptionWhenIdentifierIsNotAString(): void
     {
-        $container = new Container([]);
+        $container = new Core\Container\Container([]);
 
         $this->expectException(\InvalidArgumentException::class);
 
@@ -29,14 +27,14 @@ final class ContainerTest extends TestCase
 
     public function testHasReturnsFalseWhenContainerDoesNotHaveDefinitionForService(): void
     {
-        $container = new Container([]);
+        $container = new Core\Container\Container([]);
 
         self::assertFalse($container->has('foo'));
     }
 
     public function testGetThrowsInvalidArgumentExceptionWhenIdentifierIsNotAString(): void
     {
-        $container = new Container([]);
+        $container = new Core\Container\Container([]);
 
         $this->expectException(\InvalidArgumentException::class);
 
@@ -45,7 +43,7 @@ final class ContainerTest extends TestCase
 
     public function testGetThrowsNotFoundExceptionWhenContainerDoesNotHaveDefinitionForService(): void
     {
-        $container = new Container([]);
+        $container = new Core\Container\Container([]);
 
         $this->expectException(NotFoundExceptionInterface::class);
 
@@ -54,26 +52,26 @@ final class ContainerTest extends TestCase
 
     public function testGetFromString(): void
     {
-        $container = new Container([
-            'file' => File::class,
+        $container = new Core\Container\Container([
+            'file' => Core\File::class,
         ]);
 
         $object = $container->get('file');
 
-        self::assertInstanceOf(File::class, $object);
+        self::assertInstanceOf(Core\File::class, $object);
     }
 
     public function testGetThrowsRuntimeExceptionWhenServiceCouldNotBeResolvedFromCallable(): void
     {
         $id = 'foo';
 
-        $container = new Container([
+        $container = new Core\Container\Container([
             $id => static function (): void {
                 throw new \RuntimeException();
             },
         ]);
 
-        $this->expectException(ContainerException::class);
+        $this->expectException(Core\Container\ContainerException::class);
         $this->expectExceptionMessage(sprintf(
             'Error while invoking callable for "%s"',
             $id,
@@ -86,11 +84,11 @@ final class ContainerTest extends TestCase
     {
         $id = 'foo';
 
-        $container = new Container([
-            $id => Test\Fixture\Container\UnconstructableClass::class,
+        $container = new Core\Container\Container([
+            $id => Test\Fixture\Core\Container\UnconstructableClass::class,
         ]);
 
-        $this->expectException(ContainerException::class);
+        $this->expectException(Core\Container\ContainerException::class);
         $this->expectExceptionMessage(sprintf(
             'Could not instantiate class "%s"',
             $id,
@@ -106,7 +104,7 @@ final class ContainerTest extends TestCase
     {
         $id = 'file';
 
-        $container = new Container([
+        $container = new Core\Container\Container([
             $id => $definition,
         ]);
 
@@ -114,7 +112,7 @@ final class ContainerTest extends TestCase
         $this->expectExceptionMessage(sprintf(
             'Service resolved for identifier "%s" does not implement the %s" interface.',
             $id,
-            Extension::class,
+            Extension\Extension::class,
         ));
 
         $container->get($id);
@@ -127,7 +125,7 @@ final class ContainerTest extends TestCase
     {
         $id = 'file';
 
-        $container = new Container([
+        $container = new Core\Container\Container([
             $id => $definition,
         ]);
 
@@ -141,7 +139,7 @@ final class ContainerTest extends TestCase
         $this->expectExceptionMessage(sprintf(
             'Service resolved for identifier "%s" does not implement the %s" interface.',
             $id,
-            Extension::class,
+            Extension\Extension::class,
         ));
 
         $container->get($id);
@@ -169,7 +167,7 @@ final class ContainerTest extends TestCase
 
     public function testGetFromNoClassString(): void
     {
-        $container = new Container([
+        $container = new Core\Container\Container([
             'file' => 'this is not a class',
         ]);
 
@@ -180,31 +178,31 @@ final class ContainerTest extends TestCase
 
     public function testGetFromCallable(): void
     {
-        $container = new Container([
+        $container = new Core\Container\Container([
             'file' => static function () {
-                return new File();
+                return new Core\File();
             },
         ]);
 
         $object = $container->get('file');
 
-        self::assertInstanceOf(File::class, $object);
+        self::assertInstanceOf(Core\File::class, $object);
     }
 
     public function testGetFromObject(): void
     {
-        $container = new Container([
-            'file' => new File(),
+        $container = new Core\Container\Container([
+            'file' => new Core\File(),
         ]);
 
         $object = $container->get('file');
 
-        self::assertInstanceOf(File::class, $object);
+        self::assertInstanceOf(Core\File::class, $object);
     }
 
     public function testGetFromNull(): void
     {
-        $container = new Container([
+        $container = new Core\Container\Container([
             'file' => null,
         ]);
 
@@ -215,8 +213,8 @@ final class ContainerTest extends TestCase
 
     public function testGetSameObject(): void
     {
-        $container = new Container([
-            'file' => File::class,
+        $container = new Core\Container\Container([
+            'file' => Core\File::class,
         ]);
 
         $service = $container->get('file');

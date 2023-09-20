@@ -2,13 +2,8 @@
 
 namespace Faker\Test;
 
-use Faker\Container\Container;
-use Faker\Container\ContainerBuilder;
-use Faker\Core\Blood;
-use Faker\Core\File;
-use Faker\Extension\BloodExtension;
-use Faker\Extension\ExtensionNotFound;
-use Faker\Extension\FileExtension;
+use Faker\Core;
+use Faker\Extension;
 use Faker\Generator;
 use Faker\Provider;
 use Faker\UniqueGenerator;
@@ -20,20 +15,20 @@ final class GeneratorTest extends TestCase
 {
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void
     {
-        $generator = new Generator(new Container([
-            'file' => File::class,
+        $generator = new Generator(new Core\Container\Container([
+            'file' => Core\File::class,
         ]));
 
         $ext = $generator->ext('file');
 
-        self::assertInstanceOf(File::class, $ext);
+        self::assertInstanceOf(Core\File::class, $ext);
     }
 
     public function testExtThrowsAnExtensionNotFoundExceptionWhenContainerDoesNotHaveACorrespondingDefinition(): void
     {
-        $generator = new Generator(new Container([]));
+        $generator = new Generator(new Core\Container\Container([]));
 
-        $this->expectException(ExtensionNotFound::class);
+        $this->expectException(Extension\ExtensionNotFound::class);
 
         $generator->ext('foobar');
     }
@@ -42,10 +37,10 @@ final class GeneratorTest extends TestCase
     {
         $generator = new Generator();
 
-        $ext = $generator->ext(FileExtension::class);
+        $ext = $generator->ext(Extension\FileExtension::class);
 
-        self::assertInstanceOf(FileExtension::class, $ext);
-        self::assertInstanceOf(File::class, $ext);
+        self::assertInstanceOf(Extension\FileExtension::class, $ext);
+        self::assertInstanceOf(Core\File::class, $ext);
     }
 
     public function testMimeType(): void
@@ -134,8 +129,8 @@ final class GeneratorTest extends TestCase
 
     public function testFormatterCallsGenerator(): void
     {
-        $builder = new ContainerBuilder();
-        $builder->add(BloodExtension::class, Blood::class);
+        $builder = new Core\Container\ContainerBuilder();
+        $builder->add(Extension\BloodExtension::class, Core\Blood::class);
         $faker = new Generator($builder->build());
 
         $output = $faker->format('bloodType');
@@ -144,8 +139,8 @@ final class GeneratorTest extends TestCase
 
     public function testFormatterCallsExtension(): void
     {
-        $builder = new ContainerBuilder();
-        $builder->add(Blood::class, Blood::class);
+        $builder = new Core\Container\ContainerBuilder();
+        $builder->add(Core\Blood::class, Core\Blood::class);
         $faker = new Generator($builder->build());
 
         $output = $faker->format('Faker\Core\Blood->bloodType');

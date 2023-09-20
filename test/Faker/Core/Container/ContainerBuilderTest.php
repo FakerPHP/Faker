@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Faker\Test\Extension;
+namespace Faker\Test\Core\Container;
 
-use Faker\Container\ContainerBuilder;
-use Faker\Core\File;
-use Faker\Core\Number;
+use Faker\Core;
 use Faker\Extension;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Faker\Container\ContainerBuilder
+ * @covers \Faker\Core\Container\ContainerBuilder
  */
 final class ContainerBuilderTest extends TestCase
 {
@@ -22,12 +20,12 @@ final class ContainerBuilderTest extends TestCase
      */
     public function testAddRejectsInvalidValue($value): void
     {
-        $containerBuilder = new ContainerBuilder();
+        $containerBuilder = new Core\Container\ContainerBuilder();
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(sprintf(
             'First argument to "%s::add()" must be a string, callable or object.',
-            ContainerBuilder::class,
+            Core\Container\ContainerBuilder::class,
         ));
 
         $containerBuilder->add('foo', $value);
@@ -61,7 +59,7 @@ final class ContainerBuilderTest extends TestCase
 
     public function testBuildReturnsContainerWhenContainerBuilderDoesNotHaveDefinitions(): void
     {
-        $builder = new ContainerBuilder();
+        $builder = new Core\Container\ContainerBuilder();
 
         $container = $builder->build();
 
@@ -71,9 +69,9 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildReturnsContainerWhenContainerBuilderHasDefinitions(): void
     {
         $id = 'foo';
-        $definition = File::class;
+        $definition = Core\File::class;
 
-        $builder = new ContainerBuilder();
+        $builder = new Core\Container\ContainerBuilder();
 
         $builder->add($id, $definition);
 
@@ -86,11 +84,11 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildReturnsContainerWhenContainerBuilderHasOverriddenDefinitions(): void
     {
         $id = 'foo';
-        $definition = Number::class;
+        $definition = Core\Number::class;
 
-        $builder = new ContainerBuilder();
+        $builder = new Core\Container\ContainerBuilder();
 
-        $builder->add($id, File::class);
+        $builder->add($id, Core\File::class);
         $builder->add($id, $definition);
 
         $container = $builder->build();
@@ -102,9 +100,9 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildReturnsContainerWhenContainerBuilderHasObjectAsDefinition(): void
     {
         $id = 'foo';
-        $definition = new File();
+        $definition = new Core\File();
 
-        $builder = new ContainerBuilder();
+        $builder = new Core\Container\ContainerBuilder();
 
         $builder->add($id, $definition);
 
@@ -117,11 +115,11 @@ final class ContainerBuilderTest extends TestCase
     public function testBuildReturnsContainerWhenContainerBuilderHasCallableAsDefinition(): void
     {
         $id = 'foo';
-        $definition = static function (): File {
-            return new File();
+        $definition = static function (): Core\File {
+            return new Core\File();
         };
 
-        $builder = new ContainerBuilder();
+        $builder = new Core\Container\ContainerBuilder();
 
         $builder->add($id, $definition);
 
@@ -133,7 +131,7 @@ final class ContainerBuilderTest extends TestCase
 
     public function testWithDefaultExtensionsReturnsContainerBuilderWithDefaultExtensions(): void
     {
-        $builder = ContainerBuilder::withDefaultExtensions();
+        $builder = Core\Container\ContainerBuilder::withDefaultExtensions();
 
         $container = $builder->build();
 
