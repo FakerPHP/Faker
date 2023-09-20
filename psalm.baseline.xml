@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
-  <file src="src/Faker/Generator.php">
+  <file src="src/Generator.php">
     <InvalidReturnStatement>
       <code><![CDATA[$this->uniqueGenerator]]></code>
       <code>new ChanceGenerator($this, $weight, $default)</code>
@@ -12,7 +12,7 @@
       <code>self</code>
     </InvalidReturnType>
   </file>
-  <file src="src/Faker/Provider/Base.php">
+  <file src="src/Provider/Base.php">
     <InvalidArgument>
       <code>[static::class, 'randomDigit']</code>
       <code>static function ($matches) {
@@ -36,17 +36,17 @@
       <code>enum_exists($array)</code>
     </UndefinedFunction>
   </file>
-  <file src="src/Faker/Provider/Biased.php">
+  <file src="src/Provider/Biased.php">
     <InvalidParamDefault>
       <code>callable</code>
     </InvalidParamDefault>
   </file>
-  <file src="src/Faker/Provider/File.php">
+  <file src="src/Provider/File.php">
     <FalsableReturnStatement>
       <code>false</code>
     </FalsableReturnStatement>
   </file>
-  <file src="src/Faker/Provider/PhoneNumber.php">
+  <file src="src/Provider/PhoneNumber.php">
     <InvalidReturnStatement>
       <code>$imei</code>
     </InvalidReturnStatement>
@@ -54,39 +54,39 @@
       <code>int</code>
     </InvalidReturnType>
   </file>
-  <file src="src/Faker/Provider/ar_SA/Address.php">
+  <file src="src/Provider/ar_SA/Address.php">
     <UndefinedPropertyFetch>
       <code>static::$cityPrefix</code>
     </UndefinedPropertyFetch>
   </file>
-  <file src="src/Faker/Provider/cs_CZ/Person.php">
+  <file src="src/Provider/cs_CZ/Person.php">
     <NonStaticSelfCall>
       <code>static::birthNumber(static::GENDER_FEMALE)</code>
       <code>static::birthNumber(static::GENDER_MALE)</code>
     </NonStaticSelfCall>
   </file>
-  <file src="src/Faker/Provider/en_SG/Person.php">
+  <file src="src/Provider/en_SG/Person.php">
     <InvalidArrayOffset>
       <code>$weights[$i]</code>
     </InvalidArrayOffset>
   </file>
-  <file src="src/Faker/Provider/is_IS/Person.php">
+  <file src="src/Provider/is_IS/Person.php">
     <InvalidArrayOffset>
       <code>$ref[$i]</code>
     </InvalidArrayOffset>
   </file>
-  <file src="src/Faker/Provider/ja_JP/Text.php">
+  <file src="src/Provider/ja_JP/Text.php">
     <UndefinedMethod>
       <code>static::split($text)</code>
     </UndefinedMethod>
   </file>
-  <file src="src/Faker/Provider/pl_PL/Company.php">
+  <file src="src/Provider/pl_PL/Company.php">
     <InvalidArrayOffset>
       <code>$weights[$i]</code>
       <code>$weights[$i]</code>
     </InvalidArrayOffset>
   </file>
-  <file src="src/Faker/Provider/pl_PL/Person.php">
+  <file src="src/Provider/pl_PL/Person.php">
     <InvalidArrayOffset>
       <code>$high[$i]</code>
       <code>$low[$i]</code>
@@ -99,7 +99,7 @@
       <code>DateTime</code>
     </UndefinedDocblockClass>
   </file>
-  <file src="src/Faker/Provider/sl_SI/Person.php">
+  <file src="src/Provider/sl_SI/Person.php">
     <NonStaticSelfCall>
       <code>static::lastName()</code>
       <code>static::lastName()</code>

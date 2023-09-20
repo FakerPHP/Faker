@@ -26,13 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Faker\\": "src/Faker/"
+            "Faker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Faker\\Test\\": "test/Faker/",
-            "Faker\\Test\\Fixture\\": "test/Fixture/"
+            "Faker\\Test\\": "test/"
         }
     },
     "conflict": {

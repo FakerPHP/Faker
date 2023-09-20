@@ -18,12 +18,12 @@
     </php>
     <testsuites>
         <testsuite name="Faker Test Suite">
-            <directory suffix="Test.php">./test/Faker</directory>
+            <directory suffix="Test.php">./test/</directory>
         </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">./src/Faker</directory>
+            <directory suffix=".php">./src/</directory>
         </include>
     </coverage>
 </phpunit>
