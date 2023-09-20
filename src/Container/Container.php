@@ -89,7 +89,7 @@ final class Container implements ContainerInterface
     {
         if (is_callable($definition)) {
             try {
-                return $definition($this);
+                $service = $definition($this);
             } catch (\Throwable $e) {
                 throw new ContainerException(
                     sprintf('Error while invoking callable for "%s"', $id),
@@ -97,27 +97,35 @@ final class Container implements ContainerInterface
                     $e,
                 );
             }
-        } elseif (is_object($definition)) {
+
+            return $service;
+        }
+
+        if (is_object($definition)) {
             return $definition;
-        } elseif (is_string($definition)) {
-            if (class_exists($definition)) {
-                try {
-                    return new $definition();
-                } catch (\Throwable $e) {
-                    throw new ContainerException(sprintf('Could not instantiate class "%s"', $id), 0, $e);
-                }
+        }
+
+        if (is_string($definition)) {
+            if (!class_exists($definition)) {
+                throw new ContainerException(sprintf(
+                    'Could not instantiate class "%s". Class was not found.',
+                    $id,
+                ));
             }
 
-            throw new ContainerException(sprintf(
-                'Could not instantiate class "%s". Class was not found.',
-                $id,
-            ));
-        } else {
-            throw new ContainerException(sprintf(
-                'Invalid type for definition with id "%s"',
-                $id,
-            ));
+            try {
+                $service = new $definition();
+            } catch (\Throwable $e) {
+                throw new ContainerException(sprintf('Could not instantiate class "%s"', $id), 0, $e);
+            }
+
+            return $service;
         }
+
+        throw new ContainerException(sprintf(
+            'Invalid type for definition with id "%s"',
+            $id,
+        ));
     }
 
     /**

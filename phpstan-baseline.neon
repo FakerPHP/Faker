@@ -16,6 +16,11 @@ parameters:
 			path: src/Calculator/Luhn.php
 
 		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: src/Container/Container.php
+
+		-
 			message: "#^Result of && is always false\\.$#"
 			count: 1
 			path: src/Container/ContainerBuilder.php
