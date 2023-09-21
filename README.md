@@ -31,6 +31,9 @@ Use `Faker\Factory::create()` to create and initialize a Faker generator, which 
 
 ```php
 <?php
+
+declare(strict_types=1);
+
 require_once 'vendor/autoload.php';
 
 // use the factory to create a Faker\Generator instance
@@ -48,6 +51,9 @@ Each call to `$faker->name()` yields a different (random) result. This is becaus
 
 ```php
 <?php
+
+declare(strict_types=1);
+
 for ($i = 0; $i < 3; $i++) {
     echo $faker->name() . "\n";
 }
