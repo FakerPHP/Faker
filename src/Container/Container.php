@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Faker\Container;
 
-use Faker\Extension\Extension;
-
 /**
  * A simple implementation of a container.
  *
@@ -14,7 +12,7 @@ use Faker\Extension\Extension;
 final class Container implements ContainerInterface
 {
     /**
-     * @var array<string, callable|object|string>
+     * @var array<string, Definition>
      */
     private array $definitions;
 
@@ -24,13 +22,33 @@ final class Container implements ContainerInterface
     private array $services = [];
 
     /**
-     * Create a container object with a set of definitions. The array value MUST
-     * produce an object that implements Extension.
+     * Create a container object with a set of definitions.
      *
-     * @param array<string, callable|object|string> $definitions
+     * @param array<string, Definition> $definitions
+     *
+     * @throws \InvalidArgumentException
      */
     public function __construct(array $definitions)
     {
+        $invalidIdentifiers = array_filter(array_keys($definitions), static function ($identifier): bool {
+            return !is_string($identifier);
+        });
+
+        if ([] !== $invalidIdentifiers) {
+            throw new \InvalidArgumentException('Keys of definitions should be strings.');
+        }
+
+        $invalidDefinitions = array_filter($definitions, static function ($definition): bool {
+            return !$definition instanceof Definition;
+        });
+
+        if ([] !== $invalidDefinitions) {
+            throw new \InvalidArgumentException(sprintf(
+                'Values of definitions should be instances of %s.',
+                Definition::class,
+            ));
+        }
+
         $this->definitions = $definitions;
     }
 
@@ -64,60 +82,22 @@ final class Container implements ContainerInterface
             ));
         }
 
-        $definition = $this->definitions[$id];
-
-        $service = $this->getService($id, $definition);
-
-        if (!is_object($service)) {
-            throw new \RuntimeException(sprintf(
-                'Service resolved for identifier "%s" is not an object.',
-                $id,
-            ));
+        try {
+            $service = $this->definitions[$id]->resolve($this);
+        } catch (\Throwable $exception) {
+            throw new ContainerException(
+                sprintf(
+                    'An exception was thrown while trying to resolve the service with id "%s".',
+                    $id,
+                ),
+                0,
+                $exception,
+            );
         }
 
         $this->services[$id] = $service;
 
         return $service;
-    }
-
-    /**
-     * Get the service from a definition.
-     *
-     * @param callable|object|string $definition
-     */
-    private function getService(string $id, $definition)
-    {
-        if (is_callable($definition)) {
-            try {
-                return $definition($this);
-            } catch (\Throwable $e) {
-                throw new ContainerException(
-                    sprintf('Error while invoking callable for "%s"', $id),
-                    0,
-                    $e,
-                );
-            }
-        } elseif (is_object($definition)) {
-            return $definition;
-        } elseif (is_string($definition)) {
-            if (class_exists($definition)) {
-                try {
-                    return new $definition();
-                } catch (\Throwable $e) {
-                    throw new ContainerException(sprintf('Could not instantiate class "%s"', $id), 0, $e);
-                }
-            }
-
-            throw new ContainerException(sprintf(
-                'Could not instantiate class "%s". Class was not found.',
-                $id,
-            ));
-        } else {
-            throw new ContainerException(sprintf(
-                'Invalid type for definition with id "%s"',
-                $id,
-            ));
-        }
     }
 
     /**

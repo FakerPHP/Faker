@@ -16,9 +16,9 @@ parameters:
 			path: src/Calculator/Luhn.php
 
 		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: src/Container/ContainerBuilder.php
+			message: "#^Strict comparison using \\!\\=\\= between array\\{\\} and array\\{\\} will always evaluate to false\\.$#"
+			count: 2
+			path: src/Container/Container.php
 
 		-
 			message: "#^Method Faker\\\\Generator\\:\\:optional\\(\\) should return Faker\\\\Generator but returns Faker\\\\ChanceGenerator\\.$#"

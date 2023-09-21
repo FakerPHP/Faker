@@ -6,10 +6,9 @@ namespace Faker\Test\Container;
 
 use Faker\Container\Container;
 use Faker\Container\ContainerException;
+use Faker\Container\Definition;
 use Faker\Core\File;
-use Faker\Test;
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 /**
@@ -17,6 +16,35 @@ use Psr\Container\NotFoundExceptionInterface;
  */
 final class ContainerTest extends TestCase
 {
+    public function testConstructorRejectsDefinitionsWithInvalidKeys(): void
+    {
+        $definitions = [
+            'foo' => Definition::fromClassName(\stdClass::class),
+            false => Definition::fromClassName(File::class),
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Keys of definitions should be strings.');
+
+        new Container($definitions);
+    }
+
+    public function testConstructorRejectsDefinitionsWithInvalidValues(): void
+    {
+        $definitions = [
+            'foo' => Definition::fromClassName(\stdClass::class),
+            'bar' => new \stdClass(),
+        ];
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf(
+            'Values of definitions should be instances of %s.',
+            Definition::class,
+        ));
+
+        new Container($definitions);
+    }
+
     public function testHasThrowsInvalidArgumentExceptionWhenIdentifierIsNotAString(): void
     {
         $container = new Container([]);
@@ -51,82 +79,54 @@ final class ContainerTest extends TestCase
         $container->get('foo');
     }
 
-    public function testGetFromString(): void
+    public function testGetThrowsContainerExceptionWhenServiceCouldNotBeResolvedForIdentifier(): void
     {
-        $container = new Container([
-            'file' => File::class,
-        ]);
+        $id = 'file';
 
-        $object = $container->get('file');
-
-        self::assertInstanceOf(File::class, $object);
-    }
-
-    public function testGetThrowsRuntimeExceptionWhenServiceCouldNotBeResolvedFromCallable(): void
-    {
-        $id = 'foo';
+        $previous = new \RuntimeException('Sorry, not sorry.');
 
         $container = new Container([
-            $id => static function (): void {
-                throw new \RuntimeException();
-            },
+            $id => Definition::fromClosure(static function () use ($previous): void {
+                throw $previous;
+            }),
         ]);
 
         $this->expectException(ContainerException::class);
         $this->expectExceptionMessage(sprintf(
-            'Error while invoking callable for "%s"',
+            'An exception was thrown while trying to resolve the service with id "%s".',
             $id,
         ));
 
         $container->get($id);
     }
 
-    public function testGetThrowsRuntimeExceptionWhenServiceCouldNotBeResolvedFromClass(): void
+    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnObject(): void
     {
-        $id = 'foo';
+        $id = 'file';
 
         $container = new Container([
-            $id => Test\Fixture\Container\UnconstructableClass::class,
+            $id => Definition::fromClosure(static function (): array {
+                return [];
+            }),
         ]);
 
         $this->expectException(ContainerException::class);
         $this->expectExceptionMessage(sprintf(
-            'Could not instantiate class "%s"',
+            'An exception was thrown while trying to resolve the service with id "%s".',
             $id,
         ));
 
         $container->get($id);
     }
 
-    /**
-     * @dataProvider provideDefinitionThatDoesNotResolveToObject
-     */
-    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnObject(\Closure $definition): void
+    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnExtensionOnSecondTry(): void
     {
         $id = 'file';
 
         $container = new Container([
-            $id => $definition,
-        ]);
-
-        $this->expectException(\RuntimeException::class);
-        $this->expectExceptionMessage(sprintf(
-            'Service resolved for identifier "%s" is not an object.',
-            $id,
-        ));
-
-        $container->get($id);
-    }
-
-    /**
-     * @dataProvider provideDefinitionThatDoesNotResolveToObject
-     */
-    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnObjectOnSecondTry(\Closure $definition): void
-    {
-        $id = 'file';
-
-        $container = new Container([
-            $id => $definition,
+            $id => Definition::fromClosure(static function (): array {
+                return [];
+            }),
         ]);
 
         try {
@@ -135,102 +135,19 @@ final class ContainerTest extends TestCase
             // do nothing
         }
 
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(ContainerException::class);
         $this->expectExceptionMessage(sprintf(
-            'Service resolved for identifier "%s" is not an object.',
+            'An exception was thrown while trying to resolve the service with id "%s".',
             $id,
         ));
 
         $container->get($id);
     }
 
-    /**
-     * @return \Generator<string, array{0: \Closure}>
-     */
-    public function provideDefinitionThatDoesNotResolveToObject(): \Generator
-    {
-        $values = [
-            'array' => [],
-            'bool-false' => false,
-            'bool-true' => true,
-            'float' => 3.14,
-            'int' => 9000,
-            'null' => null,
-            'resource' => fopen(__FILE__, 'r'),
-            'string' => 'foo-bar-baz',
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                static function () use ($value) {
-                    return $value;
-                },
-            ];
-        }
-    }
-
-    public function testGetFromNoClassString(): void
-    {
-        $container = new Container([
-            'file' => 'this is not a class',
-        ]);
-
-        $this->expectException(ContainerExceptionInterface::class);
-
-        $container->get('file');
-    }
-
-    public function testGetFromCallable(): void
-    {
-        $container = new Container([
-            'file' => static function () {
-                return new File();
-            },
-        ]);
-
-        $object = $container->get('file');
-
-        self::assertInstanceOf(File::class, $object);
-    }
-
-    public function testGetFromObjectThatIsAnExtension(): void
-    {
-        $container = new Container([
-            'file' => new File(),
-        ]);
-
-        $object = $container->get('file');
-
-        self::assertInstanceOf(File::class, $object);
-    }
-
-    public function testGetFromObjectThatIsNotAnExtension(): void
-    {
-        $object = new \stdClass();
-
-        $container = new Container([
-            'file' => $object,
-        ]);
-
-        self::assertSame($object, $container->get('file'));
-
-    }
-
-    public function testGetFromNull(): void
-    {
-        $container = new Container([
-            'file' => null,
-        ]);
-
-        $this->expectException(ContainerExceptionInterface::class);
-
-        $container->get('file');
-    }
-
     public function testGetSameObject(): void
     {
         $container = new Container([
-            'file' => File::class,
+            'file' => Definition::fromClassName(File::class),
         ]);
 
         $service = $container->get('file');

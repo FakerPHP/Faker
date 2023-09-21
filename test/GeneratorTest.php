@@ -6,6 +6,7 @@ namespace Faker\Test;
 
 use Faker\Container\Container;
 use Faker\Container\ContainerBuilder;
+use Faker\Container\Definition;
 use Faker\Core\Blood;
 use Faker\Core\File;
 use Faker\Extension\BloodExtension;
@@ -23,7 +24,7 @@ final class GeneratorTest extends TestCase
     public function testExtReturnsAnExtensionWhenContainerHasACorrespondingDefinition(): void
     {
         $generator = new Generator(new Container([
-            'file' => File::class,
+            'file' => Definition::fromClassName(File::class),
         ]));
 
         $ext = $generator->ext('file');
@@ -137,7 +138,7 @@ final class GeneratorTest extends TestCase
     public function testFormatterCallsGenerator(): void
     {
         $builder = new ContainerBuilder();
-        $builder->add(BloodExtension::class, Blood::class);
+        $builder->add(BloodExtension::class, Definition::fromClassName(Blood::class));
         $faker = new Generator($builder->build());
 
         $output = $faker->format('bloodType');
@@ -147,7 +148,7 @@ final class GeneratorTest extends TestCase
     public function testFormatterCallsExtension(): void
     {
         $builder = new ContainerBuilder();
-        $builder->add(Blood::class, Blood::class);
+        $builder->add(Blood::class, Definition::fromClassName(Blood::class));
         $faker = new Generator($builder->build());
 
         $output = $faker->format('Faker\Core\Blood->bloodType');

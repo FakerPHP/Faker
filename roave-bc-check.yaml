@@ -21,7 +21,7 @@ parameters:
     - '#\[BC\] CHANGED: The parameter \$iban of Faker\\Calculator\\Iban::isValid\(\) changed from no type to a non-contravariant string#'
     - '#\[BC\] CHANGED: The parameter \$iban of Faker\\Calculator\\Iban::isValid\(\) changed from no type to string#'
     - '#\[BC\] CHANGED: The parameter \$max of Faker\\Extension\\NumberExtension\#randomFloat\(\) changed from float to float\|null#'
-    - '#\[BC\] CHANGED: The parameter \$name of Faker\\Container\\ContainerBuilder\#add\(\) changed from string\|null to a non-contravariant string#'
+    - '#\[BC\] CHANGED: The parameter \$name of Faker\\Container\\ContainerBuilder\#add\(\) changed from string\|null to a non-contravariant Faker\\Container\\Definition#'
     - '#\[BC\] CHANGED: The parameter \$number of Faker\\Calculator\\Iban::mod97\(\) changed from no type to a non-contravariant string#'
     - '#\[BC\] CHANGED: The parameter \$number of Faker\\Calculator\\Iban::mod97\(\) changed from no type to string#'
     - '#\[BC\] CHANGED: The parameter \$number of Faker\\Calculator\\Luhn::isValid\(\) changed from no type to a non-contravariant string#'
