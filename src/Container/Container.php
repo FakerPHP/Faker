@@ -18,6 +18,9 @@ final class Container implements ContainerInterface
      */
     private array $definitions;
 
+    /**
+     * @var array<string, Extension>
+     */
     private array $services = [];
 
     /**
