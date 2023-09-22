@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Extension;
 
 use Faker\Extension\Extension;

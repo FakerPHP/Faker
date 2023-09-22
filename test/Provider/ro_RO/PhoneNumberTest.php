@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\ro_RO;
 
 use Faker\Provider\ro_RO\PhoneNumber;

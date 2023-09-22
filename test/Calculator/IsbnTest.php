@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Calculator;
 
 use Faker\Calculator\Isbn;

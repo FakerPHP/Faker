@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\zh_TW;
 
 use Faker\Provider\zh_TW\Person;

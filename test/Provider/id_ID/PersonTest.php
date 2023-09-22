@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\id_ID;
 
 use Faker\Provider\DateTime;

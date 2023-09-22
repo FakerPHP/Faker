@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\ja_JP;
 
 use Faker\Provider\ja_JP\Internet;

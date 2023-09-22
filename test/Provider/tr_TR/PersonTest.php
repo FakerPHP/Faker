@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\tr_TR;
 
 use Faker\Provider\tr_TR\Person;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\lt_LT;
 
 use Faker\Provider\lt_LT\Address;

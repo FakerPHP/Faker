@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\fr_CH;
 
 use Faker\Provider\fr_CH\Address;

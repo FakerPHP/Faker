@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Provider\tr_TR;
 
 use Faker\Test\TestCase;

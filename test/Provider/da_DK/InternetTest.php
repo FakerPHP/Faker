@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\da_DK;
 
 use Faker\Provider\da_DK\Company;

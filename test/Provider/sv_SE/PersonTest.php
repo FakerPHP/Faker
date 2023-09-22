@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\sv_SE;
 
 use Faker\Calculator\Luhn;

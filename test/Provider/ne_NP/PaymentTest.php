@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\ne_NP;
 
 use Faker\Provider\ne_NP\Payment;

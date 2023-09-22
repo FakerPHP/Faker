@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\en_NG;
 
 use Faker\Provider\en_NG\Person;

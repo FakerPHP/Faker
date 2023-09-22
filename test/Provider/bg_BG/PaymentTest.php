@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker\Test\Provider\bg_BG;
 
 use Faker\Provider\bg_BG\Payment;
