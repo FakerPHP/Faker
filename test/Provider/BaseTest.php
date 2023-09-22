@@ -90,7 +90,7 @@ final class BaseTest extends TestCase
 
         $result = BaseProvider::randomFloat($nbMaxDecimals, $min, $max);
 
-        $parts = explode('.', $result);
+        $parts = explode('.', (string) $result);
 
         self::assertIsFloat($result);
         self::assertGreaterThanOrEqual($min, $result);
