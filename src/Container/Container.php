@@ -19,7 +19,7 @@ final class Container implements ContainerInterface
     private array $definitions;
 
     /**
-     * @var array<string, Extension>
+     * @var array<string, object>
      */
     private array $services = [];
 
@@ -44,7 +44,7 @@ final class Container implements ContainerInterface
      * @throws ContainerException
      * @throws NotInContainerException
      */
-    public function get($id): Extension
+    public function get($id): object
     {
         if (!is_string($id)) {
             throw new \InvalidArgumentException(sprintf(
@@ -68,11 +68,10 @@ final class Container implements ContainerInterface
 
         $service = $this->getService($id, $definition);
 
-        if (!$service instanceof Extension) {
+        if (!is_object($service)) {
             throw new \RuntimeException(sprintf(
-                'Service resolved for identifier "%s" does not implement the %s" interface.',
+                'Service resolved for identifier "%s" is not an object.',
                 $id,
-                Extension::class,
             ));
         }
 

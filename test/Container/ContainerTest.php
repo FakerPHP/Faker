@@ -7,7 +7,6 @@ namespace Faker\Test\Container;
 use Faker\Container\Container;
 use Faker\Container\ContainerException;
 use Faker\Core\File;
-use Faker\Extension\Extension;
 use Faker\Test;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
@@ -100,9 +99,9 @@ final class ContainerTest extends TestCase
     }
 
     /**
-     * @dataProvider provideDefinitionThatDoesNotResolveToExtension
+     * @dataProvider provideDefinitionThatDoesNotResolveToObject
      */
-    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnExtension($definition): void
+    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnObject(\Closure $definition): void
     {
         $id = 'file';
 
@@ -112,18 +111,17 @@ final class ContainerTest extends TestCase
 
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage(sprintf(
-            'Service resolved for identifier "%s" does not implement the %s" interface.',
+            'Service resolved for identifier "%s" is not an object.',
             $id,
-            Extension::class,
         ));
 
         $container->get($id);
     }
 
     /**
-     * @dataProvider provideDefinitionThatDoesNotResolveToExtension
+     * @dataProvider provideDefinitionThatDoesNotResolveToObject
      */
-    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnExtensionOnSecondTry($definition): void
+    public function testGetThrowsRuntimeExceptionWhenServiceResolvedForIdentifierIsNotAnObjectOnSecondTry(\Closure $definition): void
     {
         $id = 'file';
 
@@ -139,30 +137,34 @@ final class ContainerTest extends TestCase
 
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage(sprintf(
-            'Service resolved for identifier "%s" does not implement the %s" interface.',
+            'Service resolved for identifier "%s" is not an object.',
             $id,
-            Extension::class,
         ));
 
         $container->get($id);
     }
 
     /**
-     * @return \Generator<string, array{0: callable|object|string}>
+     * @return \Generator<string, array{0: \Closure}>
      */
-    public function provideDefinitionThatDoesNotResolveToExtension(): \Generator
+    public function provideDefinitionThatDoesNotResolveToObject(): \Generator
     {
-        $definitions = [
-            'callable' => static function (): \stdClass {
-                return new \stdClass();
-            },
-            'object' => new \stdClass(),
-            'string' => \stdClass::class,
+        $values = [
+            'array' => [],
+            'bool-false' => false,
+            'bool-true' => true,
+            'float' => 3.14,
+            'int' => 9000,
+            'null' => null,
+            'resource' => fopen(__FILE__, 'r'),
+            'string' => 'foo-bar-baz',
         ];
 
-        foreach ($definitions as $key => $definition) {
+        foreach ($values as $key => $value) {
             yield $key => [
-                $definition,
+                static function () use ($value) {
+                    return $value;
+                },
             ];
         }
     }
@@ -191,7 +193,7 @@ final class ContainerTest extends TestCase
         self::assertInstanceOf(File::class, $object);
     }
 
-    public function testGetFromObject(): void
+    public function testGetFromObjectThatIsAnExtension(): void
     {
         $container = new Container([
             'file' => new File(),
@@ -200,6 +202,18 @@ final class ContainerTest extends TestCase
         $object = $container->get('file');
 
         self::assertInstanceOf(File::class, $object);
+    }
+
+    public function testGetFromObjectThatIsNotAnExtension(): void
+    {
+        $object = new \stdClass();
+
+        $container = new Container([
+            'file' => $object,
+        ]);
+
+        self::assertSame($object, $container->get('file'));
+
     }
 
     public function testGetFromNull(): void

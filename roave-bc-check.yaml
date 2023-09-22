@@ -31,6 +31,7 @@ parameters:
     - '#\[BC\] CHANGED: The parameter \$partialValue of Faker\\Calculator\\Luhn::generateLuhnNumber\(\) changed from no type to a non-contravariant string#'
     - '#\[BC\] CHANGED: The parameter \$partialValue of Faker\\Calculator\\Luhn::generateLuhnNumber\(\) changed from no type to string#'
     - '#\[BC\] CHANGED: The parameter \$value of Faker\\Container\\ContainerBuilder\#add\(\) changed from no type to a non-contravariant string#'
+    - '#\[BC\] CHANGED: The return type of Faker\\Container\\Container\#get\(\) changed from Faker\\Extension\\Extension to the non-covariant object#'
     - '#\[BC\] CHANGED: The return type of Faker\\Extension\\PersonExtension\#name\(\) changed from no type to string#'
     - '#\[BC\] CHANGED: Type documentation for property Faker\\Provider\\en_ZA\\Internet::\$tld changed from having no type to array#'
     - '#\[BC\] REMOVED: Class Faker\\Extension\\Container has been deleted#'
