@@ -60,6 +60,10 @@ jobs:
         run: |
           vendor/bin/php-cs-fixer fix --ansi --diff --dry-run --verbose
 
+      - name: "Run php-cs-fixer for test code"
+        run: |
+          vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.test.php --diff --dry-run --verbose
+
   yamllint:
     name: "yamllint"
 

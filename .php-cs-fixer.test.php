@@ -3,14 +3,11 @@
 declare(strict_types=1);
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude([
-        '.build/',
-        '.github/',
-        'test/',
-        'vendor-bin/',
+    ->notPath([
+        'Fixture/Enum/BackedEnum.php',
     ])
     ->ignoreDotFiles(false)
-    ->in(__DIR__);
+    ->in(__DIR__ . '/test');
 
 $config = new PhpCsFixer\Config('faker');
 
@@ -21,7 +18,9 @@ if (!is_dir('.build/php-cs-fixer')) {
 $rules = require __DIR__ . '/.php-cs-fixer.rules.php';
 
 return $config
-    ->setCacheFile('.build/php-cs-fixer/cache')
+    ->setCacheFile('.build/php-cs-fixer/cache.test')
     ->setFinder($finder)
     ->setRiskyAllowed(true)
-    ->setRules($rules);
+    ->setRules(array_merge($rules, [
+        'declare_strict_types' => true,
+    ]));
