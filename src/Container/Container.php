@@ -59,7 +59,7 @@ final class Container implements ContainerInterface
 
         if (!$this->has($id)) {
             throw new NotInContainerException(sprintf(
-                'There is not service with id "%s" in the container.',
+                'There is no service with id "%s" in the container.',
                 $id,
             ));
         }
