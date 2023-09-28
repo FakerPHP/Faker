@@ -624,7 +624,7 @@ class Generator
      *
      * @throws \OverflowException When no unique value can be found by iterating $maxRetries times
      *
-     * @return self A proxy class returning only non-existing values
+     * @return UniqueGenerator A proxy class returning only non-existing values
      */
     public function unique($reset = false, $maxRetries = 10000)
     {
