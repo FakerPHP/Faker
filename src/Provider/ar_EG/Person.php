@@ -96,9 +96,9 @@ class Person extends \Faker\Provider\Person
         $birthRegistrationSequence = Extension\Helper::randomNumberBetween(1, 500);
 
         if ($gender === static::GENDER_MALE) {
-            $birthRegistrationSequence = $birthRegistrationSequence | 1; // Convert to the nearest odd number
+            $birthRegistrationSequence |= 1; // Convert to the nearest odd number
         } elseif ($gender === static::GENDER_FEMALE) {
-            $birthRegistrationSequence = $birthRegistrationSequence & ~1; // Convert to the nearest even number
+            $birthRegistrationSequence &= ~1; // Convert to the nearest even number
         }
 
         $birthRegistrationSequence = str_pad((string) $birthRegistrationSequence, 4, '0', STR_PAD_LEFT);

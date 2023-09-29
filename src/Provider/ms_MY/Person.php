@@ -795,9 +795,9 @@ class Person extends \Faker\Provider\Person
 
         //Credit: https://gist.github.com/mauris/3629548
         if ($gender === static::GENDER_MALE) {
-            $g = $g | 1;
+            $g |= 1;
         } elseif ($gender === static::GENDER_FEMALE) {
-            $g = $g & ~1;
+            $g &= ~1;
         }
 
         // formatting with hyphen

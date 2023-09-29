@@ -113,7 +113,7 @@ class Payment extends \Faker\Provider\Payment
         for ($i = 0; $i < 7; ++$i) {
             $checksum += $weights[$i] * (int) $iban[$i];
         }
-        $checksum = $checksum % 10;
+        $checksum %= 10;
 
         return substr($iban, 0, 7) . $checksum . substr($iban, 8);
     }

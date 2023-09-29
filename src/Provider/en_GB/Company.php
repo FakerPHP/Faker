@@ -117,13 +117,13 @@ class Company extends \Faker\Provider\Company
         }
 
         if ($use9755) {
-            $sum = $sum + 55;
+            $sum += 55;
         }
 
         while ($sum > 0) {
             $sum -= 97;
         }
-        $sum = $sum * -1;
+        $sum *= -1;
 
         return str_pad((string) $sum, 2, '0', STR_PAD_LEFT);
     }

@@ -646,7 +646,7 @@ class Generator
     {
         if ($weight > 1) {
             trigger_deprecation('fakerphp/faker', '1.16', 'First argument ($weight) to method "optional()" must be between 0 and 1. You passed %f, we assume you meant %f.', $weight, $weight / 100);
-            $weight = $weight / 100;
+            $weight /= 100;
         }
 
         return new ChanceGenerator($this, $weight, $default);

@@ -244,7 +244,7 @@ class Person extends \Faker\Provider\Person
         foreach (range(0, 11) as $digit) {
             $checksum += (int) substr($value, $digit, 1) * (int) substr($checkNumber, $digit, 1);
         }
-        $checksum = $checksum % 11;
+        $checksum %= 11;
 
         return $checksum == 10 ? 1 : $checksum;
     }
