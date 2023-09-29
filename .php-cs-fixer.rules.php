@@ -67,6 +67,7 @@ return [
     'list_syntax' => [
         'syntax' => 'short',
     ],
+    'long_to_shorthand_operator' => true,
     'lowercase_cast' => true,
     'lowercase_static_reference' => true,
     'magic_constant_casing' => true,
