@@ -26,11 +26,6 @@ parameters:
 			path: src/Generator.php
 
 		-
-			message: "#^Method Faker\\\\Generator\\:\\:unique\\(\\) should return Faker\\\\Generator but returns Faker\\\\UniqueGenerator\\.$#"
-			count: 1
-			path: src/Generator.php
-
-		-
 			message: "#^Method Faker\\\\Generator\\:\\:valid\\(\\) should return Faker\\\\Generator but returns Faker\\\\ValidGenerator\\.$#"
 			count: 1
 			path: src/Generator.php

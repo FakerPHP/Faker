@@ -2,12 +2,10 @@
 <files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
   <file src="src/Generator.php">
     <InvalidReturnStatement>
-      <code><![CDATA[$this->uniqueGenerator]]></code>
       <code>new ChanceGenerator($this, $weight, $default)</code>
       <code>new ValidGenerator($this, $validator, $maxRetries)</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code>self</code>
       <code>self</code>
       <code>self</code>
     </InvalidReturnType>
