@@ -6,7 +6,7 @@ parameters:
 			path: src/Calculator/Iban.php
 
 		-
-			message: "#^Binary operation \"\\*\" between int and string results in an error\\.$#"
+			message: "#^Binary operation \"\\*\\=\" between string and int results in an error\\.$#"
 			count: 1
 			path: src/Calculator/Isbn.php
 
