@@ -34,6 +34,7 @@ return [
         'max_line_breaks' => 2,
         'min_line_breaks' => 2,
     ],
+    'braces_position' => true,
     'cast_spaces' => true,
     'class_attributes_separation' => [
         'elements' => [
@@ -41,13 +42,12 @@ return [
         ],
     ],
     'combine_nested_dirname' => true,
-    'compact_nullable_typehint' => true,
+    'compact_nullable_type_declaration' => true,
     'concat_space' => [
         'spacing' => 'one',
     ],
     'control_structure_braces' => true,
     'control_structure_continuation_position' => true,
-    'curly_braces_position' => true,
     'declare_equal_normalize' => true,
     'declare_parentheses' => true,
     'general_phpdoc_annotation_remove' => [
@@ -74,7 +74,7 @@ return [
     'magic_method_casing' => true,
     'modernize_types_casting' => true,
     'multiline_comment_opening_closing' => true,
-    'new_with_braces' => true,
+    'new_with_parentheses' => true,
     'no_alias_functions' => true,
     'no_blank_lines_after_class_opening' => true,
     'no_blank_lines_after_phpdoc' => true,
@@ -92,8 +92,8 @@ return [
             'array',
         ],
     ],
+    'no_unneeded_braces' => true,
     'no_unneeded_control_parentheses' => true,
-    'no_unneeded_curly_braces' => true,
     'no_unneeded_final_method' => true,
     'no_unreachable_default_argument_value' => true,
     'no_unset_cast' => true,
