@@ -101,7 +101,6 @@ class Lorem extends \Faker\Provider\Lorem
      *     Lorem::word();
      *     Lorem::word(2); // generate word contains exact 2 chars
      *
-     * @param  integer  $nb  (optional) how many characters the word contains
      * @example '的' '的一' '的一是' '的一是在'
      * @return string
      */
@@ -116,7 +115,7 @@ class Lorem extends \Faker\Provider\Lorem
         } else {
             $nb = static::randomizeCharacterNumber();
         }
-        return static::chars($nb, true);
+        return (string) static::chars($nb, true);
     }
 
     /**
@@ -199,7 +198,7 @@ class Lorem extends \Faker\Provider\Lorem
             $nbSentences = self::randomizeNbElements($nbSentences);
         }
 
-        return static::sentences($nbSentences, true);
+        return (string) static::sentences($nbSentences, true);
     }
 
     /**

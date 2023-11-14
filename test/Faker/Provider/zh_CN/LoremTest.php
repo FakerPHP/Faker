@@ -3,7 +3,6 @@
 namespace Faker\Test\Provider\zh_CN;
 
 use Faker\Provider\zh_CN\Lorem;
-use Faker\Provider\Lorem as BaseLorem;
 use Faker\Test\TestCase;
 
 final class LoremTest extends TestCase
@@ -13,7 +12,7 @@ final class LoremTest extends TestCase
      *
      * $this->>faker->word() 返回 1-4 个汉字
      */
-    const WORD_MAX_LENGTH = 4;
+    public const WORD_MAX_LENGTH = 4;
 
     public function testWord(): void
     {
@@ -91,10 +90,10 @@ final class LoremTest extends TestCase
     /**
      * 判断给定的字符串是否全是中文和标点符号
      *
-     * @param $str
-     * @return bool
+     * @param   string  $str
+     * @return  bool    
      */
-    function isAllChineseWithPunctuation($str): bool {
+    public function isAllChineseWithPunctuation($str): bool {
         return preg_match('/^[\x{4e00}-\x{9fa5}\p{P}\p{Z}]+$/u', $str);
     }
 
