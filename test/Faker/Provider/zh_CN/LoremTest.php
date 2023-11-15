@@ -90,11 +90,11 @@ final class LoremTest extends TestCase
     /**
      * 判断给定的字符串是否全是中文和标点符号
      *
-     * @param   string  $str
-     * @return  bool    
+     * @param string $str
      */
-    public function isAllChineseWithPunctuation($str): bool {
-        return preg_match('/^[\x{4e00}-\x{9fa5}\p{P}\p{Z}]+$/u', $str);
+    public function isAllChineseWithPunctuation($str): bool
+    {
+        return (bool) preg_match('/^[\x{4e00}-\x{9fa5}\p{P}\p{Z}]+$/u', $str);
     }
 
     protected function getProviders(): iterable
