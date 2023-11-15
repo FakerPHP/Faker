@@ -4,8 +4,6 @@ namespace Faker\Provider\zh_CN;
 
 class Lorem extends \Faker\Provider\Lorem
 {
-    protected static $encoding = 'UTF-8';
-
     /**
      * @var array High-frequency single character of Chinese (simplified)
      */
@@ -296,8 +294,19 @@ class Lorem extends \Faker\Provider\Lorem
         return $characterNumber[static::numberBetween(0, count($characterNumber) - 1)];
     }
 
+    /**
+     * Get string length
+     *
+     * @param $str
+     *
+     * @return int
+     */
     protected static function strlen($str)
     {
-        return mb_strlen($str, self::$encoding);
+        if (function_exists('mb_strlen')) {
+            return mb_strlen($str, 'UTF-8');
+        } else {
+            return (int) ceil(strlen($str) / 3);
+        }
     }
 }

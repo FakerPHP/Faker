@@ -19,7 +19,7 @@ final class LoremTest extends TestCase
         $word = $this->faker->word();
 
         self::assertTrue($this->isAllChineseWithPunctuation($word));
-        self::assertLessThanOrEqual(self::WORD_MAX_LENGTH, mb_strlen($word));
+        self::assertLessThanOrEqual(self::WORD_MAX_LENGTH, self::strlen($word));
     }
 
     public function testWords(): void
@@ -32,7 +32,7 @@ final class LoremTest extends TestCase
 
         foreach ($words as $word) {
             self::assertTrue($this->isAllChineseWithPunctuation($word));
-            self::assertLessThanOrEqual(self::WORD_MAX_LENGTH, mb_strlen($word));
+            self::assertLessThanOrEqual(self::WORD_MAX_LENGTH, self::strlen($word));
         }
     }
 
@@ -42,7 +42,7 @@ final class LoremTest extends TestCase
         $sentence = $this->faker->sentence($nbWords = $paramNbWords, $variableNbWords = false);
 
         self::assertTrue($this->isAllChineseWithPunctuation($sentence));
-        self::assertLessThanOrEqual(($paramNbWords * self::WORD_MAX_LENGTH), mb_strlen($sentence));
+        self::assertLessThanOrEqual(($paramNbWords * self::WORD_MAX_LENGTH), self::strlen($sentence));
     }
 
     public function testSentences(): void
@@ -80,11 +80,11 @@ final class LoremTest extends TestCase
     {
         $text = $this->faker->text(200);
         self::assertTrue($this->isAllChineseWithPunctuation($text));
-        self::assertLessThanOrEqual(200, mb_strlen($text));
+        self::assertLessThanOrEqual(200, self::strlen($text));
 
         $text = $this->faker->text(2000);
         self::assertTrue($this->isAllChineseWithPunctuation($text));
-        self::assertLessThanOrEqual(2000, mb_strlen($text));
+        self::assertLessThanOrEqual(2000, self::strlen($text));
     }
 
     /**
@@ -95,6 +95,22 @@ final class LoremTest extends TestCase
     public function isAllChineseWithPunctuation($str): bool
     {
         return (bool) preg_match('/^[\x{4e00}-\x{9fa5}\p{P}\p{Z}]+$/u', $str);
+    }
+
+    /**
+     * Get string length
+     *
+     * @param $str
+     *
+     * @return int
+     */
+    protected static function strlen($str)
+    {
+        if (function_exists('mb_strlen')) {
+            return mb_strlen($str, 'UTF-8');
+        } else {
+            return (int) ceil(strlen($str) / 3);
+        }
     }
 
     protected function getProviders(): iterable
