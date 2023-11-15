@@ -5,9 +5,9 @@ namespace Faker\Provider\zh_CN;
 class Lorem extends \Faker\Provider\Lorem
 {
     /**
-     * @var array $wordList High-frequency single character of Chinese (simplified)
+     * @var array High-frequency single character of Chinese (simplified)
      */
-    protected static $wordList = array(
+    protected static $wordList = [
         '的', '一', '是', '在', '不', '了', '有', '和', '人', '这',
         '中', '大', '为', '上', '个', '国', '我', '以', '要', '他',
         '时', '来', '用', '们', '生', '到', '作', '地', '于', '出',
@@ -58,13 +58,15 @@ class Lorem extends \Faker\Provider\Lorem
         '始', '却', '专', '状', '育', '厂', '京', '识', '适', '属',
         '圆', '包', '火', '住', '调', '满', '县', '局', '照', '参',
         '红', '细', '引', '听', '该', '铁', '价', '严', '龙', '飞',
-    );
+    ];
 
     protected static $encoding = 'UTF-8';
 
     /**
      * Generate a random single Chinese character
+     *
      * @example '的' '一' '是'
+     *
      * @return string
      */
     public static function char()
@@ -76,13 +78,16 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate an array of random characters
      *
      * @example array('的', '一', '是')
-     * @param  integer      $nb     how many characters to return
-     * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @param int  $nb     how many characters to return
+     * @param bool $asText if true the sentences are returned as one string
+     *
      * @return array|string
      */
     public static function chars($nb = 3, $asText = false)
     {
         $chars = static::randomElements(static::$wordList, $nb);
+
         return $asText ? implode('', $chars) : $chars;
     }
 
@@ -102,19 +107,23 @@ class Lorem extends \Faker\Provider\Lorem
      *     Lorem::word(2); // generate word contains exact 2 chars
      *
      * @example '的' '的一' '的一是' '的一是在'
+     *
      * @return string
      */
     public static function word()
     {
         $num_args = func_num_args();
+
         if ($num_args >= 1) {
             $nb = func_get_arg(0);
+
             if ($nb > 7) {
                 throw new \InvalidArgumentException('Chinese word must contain no more than 7 characters');
             }
         } else {
             $nb = static::randomizeCharacterNumber();
         }
+
         return (string) static::chars($nb, true);
     }
 
@@ -122,14 +131,17 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate an array of random words
      *
      * @example array('的一', '的一是', '的一是在')
-     * @param  integer      $nb     how many words to return
-     * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @param int  $nb     how many words to return
+     * @param bool $asText if true the sentences are returned as one string
+     *
      * @return array|string
      */
     public static function words($nb = 3, $asText = false)
     {
-        $words = array();
-        for ($i=0; $i < $nb; $i++) {
+        $words = [];
+
+        for ($i = 0; $i < $nb; ++$i) {
             $words[] = static::word();
         }
 
@@ -141,9 +153,11 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate a random sentence
      *
      * @example '的一是在不了有。'
-     * @param integer $nbWords         around how many words the sentence should contain
-     * @param boolean $variableNbWords set to false if you want exactly $nbWords returned,
-     *                                  otherwise $nbWords may vary by +/-40% with a minimum of 1
+     *
+     * @param int  $nbWords         around how many words the sentence should contain
+     * @param bool $variableNbWords set to false if you want exactly $nbWords returned,
+     *                              otherwise $nbWords may vary by +/-40% with a minimum of 1
+     *
      * @return string
      */
     public static function sentence($nbWords = 6, $variableNbWords = true)
@@ -151,6 +165,7 @@ class Lorem extends \Faker\Provider\Lorem
         if ($nbWords <= 0) {
             return '';
         }
+
         if ($variableNbWords) {
             $nbWords = self::randomizeNbElements($nbWords);
         }
@@ -165,14 +180,17 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate an array of sentences
      *
      * @example array('的一是在不了有。', '和人这中大。')
-     * @param  integer      $nb     how many sentences to return
-     * @param  bool         $asText if true the sentences are returned as one string
+     *
+     * @param int  $nb     how many sentences to return
+     * @param bool $asText if true the sentences are returned as one string
+     *
      * @return array|string
      */
     public static function sentences($nb = 3, $asText = false)
     {
-        $sentences = array();
-        for ($i=0; $i < $nb; $i++) {
+        $sentences = [];
+
+        for ($i = 0; $i < $nb; ++$i) {
             $sentences[] = static::sentence();
         }
 
@@ -184,9 +202,11 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate a single paragraph
      *
      * @example '的一是在不了有。和人这中大。为上个国我以。'
-     * @param integer $nbSentences         around how many sentences the paragraph should contain
-     * @param boolean $variableNbSentences set to false if you want exactly $nbSentences returned,
-     *                                      otherwise $nbSentences may vary by +/-40% with a minimum of 1
+     *
+     * @param int  $nbSentences         around how many sentences the paragraph should contain
+     * @param bool $variableNbSentences set to false if you want exactly $nbSentences returned,
+     *                                  otherwise $nbSentences may vary by +/-40% with a minimum of 1
+     *
      * @return string
      */
     public static function paragraph($nbSentences = 3, $variableNbSentences = true)
@@ -194,6 +214,7 @@ class Lorem extends \Faker\Provider\Lorem
         if ($nbSentences <= 0) {
             return '';
         }
+
         if ($variableNbSentences) {
             $nbSentences = self::randomizeNbElements($nbSentences);
         }
@@ -205,15 +226,18 @@ class Lorem extends \Faker\Provider\Lorem
      * Generate an array of paragraphs
      *
      * @example array($paragraph1, $paragraph2, $paragraph3)
-     * @param  integer      $nb     how many paragraphs to return
-     * @param  bool         $asText if true the paragraphs are returned as one string, separated by two newlines
+     *
+     * @param int  $nb     how many paragraphs to return
+     * @param bool $asText if true the paragraphs are returned as one string, separated by two newlines
+     *
      * @return array|string
      */
     public static function paragraphs($nb = 3, $asText = false)
     {
-        $paragraphs = array();
-        for ($i=0; $i < $nb; $i++) {
-            $paragraphs []= static::paragraph();
+        $paragraphs = [];
+
+        for ($i = 0; $i < $nb; ++$i) {
+            $paragraphs[] = static::paragraph();
         }
 
         return $asText ? implode("\n\n", $paragraphs) : $paragraphs;
@@ -225,9 +249,9 @@ class Lorem extends \Faker\Provider\Lorem
      *
      * @example '的一是。' '的一是在不了有。' '的一是在不了有。和人这中大。为上个国我以。'
      *
-     * @param  integer $maxNbChars Maximum number of characters the text should contain (minimum 2).
-     *                             CAUTION: 1 Chinese character == 3 bytes (UTF-8),
-     *                             the parameter is maximum number of CHARACTERS, not number of BYTES.
+     * @param int $maxNbChars Maximum number of characters the text should contain (minimum 2).
+     *                        CAUTION: 1 Chinese character == 3 bytes (UTF-8),
+     *                        the parameter is maximum number of CHARACTERS, not number of BYTES.
      *
      * @return string
      */
@@ -239,13 +263,14 @@ class Lorem extends \Faker\Provider\Lorem
 
         $type = ($maxNbChars < 15) ? 'word' : (($maxNbChars < 100) ? 'sentence' : 'paragraph');
 
-        $text = array();
+        $text = [];
+
         while (empty($text)) {
             $size = 0;
 
             // until $maxNbChars is reached
             while ($size < $maxNbChars) {
-                $word   = static::$type();
+                $word = static::$type();
                 $text[] = $word;
 
                 $size += static::strlen($word);
@@ -268,16 +293,18 @@ class Lorem extends \Faker\Provider\Lorem
      * 2 : 60%
      * 3 : 10%
      * 4 : 20%
+     *
      * @return int
      */
     protected static function randomizeCharacterNumber()
     {
-        static $characterNumber = array(
+        static $characterNumber = [
             1,
             2, 2, 2, 2, 2, 2,
             3,
             4, 4,
-        );
+        ];
+
         return $characterNumber[static::numberBetween(0, count($characterNumber) - 1)];
     }
 
@@ -285,12 +312,15 @@ class Lorem extends \Faker\Provider\Lorem
     {
         if (function_exists('mb_strlen')) {
             return mb_strlen($str, static::$encoding);
-        } elseif (function_exists('preg_match_all')) {
-            /** @link http://php.net/manual/en/function.mb-strlen.php#87114 */
-            return preg_match_all("/.{1}/us", $str, $dummy);
-        } else {
-            // CAUTION: Only for Chinese UTF-8 characters.
-            return (int)(self::strlen($str) / 3);
         }
+
+        if (function_exists('preg_match_all')) {
+            /** @see http://php.net/manual/en/function.mb-strlen.php#87114 */
+            return preg_match_all('/.{1}/us', $str, $dummy);
+        }
+
+        // CAUTION: Only for Chinese UTF-8 characters.
+        return (int) (self::strlen($str) / 3);
+
     }
 }
