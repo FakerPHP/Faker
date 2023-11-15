@@ -258,7 +258,7 @@ class Lorem extends \Faker\Provider\Lorem
         $text = [];
         $size = 0;
 
-        while ($size < $maxNbChars) {
+        while ($size <= $maxNbChars) {
             $word = static::$type();
             $text[] = $word;
             $size += self::strlen($word);
@@ -267,7 +267,7 @@ class Lorem extends \Faker\Provider\Lorem
         array_pop($text);
 
         if ($type === 'word') {
-            $text[count($text) - 1] .= '。';
+            $text[] = '。';
         }
 
         return implode('', $text);
