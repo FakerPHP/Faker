@@ -100,7 +100,7 @@ final class LoremTest extends TestCase
     /**
      * Get string length
      *
-     * @param $str
+     * @param string $str
      *
      * @return int
      */
@@ -108,9 +108,9 @@ final class LoremTest extends TestCase
     {
         if (function_exists('mb_strlen')) {
             return mb_strlen($str, 'UTF-8');
-        } else {
-            return (int) ceil(strlen($str) / 3);
         }
+
+        return (int) ceil(strlen($str) / 3);
     }
 
     protected function getProviders(): iterable

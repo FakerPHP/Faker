@@ -297,7 +297,7 @@ class Lorem extends \Faker\Provider\Lorem
     /**
      * Get string length
      *
-     * @param $str
+     * @param string $str
      *
      * @return int
      */
@@ -305,8 +305,8 @@ class Lorem extends \Faker\Provider\Lorem
     {
         if (function_exists('mb_strlen')) {
             return mb_strlen($str, 'UTF-8');
-        } else {
-            return (int) ceil(strlen($str) / 3);
         }
+
+        return (int) ceil(strlen($str) / 3);
     }
 }
