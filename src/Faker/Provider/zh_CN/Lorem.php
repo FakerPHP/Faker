@@ -2,8 +2,12 @@
 
 namespace Faker\Provider\zh_CN;
 
+use InvalidArgumentException;
+
 class Lorem extends \Faker\Provider\Lorem
 {
+    protected static $encoding = 'UTF-8';
+
     /**
      * @var array High-frequency single character of Chinese (simplified)
      */
@@ -60,16 +64,13 @@ class Lorem extends \Faker\Provider\Lorem
         '红', '细', '引', '听', '该', '铁', '价', '严', '龙', '飞',
     ];
 
-    protected static $encoding = 'UTF-8';
-
     /**
      * Generate a random single Chinese character
      *
-     * @example '的' '一' '是'
-     *
      * @return string
+     * @example '的' '一' '是'
      */
-    public static function char()
+    protected static function char()
     {
         return static::randomElement(static::$wordList);
     }
@@ -77,14 +78,14 @@ class Lorem extends \Faker\Provider\Lorem
     /**
      * Generate an array of random characters
      *
-     * @example array('的', '一', '是')
-     *
      * @param int  $nb     how many characters to return
      * @param bool $asText if true the sentences are returned as one string
      *
      * @return array|string
+     * @example '的一是'
+     * @example array('的', '一', '是')
      */
-    public static function chars($nb = 3, $asText = false)
+    protected static function chars($nb = 3, $asText = false)
     {
         $chars = static::randomElements(static::$wordList, $nb);
 
@@ -93,22 +94,16 @@ class Lorem extends \Faker\Provider\Lorem
 
     /**
      * Generate a random word
-     * A chinese word usually contains 1 - 4 single character.
      *
-     * Character numbers : Frequency
-     * 1 : 10%
-     * 2 : 60%
-     * 3 : 10%
-     * 4 : 20%
+     * A chinese word usually contains 1 - 4 single character.
      * The generated words may be unreadable by people.
      *
      * Usage:
      *     Lorem::word();
      *     Lorem::word(2); // generate word contains exact 2 chars
      *
-     * @example '的' '的一' '的一是' '的一是在'
-     *
      * @return string
+     * @example '的' '的一' '的一是' '的一是在'
      */
     public static function word()
     {
@@ -118,10 +113,10 @@ class Lorem extends \Faker\Provider\Lorem
             $nb = func_get_arg(0);
 
             if ($nb > 7) {
-                throw new \InvalidArgumentException('Chinese word must contain no more than 7 characters');
+                throw new InvalidArgumentException('Chinese word must contain no more than 7 characters');
             }
         } else {
-            $nb = static::randomizeCharacterNumber();
+            $nb = static::randomCharacterNumber();
         }
 
         return (string) static::chars($nb, true);
@@ -145,20 +140,18 @@ class Lorem extends \Faker\Provider\Lorem
             $words[] = static::word();
         }
 
-        // No space between Chinese words in sentences
         return $asText ? implode('', $words) : $words;
     }
 
     /**
      * Generate a random sentence
      *
-     * @example '的一是在不了有。'
-     *
      * @param int  $nbWords         around how many words the sentence should contain
      * @param bool $variableNbWords set to false if you want exactly $nbWords returned,
      *                              otherwise $nbWords may vary by +/-40% with a minimum of 1
      *
      * @return string
+     * @example '的一是在不了有。'
      */
     public static function sentence($nbWords = 6, $variableNbWords = true)
     {
@@ -171,7 +164,6 @@ class Lorem extends \Faker\Provider\Lorem
         }
 
         $sentence = static::words($nbWords, true);
-        // Chinese characters do not need ucfirst
 
         return $sentence . '。';
     }
@@ -179,12 +171,11 @@ class Lorem extends \Faker\Provider\Lorem
     /**
      * Generate an array of sentences
      *
-     * @example array('的一是在不了有。', '和人这中大。')
-     *
      * @param int  $nb     how many sentences to return
      * @param bool $asText if true the sentences are returned as one string
      *
      * @return array|string
+     * @example array('的一是在不了有。', '和人这中大。')
      */
     public static function sentences($nb = 3, $asText = false)
     {
@@ -194,20 +185,18 @@ class Lorem extends \Faker\Provider\Lorem
             $sentences[] = static::sentence();
         }
 
-        // No space between sentence in Chinese
         return $asText ? implode('', $sentences) : $sentences;
     }
 
     /**
      * Generate a single paragraph
      *
-     * @example '的一是在不了有。和人这中大。为上个国我以。'
-     *
      * @param int  $nbSentences         around how many sentences the paragraph should contain
      * @param bool $variableNbSentences set to false if you want exactly $nbSentences returned,
      *                                  otherwise $nbSentences may vary by +/-40% with a minimum of 1
      *
      * @return string
+     * @example '的一是在不了有。和人这中大。为上个国我以。'
      */
     public static function paragraph($nbSentences = 3, $variableNbSentences = true)
     {
@@ -225,12 +214,11 @@ class Lorem extends \Faker\Provider\Lorem
     /**
      * Generate an array of paragraphs
      *
-     * @example array($paragraph1, $paragraph2, $paragraph3)
-     *
      * @param int  $nb     how many paragraphs to return
      * @param bool $asText if true the paragraphs are returned as one string, separated by two newlines
      *
      * @return array|string
+     * @example array($paragraph1, $paragraph2, $paragraph3)
      */
     public static function paragraphs($nb = 3, $asText = false)
     {
@@ -245,42 +233,36 @@ class Lorem extends \Faker\Provider\Lorem
 
     /**
      * Generate a text string.
-     * Depending on the $maxNbChars, returns a string made of words, sentences, or paragraphs.
      *
-     * @example '的一是。' '的一是在不了有。' '的一是在不了有。和人这中大。为上个国我以。'
+     * Depending on the $maxNbChars, returns a string made of words, sentences, or paragraphs.
      *
      * @param int $maxNbChars Maximum number of characters the text should contain (minimum 2).
      *                        CAUTION: 1 Chinese character == 3 bytes (UTF-8),
      *                        the parameter is maximum number of CHARACTERS, not number of BYTES.
      *
      * @return string
+     * @example '的一是。' '的一是在不了有。' '的一是在不了有。和人这中大。为上个国我以。'
      */
     public static function text($maxNbChars = 200)
     {
         if ($maxNbChars < 2) {
-            throw new \InvalidArgumentException('text() can only generate text of at least 2 characters');
+            throw new InvalidArgumentException('text() can only generate text of at least 2 characters');
         }
 
         $type = ($maxNbChars < 15) ? 'word' : (($maxNbChars < 100) ? 'sentence' : 'paragraph');
 
         $text = [];
+        $size = 0;
 
-        while (empty($text)) {
-            $size = 0;
-
-            // until $maxNbChars is reached
-            while ($size < $maxNbChars) {
-                $word = static::$type();
-                $text[] = $word;
-
-                $size += static::strlen($word);
-            }
-
-            array_pop($text);
+        while ($size < $maxNbChars) {
+            $word = static::$type();
+            $text[] = $word;
+            $size += self::strlen($word);
         }
 
+        array_pop($text);
+
         if ($type === 'word') {
-            // end sentence with full stop
             $text[count($text) - 1] .= '。';
         }
 
@@ -296,9 +278,9 @@ class Lorem extends \Faker\Provider\Lorem
      *
      * @return int
      */
-    protected static function randomizeCharacterNumber()
+    protected static function randomCharacterNumber()
     {
-        static $characterNumber = [
+        $characterNumber = [
             1,
             2, 2, 2, 2, 2, 2,
             3,
@@ -310,17 +292,6 @@ class Lorem extends \Faker\Provider\Lorem
 
     protected static function strlen($str)
     {
-        if (function_exists('mb_strlen')) {
-            return mb_strlen($str, static::$encoding);
-        }
-
-        if (function_exists('preg_match_all')) {
-            /** @see http://php.net/manual/en/function.mb-strlen.php#87114 */
-            return preg_match_all('/.{1}/us', $str, $dummy);
-        }
-
-        // CAUTION: Only for Chinese UTF-8 characters.
-        return (int) (self::strlen($str) / 3);
-
+        return mb_strlen($str, self::$encoding);
     }
 }
