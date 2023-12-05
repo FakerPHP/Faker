@@ -687,7 +687,7 @@ class Generator
         if ($seed === null) {
             mt_srand();
         } else {
-            mt_srand((int) $seed, MT_RAND_PHP);
+            mt_srand((int) $seed);
         }
     }
 
