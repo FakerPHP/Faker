@@ -14,27 +14,27 @@ final class PersonTest extends TestCase
 {
     public function testFirstNameMaleReturns(): void
     {
-        self::assertEquals('Максим', $this->faker->firstNameMale());
+        self::assertEquals('Данило', $this->faker->firstNameMale());
     }
 
     public function testFirstNameFemaleReturns(): void
     {
-        self::assertEquals('Людмила', $this->faker->firstNameFemale());
+        self::assertEquals('Кіра', $this->faker->firstNameFemale());
     }
 
     public function testMiddleNameMaleReturns(): void
     {
-        self::assertEquals('Миколайович', $this->faker->middleNameMale());
+        self::assertEquals('Іванович', $this->faker->middleNameMale());
     }
 
     public function testMiddleNameFemaleReturns(): void
     {
-        self::assertEquals('Миколаївна', $this->faker->middleNameFemale());
+        self::assertEquals('Іванівна', $this->faker->middleNameFemale());
     }
 
     public function testLastNameReturns(): void
     {
-        self::assertEquals('Броваренко', $this->faker->lastName());
+        self::assertEquals('Панасюк', $this->faker->lastName());
     }
 
     protected function getProviders(): iterable

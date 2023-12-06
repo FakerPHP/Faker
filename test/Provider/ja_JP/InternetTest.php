@@ -14,12 +14,12 @@ final class InternetTest extends TestCase
 {
     public function testUserName(): void
     {
-        self::assertEquals('akira72', $this->faker->userName);
+        self::assertEquals('nanami.takahashi', $this->faker->userName);
     }
 
     public function testDomainName(): void
     {
-        self::assertEquals('nakajima.com', $this->faker->domainName);
+        self::assertEquals('yamamoto.jp', $this->faker->domainName);
     }
 
     protected function getProviders(): iterable

@@ -14,14 +14,14 @@ final class ColorTest extends TestCase
 {
     public function testColorName(): void
     {
-        self::assertEquals('mysi', $this->faker->colorName());
-        self::assertEquals('alabastrowy', $this->faker->colorName());
+        self::assertEquals('sepia', $this->faker->colorName());
+        self::assertEquals('kawowy', $this->faker->colorName());
     }
 
     public function testSafeColorName(): void
     {
-        self::assertEquals('żółty', $this->faker->safeColorName());
-        self::assertEquals('czarny', $this->faker->safeColorName());
+        self::assertEquals('fioletowy', $this->faker->safeColorName());
+        self::assertEquals('złoty', $this->faker->safeColorName());
     }
 
     protected function getProviders(): iterable

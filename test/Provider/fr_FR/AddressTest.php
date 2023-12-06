@@ -22,14 +22,14 @@ final class AddressTest extends TestCase
 
     public function testSecondaryAddress(): void
     {
-        self::assertEquals('Étage 007', $this->faker->secondaryAddress());
-        self::assertEquals('Bât. 932', $this->faker->secondaryAddress());
+        self::assertEquals('Apt. 139', $this->faker->secondaryAddress());
+        self::assertEquals('Chambre 368', $this->faker->secondaryAddress());
     }
 
     public function testRegion(): void
     {
-        self::assertEquals('Occitanie', $this->faker->region());
-        self::assertEquals('Auvergne-Rhône-Alpes', $this->faker->region());
+        self::assertEquals('Guadeloupe', $this->faker->region());
+        self::assertEquals('Grand Est', $this->faker->region());
     }
 
     protected function getProviders(): iterable

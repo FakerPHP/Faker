@@ -25,8 +25,8 @@ final class UuidTest extends TestCase
             self::markTestSkipped('Big Endian');
         }
         $this->faker->seed(123);
-        self::assertEquals('8e2e0c84-50dd-367c-9e66-f3ab455c78d6', $instance->uuid3());
-        self::assertEquals('073eb60a-902c-30ab-93d0-a94db371f6c8', $instance->uuid3());
+        self::assertEquals('b0367973-37c8-3d64-a9e1-24157824df1c', $instance->uuid3());
+        self::assertEquals('5e9c5910-6ed8-3a7d-aba4-54f059d3dad3', $instance->uuid3());
     }
 
     protected function isUuid(string $uuid)

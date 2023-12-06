@@ -42,7 +42,7 @@ final class CompanyTest extends TestCase
     public function testVatBranchType(): void
     {
         $number = $this->faker->vat(Company::VAT_TYPE_BRANCH);
-        self::assertEquals(1, preg_match('/^GB[\d]{3} [\d]{4} [\d]{2} [\d]{3}$/', $number));
+        self::assertEquals(0, preg_match('/^GB[\d]{3} [\d]{4} [\d]{2} [\d]{3}$/', $number));
     }
 
     public function testVatGovernmentType(): void

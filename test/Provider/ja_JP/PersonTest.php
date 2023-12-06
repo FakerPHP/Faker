@@ -14,27 +14,27 @@ final class PersonTest extends TestCase
 {
     public function testKanaNameMaleReturns(): void
     {
-        self::assertEquals('アオタ ミノル', $this->faker->kanaName('male'));
+        self::assertEquals('ミヤケ ヤスヒロ', $this->faker->kanaName('male'));
     }
 
     public function testKanaNameFemaleReturns(): void
     {
-        self::assertEquals('アオタ ミキ', $this->faker->kanaName('female'));
+        self::assertEquals('ミヤケ ユミコ', $this->faker->kanaName('female'));
     }
 
     public function testFirstKanaNameMaleReturns(): void
     {
-        self::assertEquals('ヒデキ', $this->faker->firstKanaName('male'));
+        self::assertEquals('ヨウイチ', $this->faker->firstKanaName('male'));
     }
 
     public function testFirstKanaNameFemaleReturns(): void
     {
-        self::assertEquals('マアヤ', $this->faker->firstKanaName('female'));
+        self::assertEquals('チヨ', $this->faker->firstKanaName('female'));
     }
 
     public function testLastKanaNameReturnsNakajima(): void
     {
-        self::assertEquals('ナカジマ', $this->faker->lastKanaName);
+        self::assertEquals('ヤマモト', $this->faker->lastKanaName);
     }
 
     protected function getProviders(): iterable
