@@ -125,6 +125,16 @@ final class InternetTest extends TestCase
         self::assertNotFalse(filter_var($this->faker->ipv6(), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6));
     }
 
+    public function testSafeIpv4(): void
+    {
+        self::assertNotFalse(filter_var($this->faker->safeIpv4(), FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
+    }
+
+    public function testSafeIpv6(): void
+    {
+        self::assertNotFalse(filter_var($this->faker->safeIpv6(), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6));
+    }
+
     public function testMacAddress(): void
     {
         self::assertNotFalse(filter_var($this->faker->macAddress(), FILTER_VALIDATE_MAC));

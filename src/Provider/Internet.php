@@ -255,6 +255,32 @@ class Internet extends Base
     }
 
     /**
+     * @example '192.0.2.1'
+     *
+     * @return string
+     */
+    public static function safeIpv4()
+    {
+        return '192.0.2.' . static::numberBetween(0, 255);
+    }
+
+    /**
+     * @example '2001:db8:ffff:ffff:ffff:ffff:ffff:ffff'
+     *
+     * @return string
+     */
+    public static function safeIpv6()
+    {
+        $res = ['2001', 'db8'];
+
+        for ($i = 0; $i < 6; ++$i) {
+            $res[] = dechex(self::numberBetween(0, 65535));
+        }
+
+        return implode(':', $res);
+    }
+
+    /**
      * @example '32:F1:39:2F:D6:18'
      *
      * @return string
