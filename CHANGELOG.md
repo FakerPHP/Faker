@@ -2,6 +2,7 @@
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.23.0...main)
 
+- Fixed double `а` female lastName in `ru_RU/Person::name()` (#832)
 - Fixed polish license plates (#685)
 - Stopped using `static` in callables in `Provider\pt_BR\PhoneNumber` (#785)
 - Fixed incorrect female name (#794)

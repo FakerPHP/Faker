@@ -5,8 +5,8 @@ namespace Faker\Provider\ru_RU;
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
-        '{{firstNameMale}} {{middleNameMale}} {{lastName}}',
-        '{{lastName}} {{firstNameMale}} {{middleNameMale}}',
+        '{{firstNameMale}} {{middleNameMale}} {{lastNameMale}}',
+        '{{lastNameMale}} {{firstNameMale}} {{middleNameMale}}',
     ];
 
     /**
@@ -14,8 +14,8 @@ class Person extends \Faker\Provider\Person
      * That list of MALE last names could be safely extended to FEMALE list just by adding 'a' letter at the end
      */
     protected static $femaleNameFormats = [
-        '{{firstNameFemale}} {{middleNameFemale}} {{lastName}}а',
-        '{{lastName}}а {{firstNameFemale}} {{middleNameFemale}}',
+        '{{firstNameFemale}} {{middleNameFemale}} {{lastNameFemale}}',
+        '{{lastNameFemale}} {{firstNameFemale}} {{middleNameFemale}}',
     ];
 
     /**
@@ -165,16 +165,24 @@ class Person extends \Faker\Provider\Person
      */
     public function lastName($gender = null)
     {
-        $lastName = static::randomElement(static::$lastName);
-
         if (static::GENDER_FEMALE === $gender) {
-            return $lastName . 'а';
+            return $this->lastNameFemale();
         }
 
         if (static::GENDER_MALE === $gender) {
-            return $lastName;
+            return $this->lastNameMale();
         }
 
-        return $lastName . static::randomElement(static::$lastNameSuffix);
+        return static::randomElement(static::$lastName) . static::randomElement(static::$lastNameSuffix);
+    }
+
+    public function lastNameMale(): string
+    {
+        return static::randomElement(static::$lastName);
+    }
+
+    public function lastNameFemale(): string
+    {
+        return static::randomElement(static::$lastName) . 'а';
     }
 }
