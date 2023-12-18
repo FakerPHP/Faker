@@ -451,7 +451,7 @@ use Faker\Container\ContainerInterface;
  *
  * @property string $firstName
  *
- * @method string firstName(?string $gender = null)
+ * @method string firstName($gender = null)
  *
  * @property string $firstNameMale
  *
@@ -463,7 +463,7 @@ use Faker\Container\ContainerInterface;
  *
  * @property string $lastName
  *
- * @method string lastName(?string $gender = null)
+ * @method string lastName($gender = null)
  *
  * @property string $title
  *

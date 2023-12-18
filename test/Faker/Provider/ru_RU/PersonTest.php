@@ -124,9 +124,11 @@ final class PersonTest extends TestCase
     }
 
     /**
-     * @dataProvider dataIssue832
+     * Issue 832
+     *
+     * @dataProvider dataFemaleSurnameWithoutDoubleALetter
      */
-    public function testIssue832(int $seed, string $expected): void
+    public function testFemaleSurnameWithoutDoubleALetter(int $seed, string $expected): void
     {
         $generator = new Generator();
         $generator->seed($seed);
@@ -138,7 +140,7 @@ final class PersonTest extends TestCase
         self::assertSame($expected, $generator->name('female'));
     }
 
-    public static function dataIssue832(): iterable
+    public static function dataFemaleSurnameWithoutDoubleALetter(): iterable
     {
         //bad cases
         yield 'seed: 55' => [
