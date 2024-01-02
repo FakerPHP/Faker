@@ -245,6 +245,9 @@ final class GeneratorTest extends TestCase
         self::assertNotSame($uniqueGenerator, $generator->unique(true));
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testUniqueReturnsUniqueGeneratorThatGeneratesUniqueValues(): void
     {
         $words = [

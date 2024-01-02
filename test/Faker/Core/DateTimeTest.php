@@ -24,6 +24,9 @@ final class DateTimeTest extends TestCase
         $this->extension = $this->faker->ext(DateTimeExtension::class);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDateTime(): void
     {
         $dateTime = $this->extension->dateTime('2005-10-19T14:12:00');
@@ -32,6 +35,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals(new \DateTime('1990-09-29T12:12:53'), $dateTime);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDateTimeWithTimezone(): void
     {
         $dateTime = $this->extension->dateTime('2021-09-05T15:10:00', 'America/Los_Angeles');
@@ -41,6 +47,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals(new \DateTimeZone('America/Los_Angeles'), $dateTime->getTimezone());
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDateTimeAD(): void
     {
         $dateTime = $this->extension->dateTimeAD('2012-04-12T19:22:23');
@@ -49,6 +58,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals(new \DateTime('1166-06-01T17:43:42'), $dateTime);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDateTimeBetween(): void
     {
         $dateTime = $this->extension->dateTimeBetween('1998-12-18T11:23:40', '2004-09-15T22:10:45');
@@ -63,6 +75,9 @@ final class DateTimeTest extends TestCase
         $this->extension->dateTimeBetween('2004-09-15T22:10:45', '1998-12-18T11:23:40');
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDateTimeInInterval(): void
     {
         $dateTime = $this->extension->dateTimeInInterval('1999-07-16T17:30:12', '+2 years');
@@ -120,6 +135,9 @@ final class DateTimeTest extends TestCase
         self::assertLessThanOrEqual(new \DateTime('now'), $dateTime);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDate(): void
     {
         $date = $this->extension->date('Y-m-d', '2102-11-12T14:45:29');
@@ -128,6 +146,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('2046-12-26', $date);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testTime(): void
     {
         $time = $this->extension->time('H:i:s', '1978-06-27T09:43:21');
@@ -136,6 +157,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('21:59:44', $time);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testUnixTime(): void
     {
         $unixTime = $this->extension->unixTime('1993-08-29T15:10:00');
@@ -144,6 +168,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals(432630664, $unixTime);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testUnitTimeWithNumericUntil(): void
     {
         $unixTime = $this->extension->unixTime(1643830258);
@@ -152,6 +179,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals(952499510, $unixTime);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testIso8601(): void
     {
         $iso8601 = $this->extension->iso8601('1993-07-11T15:10:00');
@@ -170,6 +200,9 @@ final class DateTimeTest extends TestCase
         self::assertContains($amPm, ['am', 'pm']);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDayOfMonth(): void
     {
         $dayOfMonth = $this->extension->dayOfMonth('2001-04-29T15:10:12');
@@ -178,6 +211,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('25', $dayOfMonth);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testDayOfWeek(): void
     {
         $dayOfWeek = $this->extension->dayOfWeek('2021-12-12T15:10:00');
@@ -186,6 +222,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('Monday', $dayOfWeek);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testMonth(): void
     {
         $month = $this->extension->month('2021-05-23T15:10:00');
@@ -194,6 +233,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('10', $month);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testMonthName(): void
     {
         $monthName = $this->extension->monthName('2021-06-06T15:10:00');
@@ -202,6 +244,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('October', $monthName);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testYear(): void
     {
         $year = $this->extension->year('2021-09-12T15:10:00');
@@ -210,6 +255,9 @@ final class DateTimeTest extends TestCase
         self::assertEquals('1999', $year);
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testCentury(): void
     {
         $century = $this->extension->century();

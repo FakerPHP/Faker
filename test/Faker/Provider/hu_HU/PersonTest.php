@@ -10,6 +10,9 @@ use Faker\Test\TestCase;
  */
 final class PersonTest extends TestCase
 {
+    /**
+     * @requires PHP < 8.3
+     */
     public function testValidMariedFemaleLastnames(): void
     {
         self::assertEquals('Báró Vassné Zsóka', $this->faker->name('female'));

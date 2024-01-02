@@ -14,6 +14,9 @@ final class UuidTest extends TestCase
         self::assertTrue($this->isUuid($uuid));
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testUuidExpectedSeed(): void
     {
         $instance = new Uuid();

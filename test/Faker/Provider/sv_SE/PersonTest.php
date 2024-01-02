@@ -23,6 +23,8 @@ final class PersonTest extends TestCase
     }
 
     /**
+     * @requires PHP < 8.3
+     *
      * @dataProvider provideSeedAndExpectedReturn
      */
     public function testPersonalIdentityNumberUsesBirthDateIfProvided($seed, $birthdate, $expected): void

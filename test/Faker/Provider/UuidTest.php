@@ -16,6 +16,9 @@ final class UuidTest extends TestCase
         self::assertTrue($this->isUuid($uuid));
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testUuidExpectedSeed(): void
     {
         if (pack('L', 0x6162797A) == pack('N', 0x6162797A)) {

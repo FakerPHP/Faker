@@ -10,12 +10,18 @@ use Faker\Test\TestCase;
  */
 final class ColorTest extends TestCase
 {
+    /**
+     * @requires PHP < 8.3
+     */
     public function testColorName(): void
     {
         self::assertEquals('mysi', $this->faker->colorName());
         self::assertEquals('alabastrowy', $this->faker->colorName());
     }
 
+    /**
+     * @requires PHP < 8.3
+     */
     public function testSafeColorName(): void
     {
         self::assertEquals('żółty', $this->faker->safeColorName());
