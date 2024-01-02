@@ -687,8 +687,20 @@ class Generator
         if ($seed === null) {
             mt_srand();
         } else {
-            mt_srand((int) $seed, MT_RAND_PHP);
+            mt_srand((int) $seed, self::mode());
         }
+    }
+
+    /**
+     * @see https://www.php.net/manual/en/migration83.deprecated.php#migration83.deprecated.random
+     */
+    private static function mode(): int
+    {
+        if (PHP_VERSION_ID < 80300) {
+            return MT_RAND_PHP;
+        }
+
+        return MT_RAND_MT19937;
     }
 
     public function format($format, $arguments = [])
