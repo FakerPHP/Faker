@@ -14,11 +14,12 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["7.4"]
+        php-version:
+          - "7.4"
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v4"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@v2"
@@ -55,11 +56,12 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["7.4"]
+        php-version:
+          - "7.4"
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v4"
 
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@v2"

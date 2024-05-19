@@ -5,6 +5,8 @@
 /.gitattributes           export-ignore
 /.gitignore               export-ignore
 /.php-cs-fixer.dist.php   export-ignore
+/.php-cs-fixer.rules.php  export-ignore
+/.php-cs-fixer.test.php   export-ignore
 /.yamllint.yaml           export-ignore
 /codecov.yml              export-ignore
 /Makefile                 export-ignore

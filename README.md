@@ -3,7 +3,7 @@
 # Faker
 
 [![Packagist Downloads](https://img.shields.io/packagist/dm/FakerPHP/Faker)](https://packagist.org/packages/fakerphp/faker)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/FakerPHP/Faker/Tests/main)](https://github.com/FakerPHP/Faker/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/FakerPHP/Faker/tests.yaml?branch=2.0)](https://github.com/FakerPHP/Faker/actions)
 [![Type Coverage](https://shepherd.dev/github/FakerPHP/Faker/coverage.svg)](https://shepherd.dev/github/FakerPHP/Faker)
 [![Code Coverage](https://codecov.io/gh/FakerPHP/Faker/branch/main/graph/badge.svg)](https://codecov.io/gh/FakerPHP/Faker)
 
@@ -31,6 +31,9 @@ Use `Faker\Factory::create()` to create and initialize a Faker generator, which 
 
 ```php
 <?php
+
+declare(strict_types=1);
+
 require_once 'vendor/autoload.php';
 
 // use the factory to create a Faker\Generator instance
@@ -48,6 +51,9 @@ Each call to `$faker->name()` yields a different (random) result. This is becaus
 
 ```php
 <?php
+
+declare(strict_types=1);
+
 for ($i = 0; $i < 3; $i++) {
     echo $faker->name() . "\n";
 }
@@ -98,6 +104,10 @@ return static function (Config\RectorConfig $rectorConfig): void {
 ## License
 
 Faker is released under the MIT License. See [`LICENSE`](LICENSE) for details.
+
+## PHP Version Support Policy
+
+The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version one year after it has reached its end of security support.
 
 ## Backward compatibility promise
 

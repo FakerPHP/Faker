@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v4"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@v2"
@@ -50,16 +50,19 @@ jobs:
       - name: "Cache cache file for php-cs-fixer"
         uses: "actions/cache@v3"
         with:
-          path: ".php_cs.cache"
-          key: "composer-${{ matrix.php-version }}-${{ github.ref_name }}"
+          path: ".build/php-cs-fixer/"
+          key: "php-cs-fixer-${{ matrix.php-version }}-${{ github.ref_name }}"
           restore-keys: |
-            composer-${{ matrix.php-version }}-main
-            composer-${{ matrix.php-version }}
-            composer-
+            php-cs-fixer-${{ matrix.php-version }}-main
+            php-cs-fixer-${{ matrix.php-version }}-
 
       - name: "Run php-cs-fixer"
         run: |
-          vendor/bin/php-cs-fixer fix --ansi --diff --dry-run --verbose
+          vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.dist.php --diff --dry-run --show-progress=dots --verbose
+
+      - name: "Run php-cs-fixer for test code"
+        run: |
+          vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.test.php --diff --dry-run --show-progress=dots --verbose
 
   yamllint:
     name: "yamllint"
@@ -68,7 +71,7 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v4"
 
       - name: "Lint YAML files"
         uses: "ibiqlik/action-yamllint@v3.1.1"

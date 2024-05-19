@@ -11,21 +11,27 @@ name: "Tests"
 
 jobs:
   phpunit:
-    name: "PHPUnit"
+    name: "PHPUnit (${{ matrix.php-version }})"
 
     strategy:
+      fail-fast: false
       matrix:
+        experimental:
+          - false
         php-version:
           - "7.4"
           - "8.0"
           - "8.1"
           - "8.2"
+        include:
+          - experimental: true
+            php-version: "8.3"
 
     runs-on: "ubuntu-latest"
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v4"
 
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@v2"
@@ -52,3 +58,4 @@ jobs:
 
       - name: "Run tests"
         run: "./vendor/bin/phpunit --colors=always"
+        continue-on-error: "${{ matrix.experimental }}"

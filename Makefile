@@ -10,7 +10,8 @@ help:
 
 .PHONY: cs
 cs: vendor ## Fixes coding standard issues with php-cs-fixer
-	vendor/bin/php-cs-fixer fix --diff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --show-progress=dots --verbose
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.test.php --diff --show-progress=dots --verbose
 
 .PHONY: coverage
 coverage: vendor ## Collects coverage with phpunit
