@@ -5,25 +5,25 @@ namespace Faker\Provider\fr_FR;
 class Person extends \Faker\Provider\Person
 {
     protected static $maleNameFormats = [
-        '{{firstNameMale}} {{lastName}}',
-        '{{firstNameMale}} {{lastName}}',
-        '{{firstNameMale}} {{lastName}}',
-        '{{firstNameMale}} {{lastName}}',
-        '{{firstNameMale}} {{lastName}}',
-        '{{firstNameMale}} {{prefix}} {{lastName}}',
-        '{{firstNameMale}} {{lastName}}-{{lastName}}',
-        '{{firstNameMale}}-{{firstNameMale}} {{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}-{{lastName}}',
+        '{{lastName}}',
     ];
 
     protected static $femaleNameFormats = [
-        '{{firstNameFemale}} {{lastName}}',
-        '{{firstNameFemale}} {{lastName}}',
-        '{{firstNameFemale}} {{lastName}}',
-        '{{firstNameFemale}} {{lastName}}',
-        '{{firstNameFemale}} {{lastName}}',
-        '{{firstNameFemale}} {{prefix}} {{lastName}}',
-        '{{firstNameFemale}} {{lastName}}-{{lastName}}',
-        '{{firstNameFemale}}-{{firstNameFemale}} {{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}',
+        '{{lastName}}-{{lastName}}',
+        '{{lastName}}',
     ];
 
     protected static $firstNameMale = [
