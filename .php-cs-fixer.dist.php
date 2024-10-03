@@ -126,6 +126,7 @@ return $config
         'no_whitespace_in_blank_line' => true,
         'non_printable_character' => true,
         'normalize_index_brace' => true,
+        'nullable_type_declaration_for_default_null_value' => true,
         'operator_linebreak' => [
             'only_booleans' => true,
             'position' => 'beginning',
