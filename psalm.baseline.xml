@@ -125,7 +125,6 @@
   <file src="src/Faker/ORM/Spot/Populator.php">
     <UndefinedClass>
       <code><![CDATA[$this->locator]]></code>
-      <code>Locator</code>
     </UndefinedClass>
     <UndefinedDocblockClass>
       <code>Locator</code>
@@ -133,27 +132,19 @@
   </file>
   <file src="src/Faker/Provider/Base.php">
     <InvalidArgument>
-      <code>[static::class, 'randomDigit']</code>
-      <code>static function ($matches) {
+      <code><![CDATA[[static::class, 'randomDigit']]]></code>
+      <code><![CDATA[static function ($matches) {
             // remove backslashes (that are not followed by another backslash) because they are escape characters
             $match = preg_replace('/\\\(?!\\\)/', '', $matches[1]);
             $randomElement = Base::randomElement(str_split($match));
 
             //[.] should not be a random character, but a literal .
             return str_replace('.', '\.', $randomElement);
-        }</code>
+        }]]></code>
     </InvalidArgument>
-    <UndefinedClass>
-      <code>\UnitEnum</code>
-      <code>\UnitEnum</code>
-    </UndefinedClass>
     <UndefinedDocblockClass>
       <code>Closure</code>
     </UndefinedDocblockClass>
-    <UndefinedFunction>
-      <code>enum_exists($array)</code>
-      <code>enum_exists($array)</code>
-    </UndefinedFunction>
   </file>
   <file src="src/Faker/Provider/Biased.php">
     <InvalidParamDefault>
