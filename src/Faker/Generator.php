@@ -764,7 +764,7 @@ class Generator
      *
      * @example 'video/avi'
      */
-    public function mimeType()
+    public function mimeType(): string
     {
         return $this->ext(Extension\FileExtension::class)->mimeType();
     }
@@ -774,7 +774,7 @@ class Generator
      *
      * @example avi
      */
-    public function fileExtension()
+    public function fileExtension(): string
     {
         return $this->ext(Extension\FileExtension::class)->extension();
     }
@@ -782,7 +782,7 @@ class Generator
     /**
      * Get a full path to a new real file on the system.
      */
-    public function filePath()
+    public function filePath(): string
     {
         return $this->ext(Extension\FileExtension::class)->filePath();
     }
