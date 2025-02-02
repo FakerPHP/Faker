@@ -69,7 +69,7 @@ parameters:
     - '#\[BC\] REMOVED: Method Faker\\Core\\DateTime\#setTimezone\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Generator\#uuid3\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Generator\#uuid\(\) was removed#'
-    - '#\[BC\] REMOVED: Method \Faker\\Provider\\fr_FR\\PhoneNumber\#phoneNumber06\(\) was removed#'
+    - '#\[BC\] REMOVED: Method Faker\\Provider\\fr_FR\\PhoneNumber\#phoneNumber06\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Provider\\fr_FR\\PhoneNumber\#phoneNumber06WithSeparator\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Provider\\ru_RU\\Person\#lastNameMale\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Provider\\ru_RU\\Person\#lastNameFemale\(\) was removed#'
@@ -83,4 +83,3 @@ parameters:
     - '#\[BC\] CHANGED: The parameter $numberExtension of Faker\\Core\\Barcode\#__construct\(\) changed from Faker\\Extension\\NumberExtension|null to a non-contravariant Faker\\Extension\\NumberExtension#'
     - '#\[BC\] CHANGED: The number of required arguments for Faker\\Core\\Version\#__construct\(\) increased from 0 to 1#'
     - '#\[BC\] CHANGED: The parameter $numberExtension of Faker\\Core\\Version\#__construct\(\) changed from Faker\\Extension\\NumberExtension|null to a non-contravariant Faker\\Extension\\NumberExtension#'
-    - '#\[BC\] REMOVED: Method Faker\\Provider\\fr_FR\\PhoneNumber\#phoneNumber06\(\) was removed#'
