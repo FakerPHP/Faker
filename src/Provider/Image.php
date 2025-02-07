@@ -52,48 +52,11 @@ class Image extends Base
         $gray = false,
         $format = 'png'
     ) {
-        trigger_deprecation(
-            'fakerphp/faker',
-            '1.20',
-            'Provider is deprecated and will no longer be available in Faker 2. Please use a custom provider instead',
-        );
+        $baseUrl = "https://picsum.photos/";
 
-        // Validate image format
-        $imageFormats = static::getFormats();
+        $url = "{$width}/{$height}/";
 
-        if (!in_array(strtolower($format), $imageFormats, true)) {
-            throw new \InvalidArgumentException(sprintf(
-                'Invalid image format "%s". Allowable formats are: %s',
-                $format,
-                implode(', ', $imageFormats),
-            ));
-        }
-
-        $size = sprintf('%dx%d.%s', $width, $height, $format);
-
-        $imageParts = [];
-
-        if ($category !== null) {
-            $imageParts[] = $category;
-        }
-
-        if ($word !== null) {
-            $imageParts[] = $word;
-        }
-
-        if ($randomize === true) {
-            $imageParts[] = Lorem::word();
-        }
-
-        $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
-
-        return sprintf(
-            '%s/%s/%s%s',
-            self::BASE_URL,
-            $size,
-            $backgroundColor,
-            count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : '',
-        );
+        return $baseUrl . $url;
     }
 
     /**
