@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Faker\Test\Provider;
 
-use Faker\Provider\en_US\Text;
 use Faker\Test\TestCase;
+use Faker\UnitedStates\Text;
 
 /**
  * @group legacy

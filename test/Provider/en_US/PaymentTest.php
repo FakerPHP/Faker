@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Faker\Provider\en_US;
 
 use Faker\Test\TestCase;
+use Faker\UnitedStates\Payment;
 
 /**
  * @group legacy

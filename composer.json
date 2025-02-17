@@ -8,13 +8,9 @@
         "data"
     ],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "François Zaninotto"
-        }
-    ],
     "require": {
         "php": "^7.4 || ^8.0",
+        "fakerphp/core": "dev-main",
         "psr/container": "^1.0 || ^2.0",
         "symfony/deprecation-contracts": "^2.2 || ^3.0"
     },
@@ -22,7 +18,8 @@
         "ext-intl": "*",
         "bamarni/composer-bin-plugin": "^1.4.1",
         "phpunit/phpunit": "^9.5.26",
-        "symfony/phpunit-bridge": "^5.4.16"
+        "symfony/phpunit-bridge": "^5.4.16",
+        "symfony/var-dumper": "^6.4"
     },
     "autoload": {
         "psr-4": {
@@ -38,9 +35,6 @@
         "fzaninotto/faker": "*"
     },
     "suggest": {
-        "ext-curl": "Required by Faker\\Provider\\Image to download images.",
-        "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
-        "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
         "ext-mbstring": "Required for multibyte Unicode string functionality."
     },
     "config": {
