@@ -4,7 +4,8 @@
 
 - Removed domain `gmail.com.au` from `Provider\en_AU\Internet` (#886)
 - Refreshed ISO currencies (#919)
--
+- Improved italian phone number formats
+
 ## [2024-11-09, v1.24.0](https://github.com/FakerPHP/Faker/compare/v1.23.1..v1.24.0)
 
 - Fix internal deprecations in Doctrine's populator by @gnutix in (#889)
