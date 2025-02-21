@@ -4,18 +4,35 @@ namespace Faker\Provider\it_IT;
 
 class PhoneNumber extends \Faker\Provider\PhoneNumber
 {
+    /**
+     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Italy
+     */
     protected static $formats = [
-        '+## ### ## ## ####',
-        '+## ## #######',
-        '+## ## ########',
-        '+## ### #######',
-        '+## ### ########',
-        '+## #### #######',
-        '+## #### ########',
-        // According to http://it.wikipedia.org/wiki/Prefisso_telefonico#Elenco_degli_indicativi_in_Italia.2C_a_San_Marino_e_nel_Vaticano
-        '0## ### ####',
-        '+39 0## ### ###',
-        '3## ### ###',
-        '+39 3## ### ###',
+        // Landline numbers
+        '0%# ### ###',
+        '0%# ### ####',
+        '02 #### ###', // Milan
+        '02 #### ####',
+        '06 #### ###', // Rome
+        '06 #### ####',
+
+        // Mobile numbers
+        '3%# ### ####',
+
+        // International formats
+        '+39 0%# ### ###',
+        '+39 0%# ### ####',
+        '+39 02 #### ###',
+        '+39 02 #### ####',
+        '+39 06 #### ###',
+        '+39 06 #### ####',
+        '+39 3%# ### ####',
+    ];
+
+    protected static $e164Formats = [
+        '+390%#######',
+        '+390%########',
+        '+393%#######',
+        '+393%########',
     ];
 }
