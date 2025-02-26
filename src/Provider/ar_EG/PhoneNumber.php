@@ -3,18 +3,16 @@
 namespace Faker\Provider\ar_EG;
 
 class PhoneNumber extends \Faker\Provider\PhoneNumber
-# References:
-# https://en.wikipedia.org/wiki/Telephone_numbers_in_Egypt
-# https://krispcall.com/blog/egypt-phone-number-format/
+    // References:
+    // https://en.wikipedia.org/wiki/Telephone_numbers_in_Egypt
+    // https://krispcall.com/blog/egypt-phone-number-format/
 {
-
     protected static $formats = [
         '0{{areaCode}}#######',
         '+20{{areaCode}}#######',
         '0{{areaCode}} ### ####',
         '+20 {{areaCode}} ### ####',
     ];
-
 
     protected static $mobileFormats = [
         '010########',
@@ -67,6 +65,7 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
     {
         return static::numerify(static::randomElement(static::$areaCodes));
     }
+
     public static function mobileNumber()
     {
         return static::numerify(static::randomElement(static::$mobileFormats));

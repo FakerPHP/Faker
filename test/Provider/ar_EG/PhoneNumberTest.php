@@ -7,7 +7,6 @@ namespace Faker\Test\Provider\ar_EG;
 use Faker\Provider\ar_EG\PhoneNumber;
 use Faker\Test\TestCase;
 
-
 final class PhoneNumberTest extends TestCase
 {
     public function testPhoneNumber(): void
@@ -19,7 +18,6 @@ final class PhoneNumberTest extends TestCase
     {
         self::assertMatchesRegularExpression('/^(\+20\s?)?(010|011|012|015)\s?\d{3,4}\s?\d{4}$|^(\+20\s?)?(010|011|012|015)\d{8}$/', $this->faker->mobileNumber());
     }
-
 
     protected function getProviders(): iterable
     {
