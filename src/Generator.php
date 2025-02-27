@@ -721,8 +721,10 @@ class Generator
         }
 
         foreach ($this->providers as $provider) {
-            if (method_exists($provider, $format)) {
-                $this->formatters[$format] = [$provider, $format];
+            $callable = [$provider, $format];
+
+            if (is_callable($callable)) {
+                $this->formatters[$format] = $callable;
 
                 return $this->formatters[$format];
             }
