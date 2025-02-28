@@ -10,4 +10,14 @@ final class BarProvider
     {
         return 'barfoo';
     }
+
+    private function maybeShadowedFormatter()
+    {
+        return 'shadowed';
+    }
+
+    private function maybeShadowedFormatter2()
+    {
+        return 'shadowed';
+    }
 }

@@ -15,4 +15,27 @@ final class FooProvider
     {
         return 'baz' . $value;
     }
+
+    // The PHP CS Fixer `protected_to_private` fixer rule rewrites this to `private function`
+    /*
+    protected function protectedFormatter()
+    {
+        return 'protected';
+    }
+    */
+
+    private function privateFormatter()
+    {
+        return 'private';
+    }
+
+    public function maybeShadowedFormatter()
+    {
+        return 'not shadowed';
+    }
+
+    public function maybeShadowedFormatter2()
+    {
+        return 'also not shadowed';
+    }
 }

@@ -327,4 +327,45 @@ final class GeneratorTest extends TestCase
 
         $uniqueGenerator->word();
     }
+
+    // Disabled because the PHP CS Fixer’s `protected_to_private` rule rewrites
+    // `protected function protectedFormatter()` to `private function protectedFormatter()`,
+    // and currently there’s no way to disable CS Fixer rules for a single line
+    /*
+    public function testProtectedProviderMethodsAreNotCalled(): void
+    {
+        $this->faker->addProvider(new Fixture\Provider\FooProvider());
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf('Unknown format "protectedFormatter"'));
+
+        $this->faker->protectedFormatter();
+    }
+
+    public function testProtectedProviderMethodsDoNotShadowPublicMethods(): void
+    {
+        $this->faker->addProvider(new Fixture\Provider\FooProvider());
+        $this->faker->addProvider(new Fixture\Provider\BarProvider());
+
+        self::assertSame('not shadowed', $this->faker->maybeShadowedFormatter());
+    }
+    */
+
+    public function testPrivateProviderMethodsAreNotCalled(): void
+    {
+        $this->faker->addProvider(new Fixture\Provider\FooProvider());
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf('Unknown format "privateFormatter"'));
+
+        $this->faker->privateFormatter();
+    }
+
+    public function testPrivateProviderMethodsDoNotShadowPublicMethods(): void
+    {
+        $this->faker->addProvider(new Fixture\Provider\FooProvider());
+        $this->faker->addProvider(new Fixture\Provider\BarProvider());
+
+        self::assertSame('also not shadowed', $this->faker->maybeShadowedFormatter2());
+    }
 }
