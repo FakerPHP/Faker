@@ -91,64 +91,57 @@ class Person extends \Faker\Provider\Person
      *
      * @see http://www.finlex.fi/fi/laki/ajantasa/2010/20100128
      *
-     * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
+     * @param static::GENDER_FEMALE|static::GENDER_MALE|null $gender
      *
-     * @return string on format DDMMYYCZZZQ, where DDMMYY is the date of birth, C the century sign, ZZZ the individual number and Q the control character (checksum)
+     * @return string on format DDMMYYCZZZQ, where DDMMYY is the date of birth,
+     *                C the century sign, ZZZ the individual number and Q the
+     *                control character (checksum)
      */
-    public function personalIdentityNumber(\DateTime $birthdate = null, $gender = null)
-    {
+    public function personalIdentityNumber(
+        ?\DateTime $birthdate = null,
+        ?string $gender = null
+    ) {
+        $birthdate ??= \Faker\Provider\DateTime::dateTimeThisCentury();
+        $centurySign = match ((int) ($birthdate->format('Y') / 100)) {
+            18 => '+',
+            19 => '-', // Technically can also be Y, X, W, V, or U
+            20 => 'A', // Technically can also be B, C, D, E, or F
+            default => throw new \InvalidArgumentException(
+                'Year must be between 1800 and 2099 inclusive.',
+            ),
+        };
+
         $checksumCharacters = '0123456789ABCDEFHJKLMNPRSTUVWXY';
-
-        if (!$birthdate) {
-            $birthdate = \Faker\Provider\DateTime::dateTimeThisCentury();
-        }
         $datePart = $birthdate->format('dmy');
-
-        switch ((int) ($birthdate->format('Y') / 100)) {
-            case 18:
-                $centurySign = '+';
-
-                break;
-
-            case 19:
-                $centurySign = '-';
-
-                break;
-
-            case 20:
-                $centurySign = 'A';
-
-                break;
-
-            default:
-                throw new \InvalidArgumentException('Year must be between 1800 and 2099 inclusive.');
-        }
-
-        $randomDigits = self::numberBetween(0, 89);
-
-        if ($gender && $gender == static::GENDER_MALE) {
-            if ($randomDigits === 0) {
-                $randomDigits .= static::randomElement([3, 5, 7, 9]);
-            } else {
-                $randomDigits .= static::randomElement([1, 3, 5, 7, 9]);
-            }
-        } elseif ($gender && $gender == static::GENDER_FEMALE) {
-            if ($randomDigits === 0) {
-                $randomDigits .= static::randomElement([2, 4, 6, 8]);
-            } else {
-                $randomDigits .= static::randomElement([0, 2, 4, 6, 8]);
-            }
-        } else {
-            if ($randomDigits === 0) {
-                $randomDigits .= self::numberBetween(2, 9);
-            } else {
-                $randomDigits .= (string) static::numerify('#');
-            }
-        }
-        $randomDigits = str_pad($randomDigits, 3, '0', STR_PAD_LEFT);
-
-        $checksum = $checksumCharacters[(int) ($datePart . $randomDigits) % strlen($checksumCharacters)];
+        $randomDigits = $this->getBirthNumber($gender);
+        $checksum = $checksumCharacters[
+            (int) ($datePart . $randomDigits) % strlen($checksumCharacters)
+        ];
 
         return $datePart . $centurySign . $randomDigits . $checksum;
+    }
+
+    /**
+     * Generate the birth number for person.
+     *
+     * Birth number is odd for men and even for women.
+     * Numbers 900-999 are reserved for temporary use.
+     * Number 001 is not used.
+     *
+     * @param static::GENDER_FEMALE|static::GENDER_MALE|null $gender
+     *
+     * @return numeric-string Gendered three digit birth number
+     */
+    protected function getBirthNumber(?string $gender = null): string
+    {
+        [$min, $max] = match ($gender) {
+            static::GENDER_MALE => [3, 899],
+            static::GENDER_FEMALE => [2, 898],
+            default => [2, 999],
+        };
+
+        $number = (string) (mt_rand(0, (int) (($max - $min) / 2)) * 2 + $min);
+
+        return str_pad($number, 3, '0', STR_PAD_LEFT);
     }
 }
