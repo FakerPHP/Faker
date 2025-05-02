@@ -31,11 +31,6 @@ parameters:
 			path: src/Generator.php
 
 		-
-			message: "#^Use of constant MT_RAND_PHP is deprecated\\.$#"
-			count: 1
-			path: src/Generator.php
-
-		-
 			message: """
 				#^Instantiation of deprecated class Faker\\\\DefaultGenerator\\:
 				Use ChanceGenerator instead$#
