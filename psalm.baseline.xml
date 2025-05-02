@@ -1,106 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/Generator.php">
     <InvalidReturnStatement>
-      <code>new ChanceGenerator($this, $weight, $default)</code>
-      <code>new ValidGenerator($this, $validator, $maxRetries)</code>
+      <code><![CDATA[new ChanceGenerator($this, $weight, $default)]]></code>
+      <code><![CDATA[new ValidGenerator($this, $validator, $maxRetries)]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code>self</code>
-      <code>self</code>
+      <code><![CDATA[self]]></code>
+      <code><![CDATA[self]]></code>
     </InvalidReturnType>
   </file>
   <file src="src/Provider/Base.php">
     <InvalidArgument>
-      <code>[static::class, 'randomDigit']</code>
-      <code>static function ($matches) {
+      <code><![CDATA[[static::class, 'randomDigit']]]></code>
+      <code><![CDATA[static function ($matches) {
             // remove backslashes (that are not followed by another backslash) because they are escape characters
             $match = preg_replace('/\\\(?!\\\)/', '', $matches[1]);
             $randomElement = Base::randomElement(str_split($match));
 
             //[.] should not be a random character, but a literal .
             return str_replace('.', '\.', $randomElement);
-        }</code>
+        }]]></code>
     </InvalidArgument>
-    <UndefinedClass>
-      <code>\UnitEnum</code>
-      <code>\UnitEnum</code>
-    </UndefinedClass>
     <UndefinedDocblockClass>
-      <code>Closure</code>
+      <code><![CDATA[Closure]]></code>
     </UndefinedDocblockClass>
-    <UndefinedFunction>
-      <code>enum_exists($array)</code>
-      <code>enum_exists($array)</code>
-    </UndefinedFunction>
   </file>
   <file src="src/Provider/Biased.php">
     <InvalidParamDefault>
-      <code>callable</code>
+      <code><![CDATA[callable]]></code>
     </InvalidParamDefault>
   </file>
   <file src="src/Provider/File.php">
     <FalsableReturnStatement>
-      <code>false</code>
+      <code><![CDATA[false]]></code>
     </FalsableReturnStatement>
   </file>
   <file src="src/Provider/PhoneNumber.php">
     <InvalidReturnStatement>
-      <code>$imei</code>
+      <code><![CDATA[$imei]]></code>
     </InvalidReturnStatement>
     <InvalidReturnType>
-      <code>int</code>
+      <code><![CDATA[int]]></code>
     </InvalidReturnType>
   </file>
   <file src="src/Provider/ar_SA/Address.php">
     <UndefinedPropertyFetch>
-      <code>static::$cityPrefix</code>
+      <code><![CDATA[static::$cityPrefix]]></code>
     </UndefinedPropertyFetch>
   </file>
   <file src="src/Provider/cs_CZ/Person.php">
     <NonStaticSelfCall>
-      <code>static::birthNumber(static::GENDER_FEMALE)</code>
-      <code>static::birthNumber(static::GENDER_MALE)</code>
+      <code><![CDATA[static::birthNumber(static::GENDER_FEMALE)]]></code>
+      <code><![CDATA[static::birthNumber(static::GENDER_MALE)]]></code>
     </NonStaticSelfCall>
   </file>
   <file src="src/Provider/en_SG/Person.php">
     <InvalidArrayOffset>
-      <code>$weights[$i]</code>
+      <code><![CDATA[$weights[$i]]]></code>
     </InvalidArrayOffset>
   </file>
   <file src="src/Provider/is_IS/Person.php">
     <InvalidArrayOffset>
-      <code>$ref[$i]</code>
+      <code><![CDATA[$ref[$i]]]></code>
     </InvalidArrayOffset>
   </file>
   <file src="src/Provider/ja_JP/Text.php">
     <UndefinedMethod>
-      <code>static::split($text)</code>
+      <code><![CDATA[static::split($text)]]></code>
     </UndefinedMethod>
   </file>
   <file src="src/Provider/pl_PL/Company.php">
     <InvalidArrayOffset>
-      <code>$weights[$i]</code>
-      <code>$weights[$i]</code>
+      <code><![CDATA[$weights[$i]]]></code>
+      <code><![CDATA[$weights[$i]]]></code>
     </InvalidArrayOffset>
   </file>
   <file src="src/Provider/pl_PL/Person.php">
     <InvalidArrayOffset>
-      <code>$high[$i]</code>
-      <code>$low[$i]</code>
-      <code>$result[$i]</code>
-      <code>$weights[$i + 3]</code>
-      <code>$weights[$i]</code>
-      <code>$weights[$i]</code>
+      <code><![CDATA[$high[$i]]]></code>
+      <code><![CDATA[$low[$i]]]></code>
+      <code><![CDATA[$result[$i]]]></code>
+      <code><![CDATA[$weights[$i + 3]]]></code>
+      <code><![CDATA[$weights[$i]]]></code>
+      <code><![CDATA[$weights[$i]]]></code>
     </InvalidArrayOffset>
     <UndefinedDocblockClass>
-      <code>DateTime</code>
+      <code><![CDATA[DateTime]]></code>
     </UndefinedDocblockClass>
   </file>
   <file src="src/Provider/sl_SI/Person.php">
     <NonStaticSelfCall>
-      <code>static::lastName()</code>
-      <code>static::lastName()</code>
+      <code><![CDATA[static::lastName()]]></code>
+      <code><![CDATA[static::lastName()]]></code>
     </NonStaticSelfCall>
   </file>
 </files>
