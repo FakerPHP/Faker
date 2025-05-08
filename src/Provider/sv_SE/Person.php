@@ -123,14 +123,14 @@ class Person extends \Faker\Provider\Person
      *
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
      *
-     * @return string on format XXXXXX-XXXX
+     * @return string on format XXXXXX-XXXX or XXXXXXXX-XXXX depending on $withCentury value
      */
-    public function personalIdentityNumber(\DateTime $birthdate = null, $gender = null)
+    public function personalIdentityNumber(\DateTimeInterface $birthdate = null, $gender = null, $withCentury = false)
     {
         if (!$birthdate) {
             $birthdate = \Faker\Provider\DateTime::dateTimeThisCentury();
         }
-        $datePart = $birthdate->format('ymd');
+        $datePart = $birthdate->format($withCentury ? 'Ymd' : 'ymd');
         $randomDigits = $this->getBirthNumber($gender);
 
         $checksum = Luhn::computeCheckDigit($datePart . $randomDigits);

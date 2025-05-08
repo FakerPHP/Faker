@@ -16,22 +16,27 @@ final class PersonTest extends TestCase
     public function provideSeedAndExpectedReturn()
     {
         return [
-            [1, '720727', '720727-5798'],
-            [2, '710414', '710414-5664'],
-            [3, '591012', '591012-4519'],
-            [4, '180307', '180307-0356'],
-            [5, '820904', '820904-7748'],
+            [1, '19720727', false, '720727-5798'],
+            [2, '19710414', false, '710414-5664'],
+            [3, '19591012', false, '591012-4519'],
+            [4, '20180307', false, '180307-0356'],
+            [5, '19820904', false, '820904-7748'],
+            [6, '19720727', true, '19720727-1010'],
+            [7, '19710414', true, '19710414-9269'],
+            [8, '19591012', true, '19591012-1290'],
+            [9, '20180307', true, '20180307-9858'],
+            [10, '19820904', true, '19820904-2334'],
         ];
     }
 
     /**
      * @dataProvider provideSeedAndExpectedReturn
      */
-    public function testPersonalIdentityNumberUsesBirthDateIfProvided($seed, $birthdate, $expected): void
+    public function testPersonalIdentityNumberUsesBirthDateIfProvided($seed, $birthdate, $withCentury, $expected): void
     {
         $faker = $this->faker;
         $faker->seed($seed);
-        $pin = $faker->personalIdentityNumber(\DateTime::createFromFormat('ymd', $birthdate));
+        $pin = $faker->personalIdentityNumber(\DateTime::createFromFormat('Ymd', $birthdate), null, $withCentury);
         self::assertEquals($expected, $pin);
     }
 
