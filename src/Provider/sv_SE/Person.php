@@ -125,7 +125,7 @@ class Person extends \Faker\Provider\Person
      *
      * @return string on format XXXXXX-XXXX or XXXXXXXX-XXXX depending on $withCentury value
      */
-    public function personalIdentityNumber(\DateTimeInterface $birthdate = null, $gender = null, $withCentury = false)
+    public function personalIdentityNumber(\DateTime $birthdate = null, $gender = null, $withCentury = false)
     {
         if (!$birthdate) {
             $birthdate = \Faker\Provider\DateTime::dateTimeThisCentury();
