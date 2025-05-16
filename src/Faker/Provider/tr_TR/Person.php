@@ -104,7 +104,8 @@ class Person extends \Faker\Provider\Person
      */
     public function tcNo()
     {
-        $randomDigits = static::numerify('#########');
+        $firstDigit = static::randomDigitNotNull();
+        $randomDigits = $firstDigit . static::numerify('########');
         $checksum = self::tcNoChecksum($randomDigits);
 
         return $randomDigits . $checksum;
@@ -139,7 +140,7 @@ class Person extends \Faker\Provider\Person
             }
         }
 
-        $tenthDigit = (7 * $evenSum - $oddSum) % 10;
+        $tenthDigit = ((7 * $evenSum - $oddSum) % 10 + 10) % 10;
         $eleventhDigit = ($evenSum + $oddSum + $tenthDigit) % 10;
 
         return $tenthDigit . $eleventhDigit;
