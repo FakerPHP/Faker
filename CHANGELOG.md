@@ -5,6 +5,7 @@
 - Removed domain `gmail.com.au` from `Provider\en_AU\Internet` (#886)
 - Refreshed ISO currencies (#919)
 - Improved italian phone number formats
+- Fixed en_GB standard VAT numbers having an incorrect length if the check digit has a leading zero
 
 ## [2024-11-09, v1.24.0](https://github.com/FakerPHP/Faker/compare/v1.23.1..v1.24.0)
 

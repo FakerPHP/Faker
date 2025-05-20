@@ -49,7 +49,7 @@ class Company extends \Faker\Provider\Company
         $secondBlock = static::randomNumber(4, true);
 
         return sprintf(
-            '%s%d %d %d',
+            '%s%s %s %s',
             static::VAT_PREFIX,
             $firstBlock,
             $secondBlock,
@@ -64,7 +64,7 @@ class Company extends \Faker\Provider\Company
     private static function generateHealthAuthorityVatNumber(): string
     {
         return sprintf(
-            '%sHA%d',
+            '%sHA%s',
             static::VAT_PREFIX,
             static::numberBetween(500, 999),
         );
@@ -77,7 +77,7 @@ class Company extends \Faker\Provider\Company
     private static function generateBranchTraderVatNumber(): string
     {
         return sprintf(
-            '%s %d',
+            '%s %s',
             static::generateStandardVatNumber(),
             static::randomNumber(3, true),
         );
