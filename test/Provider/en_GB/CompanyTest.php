@@ -62,6 +62,15 @@ final class CompanyTest extends TestCase
         self::assertTrue($matches[1] < 1000);
     }
 
+    public function testLeadingZeroInModulus97BlockRemainsAfterFormatting(): void
+    {
+        // Force Faker to generate VAT number GB216 5727 07
+        $this->faker->seed(297957);
+        $number = $this->faker->vat();
+        $this->assertDefaultVatFormat($number);
+        self::assertStringEndsWith('07', substr($number, -2));
+    }
+
     protected function getProviders(): iterable
     {
         yield new Company($this->faker);
