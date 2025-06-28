@@ -12,4 +12,8 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
         '+421#########',
         '########',
     ];
+
+    protected static $e164Formats = [
+        '+421#########',
+    ];
 }
