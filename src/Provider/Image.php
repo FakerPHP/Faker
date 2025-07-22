@@ -10,7 +10,7 @@ class Image extends Base
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://placehold.co';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -69,7 +69,7 @@ class Image extends Base
             ));
         }
 
-        $size = sprintf('%dx%d.%s', $width, $height, $format);
+        $size = sprintf('%dx%d', $width, $height);
 
         $imageParts = [];
 
@@ -86,12 +86,15 @@ class Image extends Base
         }
 
         $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
+		$textColor = $gray === true ? 'AAAAAA' : str_replace('#', '', Color::safeHexColor());
 
         return sprintf(
-            '%s/%s/%s%s',
+            '%s/%s/%s/%s.%s%s',
             self::BASE_URL,
             $size,
             $backgroundColor,
+			$textColor,
+			$format,
             count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : '',
         );
     }
