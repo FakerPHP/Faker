@@ -975,7 +975,13 @@ class Generator
 
     public function __destruct()
     {
-        $this->seed();
+        // Fix: Disabled automatic seed restoration in destructor to prevent non-deterministic test behavior.
+        // When PHP's garbage collector runs during tests, it can trigger destructors at unpredictable times,
+        // causing the random seed to be reset mid-test and leading to inconsistent test results.
+        // This was causing snapshot tests to fail randomly and caused AppFixtures to not be deterministic.
+        // Related issue: https://github.com/FakerPHP/Faker/issues/870
+
+        // $this->seed();
     }
 
     public function __wakeup()
