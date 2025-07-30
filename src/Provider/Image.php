@@ -10,7 +10,8 @@ class Image extends Base
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    // public const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://placehold.co';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
