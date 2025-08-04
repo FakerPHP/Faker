@@ -13,7 +13,7 @@ final class ImageTest extends TestCase
     public function testImageUrlUses640x680AsTheDefaultSize(): void
     {
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/640x480.png/#',
+            '#^https://placehold.co/640x480.png/#',
             Image::imageUrl(),
         );
     }
@@ -21,7 +21,7 @@ final class ImageTest extends TestCase
     public function testImageUrlAcceptsCustomWidthAndHeight(): void
     {
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/800x400.png/#',
+            '#^https://placehold.co/800x400.png/#',
             Image::imageUrl(800, 400),
         );
     }
@@ -29,7 +29,7 @@ final class ImageTest extends TestCase
     public function testImageUrlAcceptsCustomCategory(): void
     {
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+.*#',
+            '#^https://placehold.co/800x400.png/[\w]{6}\?text=nature\+.*#',
             Image::imageUrl(800, 400, 'nature'),
         );
     }
@@ -37,7 +37,7 @@ final class ImageTest extends TestCase
     public function testImageUrlAcceptsCustomText(): void
     {
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+Faker#',
+            '#^https://placehold.co/800x400.png/[\w]{6}\?text=nature\+Faker#',
             Image::imageUrl(800, 400, 'nature', false, 'Faker'),
         );
     }
@@ -54,7 +54,7 @@ final class ImageTest extends TestCase
         );
 
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/800x400.png/[\w]{6}\?text=nature\+Faker#',
+            '#^https://placehold.co/800x400.png/[\w]{6}\?text=nature\+Faker#',
             $imageUrl,
         );
     }
@@ -71,7 +71,7 @@ final class ImageTest extends TestCase
         );
 
         self::assertMatchesRegularExpression(
-            '#^https://via.placeholder.com/800x400.png/CCCCCC\?text=nature\+Faker#',
+            '#^https://placehold.co/800x400.png/CCCCCC\?text=nature\+Faker#',
             $imageUrl,
         );
     }
@@ -113,7 +113,7 @@ final class ImageTest extends TestCase
             );
 
             self::assertMatchesRegularExpression(
-                "#^https://via.placeholder.com/800x400.{$format}/CCCCCC\?text=nature\+Faker#",
+                "#^https://placehold.co/800x400.{$format}/CCCCCC\?text=nature\+Faker#",
                 $imageUrl,
             );
         }
