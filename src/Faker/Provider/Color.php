@@ -60,6 +60,22 @@ class Color extends Base
 
         return '#' . $color[0] . $color[0] . $color[1] . $color[1] . $color[2] . $color[2];
     }
+    /**
+     * Returns a suitable text color for the given background color.
+     * If the background is dark, returns white (`FFFFFF`); if light, returns black (`000000`).
+     *
+     * @param string $backgroundHex Background color in hex format (e.g. '#CCCCCC')
+     * @return string Text color hex code ('000000' or 'FFFFFF')
+     */
+    public static function safeTextColorForBackground($backgroundHex)
+    {
+        $backgroundHex = str_replace('#', '', $backgroundHex);
+        $r = hexdec(substr($backgroundHex, 0, 2));
+        $g = hexdec(substr($backgroundHex, 2, 2));
+        $b = hexdec(substr($backgroundHex, 4, 2));
+        $luminance = (0.299 * $r + 0.587 * $g + 0.114 * $b);
+        return $luminance > 186 ? '000000' : 'FFFFFF';
+    }
 
     /**
      * @example 'array(0,255,122)'

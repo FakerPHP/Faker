@@ -10,7 +10,7 @@ class Image extends Base
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://placehold.co';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -31,7 +31,7 @@ class Image extends Base
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'http://via.placeholder.com/640x480.png/CCCCCC?text=well+hi+there'
+     * @example 'https://placehold.co/640x480/CCCCCC/0000000/png?text=well+hi+there'
      *
      * @param int         $width
      * @param int         $height
@@ -70,7 +70,7 @@ class Image extends Base
             ));
         }
 
-        $size = sprintf('%dx%d.%s', $width, $height, $format);
+        $size = sprintf('%dx%d', $width, $height);
 
         $imageParts = [];
 
@@ -87,12 +87,15 @@ class Image extends Base
         }
 
         $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
+        $textColor = $gray === true ? '000000' : Color::safeTextColorForBackground($backgroundColor);
 
         return sprintf(
-            '%s/%s/%s%s',
+            '%s/%s/%s/%s/%s%s',
             self::BASE_URL,
             $size,
             $backgroundColor,
+            $textColor,
+            $format,
             count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : '',
         );
     }
@@ -142,7 +145,7 @@ class Image extends Base
         // save file
         if (function_exists('curl_exec')) {
             // use cURL
-            $fp = fopen($filepath, 'w');
+            $fp = fopen($filepath, 'wb');
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_FILE, $fp);
             $success = curl_exec($ch) && curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
