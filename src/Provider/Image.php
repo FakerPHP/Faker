@@ -86,7 +86,7 @@ class Image extends Base
         }
 
         $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
-        $textColor = "000000";
+        $textColor = $gray === true ? '000000' : Color::safeTextColorForBackground($backgroundColor);
 
         return sprintf(
             '%s/%s/%s/%s/%s%s',
