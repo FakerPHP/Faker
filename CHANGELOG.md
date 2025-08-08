@@ -7,6 +7,7 @@
 - Removed functionality for populating ORM entities and models (#764)
 - Added a PHP version support policy (#752)
 - Stopped using `static` in callables in `Provider\pt_BR\PhoneNumber` (#785)
+- Fixed deprecated Image base URL in `Provider\Image` (#787)
 
 ## [2023-06-12, v1.23.0](https://github.com/FakerPHP/Faker/compare/v1.22.0..v1.23.0)
 
