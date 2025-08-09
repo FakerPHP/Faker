@@ -49,4 +49,4 @@ parameters:
     - '#\[BC\] REMOVED: Method Faker\\Core\\DateTime\#setTimezone\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Generator\#uuid3\(\) was removed#'
     - '#\[BC\] REMOVED: Method Faker\\Generator\#uuid\(\) was removed#'
-    - "#\[BC\] CHANGED: Value of constant Faker\\Provider\\Image::BASE_URL changed from 'https://via.placeholder.com' to 'https://placehold.co'#"
+    - '#\[BC\] CHANGED: Value of constant Faker\\Provider\\Image::BASE_URL changed from \'https://via.placeholder.com\' to \'https://placehold.co\'#'

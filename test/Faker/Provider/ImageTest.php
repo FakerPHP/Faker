@@ -79,9 +79,9 @@ final class ImageTest extends TestCase
     public function testImageUrlAddsARandomGetParameterByDefault(): void
     {
         $url = Image::imageUrl(800, 400);
-        $splitUrl = explode("?text=", $url);
+        $splitUrl = preg_split('/\?text=/', $url);
 
-        self::assertCount(2, $splitUrl);
+        self::assertEquals(count($splitUrl), 2);
         self::assertMatchesRegularExpression('#\w*#', $splitUrl[1]);
     }
 
