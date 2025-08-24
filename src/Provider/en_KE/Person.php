@@ -2,6 +2,7 @@
 
 namespace Faker\Provider\en_KE;
 
+
 /**
  * Class Person
  * 
@@ -9,12 +10,15 @@ namespace Faker\Provider\en_KE;
  * Includes male and female first names representing both Christian and Islamic communities.
  * Also provides Kenyan surnames sourced from forebears.io.
  * Extends the base Faker Person provider.
+ *
+ * @see https://forebears.io/kenya/forenames
+ * @see https://forebears.io/kenya/surnames
  */
+
 class Person extends \Faker\Provider\Person
 {
     /**
      * @var array Kenyan male first names.
-     * Source: https://forebears.io/kenya/forenames
      */
     protected static $firstNameMale = [
         "Aaron",
@@ -575,8 +579,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @var array Kenyan female first names.
-     * Source: https://forebears.io/kenya/forenames
+     * @var array Kenyan female first names. 
      */
     protected static $firstNameFemale = [
         "Abigael",
@@ -916,9 +919,7 @@ class Person extends \Faker\Provider\Person
     ];
 
     /**
-     * @var array Kenyan surnames.
-     * 
-     * Source: https://forebears.io/kenya/surnames
+     * @var array Kenyan surnames. 
      */
     protected static $lastName = [
         "Otieno",

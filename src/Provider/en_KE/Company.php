@@ -13,6 +13,7 @@ class Company extends \Faker\Provider\Company
 {
     /**
      * @var array List of Kenyan company names.
+     * See https://en.wikipedia.org/wiki/List_of_companies_of_Kenya
      */
     protected static $companyName = [
         'Jumia Kenya',

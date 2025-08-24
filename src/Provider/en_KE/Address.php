@@ -8,11 +8,12 @@ namespace Faker\Provider\en_KE;
  * Provides Kenyan specific address data for Faker.
  * Includes cities, counties, streets, and regions commonly used in Kenya.
  * Extends the base Faker Address provider.
+ * See https://en.wikipedia.org/wiki/Provinces_of_Kenya
  */
 class Address extends \Faker\Provider\Address
 {
     /**
-     * @var array List of major cities, municipalities, county headquarters, and local towns in Kenya.
+     * @var array List of major cities, municipalities, county headquarters, and local towns in Kenya. 
      */
     protected static $city = [
         'Nairobi',
@@ -118,7 +119,7 @@ class Address extends \Faker\Provider\Address
     ];
 
     /**
-     * @var array List of all Kenyan counties.
+     * @var array List of all Kenyan counties. 
      */
     protected static $county = [
         'Mombasa',
@@ -241,6 +242,7 @@ class Address extends \Faker\Provider\Address
 
     /**
      * @var array List of Kenya's broad geographical regions.
+     * @see https://en.wikipedia.org/wiki/Provinces_of_Kenya
      */
     protected static $region = [
         'Nairobi',
