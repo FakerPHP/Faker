@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Faker\Provider\en_KE;
+namespace Faker\Provider\en_KE;
 
 /**
  * Class Person

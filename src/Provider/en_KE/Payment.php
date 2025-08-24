@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Faker\Provider\en_KE;
+namespace Faker\Provider\en_KE;
 
 class Payment extends \Faker\Provider\Payment
 {
@@ -68,9 +68,10 @@ class Payment extends \Faker\Provider\Payment
     public static function transactionCode(): string
     {
         return strtoupper(
-            static::bothify('??#?#?#??##')
+            static::bothify('??#?##??##')
         );
     }
+
 
     /**
      * Generate a random Kenyan bank name.
