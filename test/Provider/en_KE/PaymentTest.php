@@ -33,7 +33,7 @@ final class PaymentTest extends TestCase
     {
         $code = Payment::transactionCode();
 
-        self::assertMatchesRegularExpression('/^[A-Z]{2}\d[A-Z]\d[A-Z]{2}\d{2}$/', $code);
+        self::assertMatchesRegularExpression('/^[A-Z]{2}\d[A-Z]\d{2}[A-Z]{2}\d{2}$/', $code);
         self::assertEquals(10, strlen($code));
     }
 
@@ -76,7 +76,7 @@ final class PaymentTest extends TestCase
 
         $this->assertContains($statement['provider'], (new \ReflectionClass(Payment::class))->getStaticPropertyValue('mobileMoneyProviders'));
         self::assertMatchesRegularExpression('/^07\d{8}$/', $statement['number']);
-        self::assertMatchesRegularExpression('/^[A-Z]{2}\d[A-Z]\d[A-Z]{2}\d{2}$/', $statement['transaction_code']);
+        self::assertMatchesRegularExpression('/^[A-Z]{2}\d[A-Z]\d{2}[A-Z]{2}\d{2}$/', $statement['transaction_code']);
         self::assertIsFloat($statement['amount']);
         self::assertContains($statement['paybill'], (new \ReflectionClass(Payment::class))->getStaticPropertyValue('paybillNumbers'));
         self::assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $statement['date']);

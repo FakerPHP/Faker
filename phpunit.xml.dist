@@ -15,6 +15,7 @@
     </listeners>
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0"/>
+        <ini name="date.timezone" value="UTC"/>
     </php>
     <testsuites>
         <testsuite name="Faker Test Suite">
