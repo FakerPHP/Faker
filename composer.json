@@ -1,7 +1,7 @@
 {
-    "name": "fakerphp/faker",
-    "type": "library",
-    "description": "Faker is a PHP library that generates fake data for you.",
+    "name": "titustum/faker",            // 👈 Your unique package name
+    "description": "Faker PHP with Kenyan (en_KE) locale support",
+    "type": "library", 
     "keywords": [
         "faker",
         "fixtures",
@@ -10,7 +10,7 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "François Zaninotto"
+            "name": "Titus Tum"
         }
     ],
     "require": {
