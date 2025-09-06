@@ -1,5 +1,5 @@
 {
-    "name": "titustum/faker",            // 👈 Your unique package name
+    "name": "titustum/faker",
     "description": "Faker PHP with Kenyan (en_KE) locale support",
     "type": "library", 
     "keywords": [
