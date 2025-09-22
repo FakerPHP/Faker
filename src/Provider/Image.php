@@ -10,7 +10,11 @@ class Image extends Base
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    // Old URL for placeholder images
+    // public const BASE_URL = 'https://via.placeholder.com';
+
+    // New URL for placeholder images
+    public const BASE_URL = 'https://placeholder.himagawa.fr';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -31,7 +35,7 @@ class Image extends Base
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'http://via.placeholder.com/640x480.png/CCCCCC?text=well+hi+there'
+     * @example 'http://placeholder.himagawa.fr/640x480.png/CCCCCC?text=well+hi+there'
      *
      * @param int         $width
      * @param int         $height
