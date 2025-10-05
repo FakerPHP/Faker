@@ -302,11 +302,12 @@ class Payment extends Base
      * @example 'RZTIAT22263'
      *
      * @see    http://en.wikipedia.org/wiki/ISO_9362
+     * @see    http://www.iso20022.org
      *
      * @return string Swift/Bic number
      */
-    public static function swiftBicNumber()
+    public static function swiftBicNumber(): string
     {
-        return self::regexify('^([A-Z]){4}([A-Z]){2}([0-9A-Z]){2}([0-9A-Z]{3})?$');
+        return self::regexify('^([A-Z]{6,6}[A-Z2-9][A-NP-Z0-9][A-Z0-9]{3,3}){0,1}$');
     }
 }
