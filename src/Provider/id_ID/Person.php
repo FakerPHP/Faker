@@ -236,9 +236,24 @@ class Person extends \Faker\Provider\Person
      *
      * @see http://id.wikipedia.org/wiki/Gelar_akademik
      */
-    private static $suffix = ['S.Ked', 'S.Gz', 'S.Pt', 'S.IP', 'S.E.I',
-        'S.E.', 'S.Kom', 'S.H.', 'S.T.', 'S.Pd', 'S.Psi', 'S.I.Kom',
-        'S.Sos', 'S.Farm', 'M.M.', 'M.Kom.', 'M.TI.', 'M.Pd', 'M.Farm', 'M.Ak', ];
+    private static $suffix = [
+        'S.Tr.Ak.', 'S.Tr.IP.', 'S.Tr.K.', 'S.Tr.Sos.', 'S.Tr.Pi.',
+        'S.Tr.T.', 'S.Tr.Han.', 'S.Tr.Keb.', 'S.Tr.Kom.', 'S.Tr.Bns.',
+        'S.S.T.',
+        'S.A.B.', 'S.A.N.', 'S.A.P.', 'S.Ag.', 'S.Ak.', 'S.Ant.', 'S.Ars.',
+        'S.Bis.Dig.', 'S.Ds.', 'S.Des.', 'S.E.', 'S.E.As.', 'S.E.I.', 'S.E.Sy.',
+        'S.Farm.', 'S.Fil.', 'S.Fil.H.', 'S.Fil.I.', 'S.Ft.',
+        'S.Gz.', 'S.H.', 'S.H.H.', 'S.H.I.', 'S.Han.', 'S.Hub.Int.', 'S.Hum.', 'S.Hut.',
+        'S.I.A.', 'S.I.K.', 'S.I.K.K.', 'S.I.Kom.', 'S.I.P.', 'S.I.Ptk.', 'S.IIP.',
+        'S.IK.', 'S.In.', 'S.IP.', 'S.KG.', 'S.K.H.', 'S.K.L.', 'S.K.M.', 'S.K.P.M.',
+        'S.Keb.', 'S.Ked.', 'S.Kel.', 'S.Kep.', 'S.Kom.', 'S.Kom.I.',
+        'S.Li.', 'S.M.', 'S.Bns.', 'S.Mat.', 'S.P.', 'S.PWK.', 'S.Par.',
+        'S.Pd.', 'S.Pd.B.', 'S.Pd.H.', 'S.Pd.I.', 'S.Pd.SD.', 'S.Pd.Si.',
+        'S.Pi.', 'S.Pn.', 'S.Psi.', 'S.Pt.', 'S.Ptk.',
+        'S.S.', 'S.SI.', 'S.ST.', 'S.STP.', 'S.Si.', 'S.Si.Th.', 'S.Sn.',
+        'S.Sos.', 'S.Sos.H.', 'S.Sos.I.', 'S.Stat.', 'S.St.Pi.', 'S.Sy.',
+        'S.T.', 'S.T.P.', 'S.TI.', 'S.Th.',
+    ];
 
     /**
      * Return last name
