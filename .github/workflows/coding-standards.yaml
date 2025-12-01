@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@v2"
@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: "Checkout code"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Lint YAML files"
         uses: "ibiqlik/action-yamllint@v3.1.1"
