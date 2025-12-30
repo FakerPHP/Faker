@@ -80,7 +80,7 @@ class ColumnTypeGuesser
             case 'date_immutable':
             case 'time_immutable':
                 return static function () use ($generator) {
-                    return \DateTimeImmutable::createFromMutable($generator->datetime);
+                    return \DateTimeImmutable::createFromMutable($generator->datetime());
                 };
 
             default:
