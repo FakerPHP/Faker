@@ -34,7 +34,7 @@ jobs:
         run: "echo \"directory=$(composer config cache-dir)\" >> $GITHUB_OUTPUT"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3"
+        uses: "actions/cache@v5"
         with:
           path: "${{ steps.composer-cache.outputs.directory }}"
           key: "composer-${{ matrix.php-version }}-${{ hashFiles('composer.*') }}"
@@ -48,7 +48,7 @@ jobs:
           composer bin php-cs-fixer install --ansi --no-interaction --no-progress --optimize-autoloader
 
       - name: "Cache cache file for php-cs-fixer"
-        uses: "actions/cache@v3"
+        uses: "actions/cache@v5"
         with:
           path: ".build/php-cs-fixer/"
           key: "php-cs-fixer-${{ matrix.php-version }}-${{ github.ref_name }}"
