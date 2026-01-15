@@ -292,4 +292,48 @@ final class DateTimeTest extends TestCase
         self::assertIsString($countryTimezone);
         self::assertContains($countryTimezone, \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, 'US'));
     }
+
+    public function testDateTimeBetweenAcceptsDateTimeImmutable(): void
+    {
+        $start = new \DateTimeImmutable('-1 week');
+        $end = new \DateTimeImmutable('now');
+
+        $date = DateTimeProvider::dateTimeBetween($start, $end);
+
+        self::assertInstanceOf(\DateTime::class, $date);
+        self::assertGreaterThanOrEqual($start, $date);
+        self::assertLessThanOrEqual($end, $date);
+    }
+
+    public function testDateTimeInIntervalAcceptsDateTimeImmutable(): void
+    {
+        $start = new \DateTimeImmutable('-1 week');
+
+        $date = DateTimeProvider::dateTimeInInterval($start, '+3 days');
+
+        self::assertInstanceOf(\DateTime::class, $date);
+        self::assertGreaterThanOrEqual($start, $date);
+        self::assertLessThanOrEqual($start->modify('+3 days'), $date);
+    }
+
+    public function testUnixTimeAcceptsDateTimeImmutable(): void
+    {
+        $max = new \DateTimeImmutable('2020-01-01 00:00:00');
+
+        $timestamp = DateTimeProvider::unixTime($max);
+
+        self::assertIsInt($timestamp);
+        self::assertGreaterThanOrEqual(0, $timestamp);
+        self::assertLessThanOrEqual($max->getTimestamp(), $timestamp);
+    }
+
+    public function testDateTimeAcceptsDateTimeImmutable(): void
+    {
+        $max = new \DateTimeImmutable('2020-01-01 00:00:00');
+
+        $date = DateTimeProvider::dateTime($max);
+
+        self::assertInstanceOf(\DateTime::class, $date);
+        self::assertLessThanOrEqual($max, $date);
+    }
 }

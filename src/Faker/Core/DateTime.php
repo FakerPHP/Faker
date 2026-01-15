@@ -26,7 +26,7 @@ final class DateTime implements DateTimeExtension, GeneratorAwareExtension
     /**
      * Get the POSIX-timestamp of a DateTime, int or string.
      *
-     * @param \DateTime|float|int|string $until
+     * @param \DateTimeInterface|float|int|string $until
      *
      * @return false|int
      */
@@ -36,7 +36,7 @@ final class DateTime implements DateTimeExtension, GeneratorAwareExtension
             return (int) $until;
         }
 
-        if ($until instanceof \DateTime) {
+        if ($until instanceof \DateTimeInterface) {
             return $until->getTimestamp();
         }
 
@@ -110,7 +110,14 @@ final class DateTime implements DateTimeExtension, GeneratorAwareExtension
     public function dateTimeInInterval($from = '-30 years', string $interval = '+5 days', ?string $timezone = null): \DateTime
     {
         $intervalObject = \DateInterval::createFromDateString($interval);
-        $datetime = $from instanceof \DateTime ? $from : new \DateTime($from);
+
+        if ($from instanceof \DateTimeInterface) {
+            // Create mutable DateTime from DateTimeInterface (including DateTimeImmutable)
+            $datetime = new \DateTime($from->format('Y-m-d H:i:s.u'));
+            $datetime->setTimezone($from->getTimezone());
+        } else {
+            $datetime = new \DateTime($from);
+        }
 
         $other = (clone $datetime)->add($intervalObject);
 
