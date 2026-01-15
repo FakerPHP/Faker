@@ -46,6 +46,45 @@ class UniqueGenerator
     }
 
     /**
+     * Returns a ChanceGenerator that wraps this UniqueGenerator.
+     *
+     * This ensures that chaining unique()->optional() works correctly
+     * by having ChanceGenerator delegate back to UniqueGenerator for
+     * actual value generation, rather than bypassing uniqueness tracking.
+     *
+     * @param float $weight  A probability between 0 and 1, 0 means that we always get the default value.
+     * @param mixed $default The default value to return when the random check fails.
+     *
+     * @return ChanceGenerator
+     */
+    public function optional(float $weight = 0.5, $default = null)
+    {
+        if ($weight > 1) {
+            trigger_deprecation('fakerphp/faker', '1.16', 'First argument ($weight) to method "optional()" must be between 0 and 1. You passed %f, we assume you meant %f.', $weight, $weight / 100);
+            $weight /= 100;
+        }
+
+        return new ChanceGenerator($this, $weight, $default);
+    }
+
+    /**
+     * Returns a ValidGenerator that wraps this UniqueGenerator.
+     *
+     * This ensures that chaining unique()->valid() works correctly
+     * by having ValidGenerator delegate back to UniqueGenerator for
+     * actual value generation.
+     *
+     * @param \Closure|null $validator  A function returning true for valid values
+     * @param int           $maxRetries Maximum number of retries to find a valid value
+     *
+     * @return ValidGenerator
+     */
+    public function valid(?\Closure $validator = null, int $maxRetries = 10000)
+    {
+        return new ValidGenerator($this, $validator, $maxRetries);
+    }
+
+    /**
      * Catch and proxy all generator calls but return only unique values
      *
      * @param string $attribute
