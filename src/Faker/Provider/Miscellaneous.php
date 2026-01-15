@@ -240,33 +240,45 @@ class Miscellaneous extends Base
     }
 
     /**
+     * Generate a random MD5 hash.
+     *
+     * Unlike hashing a random number, this uses the full 128-bit output space.
+     *
      * @example 'cfcd208495d565ef66e7dff9f98764da'
      *
      * @return string
      */
     public static function md5()
     {
-        return md5(self::numberBetween());
+        return bin2hex(random_bytes(16));
     }
 
     /**
+     * Generate a random SHA-1 hash.
+     *
+     * Unlike hashing a random number, this uses the full 160-bit output space.
+     *
      * @example 'b5d86317c2a144cd04d0d7c03b2b02666fafadf2'
      *
      * @return string
      */
     public static function sha1()
     {
-        return sha1(self::numberBetween());
+        return bin2hex(random_bytes(20));
     }
 
     /**
+     * Generate a random SHA-256 hash.
+     *
+     * Unlike hashing a random number, this uses the full 256-bit output space.
+     *
      * @example '85086017559ccc40638fcde2fecaf295e0de7ca51b7517b6aebeaaf75b4d4654'
      *
      * @return string
      */
     public static function sha256()
     {
-        return hash('sha256', self::numberBetween());
+        return bin2hex(random_bytes(32));
     }
 
     /**
