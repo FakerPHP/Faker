@@ -25,6 +25,13 @@ class Payment extends \Faker\Provider\Payment
     ];
 
     /**
+     * Weights for Dutch 11-test (elfproef)
+     *
+     * @var int[]
+     */
+    private static $mod11Weights = [10, 9, 8, 7, 6, 5, 4, 3, 2];
+
+    /**
      * International Bank Account Number (IBAN) for Netherlands
      *
      * Dutch IBAN structure: NL + 2 check digits + 14 character BBAN
@@ -77,32 +84,17 @@ class Payment extends \Faker\Provider\Payment
     protected static function generateValidAccountNumber(): string
     {
         // Generate first 9 digits randomly
-        $digits = [];
+        $base = static::numerify('#########');
 
-        for ($i = 0; $i < 9; ++$i) {
-            $digits[] = mt_rand(0, 9);
-        }
+        // Calculate check digit using MOD 11
+        $checkDigit = Iban::mod11($base, self::$mod11Weights);
 
-        // Calculate the check digit (position 10, weight 1)
-        // Sum = d1*10 + d2*9 + d3*8 + ... + d9*2 + d10*1
-        // We need (sum + d10) % 11 == 0
-        $sum = 0;
-
-        for ($i = 0; $i < 9; ++$i) {
-            $sum += $digits[$i] * (10 - $i);
-        }
-
-        // Find check digit: (sum + checkDigit) % 11 == 0
-        $checkDigit = (11 - ($sum % 11)) % 11;
-
-        // If check digit is 10, regenerate (can't represent with single digit)
-        if ($checkDigit === 10) {
+        // If check digit is 10 (invalid), regenerate
+        if ($checkDigit === null) {
             return static::generateValidAccountNumber();
         }
 
-        $digits[] = $checkDigit;
-
-        return implode('', $digits);
+        return $base . $checkDigit;
     }
 
     /**

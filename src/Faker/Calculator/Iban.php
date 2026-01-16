@@ -109,4 +109,37 @@ class Iban
             strtoupper($string),
         );
     }
+
+    /**
+     * Calculate check digit using weighted MOD 11 algorithm
+     *
+     * Used by Norway, Netherlands, Slovakia, Iceland, and other countries.
+     * Formula: sum = Σ(digit[i] * weight[i]), check = 11 - (sum % 11)
+     *
+     * @param string $number  Numeric string to calculate check for
+     * @param int[]  $weights Array of weights (must match length of $number)
+     *
+     * @return int|null Check digit (0-9), or null if would be 10 (invalid, must regenerate)
+     */
+    public static function mod11(string $number, array $weights): ?int
+    {
+        $sum = 0;
+        $len = strlen($number);
+
+        for ($i = 0; $i < $len; ++$i) {
+            $sum += (int) $number[$i] * $weights[$i];
+        }
+
+        $check = 11 - ($sum % 11);
+
+        if ($check === 11) {
+            return 0;
+        }
+
+        if ($check === 10) {
+            return null; // Invalid - must regenerate
+        }
+
+        return $check;
+    }
 }
