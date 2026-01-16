@@ -73,7 +73,13 @@ class Payment extends \Faker\Provider\Payment
     }
 
     /**
-     * Calculate NIB check digits using MOD 97
+     * Calculate NIB check digits using ISO 7064 MOD 97-10
+     *
+     * The formula (98 - r) % 97 produces check digits in range 00-96,
+     * mapping the edge cases: 98→01, 97→00. These are equivalent under
+     * mod 97 verification since (N + 98) ≡ (N + 01) ≡ 1 (mod 97).
+     *
+     * @see https://en.wikipedia.org/wiki/International_Bank_Account_Number#Algorithms
      *
      * @param string $nibWithoutCheck 19 digit string (bank code + branch code + account number)
      *
@@ -81,8 +87,7 @@ class Payment extends \Faker\Provider\Payment
      */
     protected static function calculateNibCheckDigits(string $nibWithoutCheck): string
     {
-        // NIB check digit calculation: 98 - (nibWithoutCheck * 100) mod 97
-        $check = 98 - Iban::mod97($nibWithoutCheck . '00');
+        $check = (98 - Iban::mod97($nibWithoutCheck . '00')) % 97;
 
         return str_pad((string) $check, 2, '0', STR_PAD_LEFT);
     }

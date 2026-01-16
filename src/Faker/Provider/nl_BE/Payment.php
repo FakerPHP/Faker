@@ -54,7 +54,6 @@ class Payment extends \Faker\Provider\Payment
      * Calculate Belgian BBAN check digits
      *
      * Belgian check digits = (bank code + account number) MOD 97
-     * If the result is 0, use 97 instead.
      *
      * @param string $number 10 digit string (bank code + account number)
      *
@@ -63,11 +62,6 @@ class Payment extends \Faker\Provider\Payment
     protected static function calculateBelgianCheckDigits(string $number): string
     {
         $check = (int) bcmod($number, '97');
-
-        // If result is 0, use 97
-        if ($check === 0) {
-            $check = 97;
-        }
 
         return str_pad((string) $check, 2, '0', STR_PAD_LEFT);
     }
