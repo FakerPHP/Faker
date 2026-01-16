@@ -66,4 +66,47 @@ class Iban
     {
         return self::checksum($iban) === substr($iban, 2, 2);
     }
+
+    /**
+     * Calculate check digits using ISO 7064 MOD 97-10 algorithm
+     *
+     * This is used by many countries for their BBAN check digits.
+     * Formula: (98 - mod97(number || '00')) % 97
+     *
+     * The % 97 at the end maps 97→00 and 98→01, which are equivalent
+     * under mod 97 verification since (N + 98) ≡ (N + 01) ≡ 1 (mod 97).
+     *
+     * @see https://en.wikipedia.org/wiki/International_Bank_Account_Number#Algorithms
+     *
+     * @param string $number Numeric string (bank code + account number)
+     *
+     * @return string 2 digit check digits (00-96)
+     */
+    public static function mod97_10(string $number): string
+    {
+        $check = (98 - self::mod97($number . '00')) % 97;
+
+        return str_pad((string) $check, 2, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * Convert alphanumeric string to numeric by replacing letters
+     *
+     * Used for calculating check digits on alphanumeric BBAN parts.
+     * A=10, B=11, ..., Z=35 (same as IBAN letter substitution).
+     *
+     * @param string $string Alphanumeric string
+     *
+     * @return string Numeric string
+     */
+    public static function alphanumericToNumeric(string $string): string
+    {
+        return preg_replace_callback(
+            '/[A-Z]/',
+            static function (array $matches): string {
+                return (string) self::alphaToNumber($matches[0]);
+            },
+            strtoupper($string),
+        );
+    }
 }
