@@ -8,7 +8,7 @@ class Address extends \Faker\Provider\Address
     protected static $citySuffix = ['a mare', 'lido', 'ligure', 'del friuli', 'salentino', 'calabro', 'veneto', 'nell\'emilia', 'umbro', 'laziale', 'terme', 'sardo'];
     protected static $buildingNumber = ['%##', '%#', '%'];
     protected static $streetSuffix = [
-        'Piazza', 'Strada', 'Via', 'Borgo', 'Contrada', 'Rotonda', 'Incrocio',
+        'Piazza', 'Strada', 'Via', 'Borgo', 'Contrada', 'Rotonda', 'Incrocio', 'Viale', 'Corso', 'Piazza', 'Vicolo', 'Piazzale', 'Lungomare', 'Riva', 'Salita', 'Discesa', 'Calle', 'Galleria',
     ];
     protected static $postcode = ['#####'];
     protected static $state = [
