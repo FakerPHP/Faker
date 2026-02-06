@@ -43,7 +43,7 @@ class Person extends \Faker\Provider\Person
         'Isira', 'Joannes', 'Kociss', 'Laerte', 'Maggiore', 'Muzio', 'Nestore', 'Odino', 'Odone', 'Olo', 'Oretta', 'Orfeo',
         'Osea', 'Pacifico', 'Pericle', 'Piererminio', 'Pierfrancesco', 'Piersilvio', 'Primo', 'Quarto', 'Quasimodo',
         'Radames', 'Radio', 'Raniero', 'Rosalino', 'Rosolino', 'Rufo', 'Secondo', 'Tancredi', 'Tazio', 'Terzo', 'Teseo',
-        'Tolomeo',  'Trevis', 'Tristano', 'Ulrico', 'Valdo', 'Zaccaria', 'Dindo', 'Serse',
+        'Tolomeo',  'Trevis', 'Tristano', 'Ulrico', 'Valdo', 'Zaccaria', 'Dindo', 'Serse', 'Gioele', 'Giovanni',
     ];
 
     protected static $firstNameFemale = [
