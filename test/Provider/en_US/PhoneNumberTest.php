@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Faker\Test\Provider\en_US;
 
-use Faker\Provider\en_US\PhoneNumber;
 use Faker\Test\TestCase;
+use Faker\UnitedStates\PhoneNumber;
 
 /**
  * @group legacy

@@ -1,71 +1,48 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Faker;
+
+use Faker\Core\Container\ContainerBuilder;
+use Faker\Core\DefaultGenerator;
+use Faker\Core\Extension;
+use Faker\UnitedStates\Address;
+use Faker\UnitedStates\Company;
+use Faker\UnitedStates\Country;
+use Faker\UnitedStates\Person;
+use Faker\UnitedStates\PhoneNumber;
 
 class Factory
 {
-    public const DEFAULT_LOCALE = 'en_US';
-
-    protected static $defaultProviders = ['Address', 'Barcode', 'Biased', 'Color', 'Company', 'DateTime', 'File', 'HtmlLorem', 'Image', 'Internet', 'Lorem', 'Medical', 'Miscellaneous', 'Payment', 'Person', 'PhoneNumber', 'Text', 'UserAgent', 'Uuid'];
-
-    /**
-     * Create a new generator
-     *
-     * @param string $locale
-     *
-     * @return Generator
-     */
-    public static function create($locale = self::DEFAULT_LOCALE)
+    public static function default(): DefaultGenerator
     {
-        $generator = new Generator();
+        $builder = self::getBuilder();
 
-        foreach (static::$defaultProviders as $provider) {
-            $providerClassName = self::getProviderClassname($provider, $locale);
-            $generator->addProvider(new $providerClassName($generator));
-        }
+        // Add specific extensions for The Netherlands to replace some default ones
+        $builder->add(Address::class, Extension\AddressExtension::class);
+        $builder->add(Country::class, Extension\CountryExtension::class);
+        $builder->add(Company::class, Extension\CompanyExtension::class);
+        $builder->add(Person::class, Extension\PersonExtension::class);
+        $builder->add(PhoneNumber::class, Extension\PhoneNumberExtension::class);
 
-        return $generator;
+        $builder->add(Address::class);
+        $builder->add(Company::class);
+        $builder->add(Person::class);
+        $builder->add(PhoneNumber::class);
+
+
+        return new DefaultGenerator($builder->build());
     }
 
-    /**
-     * @param string $provider
-     * @param string $locale
-     *
-     * @return string
-     */
-    protected static function getProviderClassname($provider, $locale = '')
+    private static function getBuilder(): ContainerBuilder
     {
-        if ($providerClass = self::findProviderClassname($provider, $locale)) {
-            return $providerClass;
+        $builder = new ContainerBuilder();
+
+        foreach (ContainerBuilder::defaultExtensions() as $id => $definition) {
+            $builder->add($id, $definition);
         }
 
-        // fallback to default locale
-        if ($providerClass = self::findProviderClassname($provider, static::DEFAULT_LOCALE)) {
-            return $providerClass;
-        }
-
-        // fallback to no locale
-        if ($providerClass = self::findProviderClassname($provider)) {
-            return $providerClass;
-        }
-
-        throw new \InvalidArgumentException(sprintf('Unable to find provider "%s" with locale "%s"', $provider, $locale));
-    }
-
-    /**
-     * @param string $provider
-     * @param string $locale
-     *
-     * @return string|null
-     */
-    protected static function findProviderClassname($provider, $locale = '')
-    {
-        $providerClass = 'Faker\\' . ($locale ? sprintf('Provider\%s\%s', $locale, $provider) : sprintf('Provider\%s', $provider));
-
-        if (class_exists($providerClass, true)) {
-            return $providerClass;
-        }
-
-        return null;
+        return $builder;
     }
 }
