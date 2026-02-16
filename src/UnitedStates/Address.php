@@ -94,14 +94,14 @@ final class Address implements AddressExtension, GeneratorAwareExtension
 
     public function address(): string
     {
-        $format = Helper::randomElement($this->addressFormats);
+        $format = (string) Helper::randomElement($this->addressFormats);
 
         return $this->generator->parse($format);
     }
 
     public function city(): string
     {
-        $format = Helper::randomElement($this->cityFormats);
+        $format = (string) Helper::randomElement($this->cityFormats);
 
         return $this->generator->parse($format);
     }
@@ -113,7 +113,7 @@ final class Address implements AddressExtension, GeneratorAwareExtension
 
     public function streetName(): string
     {
-        $format = Helper::randomElement($this->streetNameFormats);
+        $format = (string) Helper::randomElement($this->streetNameFormats);
 
         return $this->generator->parse($format);
     }

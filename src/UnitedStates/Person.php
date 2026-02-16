@@ -13,6 +13,7 @@ final class Person implements PersonExtension, GeneratorAwareExtension
 {
     use GeneratorAwareExtensionTrait;
 
+    /** @var string[]  */
     private array $maleNameFormats = [
         '{{Faker\UnitedStates\Person->firstNameMale}} {{Faker\UnitedStates\Person->lastName}}',
         '{{Faker\UnitedStates\Person->firstNameMale}} {{Faker\UnitedStates\Person->lastName}}',
@@ -23,6 +24,7 @@ final class Person implements PersonExtension, GeneratorAwareExtension
         '{{Faker\UnitedStates\Person->titleMale}} {{Faker\UnitedStates\Person->firstNameMale}} {{Faker\UnitedStates\Person->lastName}} {{Faker\UnitedStates\Person->suffix}}',
     ];
 
+    /** @var string[]  */
     private array $femaleNameFormats = [
         '{{Faker\UnitedStates\Person->firstNameFemale}} {{Faker\UnitedStates\Person->lastName}}',
         '{{Faker\UnitedStates\Person->firstNameFemale}} {{Faker\UnitedStates\Person->lastName}}',

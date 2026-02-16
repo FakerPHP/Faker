@@ -2,7 +2,7 @@ includes:
     - ./phpstan-baseline.neon
 
 parameters:
-    level: 5
+    level: 8
     paths:
         - src
     tmpDir: .build/phpstan/

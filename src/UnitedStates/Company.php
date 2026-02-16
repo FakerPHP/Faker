@@ -93,7 +93,7 @@ final class Company implements CompanyExtension, GeneratorAwareExtension
      *
      * @example '12-3456789'
      */
-    public function ein()
+    public function ein(): string
     {
         $prefix = Helper::randomElement($this->einPrefixes);
         $suffix = Helper::randomNumberBetween(0, 9999999);

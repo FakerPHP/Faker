@@ -62,7 +62,9 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
     public function phoneNumber(): string
     {
         return $this->generator->parse(
-            Helper::numerify(Helper::randomElement($this->formats)),
+            Helper::numerify(
+                Helper::randomElement($this->formats)
+            ),
         );
     }
 
