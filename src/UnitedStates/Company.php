@@ -13,18 +13,23 @@ final class Company implements CompanyExtension, GeneratorAwareExtension
 {
     use GeneratorAwareExtensionTrait;
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $formats = [
         '{{Faker\UnitedStates\Person->lastName}} {{Faker\UnitedStates\Company->companySuffix}}',
         '{{Faker\UnitedStates\Person->lastName}}-{{Faker\UnitedStates\Person->lastName}}',
         '{{Faker\UnitedStates\Person->lastName}}, {{Faker\UnitedStates\Person->lastName}} and {{Faker\UnitedStates\Person->lastName}}',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $companySuffix = ['Inc', 'and Sons', 'LLC', 'Group', 'PLC', 'Ltd'];
 
     /**
      * @var string[]
+     *
      * @see http://www.careerplanner.com/ListOfJobs.cfm
      */
     private array $jobTitles = [
@@ -55,6 +60,7 @@ final class Company implements CompanyExtension, GeneratorAwareExtension
 
     /**
      * @var int[]
+     *
      * @see https://www.irs.gov/businesses/small-businesses-self-employed/how-eins-are-assigned-and-valid-ein-prefixes
      */
     private array $einPrefixes = [
@@ -84,6 +90,7 @@ final class Company implements CompanyExtension, GeneratorAwareExtension
      * Employer Identification Number (EIN)
      *
      * @see https://en.wikipedia.org/wiki/Employer_Identification_Number
+     *
      * @example '12-3456789'
      */
     public function ein()

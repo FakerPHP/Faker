@@ -12,6 +12,7 @@ use Faker\UnitedStates\Company;
 use Faker\UnitedStates\Country;
 use Faker\UnitedStates\Person;
 use Faker\UnitedStates\PhoneNumber;
+use Faker\UnitedStates\Text;
 
 class Factory
 {
@@ -25,12 +26,14 @@ class Factory
         $builder->add(Company::class, Extension\CompanyExtension::class);
         $builder->add(Person::class, Extension\PersonExtension::class);
         $builder->add(PhoneNumber::class, Extension\PhoneNumberExtension::class);
+        $builder->add(Text::class, Extension\TextExtension::class);
 
         $builder->add(Address::class);
+        $builder->add(Country::class);
         $builder->add(Company::class);
         $builder->add(Person::class);
         $builder->add(PhoneNumber::class);
-
+        $builder->add(Text::class);
 
         return new DefaultGenerator($builder->build());
     }

@@ -33,7 +33,9 @@ final class Person implements PersonExtension, GeneratorAwareExtension
         '{{Faker\UnitedStates\Person->titleFemale}} {{Faker\UnitedStates\Person->firstNameFemale}} {{Faker\UnitedStates\Person->lastName}} {{Faker\UnitedStates\Person->suffix}}',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $maleFirstNames = [
         'Aaron', 'Abdiel', 'Abdul', 'Abdullah', 'Abe', 'Abel', 'Abelardo', 'Abner', 'Abraham', 'Adalberto', 'Adam', 'Adan', 'Adelbert', 'Adolfo', 'Adolphus', 'Adonis', 'Adrain', 'Adrian', 'Adriel', 'Adrien', 'Afton', 'Agustin', 'Ahmad', 'Ahmed', 'Aidan', 'Aiden', 'Akeem', 'Al', 'Alan', 'Albert', 'Alberto', 'Albin', 'Alden', 'Alec', 'Alejandrin', 'Alek', 'Alessandro', 'Alex', 'Alexander', 'Alexandre', 'Alexandro', 'Alexie', 'Alexis', 'Alexys', 'Alexzander', 'Alf', 'Alfonso', 'Alfonzo', 'Alford', 'Alfred', 'Alfredo', 'Ali', 'Allan', 'Allen', 'Alphonso', 'Alvah', 'Alvis', 'Amani', 'Amari', 'Ambrose', 'Americo', 'Amir', 'Amos', 'Amparo', 'Anastacio', 'Anderson', 'Andre', 'Andres', 'Andrew', 'Andy', 'Angel', 'Angelo', 'Angus', 'Anibal', 'Ansel', 'Ansley', 'Anthony', 'Antone', 'Antonio', 'Antwan', 'Antwon', 'Arch', 'Archibald', 'Arden', 'Arely', 'Ari', 'Aric', 'Ariel', 'Arjun', 'Arlo', 'Armand', 'Armando', 'Armani', 'Arnaldo', 'Arne', 'Arno', 'Arnold', 'Arnoldo', 'Arnulfo', 'Aron', 'Art', 'Arthur', 'Arturo', 'Arvel', 'Arvid', 'Ashton', 'August', 'Augustus', 'Aurelio', 'Austen', 'Austin', 'Austyn', 'Avery', 'Axel', 'Ayden',
         'Bailey', 'Barney', 'Baron', 'Barrett', 'Barry', 'Bart', 'Bartholome', 'Barton', 'Baylee', 'Beau', 'Bell', 'Ben', 'Benedict', 'Benjamin', 'Bennett', 'Bennie', 'Benny', 'Benton', 'Bernard', 'Bernardo', 'Bernhard', 'Bernie', 'Berry', 'Berta', 'Bertha', 'Bertram', 'Bertrand', 'Bill', 'Billy', 'Blair', 'Blaise', 'Blake', 'Blaze', 'Bo', 'Bobbie', 'Bobby', 'Boris', 'Boyd', 'Brad', 'Braden', 'Bradford', 'Bradley', 'Bradly', 'Brady', 'Braeden', 'Brain', 'Brando', 'Brandon', 'Brandt', 'Brannon', 'Branson', 'Brant', 'Braulio', 'Braxton', 'Brayan', 'Brendan', 'Brenden', 'Brendon', 'Brennan', 'Brennon', 'Brent', 'Bret', 'Brett', 'Brian', 'Brice', 'Brock', 'Broderick', 'Brody', 'Brook', 'Brooks', 'Brown', 'Bruce', 'Bryce', 'Brycen', 'Bryon', 'Buck', 'Bud', 'Buddy', 'Buford', 'Burley', 'Buster',
@@ -61,7 +63,9 @@ final class Person implements PersonExtension, GeneratorAwareExtension
         'Xavier', 'Xzavier', 'Xander',
         'Zachariah', 'Zachary', 'Zachery', 'Zack', 'Zackary', 'Zackery', 'Zakary', 'Zander', 'Zane', 'Zechariah', 'Zion',
     ];
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $femaleFirstNames = [
         'Aaliyah', 'Abagail', 'Abbey', 'Abbie', 'Abbigail', 'Abby', 'Abigail', 'Abigale', 'Abigayle', 'Ada', 'Adah', 'Adaline', 'Addie', 'Addison', 'Adela', 'Adele', 'Adelia', 'Adeline', 'Adell', 'Adella', 'Adelle', 'Aditya', 'Adriana', 'Adrianna', 'Adrienne', 'Aglae', 'Agnes', 'Agustina', 'Aida', 'Aileen', 'Aimee', 'Aisha', 'Aiyana', 'Alaina', 'Alana', 'Alanis', 'Alanna', 'Alayna', 'Alba', 'Alberta', 'Albertha', 'Albina', 'Alda', 'Aleen', 'Alejandra', 'Alena', 'Alene', 'Alessandra', 'Alessia', 'Aletha', 'Alexa', 'Alexandra', 'Alexandrea', 'Alexandria', 'Alexandrine', 'Alexane', 'Alexanne', 'Alfreda', 'Alia', 'Alice', 'Alicia', 'Alisa', 'Alisha', 'Alison', 'Alivia', 'Aliya', 'Aliyah', 'Aliza', 'Alize', 'Allene', 'Allie', 'Allison', 'Ally', 'Alta', 'Althea', 'Alva', 'Alvena', 'Alvera', 'Alverta', 'Alvina', 'Alyce', 'Alycia', 'Alysa', 'Alysha', 'Alyson', 'Alysson', 'Amalia', 'Amanda', 'Amara', 'Amaya', 'Amber', 'Amelia', 'Amelie', 'Amely', 'America', 'Amie', 'Amina', 'Amira', 'Amiya', 'Amy', 'Amya', 'Ana', 'Anabel', 'Anabelle', 'Anahi', 'Anais', 'Anastasia', 'Andreane', 'Andreanne', 'Angela', 'Angelica', 'Angelina', 'Angeline', 'Angelita', 'Angie', 'Anika', 'Anissa', 'Anita', 'Aniya', 'Aniyah', 'Anjali', 'Anna', 'Annabel', 'Annabell', 'Annabelle', 'Annalise', 'Annamae', 'Annamarie', 'Anne', 'Annetta', 'Annette', 'Annie', 'Antoinette', 'Antonetta', 'Antonette', 'Antonia', 'Antonietta', 'Antonina', 'Anya', 'April', 'Ara', 'Araceli', 'Aracely', 'Ardella', 'Ardith', 'Ariane', 'Arianna', 'Arielle', 'Arlene', 'Arlie', 'Arvilla', 'Aryanna', 'Asa', 'Asha', 'Ashlee', 'Ashleigh', 'Ashley', 'Ashly', 'Ashlynn', 'Ashtyn', 'Asia', 'Assunta', 'Astrid', 'Athena', 'Aubree', 'Aubrey', 'Audie', 'Audra', 'Audreanne', 'Audrey', 'Augusta', 'Augustine', 'Aurelia', 'Aurelie', 'Aurore', 'Autumn', 'Ava', 'Avis', 'Ayana', 'Ayla', 'Aylin',
         'Baby', 'Bailee', 'Barbara', 'Beatrice', 'Beaulah', 'Bella', 'Belle', 'Berenice', 'Bernadette', 'Bernadine', 'Berneice', 'Bernice', 'Berniece', 'Bernita', 'Bert', 'Beryl', 'Bessie', 'Beth', 'Bethany', 'Bethel', 'Betsy', 'Bette', 'Bettie', 'Betty', 'Bettye', 'Beulah', 'Beverly', 'Bianka', 'Billie', 'Birdie', 'Blanca', 'Blanche', 'Bonita', 'Bonnie', 'Brandi', 'Brandy', 'Brandyn', 'Breana', 'Breanna', 'Breanne', 'Brenda', 'Brenna', 'Bria', 'Briana', 'Brianne', 'Bridget', 'Bridgette', 'Bridie', 'Brielle', 'Brigitte', 'Brionna', 'Brisa', 'Britney', 'Brittany', 'Brooke', 'Brooklyn', 'Bryana', 'Bulah', 'Burdette', 'Burnice',
@@ -90,7 +94,9 @@ final class Person implements PersonExtension, GeneratorAwareExtension
         'Zaria', 'Zelda', 'Zella', 'Zelma', 'Zena', 'Zetta', 'Zita', 'Zoe', 'Zoey', 'Zoie', 'Zoila', 'Zola', 'Zora', 'Zula',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $lastNames = [
         'Abbott', 'Abernathy', 'Abshire', 'Adams', 'Altenwerth', 'Anderson', 'Ankunding', 'Armstrong', 'Auer', 'Aufderhar',
         'Bahringer', 'Bailey', 'Balistreri', 'Barrows', 'Bartell', 'Bartoletti', 'Barton', 'Bashirian', 'Batz', 'Bauch', 'Baumbach', 'Bayer', 'Beahan', 'Beatty', 'Bechtelar', 'Becker', 'Bednar', 'Beer', 'Beier', 'Berge', 'Bergnaum', 'Bergstrom', 'Bernhard', 'Bernier', 'Bins', 'Blanda', 'Blick', 'Block', 'Bode', 'Boehm', 'Bogan', 'Bogisich', 'Borer', 'Bosco', 'Botsford', 'Boyer', 'Boyle', 'Bradtke', 'Brakus', 'Braun', 'Breitenberg', 'Brekke', 'Brown', 'Bruen', 'Buckridge',
@@ -118,19 +124,27 @@ final class Person implements PersonExtension, GeneratorAwareExtension
         'Zboncak', 'Zemlak', 'Ziemann', 'Zieme', 'Zulauf',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $titleMale = ['Mr.', 'Dr.', 'Prof.'];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $titleFemale = ['Mrs.', 'Ms.', 'Miss', 'Dr.', 'Prof.'];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $titles = [
         '{{Faker\UnitedStates\Person->titleMale}}',
         '{{Faker\UnitedStates\Person->titleFemale}}',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $suffix = ['Jr.', 'Sr.', 'I', 'II', 'III', 'IV', 'V', 'MD', 'DDS', 'PhD', 'DVM'];
 
     public function name(?string $gender = null): string

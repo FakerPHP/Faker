@@ -6,3 +6,5 @@
 /vendor-bin/rector/vendor/
 /.php-cs-fixer.cache
 /composer.lock
+/.idea
+/.vscode

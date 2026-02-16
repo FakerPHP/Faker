@@ -9,10 +9,9 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.2",
         "fakerphp/core": "dev-main",
-        "psr/container": "^1.0 || ^2.0",
-        "symfony/deprecation-contracts": "^2.2 || ^3.0"
+        "psr/container": "^1.0 || ^2.0"
     },
     "require-dev": {
         "ext-intl": "*",

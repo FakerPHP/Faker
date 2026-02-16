@@ -6,17 +6,17 @@ namespace Faker\UnitedStates;
 
 use Faker\Core\Extension\GeneratorAwareExtension;
 use Faker\Core\Extension\GeneratorAwareExtensionTrait;
-use Faker\Core\Extension\Helper;
 use Faker\Core\Extension\TextExtension;
+use Faker\Core\Implementation\Text as TextImplementation;
 
-class Text implements TextExtension, GeneratorAwareExtension
+final class Text extends TextImplementation implements TextExtension, GeneratorAwareExtension
 {
     use GeneratorAwareExtensionTrait;
 
     /**
      * @see http://www.gutenberg.org/cache/epub/11/pg11.txt
      */
-    private string $baseText = <<<'EOT'
+    protected string $baseText = <<<'EOT'
 CHAPTER I. Down the Rabbit-Hole
 
 Alice was beginning to get very tired of sitting by her sister on the
@@ -3331,9 +3331,4 @@ remembering her own child-life, and the happy summer days.
 
               THE END
 EOT;
-
-    public function realText(int $min = 0, int $max = 200, int $indexSize = 2): string
-    {
-        // TODO: Implement realText() method.
-    }
 }

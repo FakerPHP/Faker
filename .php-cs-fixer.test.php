@@ -3,9 +3,6 @@
 declare(strict_types=1);
 
 $finder = PhpCsFixer\Finder::create()
-    ->notPath([
-        'Fixture/Enum/BackedEnum.php',
-    ])
     ->ignoreDotFiles(false)
     ->in(__DIR__ . '/test');
 

@@ -6,8 +6,8 @@ namespace Faker\UnitedStates;
 
 use Faker\Core\Extension\GeneratorAwareExtension;
 use Faker\Core\Extension\GeneratorAwareExtensionTrait;
-use Faker\Core\Extension\PhoneNumberExtension;
 use Faker\Core\Extension\Helper;
+use Faker\Core\Extension\PhoneNumberExtension;
 
 class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
 {
@@ -15,6 +15,7 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
 
     /**
      * @var string[]
+     *
      * @see https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#United_States.2C_Canada.2C_and_other_NANP_countries
      */
     private array $formats = [
@@ -37,7 +38,9 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
         '{{Faker\UnitedStates\PhoneNumber->areaCode}}.{{Faker\UnitedStates\PhoneNumber->exchangeCode}}.####',
     ];
 
-    /** @var string[] */
+    /**
+     * @var string[]
+     */
     private array $e164Formats = [
         '+1{{Faker\UnitedStates\PhoneNumber->areaCode}}{{Faker\UnitedStates\PhoneNumber->exchangeCode}}####',
     ];
@@ -59,9 +62,7 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
     public function phoneNumber(): string
     {
         return $this->generator->parse(
-            Helper::numerify(
-                Helper::randomElement($this->formats)
-            )
+            Helper::numerify(Helper::randomElement($this->formats)),
         );
     }
 
@@ -69,8 +70,8 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
     {
         return $this->generator->parse(
             Helper::numerify(
-                Helper::randomElement($this->e164Formats)
-            )
+                Helper::randomElement($this->e164Formats),
+            ),
         );
     }
 
@@ -78,8 +79,6 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
      * NPA-format area code
      *
      * @see https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system
-     *
-     * @return int
      */
     public function areaCode(): int
     {
@@ -89,16 +88,17 @@ class PhoneNumber implements PhoneNumberExtension, GeneratorAwareExtension
     public function exchangeCode(): int
     {
         $digits[] = Helper::randomNumberBetween(2, 9);
-        $digits[] = Helper::randomNumberBetween(0,9);
+        $digits[] = Helper::randomNumberBetween(0, 9);
 
         if ($digits[1] === 1) {
-            $numberNotOne = Helper::randomNumberBetween(0,8);
+            $numberNotOne = Helper::randomNumberBetween(0, 8);
+
             if ($numberNotOne === 1) {
-                $numberNotOne++;
+                ++$numberNotOne;
             }
             $digits[] = $numberNotOne;
         } else {
-            $digits[] = Helper::randomNumberBetween(0,9);
+            $digits[] = Helper::randomNumberBetween(0, 9);
         }
 
         return (int) implode('', $digits);

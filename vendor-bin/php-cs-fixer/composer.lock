@@ -1930,7 +1930,7 @@
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.4.32"
+        "php": "8.2.30"
     },
     "plugin-api-version": "2.6.0"
 }
