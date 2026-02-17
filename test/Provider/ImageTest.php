@@ -185,7 +185,10 @@ final class ImageTest extends TestCase
         curl_setopt($curlPing, CURLOPT_FOLLOWLOCATION, true);
         $data = curl_exec($curlPing);
         $httpCode = curl_getinfo($curlPing, CURLINFO_HTTP_CODE);
-        curl_close($curlPing);
+
+        if (PHP_VERSION_ID < 80000) {
+            curl_close($curlPing);
+        }
 
         if ($httpCode < 200 || $httpCode > 300) {
             self::markTestSkipped(sprintf('"%s" is offline, skipping test', $url));
