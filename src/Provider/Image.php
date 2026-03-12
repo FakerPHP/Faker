@@ -10,7 +10,7 @@ class Image extends Base
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://placehold.co';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -69,31 +69,33 @@ class Image extends Base
             ));
         }
 
-        $size = sprintf('%dx%d.%s', $width, $height, $format);
+        $bgColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
+        $textColor = 'FFF'; // default text color
+        $format = strtolower($format);
+        $size = sprintf('%dx%d', $width, $height);
 
-        $imageParts = [];
+        // Placehold.co format: /widthxheight/bg/text/format
+        $url = self::BASE_URL . '/' . $size . '/' . $bgColor . '/' . $textColor . '/' . $format;
+
+        $textParts = [];
 
         if ($category !== null) {
-            $imageParts[] = $category;
+            $textParts[] = $category;
         }
 
         if ($word !== null) {
-            $imageParts[] = $word;
+            $textParts[] = $word;
         }
 
         if ($randomize === true) {
-            $imageParts[] = Lorem::word();
+            $textParts[] = Lorem::word();
         }
 
-        $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
+        if (count($textParts) > 0) {
+            $url .= '?text=' . urlencode(implode(' ', $textParts));
+        }
 
-        return sprintf(
-            '%s/%s/%s%s',
-            self::BASE_URL,
-            $size,
-            $backgroundColor,
-            count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : '',
-        );
+        return $url;
     }
 
     /**
