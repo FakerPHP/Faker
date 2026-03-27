@@ -4,7 +4,7 @@ namespace Faker\Provider;
 
 class Internet extends Base
 {
-    protected static $freeEmailDomain = ['gmail.com', 'yahoo.com', 'hotmail.com'];
+    protected static $freeEmailDomain = ['gmail.com', 'outlook.com', 'yahoo.com', 'hotmail.com'];
     protected static $tld = ['com', 'com', 'com', 'com', 'com', 'com', 'biz', 'info', 'net', 'org'];
 
     protected static $userNameFormats = [

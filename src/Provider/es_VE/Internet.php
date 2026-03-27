@@ -4,6 +4,6 @@ namespace Faker\Provider\es_VE;
 
 class Internet extends \Faker\Provider\Internet
 {
-    protected static $freeEmailDomain = ['gmail.com', 'hotmail.com', 'hotmail.es', 'yahoo.com', 'yahoo.es'];
+    protected static $freeEmailDomain = ['gmail.com', 'outlook.com', 'hotmail.com', 'hotmail.es', 'yahoo.com', 'yahoo.es'];
     protected static $tld = ['com', 'com.ve', 'net', 'net.ve', 'org', 'org.ve', 'info.ve', 'co.ve', 'web.ve'];
 }

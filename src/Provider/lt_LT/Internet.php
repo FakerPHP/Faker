@@ -13,6 +13,6 @@ class Internet extends \Faker\Provider\Internet
         '?{{lastNameMale}}',
     ];
 
-    protected static $freeEmailDomain = ['gmail.com', 'yahoo.com', 'hotmail.com'];
+    protected static $freeEmailDomain = ['gmail.com', 'outlook.com', 'yahoo.com', 'hotmail.com'];
     protected static $tld = ['com', 'com', 'net', 'org', 'lt', 'lt', 'lt', 'lt', 'lt'];
 }
