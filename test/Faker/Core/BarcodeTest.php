@@ -34,7 +34,7 @@ final class BarcodeTest extends TestCase
     public function testIsbn13(): void
     {
         $code = $this->faker->isbn13();
-        self::assertMatchesRegularExpression('/^\d{13}$/i', $code);
+        self::assertMatchesRegularExpression('/^97(8\d{9}|9[1-9]\d{8})\d$/i', $code);
         self::assertTrue(Ean::isValid($code));
     }
 }
