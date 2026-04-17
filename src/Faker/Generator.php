@@ -860,11 +860,23 @@ class Generator
      *
      * @see http://en.wikipedia.org/wiki/International_Standard_Book_Number
      *
-     * @example '9790404436093'
+     * @example '9791404436090'
      */
     public function isbn13(): string
     {
         return $this->ext(Extension\BarcodeExtension::class)->isbn13();
+    }
+
+    /**
+     * Get a random ISMN code
+     *
+     * @see https://en.wikipedia.org/wiki/International_Standard_Music_Number
+     *
+     * @example '9790404436093'
+     */
+    public function ismn(): string
+    {
+        return $this->ext(Extension\BarcodeExtension::class)->ismn();
     }
 
     /**

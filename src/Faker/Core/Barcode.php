@@ -45,7 +45,17 @@ final class Barcode implements Extension\BarcodeExtension
 
     public function isbn13(): string
     {
-        $code = '97' . $this->numberExtension->numberBetween(8, 9) . Extension\Helper::numerify(str_repeat('#', 9));
+        $prefix = '97' . $this->numberExtension->numberBetween(8, 9);
+        $group = $this->numberExtension->numberBetween($prefix === '978' ? 0 : 1, 9) . $this->numberExtension->numberBetween(0, 9);
+
+        $code = $prefix . $group . Extension\Helper::numerify(str_repeat('#', 7));
+
+        return sprintf('%s%s', $code, Calculator\Ean::checksum($code));
+    }
+
+    public function ismn(): string
+    {
+        $code = '9790' . Extension\Helper::numerify(str_repeat('#', 8));
 
         return sprintf('%s%s', $code, Calculator\Ean::checksum($code));
     }
