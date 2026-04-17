@@ -868,6 +868,18 @@ class Generator
     }
 
     /**
+     * Get a random ISMN code
+     *
+     * @see https://en.wikipedia.org/wiki/International_Standard_Music_Number
+     *
+     * @example '9790404436093'
+     */
+    public function ismn(): string
+    {
+        return $this->ext(Extension\BarcodeExtension::class)->ismn();
+    }
+
+    /**
      * Returns a random number between $int1 and $int2 (any order)
      *
      * @example 79907610

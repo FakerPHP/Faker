@@ -52,4 +52,11 @@ final class Barcode implements Extension\BarcodeExtension
 
         return sprintf('%s%s', $code, Calculator\Ean::checksum($code));
     }
+
+    public function ismn(): string
+    {
+        $code = '9790' . Extension\Helper::numerify(str_repeat('#', 8));
+
+        return sprintf('%s%s', $code, Calculator\Ean::checksum($code));
+    }
 }
