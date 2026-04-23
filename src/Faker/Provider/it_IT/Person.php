@@ -137,7 +137,7 @@ class Person extends \Faker\Provider\Person
             . static::randomElement(range('A', 'Z'))
             . static::numerify('###');
 
-        return $partialTaxId . static::calculateCheckCharacter($partialTaxId);
+        return $partialTaxId . self::calculateCheckCharacter($partialTaxId);
     }
 
     private static function calculateCheckCharacter($partialTaxId): string
