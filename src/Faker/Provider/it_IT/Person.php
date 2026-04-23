@@ -4,6 +4,22 @@ namespace Faker\Provider\it_IT;
 
 class Person extends \Faker\Provider\Person
 {
+    private const MONTH_CODES = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T'];
+
+    private const CHECKSUM_ODD_VALUES = [
+        '0' => 1, '1' => 0, '2' => 5, '3' => 7, '4' => 9, '5' => 13, '6' => 15, '7' => 17, '8' => 19, '9' => 21,
+        'A' => 1, 'B' => 0, 'C' => 5, 'D' => 7, 'E' => 9, 'F' => 13, 'G' => 15, 'H' => 17, 'I' => 19, 'J' => 21,
+        'K' => 2, 'L' => 4, 'M' => 18, 'N' => 20, 'O' => 11, 'P' => 3, 'Q' => 6, 'R' => 8, 'S' => 12, 'T' => 14,
+        'U' => 16, 'V' => 10, 'W' => 22, 'X' => 25, 'Y' => 24, 'Z' => 23,
+    ];
+
+    private const CHECKSUM_EVEN_VALUES = [
+        '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9,
+        'A' => 0, 'B' => 1, 'C' => 2, 'D' => 3, 'E' => 4, 'F' => 5, 'G' => 6, 'H' => 7, 'I' => 8, 'J' => 9,
+        'K' => 10, 'L' => 11, 'M' => 12, 'N' => 13, 'O' => 14, 'P' => 15, 'Q' => 16, 'R' => 17, 'S' => 18, 'T' => 19,
+        'U' => 20, 'V' => 21, 'W' => 22, 'X' => 23, 'Y' => 24, 'Z' => 25,
+    ];
+
     protected static $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
@@ -108,6 +124,37 @@ class Person extends \Faker\Provider\Person
      */
     public static function taxId()
     {
-        return strtoupper(static::bothify('??????##?##?###?'));
+        $day = static::numberBetween(1, 31);
+
+        if (static::randomElement([true, false])) {
+            $day += 40;
+        }
+
+        $partialTaxId = static::toUpper(static::lexify('??????'))
+            . static::numerify('##')
+            . static::randomElement(self::MONTH_CODES)
+            . str_pad((string) $day, 2, '0', STR_PAD_LEFT)
+            . static::randomElement(range('A', 'Z'))
+            . static::numerify('###');
+
+        return $partialTaxId . static::calculateCheckCharacter($partialTaxId);
+    }
+
+    private static function calculateCheckCharacter($partialTaxId): string
+    {
+        $sum = 0;
+        $characters = str_split($partialTaxId);
+
+        foreach ($characters as $index => $character) {
+            if (($index + 1) % 2 === 0) {
+                $sum += self::CHECKSUM_EVEN_VALUES[$character];
+
+                continue;
+            }
+
+            $sum += self::CHECKSUM_ODD_VALUES[$character];
+        }
+
+        return chr(($sum % 26) + 65);
     }
 }
