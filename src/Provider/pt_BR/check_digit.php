@@ -37,3 +37,29 @@ function check_digit($numbers)
 
     return $verifier;
 }
+
+/**
+ * Like check_digit(), but accepts alphanumeric strings (A–Z map to 10–35).
+ *
+ * @param string $str
+ *
+ * @return int
+ */
+function check_digit_alpha($str)
+{
+    $str = strtoupper((string) $str);
+    $length = strlen($str);
+    $second_algorithm = $length >= 12;
+    $verifier = 0;
+
+    for ($i = 1; $i <= $length; ++$i) {
+        $c = $str[$length - $i];
+        $val = ord($c) - 48;
+        $multiplier = $second_algorithm ? ($i >= 9 ? $i - 7 : $i + 1) : $i + 1;
+        $verifier += $val * $multiplier;
+    }
+
+    $verifier = 11 - ($verifier % 11);
+
+    return $verifier >= 10 ? 0 : $verifier;
+}
