@@ -3,14 +3,14 @@
 namespace Faker\Provider;
 
 /**
- * Depends on image generation from http://lorempixel.com/
+ * Depends on image generation from https://picsum.photos/
  */
 class Image extends Base
 {
     /**
      * @var string
      */
-    public const BASE_URL = 'https://via.placeholder.com';
+    public const BASE_URL = 'https://picsum.photos';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -21,17 +21,14 @@ class Image extends Base
      *
      * @deprecated Categories are no longer used as a list in the placeholder API but referenced as string instead
      */
-    protected static $categories = [
-        'abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife',
-        'fashion', 'people', 'nature', 'sports', 'technics', 'transport',
-    ];
+    protected static $categories = [];
 
     /**
      * Generate the URL that will return a random image
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'http://via.placeholder.com/640x480.png/CCCCCC?text=well+hi+there'
+     * @example 'https://picsum.photos/640/480'
      *
      * @param int         $width
      * @param int         $height
@@ -50,7 +47,7 @@ class Image extends Base
         $randomize = true,
         $word = null,
         $gray = false,
-        $format = 'png'
+        $format = 'jpg'
     ) {
         trigger_deprecation(
             'fakerphp/faker',
@@ -58,7 +55,6 @@ class Image extends Base
             'Provider is deprecated and will no longer be available in Faker 2. Please use a custom provider instead',
         );
 
-        // Validate image format
         $imageFormats = static::getFormats();
 
         if (!in_array(strtolower($format), $imageFormats, true)) {
@@ -69,31 +65,29 @@ class Image extends Base
             ));
         }
 
-        $size = sprintf('%dx%d.%s', $width, $height, $format);
+        $url = sprintf('%s/%d/%d', self::BASE_URL, $width, $height);
 
-        $imageParts = [];
-
-        if ($category !== null) {
-            $imageParts[] = $category;
+        if (in_array(strtolower($format), ['jpg', 'jpeg'])) {
+            $url .= '.jpg';
+        } elseif (strtolower($format) === 'png') {
+            $url .= '.png';
         }
 
-        if ($word !== null) {
-            $imageParts[] = $word;
+        $queryParams = [];
+
+        if ($gray === true) {
+            $queryParams['grayscale'] = true;
         }
 
         if ($randomize === true) {
-            $imageParts[] = Lorem::word();
+            $queryParams['random'] = mt_rand(1, 100000);
         }
 
-        $backgroundColor = $gray === true ? 'CCCCCC' : str_replace('#', '', Color::safeHexColor());
+        if (!empty($queryParams)) {
+            $url .= '?' . http_build_query($queryParams);
+        }
 
-        return sprintf(
-            '%s/%s/%s%s',
-            self::BASE_URL,
-            $size,
-            $backgroundColor,
-            count($imageParts) > 0 ? '?text=' . urlencode(implode(' ', $imageParts)) : '',
-        );
+        return $url;
     }
 
     /**
@@ -114,7 +108,7 @@ class Image extends Base
         $randomize = true,
         $word = null,
         $gray = false,
-        $format = 'png'
+        $format = 'jpg'
     ) {
         trigger_deprecation(
             'fakerphp/faker',
@@ -122,43 +116,37 @@ class Image extends Base
             'Provider is deprecated and will no longer be available in Faker 2. Please use a custom provider instead',
         );
 
-        $dir = null === $dir ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
+        $dir = null === $dir ? sys_get_temp_dir() : $dir;
 
-        // Validate directory path
         if (!is_dir($dir) || !is_writable($dir)) {
             throw new \InvalidArgumentException(sprintf('Cannot write to directory "%s"', $dir));
         }
 
-        // Generate a random filename. Use the server address so that a file
-        // generated at the same time on a different server won't have a collision.
         $name = md5(uniqid(empty($_SERVER['SERVER_ADDR']) ? '' : $_SERVER['SERVER_ADDR'], true));
         $filename = sprintf('%s.%s', $name, $format);
         $filepath = $dir . DIRECTORY_SEPARATOR . $filename;
 
         $url = static::imageUrl($width, $height, $category, $randomize, $word, $gray, $format);
 
-        // save file
         if (function_exists('curl_exec')) {
-            // use cURL
             $fp = fopen($filepath, 'w');
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_FILE, $fp);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             $success = curl_exec($ch) && curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
             fclose($fp);
             curl_close($ch);
 
             if (!$success) {
-                unlink($filepath);
-
-                // could not contact the distant URL or HTTP error - fail silently.
+                if (file_exists($filepath)) {
+                    unlink($filepath);
+                }
                 return false;
             }
         } elseif (ini_get('allow_url_fopen')) {
-            // use remote fopen() via copy()
-            $success = copy($url, $filepath);
+            $success = @copy($url, $filepath);
 
             if (!$success) {
-                // could not contact the distant URL or HTTP error - fail silently.
                 return false;
             }
         } else {
