@@ -28,6 +28,11 @@ final class ProviderOverrideTest extends TestCase
      */
     public const TEST_EMAIL_REGEX = '/^(.+)@(.+)$/ui';
 
+    public function testLocalesAreDiscovered(): void
+    {
+        self::assertNotEmpty(self::localeDataProvider(), 'No locales were discovered');
+    }
+
     /**
      * @dataProvider localeDataProvider
      *
