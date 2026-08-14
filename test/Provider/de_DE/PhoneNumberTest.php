@@ -18,7 +18,7 @@ final class PhoneNumberTest extends TestCase
             $number = $this->faker->phoneNumber();
 
             // Test format
-            self::assertMatchesRegularExpression('/^(\+?49)?(0)?(\s?\(?\d{2,6}\)?)(\s?)(\d{3})(\s?)(\d{3,4})$/', $number);
+            self::assertMatchesRegularExpression('/^(\+?49)?(\s?\(?\d{2,6}\)?)(\s?)(\d{3})(\s?)(\d{3,4})$/', $number);
         }
     }
 

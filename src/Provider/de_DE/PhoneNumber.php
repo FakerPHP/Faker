@@ -22,13 +22,12 @@ class PhoneNumber extends \Faker\Provider\PhoneNumber
      * @see https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#Germany
      * @see https://www.itu.int/oth/T0202000051/en
      * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Germany
+     * @see https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#Germany
      */
     protected static $formats = [
         // International format
         '+49 {{areaCode}} #######',
         '+49 {{areaCode}} ### ####',
-        '+49 (0{{areaCode}}) #######',
-        '+49 (0{{areaCode}}) ### ####',
         '+49{{areaCode}}#######',
         '+49{{areaCode}}### ####',
 
