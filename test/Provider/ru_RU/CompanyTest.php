@@ -38,6 +38,17 @@ final class CompanyTest extends TestCase
         );
     }
 
+    public function testNameDataContainsNoLatinCharacters(): void
+    {
+        $reflection = new \ReflectionClass(Company::class);
+
+        foreach (['companyElements', 'companyNameSuffixes'] as $property) {
+            foreach ($reflection->getStaticPropertyValue($property) as $value) {
+                self::assertDoesNotMatchRegularExpression('/[A-Za-z]/', $value, $property);
+            }
+        }
+    }
+
     public function checksumProvider()
     {
         return [
