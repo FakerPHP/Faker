@@ -2,6 +2,7 @@
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.23.0...main)
 
+- Added a Kurdish Sorani (`ckb_IQ`) locale
 - Fixed polish license plates (#685)
 - Removed legacy autoloader (#762)
 - Removed functionality for populating ORM entities and models (#764)
