@@ -2,6 +2,7 @@
 
 ## [Unreleased](https://github.com/FakerPHP/Faker/compare/v1.24.0...1.24.1)
 
+- Fixed Turkish identification numbers whose tenth digit was negative
 - Removed domain `gmail.com.au` from `Provider\en_AU\Internet` (#886)
 - Refreshed ISO currencies (#919)
 - Improved italian phone number formats
