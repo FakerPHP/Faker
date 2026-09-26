@@ -28,6 +28,8 @@ final class PersonTest extends TestCase
             ['550600932', '88'],
             ['487932947', '70'],
             ['168113862', '40'],
+            // 7 * 1 - 36 is negative. The tenth digit is 1, not -9.
+            ['190909090', '18'],
         ];
     }
 
@@ -50,7 +52,9 @@ final class PersonTest extends TestCase
             ['47278360658', true],
             ['34285002510', true],
             ['19874561012', true],
+            ['19090909018', true],
 
+            ['19090909019', false],
             ['11111111111', false],
             ['11234567899', false],
         ];

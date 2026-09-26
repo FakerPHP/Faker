@@ -140,6 +140,10 @@ class Person extends \Faker\Provider\Person
         }
 
         $tenthDigit = (7 * $evenSum - $oddSum) % 10;
+        // PHP keeps the sign of the dividend, so a negative remainder is not a digit.
+        if ($tenthDigit < 0) {
+            $tenthDigit += 10;
+        }
         $eleventhDigit = ($evenSum + $oddSum + $tenthDigit) % 10;
 
         return $tenthDigit . $eleventhDigit;
