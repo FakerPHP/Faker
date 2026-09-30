@@ -201,6 +201,64 @@ final class GeneratorTest extends TestCase
         self::assertTrue(true, 'seeding with a non int value doesn\'t throw an exception');
     }
 
+    public function testDestroyingTheGeneratorThatSetTheSeedRestoresARandomSeed(): void
+    {
+        $this->faker->seed(2);
+        $mtRandWithSeedTwo = mt_rand();
+
+        $generator = new Generator();
+        $generator->seed(2);
+        unset($generator);
+
+        self::assertNotEquals($mtRandWithSeedTwo, mt_rand(), 'A seed should not outlive the generator that set it.');
+    }
+
+    public function testDestroyingAGeneratorThatDidNotSetTheSeedLeavesItAlone(): void
+    {
+        $this->faker->seed(2);
+        $mtRandWithSeedTwo = mt_rand();
+        $this->faker->seed(2);
+
+        $generator = new Generator();
+        unset($generator);
+
+        self::assertEquals($mtRandWithSeedTwo, mt_rand());
+    }
+
+    public function testDestroyingAGeneratorWhoseSeedWasReplacedLeavesTheNewSeedAlone(): void
+    {
+        $this->faker->seed(2);
+        $mtRandWithSeedTwo = mt_rand();
+
+        $generator = new Generator();
+        $generator->seed(1);
+        $this->faker->seed(2);
+        unset($generator);
+
+        self::assertEquals($mtRandWithSeedTwo, mt_rand());
+    }
+
+    /**
+     * @see https://github.com/FakerPHP/Faker/issues/870
+     */
+    public function testCollectingAnUnreachableGeneratorLeavesANewerSeedAlone(): void
+    {
+        // A generator with providers references itself through them, so once
+        // unreachable it is only destroyed when the cycle collector next runs.
+        $previous = new Generator();
+        $previous->addProvider(new Provider\Base($previous));
+        $previous->seed(1);
+        unset($previous);
+
+        $this->faker->seed(2);
+        $mtRandWithSeedTwo = mt_rand();
+        $this->faker->seed(2);
+
+        gc_collect_cycles();
+
+        self::assertEquals($mtRandWithSeedTwo, mt_rand());
+    }
+
     public function testUniqueReturnsUniqueGenerator(): void
     {
         $generator = new Generator();

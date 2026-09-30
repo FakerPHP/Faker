@@ -565,6 +565,13 @@ class Generator
      */
     private $uniqueGenerator;
 
+    /**
+     * The generator that set the seed mt_rand() is running on, if any.
+     *
+     * @var \WeakReference<self>|null
+     */
+    private static $seededBy;
+
     public function __construct(?ContainerInterface $container = null)
     {
         $this->container = $container ?: Container\ContainerBuilder::withDefaultExtensions()->build();
@@ -686,8 +693,10 @@ class Generator
     {
         if ($seed === null) {
             mt_srand();
+            self::$seededBy = null;
         } else {
             mt_srand((int) $seed, self::mode());
+            self::$seededBy = \WeakReference::create($this);
         }
     }
 
@@ -979,9 +988,19 @@ class Generator
         return $this->format($method, $attributes);
     }
 
+    /**
+     * Restores a random seed if the seed mt_rand() is running on is this
+     * generator's, so that it does not outlive the generator.
+     *
+     * Any other generator leaves mt_rand() alone: it may be destroyed long
+     * after it went out of scope (by the cycle collector), and resetting then
+     * would silently undo whatever seed has been set since.
+     */
     public function __destruct()
     {
-        $this->seed();
+        if (self::$seededBy !== null && self::$seededBy->get() === $this) {
+            $this->seed();
+        }
     }
 
     public function __wakeup()
