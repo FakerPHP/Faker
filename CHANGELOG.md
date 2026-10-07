@@ -6,6 +6,7 @@
 - Refreshed ISO currencies (#919)
 - Improved italian phone number formats
 - Replaced `via.placeholder.com` with `placehold.co` in Image provider (#1013)
+- Added a conditional return type to `words()` so static analysis knows `$asText` decides between `string` and `list<string>`
 
 ## [2024-11-09, v1.24.0](https://github.com/FakerPHP/Faker/compare/v1.23.1..v1.24.0)
 

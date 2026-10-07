@@ -355,7 +355,7 @@ use Faker\Container\ContainerInterface;
  *
  * @property array|string $words
  *
- * @method array|string words($nb = 3, $asText = false)
+ * @method ($asText is true ? string : list<string>) words($nb = 3, $asText = false)
  *
  * @property string $sentence
  *

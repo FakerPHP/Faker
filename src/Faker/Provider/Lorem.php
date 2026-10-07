@@ -62,7 +62,7 @@ class Lorem extends Base
      * @param int  $nb     how many words to return
      * @param bool $asText if true the sentences are returned as one string
      *
-     * @return array|string
+     * @return ($asText is true ? string : list<string>)
      */
     public static function words($nb = 3, $asText = false)
     {
