@@ -18,6 +18,17 @@ final class AddressTest extends TestCase
         self::assertMatchesRegularExpression('/[a-z]+/', $state);
     }
 
+    public function testStreetNamesAreNotPaddedWithWhitespace(): void
+    {
+        $reflection = new \ReflectionClass(Address::class);
+        $streets = $reflection->getProperty('street');
+        $streets->setAccessible(true);
+
+        foreach ($streets->getValue() as $street) {
+            self::assertSame(trim($street), $street, sprintf('Street name "%s" is padded with whitespace', $street));
+        }
+    }
+
     protected function getProviders(): iterable
     {
         yield new Address($this->faker);
