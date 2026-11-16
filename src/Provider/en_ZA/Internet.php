@@ -4,7 +4,7 @@ namespace Faker\Provider\en_ZA;
 
 class Internet extends \Faker\Provider\Internet
 {
-    protected static $freeEmailDomain = ['gmail.com', 'yahoo.com', 'hotmail.com', 'webmail.co.za', 'vodamail.co.za'];
+    protected static $freeEmailDomain = ['gmail.com', 'outlook.com', 'yahoo.com', 'hotmail.com', 'webmail.co.za', 'vodamail.co.za'];
 
     /**
      * An array of South African TLDs.
