@@ -8,7 +8,7 @@ class Internet extends \Faker\Provider\Internet
      * @var array some email domains
      */
     protected static $freeEmailDomain = [
-        'gmail.com', 'yahoo.com', 'gmail.co.id', 'yahoo.co.id',
+        'gmail.com', 'outlook.com', 'yahoo.com', 'gmail.co.id', 'yahoo.co.id',
     ];
 
     /**
