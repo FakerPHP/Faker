@@ -68,23 +68,23 @@ class Address extends \Faker\Provider\Address
     ];
 
     /**
-     * @example 111
+     * @example '111'
      */
     public static function postcode1()
     {
-        return self::numberBetween(100, 999);
+        return static::numerify('###');
     }
 
     /**
-     * @example 2222
+     * @example '2222'
      */
     public static function postcode2()
     {
-        return self::numberBetween(1000, 9999);
+        return static::numerify('####');
     }
 
     /**
-     * @example 1112222
+     * @example '1112222'
      */
     public static function postcode()
     {
