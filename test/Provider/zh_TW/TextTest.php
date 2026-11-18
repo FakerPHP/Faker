@@ -22,7 +22,9 @@ final class TextTest extends TestCase
     {
         $method = $this->textClass->getMethod($name);
 
-        $method->setAccessible(true);
+        if (\PHP_VERSION_ID < 80100) {
+            $method->setAccessible(true);
+        }
 
         return $method;
     }

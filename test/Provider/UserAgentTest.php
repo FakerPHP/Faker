@@ -17,7 +17,10 @@ final class UserAgentTest extends TestCase
         $agent = new UserAgent($this->faker);
         $reflection = new \ReflectionClass($agent);
         $agents = $reflection->getProperty('userAgents');
-        $agents->setAccessible(true);
+
+        if (\PHP_VERSION_ID < 80100) {
+            $agents->setAccessible(true);
+        }
 
         foreach ($agents->getValue() as $method) {
             self::assertNotNull(UserAgent::$method());
