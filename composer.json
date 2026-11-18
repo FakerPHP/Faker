@@ -22,7 +22,7 @@
         "ext-intl": "*",
         "bamarni/composer-bin-plugin": "^1.4.1",
         "phpunit/phpunit": "^9.5.26",
-        "symfony/phpunit-bridge": "^5.4.16"
+        "symfony/phpunit-bridge": "^7.3.4 || ^8.1.10"
     },
     "autoload": {
         "psr-4": {
