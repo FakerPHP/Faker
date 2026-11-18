@@ -177,4 +177,64 @@ class Person extends \Faker\Provider\Person
 
         return $lastName . static::randomElement(static::$lastNameSuffix);
     }
+
+    /**
+     * Generates a Russian Taxpayer Personal Identification Number
+     *
+     * @param string $area_code
+     *
+     * @return string
+     */
+    public static function inn12($area_code = '')
+    {
+        if ($area_code === '' || (int) $area_code === 0) {
+            //Simple generation code for areas in Russian without check for valid
+            $area_code = self::numberBetween(1, 91);
+        } else {
+            $area_code = (int) $area_code;
+        }
+        $area_code = str_pad($area_code, 2, '0', STR_PAD_LEFT);
+        $inn_base = $area_code . static::numerify('########');
+
+        return $inn_base . self::inn12Checksum($inn_base);
+    }
+
+    /**
+     * Generates INN Checksum
+     *
+     * @see https://ru.wikipedia.org/wiki/%D0%98%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80_%D0%BD%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B0
+     *
+     * @param string $inn
+     *
+     * @return string Checksum (two digit)
+     */
+    public static function inn12Checksum($inn)
+    {
+        $multipliers1 = [7, 2, 4, 10, 3, 5, 9, 4, 6, 8];
+        $multipliers2 = [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8];
+        $sum1 = 0;
+        $sum2 = 0;
+
+        for ($i = 0; $i < 10; ++$i) {
+            $sum1 += (int) $inn[$i] * $multipliers1[$i];
+            $sum2 += (int) $inn[$i] * $multipliers2[$i];
+        }
+        $sum1 = (($sum1 % 11) % 10);
+        $sum2 += $sum1 * $multipliers2[10];
+        $sum2 = (($sum2 % 11) % 10);
+
+        return (string) $sum1 . (string) $sum2;
+    }
+
+    /**
+     * Checks whether an INN has a valid checksum
+     *
+     * @param string $inn
+     *
+     * @return bool
+     */
+    public static function inn12IsValid($inn)
+    {
+        return strlen($inn) === 12 && self::inn12Checksum($inn) === substr($inn, -2);
+    }
 }
